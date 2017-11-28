@@ -23,9 +23,9 @@ namespace cinema.Data
             // ******************** RaitingConfiguration *****************//
             #region RaitingConfiguration
 
-            builder.Entity<Raiting>().HasKey(r => new { r.MovieId, r.UserId });
-            builder.Entity<Raiting>().HasOne(r => r.Movies).WithMany(m => m.Raitings).HasForeignKey(r => r.MovieId);
-            builder.Entity<Raiting>().HasOne(r => r.User).WithMany(u => u.Raitings).HasForeignKey(r => r.UserId);
+            builder.Entity<Rating>().HasKey(r => new { r.MovieId, r.UserId });
+            builder.Entity<Rating>().HasOne(r => r.Movie).WithMany(m => m.Ratings).HasForeignKey(r => r.MovieId);
+            builder.Entity<Rating>().HasOne(r => r.User).WithMany(u => u.Ratings).HasForeignKey(r => r.UserId);
 
             #endregion
 

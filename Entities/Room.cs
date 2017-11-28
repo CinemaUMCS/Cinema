@@ -1,9 +1,14 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace cinema.Entities
 {
     public class Room
     {
-        public int RoomId { get; set; }
-        public int No_Room { get; set; }
-        public int No_Seats { get; set; }
+        public Guid RoomId { get; set; }
+        public int Number { get; set; }
+
+        public ICollection<Seat> Seats { get; set; }
     }
 }
