@@ -1,0 +1,12 @@
+/home/bartek/projekty/cinema/bin/Debug/netcoreapp2.0/app.db
+/home/bartek/projekty/cinema/bin/Debug/netcoreapp2.0/cinema.deps.json
+/home/bartek/projekty/cinema/bin/Debug/netcoreapp2.0/cinema.runtimeconfig.json
+/home/bartek/projekty/cinema/bin/Debug/netcoreapp2.0/cinema.runtimeconfig.dev.json
+/home/bartek/projekty/cinema/bin/Debug/netcoreapp2.0/cinema.dll
+/home/bartek/projekty/cinema/bin/Debug/netcoreapp2.0/cinema.pdb
+/home/bartek/projekty/cinema/obj/Debug/netcoreapp2.0/cinema.csproj.CoreCompileInputs.cache
+/home/bartek/projekty/cinema/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/home/bartek/projekty/cinema/obj/Debug/netcoreapp2.0/cinema.AssemblyInfoInputs.cache
+/home/bartek/projekty/cinema/obj/Debug/netcoreapp2.0/cinema.AssemblyInfo.cs
+/home/bartek/projekty/cinema/obj/Debug/netcoreapp2.0/cinema.dll
+/home/bartek/projekty/cinema/obj/Debug/netcoreapp2.0/cinema.pdb
