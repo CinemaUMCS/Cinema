@@ -19,7 +19,7 @@ namespace cinema.Entities
             Shows = new HashSet<Show>();
         }
 
-        public Guid MovieId { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public Category Category { get; set; }
         public string Description { get; set; }

@@ -6,9 +6,10 @@ namespace cinema.Entities
 {
     public class Room
     {
-        public Guid RoomId { get; set; }
+        public int Id { get; set; }
         public int Number { get; set; }
 
         public ICollection<Seat> Seats { get; set; }
+        public ICollection<Show> Shows { get; set; }
     }
 }

@@ -1,5 +1,3 @@
-
-using System;
 using System.Collections.Generic;
 
 namespace cinema.Entities
@@ -11,7 +9,8 @@ namespace cinema.Entities
             Reservations = new HashSet<Reservation>();
             Ratings = new HashSet<Rating>();
         }
-        public Guid UserId { get; set; }
+
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
