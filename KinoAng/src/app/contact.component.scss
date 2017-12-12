@@ -1,0 +1,21 @@
+@import "variables";
+
+.grid-container{
+  display: grid;
+  padding-left: 5rem;
+  .adress{
+    grid-column: 2 / span 3;
+    grid-row: 1 / 2;
+  }
+  .times{
+    grid-column: 1 / 1;
+    grid-row: 1 / 4;
+  }
+  .map{
+    grid-column: 2 / span 3;
+    grid-row: 3 / 5;
+  }
+  .small-font{
+    font-size: 17px;
+  }
+}
