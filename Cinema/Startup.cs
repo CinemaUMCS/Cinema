@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using SimpleCrypto;
 
 namespace Cinema
 {
@@ -48,7 +47,7 @@ namespace Cinema
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ICryptoService, PBKDF2>();
+            services.AddScoped<IEncrypter, EncrypterService>();
             services.AddScoped<ITokenProvider, TokenProvider>();
             services.AddMvc();
         }
