@@ -1,0 +1,26 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/dashboard">Strona Główna</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li>  <a routerLink="/nowplaying"> Repertuar</a></li>
+      <li>  <a routerLink="/pricelist"> Cennik</a></li>
+      <li>  <a routerLink="/contact"> Kontakt</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+
+<div class="btn-group " dropdown>
+  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle account">
+    Konto <span class="caret"></span>
+  </button>
+  <ul *dropdownMenu class="dropdown-menu" role="menu">
+    <li role="menuitem"><a class="dropdown-item " href="#">Zaloguj się</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Zarejestruj się</a></li>
+  </ul>
+</div>
+
+</ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
