@@ -1,0 +1,11 @@
+<div class="login-page">
+  <div class="form">
+    <form class="register-form">
+      <input app-user-registration [(ngModel)]="model.name" type="text" placeholder="name" required/>
+      <input app-user-registration [(ngModel)]="model.password" ngModel type="password" placeholder="password" required/>
+      <input  app-user-registration [(ngModel)]="model.email" ngModel type="text" placeholder="email address" required/>
+      <button (click)=postJson()>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+  </div>
+</div>

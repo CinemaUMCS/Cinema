@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AlertModule } from 'ngx-bootstrap';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -15,6 +17,8 @@ import { BuyStep1Component } from './buy-step1/buy-step1.component';
 import { BuyStep2Component } from './buy-step2/buy-step2.component';
 import { BuyStep3Component } from './buy-step3/buy-step3.component';
 import { BuySuccessComponent } from './buy-success/buy-success.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +30,17 @@ import { BuySuccessComponent } from './buy-success/buy-success.component';
     BuyStep1Component,
     BuyStep2Component,
     BuyStep3Component,
-    BuySuccessComponent
+    BuySuccessComponent,
+    UserLoginComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),
     CarouselModule.forRoot(),
     AlertModule.forRoot(),
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
