@@ -12,12 +12,6 @@ namespace CinemaTests.Services.UserService
 {
     public class RegisterAsyncTests: UserServiceTest
     {
-        protected void SetUp()
-        {
-            base.SetUp();
-
-        }
-
         [Fact]
         public async Task GivenUniqueEmailAndValidPasswordUserShouldBeRegistered()
         {
