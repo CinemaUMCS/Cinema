@@ -10,6 +10,8 @@ import { BuyStep1Component } from './buy-step1/buy-step1.component';
 import { BuyStep2Component } from './buy-step2/buy-step2.component';
 import { BuyStep3Component } from './buy-step3/buy-step3.component';
 import { BuySuccessComponent } from './buy-success/buy-success.component';
+import { UserLoginComponent } from './user-login/user-login.component'
+import { UserRegistrationComponent } from './user-registration/user-registration.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'buy', component: BuyStep1Component },
   { path: 'buy-next', component: BuyStep2Component },
   { path: 'buy-last', component: BuyStep3Component },
-  { path: 'buy-success', component: BuySuccessComponent }
+  { path: 'buy-success', component: BuySuccessComponent },
+  { path: 'login', component: UserLoginComponent },
+  { path: 'register', component: UserRegistrationComponent }
 ];
 
 @NgModule({

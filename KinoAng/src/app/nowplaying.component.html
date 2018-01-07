@@ -28,9 +28,9 @@
   <div>
     <button type="button" class="btn buy-button" routerLink="/buy">Zarezerwuj</button>
     <button type="button" class="btn watch-button"  (click)="showYoutube('youtubeVid')">Obejrzyj Zwiastun</button>
-<div style="display:none;" id="youtubeVid" class="youtubeVid">
-    <iframe id="iframe1" width="560" height="315" src="https://www.youtube.com/embed/r9-DM9uBtVI" frameborder="0" allowfullscreen></iframe>
-    <button type="button" class="btn watch-button"  (click)="hideYoutube('youtubeVid','iframe1')">Zamknij Zwiastun</button>
+<div style="display:none;"  class="youtubeVid">
+    <iframe id="youtubeVid" width="560" height="315" src="https://www.youtube.com/embed/r9-DM9uBtVI" frameborder="0" allowfullscreen></iframe>
+    <button type="button" class="btn watch-button"  (click)="hideYoutube('youtubeVid')">Zamknij Zwiastun</button>
 </div>
   </div>
 </div>
