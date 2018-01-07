@@ -13,7 +13,9 @@ export class NowPlayingComponent {
     document.getElementById('hideYoutubeVid').style.display = "block";
   }
 
-  hideYoutube(id): void{
+  hideYoutube(id, frame): void{
+    var src = document.getElementById(frame).getAttribute("src");
+    document.getElementById(frame).setAttribute("src",src);
     document.getElementById(id).style.display = "none";
     document.getElementById('hideYoutubeVid').style.display = "none";
   }
