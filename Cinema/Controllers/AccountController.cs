@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Controllers
 {
-    [Route("[controller]")]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly IUserService _userService;
 
