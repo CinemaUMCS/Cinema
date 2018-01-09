@@ -46,7 +46,15 @@ namespace Cinema
 
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IShowService, ShowService>();
+            services.AddScoped<IReservationService, ReservationService>();
+            services.AddScoped<IMovieService, MovieService>();
+
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IShowRepository, ShowRepository>();
+            services.AddScoped<IReservationRepository, ReservationRepository>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
+
             services.AddScoped<IEncrypter, EncrypterService>();
             services.AddScoped<ITokenProvider, TokenProvider>();
             services.AddMvc();

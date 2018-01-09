@@ -5,6 +5,7 @@ namespace cinema.Entities
 {
     public enum Category
     {
+        Undefined,
         Horror,
         Comedy,
         Thriller,
