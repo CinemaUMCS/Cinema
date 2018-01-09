@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AlertModule } from 'ngx-bootstrap';
+import { HttpModule } from '@angular/http';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
 
@@ -40,6 +41,7 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     AlertModule.forRoot(),
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     FormsModule,
     AppRoutingModule
   ],
