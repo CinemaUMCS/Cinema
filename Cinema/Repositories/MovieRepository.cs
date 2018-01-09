@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Repositories
 {
-    class MovieRepository : IMovieRepository
+    public class MovieRepository : IMovieRepository
     {
         private readonly CinemaDbContext _context;
 
