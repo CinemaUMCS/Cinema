@@ -65,6 +65,7 @@ namespace Cinema
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
+            app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
             app.UseAuthentication()
                 .UseMvc();
         }
