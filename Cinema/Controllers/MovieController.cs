@@ -25,7 +25,7 @@ namespace Cinema.Controllers
             return await _movieService.GetAllAsync();
         }
 
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetMovie")]
         public async Task<IActionResult> Get(int id)
         {
             var movie = await _movieService.GetAsync(id);
@@ -35,7 +35,7 @@ namespace Cinema.Controllers
         }
         
         [HttpPost]
-        [Authorize(Roles = "admin, employee")]
+        //[Authorize(Roles = "admin, employee")]
         public async Task<IActionResult> Post([FromBody]Movie movie)
         {
             if(!ModelState.IsValid)
@@ -44,11 +44,11 @@ namespace Cinema.Controllers
             }
             await _movieService.AddAsync(movie);
 
-            return CreatedAtRoute("Get", new { id = movie.Id }, movie);
+            return CreatedAtRoute("GetMovie", new { id = movie.Id }, movie);
         }
         
         [HttpPut("{id}")]
-        [Authorize(Roles = "admin, employee")]
+        //[Authorize(Roles = "admin, employee")]
         public async Task<IActionResult> Put(int id, [FromBody]Movie movie)
         {
             if(!ModelState.IsValid)

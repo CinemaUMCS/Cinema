@@ -25,7 +25,7 @@ namespace Cinema.Controllers
             return await _showService.GetAllAsync();
         }
 
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetShow")]
         public async Task<IActionResult> Get(int id)
         {
             var show = await _showService.GetAsync(id);
@@ -44,7 +44,7 @@ namespace Cinema.Controllers
             }
             await _showService.AddAsync(show);
 
-            return CreatedAtRoute("Get", new { id = show.Id }, show);
+            return CreatedAtRoute("GetShow", new { id = show.Id }, show);
         }
         
         [HttpPut("{id}")]
