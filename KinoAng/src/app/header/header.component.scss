@@ -1,0 +1,20 @@
+@import "../variables";
+.navbar{
+  min-height: 1rem;
+  height:5rem;
+  top:2rem;
+  background-color: $kino-purple;
+}
+.active>a, .active>a:hover{
+  background: transparent;
+}
+.account{
+  right:5%;
+  top:0.5rem;
+  background: $kino-pink;
+  border-color: $kino-pink;
+}
+
+.navbar-right .dropdown-menu{
+    background: $kino-pink;
+}

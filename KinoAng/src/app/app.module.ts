@@ -20,6 +20,7 @@ import { BuyStep3Component } from './buy-step3/buy-step3.component';
 import { BuySuccessComponent } from './buy-success/buy-success.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     BuyStep3Component,
     BuySuccessComponent,
     UserLoginComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    HeaderComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),

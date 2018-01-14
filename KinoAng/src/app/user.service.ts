@@ -72,7 +72,14 @@ export class UserService extends BaseService {
   }
 
   get isLoggedIn() {
-    return this.authNavStatus$;
+    debugger;
+    if (localStorage.getItem("auth_token") == null) {
+        this.loggedIn = false;
+        return this.loggedIn;
+    }
+    else {
+        return true;
+    }
   }  
 
 }
