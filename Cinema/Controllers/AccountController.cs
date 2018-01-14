@@ -28,16 +28,13 @@ namespace Cinema.Controllers
             return Json(token);
         }
 
+        [HttpGet("details")]
         [Authorize]
-        [HttpGet("authtest")]
-        public IActionResult AuthTest()
+        public async Task<IActionResult> GetCurrentUser()
         {
-            return Content("Brawo!");
-        }
-        [HttpGet("test")]
-        public IActionResult Test()
-        {
-            return Content("Dupa!");
+            var id = GetCurrentUserId();
+            var user = await _userService.GetByIdAsync(id);
+            return Json(user);
         }
     }
 }

@@ -27,5 +27,11 @@ namespace Cinema.Repositories
             var user = await _context.Users.SingleOrDefaultAsync(u => u.Email == email);
             return user;
         }
+
+        public async Task<User> GetByIdAsync(int id)
+        {
+            var user = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
+            return user;
+        }
     }
 }
