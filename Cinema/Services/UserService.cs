@@ -81,5 +81,10 @@ namespace Cinema.Services
             var token = _tokenProvider.CreateToken(user.Id, user.Role);
             return token;
         }
+
+        public async Task<User> GetByIdAsync(int id)
+        {
+            return await _userRepository.GetByIdAsync(id);
+        }
     }
 }
