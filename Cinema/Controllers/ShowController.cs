@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using cinema.Entities;
 using Cinema.Data;
+using Cinema.DTO;
 using Cinema.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,7 @@ namespace Cinema.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Show>> Get()
+        public async Task<IEnumerable<ShowDto>> Get()
         {
             return await _showService.GetAllAsync();
         }

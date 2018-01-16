@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using cinema.Entities;
+using Cinema.DTO;
 using Cinema.Repositories;
 
 namespace Cinema.Services
@@ -8,20 +10,24 @@ namespace Cinema.Services
     public class ReservationService : IReservationService
     {
         private readonly IReservationRepository _reservationRepository;
+        private readonly IMapper _mapper;
 
-        public ReservationService(IReservationRepository reservationRepository)
+        public ReservationService(IReservationRepository reservationRepository, IMapper mapper)
         {
             _reservationRepository = reservationRepository;
+            _mapper = mapper;
         }
 
-        public async Task<ICollection<Reservation>> GetAllAsync()
+        public async Task<ICollection<ReservationDto>> GetAllAsync()
         {
-            return await _reservationRepository.GetAllAsync();
+            var reservations= await _reservationRepository.GetAllAsync();
+            return _mapper.Map<ICollection<Reservation>, ICollection<ReservationDto>>(reservations);
         }
 
-        public async Task<Reservation> GetAsync(int id)
+        public async Task<ReservationDto> GetAsync(int id)
         {
-            return await _reservationRepository.GetAsync(id);
+            var reservation= await _reservationRepository.GetAsync(id);
+            return _mapper.Map<Reservation, ReservationDto>(reservation);
         }
 
         public async Task AddAsync(Reservation reservation)
