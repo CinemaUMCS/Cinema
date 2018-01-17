@@ -13,6 +13,7 @@ import { BuySuccessComponent } from './buy-success/buy-success.component';
 import { UserLoginComponent } from './user-login/user-login.component'
 import { UserRegistrationComponent } from './user-registration/user-registration.component'
 import { UserService } from './user.service'
+import { ProfileComponent } from './profile/profile.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'buy-success', component: BuySuccessComponent },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegistrationComponent },
-  { path: 'user.service', component: UserService }
+  { path: 'user.service', component: UserService },
+  { path: 'profile', component: ProfileComponent }
 ];
 
 @NgModule({

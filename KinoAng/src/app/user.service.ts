@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConfigService } from './config.service';
 
 import {BaseService} from "./base.service";
 
 import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/Rx';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 //import * as _ from 'lodash';
 // Add the RxJS Observable operators we need in this app.
@@ -19,6 +20,12 @@ import { Component } from '@angular/core/src/metadata/directives';
 export class UserService extends BaseService {
 
   baseUrl: string = '';
+  user:User;
+  userStream: ReplaySubject<User> = new ReplaySubject();
+
+  userRx$(): Observable<User>{
+    return this.userStream.asObservable();
+  }
 
   // Observable navItem source
   private _authNavStatusSource = new BehaviorSubject<boolean>(false);
@@ -27,7 +34,7 @@ export class UserService extends BaseService {
 
   private loggedIn = false;
 
-  constructor(private http: Http, private configService: ConfigService) {
+  constructor(private http: Http, private configService: ConfigService, private httpClient: HttpClient) {
     super();
     this.loggedIn = !!localStorage.getItem('auth_token');
     // ?? not sure if this the best way to broadcast the status but seems to resolve issue on page refresh where auth status is lost in
@@ -57,7 +64,7 @@ export class UserService extends BaseService {
       )
       .map(res => res.json())
       .map(res => {
-        localStorage.setItem('auth_token', res.auth_token);
+        localStorage.setItem('auth_token', res.token);
         this.loggedIn = true;
         this._authNavStatusSource.next(true);
         return true;
@@ -72,14 +79,25 @@ export class UserService extends BaseService {
   }
 
   get isLoggedIn() {
-    debugger;
-    if (localStorage.getItem("auth_token") == null) {
+    if (localStorage.getItem('auth_token') == "undefined") {
         this.loggedIn = false;
         return this.loggedIn;
     }
     else {
         return true;
     }
-  }  
+  }
+  
+  userDto(): Observable<User> {
+    let token = 'Bearer ' + localStorage.getItem('auth_token');
+    const httpOptions = {
+      headers : new HttpHeaders({ 'Content-Type': 'application/json', 
+    'Authorization': token})
+  };
+    // let options = new RequestOptions({ headers: headers });
+    this.baseUrl = this.configService.getApiURI();
+
+    return this.httpClient.get<User>(this.baseUrl + '/account/details', httpOptions);
+  }
 
 }
