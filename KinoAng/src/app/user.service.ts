@@ -79,7 +79,7 @@ export class UserService extends BaseService {
   }
 
   get isLoggedIn() {
-    if (localStorage.getItem('auth_token') == "undefined") {
+    if (localStorage.getItem('auth_token') == undefined) {
         this.loggedIn = false;
         return this.loggedIn;
     }
