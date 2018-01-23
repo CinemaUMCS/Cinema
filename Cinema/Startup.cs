@@ -58,16 +58,16 @@ namespace Cinema
       services.AddScoped<IEncrypter, EncrypterService>();
       services.AddScoped<ITokenProvider, TokenProvider>();
 
-      services.AddCors(options =>
-      {
-        options.AddPolicy("AllowAng", p =>
-        {
-          p.WithOrigins("http://localhost:4200")
-          .AllowAnyHeader()
-          .AllowAnyMethod()
-          .AllowCredentials();
-        });
-      });
+      //services.AddCors(options =>
+      //{
+      //  options.AddPolicy("AllowAng", p =>
+      //  {
+      //    p.WithOrigins("http://localhost:4200")
+      //    .AllowAnyHeader()
+      //    .AllowAnyMethod()
+      //    .AllowCredentials();
+      //  });
+      //});
 
       services.AddMvc();
     }
@@ -78,7 +78,7 @@ namespace Cinema
       if (env.IsDevelopment())
         app.UseDeveloperExceptionPage();
       //app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
-      app.UseCors("AllowAng");
+      //app.UseCors("AllowAng");
       app.Use(async (context, next) =>
       {
         await next();
