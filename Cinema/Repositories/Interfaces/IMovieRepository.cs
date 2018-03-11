@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
 
 namespace Cinema.Repositories
 {

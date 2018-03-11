@@ -57,18 +57,6 @@ namespace Cinema
 
       services.AddScoped<IEncrypter, EncrypterService>();
       services.AddScoped<ITokenProvider, TokenProvider>();
-
-      //services.AddCors(options =>
-      //{
-      //  options.AddPolicy("AllowAng", p =>
-      //  {
-      //    p.WithOrigins("http://localhost:4200")
-      //    .AllowAnyHeader()
-      //    .AllowAnyMethod()
-      //    .AllowCredentials();
-      //  });
-      //});
-
       services.AddMvc();
     }
 
@@ -79,17 +67,17 @@ namespace Cinema
         app.UseDeveloperExceptionPage();
       //app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
       //app.UseCors("AllowAng");
-      app.Use(async (context, next) =>
-      {
-        await next();
-        if (context.Response.StatusCode == 404 && !System.IO.Path.HasExtension(context.Request.Path.Value))
-        {
-          context.Request.Path = "/index.html";
-          await next();
-        }
-      });
-      app.UseDefaultFiles();
-      app.UseStaticFiles();
+      //app.Use(async (context, next) =>
+      //{
+      //  await next();
+      //  if (context.Response.StatusCode == 404 && !System.IO.Path.HasExtension(context.Request.Path.Value))
+      //  {
+      //    context.Request.Path = "/index.html";
+      //    await next();
+      //  }
+      //});
+      //app.UseDefaultFiles();
+      //app.UseStaticFiles();
       
       app.UseAuthentication()
           .UseMvc();

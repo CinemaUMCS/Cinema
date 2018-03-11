@@ -1,4 +1,4 @@
-﻿using cinema.Entities;
+﻿using Cinema.Entities;
 using Cinema.Data;
 using Cinema.Repositories;
 using FluentAssertions;

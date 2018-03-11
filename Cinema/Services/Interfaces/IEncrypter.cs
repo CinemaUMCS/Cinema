@@ -1,4 +1,4 @@
-﻿namespace Cinema.Services
+namespace Cinema.Services
 {
     public interface IEncrypter
     {

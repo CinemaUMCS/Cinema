@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
 using Cinema.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +20,7 @@ namespace Cinema.Repositories
         {
             return await _context.Reservations.Include(r => r.Show).ThenInclude(s => s.Movie)
                 .Include(r => r.User)
-                .Include(r => r.Seats)
+                .Include(r => r.ReservedSeats)
                 .ToListAsync();
         }
 
@@ -28,7 +28,7 @@ namespace Cinema.Repositories
         {
             var reservation = await _context.Reservations.Include(r => r.Show).ThenInclude(s => s.Movie)
                 .Include(r => r.User)
-                .Include(r => r.Seats).SingleOrDefaultAsync(s => s.Id == id);
+                .Include(r => r.ReservedSeats).SingleOrDefaultAsync(s => s.Id == id);
             return reservation;
         }
 
