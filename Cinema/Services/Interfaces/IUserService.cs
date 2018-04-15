@@ -1,4 +1,6 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Cinema.Entities;
+using Cinema.DTO;
 using Cinema.Entities;
 
 namespace Cinema.Services
@@ -7,6 +9,6 @@ namespace Cinema.Services
     {
         Task RegisterAsync(string email, string firstName, string lastName, string password, string role);
         Task<TokenModel> LoginAsync(string email, string password);
-        Task<User> GetByIdAsync(int id);
+        Task<UserDto> GetByIdAsync(int id);
     }
 }

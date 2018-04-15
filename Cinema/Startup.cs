@@ -60,28 +60,22 @@ namespace Cinema
       services.AddMvc();
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-      if (env.IsDevelopment())
-        app.UseDeveloperExceptionPage();
-      //app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
-      //app.UseCors("AllowAng");
-      //app.Use(async (context, next) =>
-      //{
-      //  await next();
-      //  if (context.Response.StatusCode == 404 && !System.IO.Path.HasExtension(context.Request.Path.Value))
-      //  {
-      //    context.Request.Path = "/index.html";
-      //    await next();
-      //  }
-      //});
-      //app.UseDefaultFiles();
-      //app.UseStaticFiles();
-      
-      app.UseAuthentication()
-          .UseMvc();
+            services.AddScoped<IEncrypter, EncrypterService>();
+            services.AddScoped<ITokenProvider, TokenProvider>();
+            services.AddSingleton(AutoMapperConfig.Initialize());
+            services.AddMvc();
+        }
 
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+                app.UseDeveloperExceptionPage();
+            app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+            app.UseCors(options => options.WithOrigins("87.239.243.7").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+            app.UseAuthentication()
+                .UseMvc();
+        }
     }
   }
 }
