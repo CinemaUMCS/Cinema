@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using cinema.Entities;
+using System;
 
 namespace Cinema.DTO
 {

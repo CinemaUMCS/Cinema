@@ -1,7 +1,6 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Cinema.Entities;
 using Cinema.DTO;
-using Cinema.Entities;
 
 namespace Cinema.Services
 {

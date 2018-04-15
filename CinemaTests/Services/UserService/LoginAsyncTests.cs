@@ -21,7 +21,7 @@ namespace CinemaTests.Services.UserService
             EncrypterMock.Setup(m => m.Compute(User.Password, It.IsAny<string>()))
                 .Returns((string pass, string salt) => pass);
             EncrypterMock.Setup(m => m.Compare(User.Password,User.Password)).Returns(true);
-            UserService=new Cinema.Services.UserService(UserRepositoryMock.Object, EncrypterMock.Object, TokenProviderMock.Object);
+            UserService=new Cinema.Services.UserService(UserRepositoryMock.Object, EncrypterMock.Object, TokenProviderMock.Object, Mapper);
         }
 
         [Fact]

@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using cinema.Entities;
+using System.Collections.Generic;
+using Cinema.Entities;
 
 namespace Cinema.DTO
 {

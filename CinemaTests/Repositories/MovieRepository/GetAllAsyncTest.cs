@@ -13,7 +13,7 @@ namespace CinemaTests.Repositories.MovieRepository
     {
         public IMovieRepository MovieRepository { get; set; }
 
-        private async Task SetUp(CinemaDbContext context)
+        private void SetUp(CinemaDbContext context)
         {
             MovieRepository = new Cinema.Repositories.MovieRepository(context);
         }
@@ -23,7 +23,7 @@ namespace CinemaTests.Repositories.MovieRepository
         {
             using (var context = new CinemaDbContextFactory().CreateContext())
             {
-                await SetUp(context);
+                SetUp(context);
                 var movie1 = new Movie
                 {
                     Id = 1,

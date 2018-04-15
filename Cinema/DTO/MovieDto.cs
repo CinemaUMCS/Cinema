@@ -1,5 +1,5 @@
-﻿using System;
-using cinema.Entities;
+using System;
+using Cinema.Entities;
 
 namespace Cinema.DTO
 {

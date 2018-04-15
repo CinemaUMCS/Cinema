@@ -1,18 +1,15 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AutoMapper;
 using Cinema.Entities;
 using Cinema.DTO;
-using Cinema.Entities;
 using Cinema.Exceptions;
 using Cinema.Repositories;
-using SimpleCrypto;
 
 namespace Cinema.Services
 {
-    public class UserService : IUserService
+  public class UserService : IUserService
     {
         private readonly IEncrypter _encrypter;
         private readonly ITokenProvider _tokenProvider;

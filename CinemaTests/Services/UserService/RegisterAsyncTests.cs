@@ -41,7 +41,7 @@ namespace CinemaTests.Services.UserService
         {
             SetUp();
             UserRepositoryMock.Setup(x => x.GetByEmailAsync(User.Email)).ReturnsAsync(User);
-            UserService = new Cinema.Services.UserService(UserRepositoryMock.Object, EncrypterMock.Object, TokenProviderMock.Object);
+            UserService = new Cinema.Services.UserService(UserRepositoryMock.Object, EncrypterMock.Object, TokenProviderMock.Object,Mapper);
 
             var occupiedEmail = User.Email;
             Func<Task> fun = async () =>

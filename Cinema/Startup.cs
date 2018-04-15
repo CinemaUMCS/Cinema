@@ -26,23 +26,21 @@ namespace Cinema
     {
       var connectionString = Configuration["Sql:ConnectionString"];
       services.AddDbContext<CinemaDbContext>(options =>
-          options.UseSqlServer(connectionString));
+        options.UseSqlServer(connectionString));
 
       var jwtKey = Configuration["Jwt:Key"];
-      services.AddAuthentication(options =>
-      {
-        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-      }).AddJwtBearer(o =>
-      {
-        o.TokenValidationParameters = new TokenValidationParameters()
+      services.AddAuthentication(options => { options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme; })
+        .AddJwtBearer(o =>
         {
-          ValidateIssuerSigningKey = true,
-          ValidateAudience = false,
-          ValidateIssuer = false,
-          ValidateLifetime = true,
-          IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
-        };
-      });
+          o.TokenValidationParameters = new TokenValidationParameters()
+          {
+            ValidateIssuerSigningKey = true,
+            ValidateAudience = false,
+            ValidateIssuer = false,
+            ValidateLifetime = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+          };
+        });
 
 
       services.AddScoped<IUserService, UserService>();
@@ -57,25 +55,32 @@ namespace Cinema
 
       services.AddScoped<IEncrypter, EncrypterService>();
       services.AddScoped<ITokenProvider, TokenProvider>();
+      services.AddSingleton(AutoMapperConfig.Initialize());
       services.AddMvc();
     }
 
-            services.AddScoped<IEncrypter, EncrypterService>();
-            services.AddScoped<ITokenProvider, TokenProvider>();
-            services.AddSingleton(AutoMapperConfig.Initialize());
-            services.AddMvc();
-        }
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+      if (env.IsDevelopment())
+        app.UseDeveloperExceptionPage();
+      app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-                app.UseDeveloperExceptionPage();
-            app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
-            app.UseCors(options => options.WithOrigins("87.239.243.7").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
-            app.UseAuthentication()
-                .UseMvc();
-        }
+      //Angular
+      //app.Use(async (context, next) =>
+      //{
+      //  await next();
+      //  if (context.Response.StatusCode == 404 && !System.IO.Path.HasExtension(context.Request.Path.Value))
+      //  {
+      //    context.Request.Path = "/index.html";
+      //    await next();
+      //  }
+      //});
+      //app.UseDefaultFiles();
+      //app.UseStaticFiles();
+
+      app.UseAuthentication()
+        .UseMvc();
     }
   }
 }

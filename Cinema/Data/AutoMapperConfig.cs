@@ -1,6 +1,6 @@
-﻿using AutoMapper;
-using cinema.Entities;
+using AutoMapper;
 using Cinema.DTO;
+using Cinema.Entities;
 
 namespace Cinema.Data
 {
