@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
+using Cinema.DTO;
 
-namespace Cinema.Repositories
+namespace Cinema.Services
 {
-    public interface IReservationRepository
+    public interface IReservationService
     {
-        Task<ICollection<Reservation>> GetAllAsync();
-        Task<Reservation> GetAsync(int id);
+        Task<ICollection<ReservationDto>> GetAllAsync();
+        Task<ReservationDto> GetAsync(int id);
         Task AddAsync(Reservation reservation);
         Task UpdateAsync(int id, Reservation reservation);
         Task DeleteAsync(int id);

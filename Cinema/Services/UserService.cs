@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AutoMapper;
-using cinema.Entities;
+using Cinema.Entities;
 using Cinema.DTO;
 using Cinema.Entities;
 using Cinema.Exceptions;

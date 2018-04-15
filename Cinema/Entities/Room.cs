@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace cinema.Entities
+namespace Cinema.Entities
 {
     public class Room
     {

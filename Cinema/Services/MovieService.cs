@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using cinema.Entities;
+using Cinema.Entities;
 using Cinema.DTO;
 using Cinema.Repositories;
 

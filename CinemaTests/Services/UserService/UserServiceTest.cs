@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using cinema.Entities;
+using Cinema.Entities;
 using Cinema.Repositories;
 using Cinema.Services;
 using Moq;

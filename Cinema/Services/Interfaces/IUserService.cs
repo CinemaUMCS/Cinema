@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
 using Cinema.DTO;
 using Cinema.Entities;
 

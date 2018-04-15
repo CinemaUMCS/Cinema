@@ -21,6 +21,7 @@ import { BuySuccessComponent } from './buy-success/buy-success.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { HeaderComponent } from './header/header.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HeaderComponent } from './header/header.component';
     BuySuccessComponent,
     UserLoginComponent,
     UserRegistrationComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfileComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),
