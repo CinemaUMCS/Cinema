@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace cinema.Entities
+namespace Cinema.Entities
 {
     public enum Category
     {
@@ -26,7 +26,7 @@ namespace cinema.Entities
         public string Description { get; set; }
         public DateTime? ProductionDate { get; set; }
 
-        public virtual ICollection<Rating> Ratings { get; set; }
-        public virtual ICollection<Show> Shows { get; set; }
+        public ICollection<Rating> Ratings { get; set; }
+        public ICollection<Show> Shows { get; set; }
     }
 }

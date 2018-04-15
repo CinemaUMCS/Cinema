@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
 using Cinema.Data;
 using Microsoft.EntityFrameworkCore;
 

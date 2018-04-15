@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
 using Cinema.Exceptions;
 using Cinema.Repositories;
 using Cinema.Services;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
 using Cinema.Exceptions;
 using Cinema.Repositories;
 using Cinema.Services;

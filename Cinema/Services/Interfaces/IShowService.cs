@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
 
-namespace Cinema.Repositories
+namespace Cinema.Services
 {
-    public interface IShowRepository
+    public interface IShowService
     {
         Task<ICollection<Show>> GetAllAsync();
         Task<Show> GetAsync(int id);
