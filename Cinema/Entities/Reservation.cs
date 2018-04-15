@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace cinema.Entities
+namespace Cinema.Entities
 {
     public class Reservation
     {
@@ -8,9 +8,9 @@ namespace cinema.Entities
         public bool Status { get; set; }
         public bool Paid { get; set; }
 
-        public virtual Show Show { get; set; }
-        public virtual User User { get; set; }
-        public ICollection<Seat> Seats { get; set; }
+        public Show Show { get; set; }
+        public User User { get; set; }
+        public ICollection<ReservedSeat> ReservedSeats { get; set; }
         public int ShowId { get; set; }
         public int UserId { get; set; }
     }

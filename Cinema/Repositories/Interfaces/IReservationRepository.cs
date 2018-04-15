@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
 
-namespace Cinema.Services
+namespace Cinema.Repositories
 {
-    public interface IReservationService
+    public interface IReservationRepository
     {
         Task<ICollection<Reservation>> GetAllAsync();
         Task<Reservation> GetAsync(int id);

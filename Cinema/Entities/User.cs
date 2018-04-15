@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace cinema.Entities
+namespace Cinema.Entities
 {
     public class User
     {
@@ -29,7 +29,8 @@ namespace cinema.Entities
         public string Role { get; set; }
 
 
-        public virtual ICollection<Reservation> Reservations { get; set; }
-        public virtual ICollection<Rating> Ratings { get; set; }
-    }
+        public ICollection<Reservation> Reservations { get; set; }
+        public ICollection<Rating> Ratings { get; set; }
+
+  }
 }

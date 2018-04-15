@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using cinema.Entities;
+using Cinema.Entities;
 using Cinema.Data;
+using Cinema.DTO;
 using Cinema.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,7 @@ namespace Cinema.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Movie>> Get()
+        public async Task<IEnumerable<MovieDto>> Get()
         {
             return await _movieService.GetAllAsync();
         }

@@ -8,11 +8,13 @@
 .active>a, .active>a:hover{
   background: transparent;
 }
-.account{
+.account, .btn-kino{
   right:5%;
   top:0.5rem;
   background: $kino-pink;
   border-color: $kino-pink;
+  color: $kino-white;
+  border-radius: 0.5rem;
 }
 
 .navbar-right .dropdown-menu{

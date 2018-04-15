@@ -1,8 +1,10 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using cinema.Entities;
+using AutoMapper;
+using Cinema.Entities;
+using Cinema.DTO;
 using Cinema.Entities;
 using Cinema.Exceptions;
 using Cinema.Repositories;
@@ -14,13 +16,15 @@ namespace Cinema.Services
     {
         private readonly IEncrypter _encrypter;
         private readonly ITokenProvider _tokenProvider;
+        private readonly IMapper _mapper;
         private readonly IUserRepository _userRepository;
 
-        public UserService(IUserRepository userRepository, IEncrypter encrypter, ITokenProvider tokenProvider)
+        public UserService(IUserRepository userRepository, IEncrypter encrypter, ITokenProvider tokenProvider, IMapper mapper)
         {
             _userRepository = userRepository;
             _encrypter = encrypter;
             _tokenProvider = tokenProvider;
+            _mapper = mapper;
         }
 
         public async Task RegisterAsync(string email, string firstName, string lastName, string password, string role)
@@ -82,9 +86,10 @@ namespace Cinema.Services
             return token;
         }
 
-        public async Task<User> GetByIdAsync(int id)
+        public async Task<UserDto> GetByIdAsync(int id)
         {
-            return await _userRepository.GetByIdAsync(id);
+            var user= await _userRepository.GetByIdAsync(id);
+            return _mapper.Map<User, UserDto>(user);
         }
     }
 }

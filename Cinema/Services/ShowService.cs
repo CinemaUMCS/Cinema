@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using cinema.Entities;
+using AutoMapper;
+using Cinema.Entities;
+using Cinema.DTO;
 using Cinema.Repositories;
 
 namespace Cinema.Services
@@ -8,19 +10,23 @@ namespace Cinema.Services
     class ShowService : IShowService
     {
         private readonly IShowRepository _showRepository;
+        private readonly IMapper _mapper;
 
-        public ShowService(IShowRepository showRepository)
+        public ShowService(IShowRepository showRepository, IMapper mapper)
         {
             _showRepository = showRepository;
+            _mapper = mapper;
         }
-        public async Task<ICollection<Show>> GetAllAsync()
+        public async Task<ICollection<ShowDto>> GetAllAsync()
         {
-            return await _showRepository.GetAllAsync();
+            var shows= await _showRepository.GetAllAsync();
+            return _mapper.Map<ICollection<Show>, ICollection<ShowDto>>(shows);
         }
 
-        public async Task<Show> GetAsync(int id)
+        public async Task<ShowDto> GetAsync(int id)
         {
-            return await _showRepository.GetAsync(id);
+            var show= await _showRepository.GetAsync(id);
+            return _mapper.Map<Show, ShowDto>(show);
         }
 
         public async Task AddAsync(Show show)
