@@ -44,14 +44,17 @@ namespace Cinema
 
 
       services.AddScoped<IUserService, UserService>();
-      services.AddScoped<IShowService, ShowService>();
+      services.AddScoped<ISeanceService, SeanceService>();
       services.AddScoped<IReservationService, ReservationService>();
       services.AddScoped<IMovieService, MovieService>();
 
       services.AddScoped<IUserRepository, UserRepository>();
-      services.AddScoped<IShowRepository, ShowRepository>();
+      services.AddScoped<ISeanceRepository, SeanceRepository>();
       services.AddScoped<IReservationRepository, ReservationRepository>();
       services.AddScoped<IMovieRepository, MovieRepository>();
+
+      services.AddScoped<IRoomRepository, RoomRepository>();
+      services.AddScoped<IRoomService, RoomService>();
 
       services.AddScoped<IEncrypter, EncrypterService>();
       services.AddScoped<ITokenProvider, TokenProvider>();

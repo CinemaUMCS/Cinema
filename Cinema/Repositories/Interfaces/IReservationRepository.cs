@@ -4,12 +4,12 @@ using Cinema.Entities;
 
 namespace Cinema.Repositories
 {
-    public interface IReservationRepository
-    {
-        Task<ICollection<Reservation>> GetAllAsync();
-        Task<Reservation> GetAsync(int id);
-        Task AddAsync(Reservation reservation);
-        Task UpdateAsync(int id, Reservation reservation);
-        Task DeleteAsync(int id);
-    }
+  public interface IReservationRepository
+  {
+    Task<ICollection<Reservation>> GetAllAsync();
+    Task<Reservation> GetAsync(int id);
+    Task AddAsync(Reservation reservation);
+    Task UpdateAsync(int id, Reservation reservation);
+    Task DeleteAsync(int id);
+  }
 }

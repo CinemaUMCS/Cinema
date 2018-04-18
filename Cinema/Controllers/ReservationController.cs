@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cinema.Entities;
@@ -43,7 +43,8 @@ namespace Cinema.Controllers
             {
                 return BadRequest();
             }
-            await _reservationService.AddAsync(reservation);
+           // await _reservationService.AddAsync(GetCurrentUserId,reservation);
+          //todo kurwa
 
             return CreatedAtRoute("GetReservation", new { id = reservation.Id }, reservation);
         }

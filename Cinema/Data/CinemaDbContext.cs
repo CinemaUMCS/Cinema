@@ -7,7 +7,7 @@ namespace Cinema.Data
   {
     public DbSet<User> Users { get; set; }
     public DbSet<Rating> Ratings { get; set; }
-    public DbSet<Show> Shows { get; set; }
+    public DbSet<Seance> Seances { get; set; }
     public DbSet<Reservation> Reservations { get; set; }
     public DbSet<Room> Rooms { get; set; }
     public DbSet<Seat> Seats { get; set; }
@@ -33,14 +33,16 @@ namespace Cinema.Data
 
       #endregion
 
-      // ******************** ShowConfiguration *****************//
+      // ******************** SeanceConfiguration *****************//
 
-      #region ShowConfiguration
+      #region SeanceConfiguration
 
-      builder.Entity<Show>().HasKey(s => s.Id);
-      builder.Entity<Show>().Property(s => s.ShowDate).IsRequired();
-      builder.Entity<Show>().HasOne(s => s.Room).WithMany(r => r.Shows).HasForeignKey(s => s.RoomId);
-      builder.Entity<Show>().HasOne(s => s.Movie).WithMany(m => m.Shows).HasForeignKey(m => m.MovieId);
+      builder.Entity<Seance>().HasKey(s => s.Id);
+      builder.Entity<Seance>().Property(s => s.SeanceStart).IsRequired();
+      builder.Entity<Seance>().HasOne(s => s.Room).WithMany(r => r.Seances).HasForeignKey(s => s.RoomId);
+      builder.Entity<Seance>().HasOne(s => s.Movie).WithMany(m => m.Seances).HasForeignKey(m => m.MovieId);
+      builder.Entity<Seance>().Property(s => s.ConcessionaryTicketPrice).IsRequired();
+      builder.Entity<Seance>().Property(s => s.NormalTicketPrice).IsRequired();
 
       #endregion
 
@@ -65,8 +67,8 @@ namespace Cinema.Data
       builder.Entity<Reservation>().HasKey(u => u.Id);
       builder.Entity<Reservation>().Property(r => r.Status).IsRequired();
       builder.Entity<Reservation>().Property(r => r.Paid).IsRequired();
-      builder.Entity<Reservation>().HasOne(r => r.Show).WithMany(s => s.Reservations)
-          .HasForeignKey(r => r.ShowId);
+      builder.Entity<Reservation>().HasOne(r => r.Seance).WithMany(s => s.Reservations)
+          .HasForeignKey(r => r.SeanceId);
       builder.Entity<Reservation>().HasOne(r => r.User).WithMany(u => u.Reservations)
           .HasForeignKey(r => r.UserId);
 
@@ -77,7 +79,7 @@ namespace Cinema.Data
       #region RoomConfiguration
 
       builder.Entity<Room>().HasKey(r => r.Id);
-      builder.Entity<Room>().Property(r => r.Number).IsRequired();
+      builder.Entity<Room>().Property(r => r.Name).IsRequired();
 
       #endregion
 
@@ -110,6 +112,8 @@ namespace Cinema.Data
       builder.Entity<Movie>().Property(m => m.Category).IsRequired();
       builder.Entity<Movie>().Property(m => m.Description).IsRequired(false);
       builder.Entity<Movie>().Property(m => m.ProductionDate).IsRequired(false);
+      builder.Entity<Movie>().Property(m => m.TrailerPath).IsRequired(false);
+      builder.Entity<Movie>().Property(m => m.PosterPath).IsRequired(true);
 
       #endregion
     }
