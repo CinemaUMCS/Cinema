@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { UserService } from '../user.service'
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import {UserService} from '../user.service';
 
-import { AuthGuard } from '../auth.guard';
-import { ConfigService } from '../config.service';
+import {AuthGuard} from '../auth.guard';
+import {ConfigService} from '../config.service';
 
 @Component({
   selector: 'app-header',
@@ -13,16 +13,20 @@ import { ConfigService } from '../config.service';
   providers: [UserService, ConfigService]
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn$: boolean;             
-  
-  constructor(private authService: UserService,
-    private router: Router) { }
+  isLoggedIn$: boolean;
+  private href: string;
 
-  ngOnInit(){
-    this.isLoggedIn$ = this.authService.isLoggedIn; // {2}  
+  constructor(private authService: UserService,
+              private router: Router) {
+      this.href = this.router.url;
+      console.log(this.href);
   }
-  
-  onLogout(){
+
+  ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedIn; // {2}
+  }
+
+  onLogout() {
     this.authService.logout();                      // {3}
   }
 

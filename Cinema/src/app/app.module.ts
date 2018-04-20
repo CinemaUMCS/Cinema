@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AlertModule } from 'ngx-bootstrap';
+import {AlertModule, BsDatepickerModule} from 'ngx-bootstrap';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
@@ -22,10 +22,12 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { HeaderComponent } from './header/header.component';
 import { AdminComponent } from './admin/admin.component';
+import {ProfileComponent} from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProfileComponent,
     NowPlayingComponent,
     ContactComponent,
     PriceComponent,
@@ -43,6 +45,7 @@ import { AdminComponent } from './admin/admin.component';
     BsDropdownModule.forRoot(),
     CarouselModule.forRoot(),
     AlertModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     HttpModule,

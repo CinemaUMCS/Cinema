@@ -1,39 +1,84 @@
-<div class="movielist">
-<ul style="list-style-type:none">
-  <li><img class="small-image" src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
-  alt="star wars">
-<div class="details">
-  <h1 class="title">Gwiezdne wojny: Ostatni Jedi</h1>
-  <h2 class="info">Having taken her first steps into the Jedi world,
-     Rey joins Luke Skywalker on an adventure with Leia,
-    Finn and Poe that unlocks mysteries of the Force and secrets of the past.</h2>
-    <div>
-      <button type="button" class="btn buy-button" routerLink="/buy">Zarezerwuj</button>
-      <button type="button" class="btn watch-button"  (click)="showYoutube('youtubeVid1')">Obejrzyj Zwiastun</button>
-  <div style="display:none;" id="youtubeVid1" class="youtubeVid">
-      <iframe id="iframe0" width="560" height="315" src="https://www.youtube.com/embed/Q0CbN8sfihY" frameborder="0" allowfullscreen></iframe>
-      <button type="button" class="btn watch-button"  (click)="hideYoutube('youtubeVid1','iframe0')">Zamknij Zwiastun</button>
-  </div>
+<div class="container movielist">
+  <div class="row" style="margin-top: 15px">
+    <div class="col">
+      <button type="button" class="btn btn-primary">PN</button>
+      <button type="button" class="btn btn-primary">WT</button>
+      <button type="button" class="btn btn-primary">SR</button>
+      <button type="button" class="btn btn-primary">CZ</button>
+      <button type="button" class="btn btn-primary">PT</button>
+      <button type="button" class="btn btn-primary">SO</button>
+      <button type="button" class="btn btn-primary">ND</button>
+      <button type="text"
+              placeholder="Datepicker"
+              class="btn btn-primary"
+              bsDatepicker>::</button>
     </div>
-</div>
-</li>
+    <div class="col">
+    </div>
+  </div>
+  <div class="row" style="border-bottom: 2px solid white; margin-top: 15px;">
+    <div class="col-8">Wszystkie</div>
+    <div class="col-4">Godziny</div>
+  </div>
+  <!--<div class="row" style="background-color: white; height: 2px"></div>-->
+  <div class="row" style="padding-top: 25px" *ngFor="let w of list">
+    <div class="col-8 border-right">
+      <img class="img-thumbnail img-size"
+           src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
+           alt="star wars">
+      <div class="details">
+        <h2 class="title">Gwiezdne wojny: Ostatni Jedi</h2>
+        <p>Czas trwania: 130min<br/><span>12</span></p>
+        <!--<h1 class="title">Gwiezdne wojny: Ostatni Jedi</h1>-->
+        <!--<h2 class="info">Having taken her first steps into the Jedi world,-->
+        <!--Rey joins Luke Skywalker on an adventure with Leia,-->
+        <!--Finn and Poe that unlocks mysteries of the Force and secrets of the past.</h2>-->
+        <div>
+          <button type="button" class="btn buy-button" routerLink="/buy">Zarezerwuj</button>
+          <button type="button" class="btn watch-button" (click)="showYoutube('youtubeVid1')">Obejrzyj Zwiastun
+          </button>
+          <div style="display:none;" id="youtubeVid1" class="youtubeVid">
+            <iframe id="iframe0" width="560" height="315" src="https://www.youtube.com/embed/Q0CbN8sfihY"
+                    frameborder="0" allowfullscreen></iframe>
+            <button type="button" class="btn watch-button" (click)="hideYoutube('youtubeVid1','iframe0')">Zamknij
+              Zwiastun
+            </button>
+          </div>
+        </div>
+      </div>
 
-  <li><img class="small-image" src="https://cdn.empireonline.com/jpg/70/0/0/1280/960/aspectfit/0/0/0/0/0/0/c/articles/59e7c4f974a68c0707aa82cb/justice-league-poster.jpg"
-  alt="Justice League">
-<div class="details">
-  <h1 class="title">Liga Sprawiedliwości</h1>
-  <h2 class="info">Fueled by his restored faith in humanity and inspired by Superman's selfless act,
-     Bruce Wayne enlists the help of his newfound ally,
-     Diana Prince, to face an even greater enemy.</h2>
-  <div>
-    <button type="button" class="btn buy-button" routerLink="/buy">Zarezerwuj</button>
-    <button type="button" class="btn watch-button"  (click)="showYoutube('youtubeVid')">Obejrzyj Zwiastun</button>
-    <div style="display:none;" id="youtubeVid" class="youtubeVid">
-      <iframe id="iframe1" width="560" height="315" src="https://www.youtube.com/embed/r9-DM9uBtVI" frameborder="0" allowfullscreen></iframe>
-      <button type="button" class="btn watch-button" (click)="hideYoutube('youtubeVid', 'iframe1')">Zamknij Zwiastun</button>
+      <!--<li><img class="small-image" src="https://cdn.empireonline.com/jpg/70/0/0/1280/960/aspectfit/0/0/0/0/0/0/c/articles/59e7c4f974a68c0707aa82cb/justice-league-poster.jpg"-->
+      <!--alt="Justice League">-->
+      <!--<div class="details">-->
+      <!--<h1 class="title">Liga Sprawiedliwości</h1>-->
+      <!--<h2 class="info">Fueled by his restored faith in humanity and inspired by Superman's selfless act,-->
+      <!--Bruce Wayne enlists the help of his newfound ally,-->
+      <!--Diana Prince, to face an even greater enemy.</h2>-->
+      <!--<div>-->
+      <!--<button type="button" class="btn buy-button" routerLink="/buy">Zarezerwuj</button>-->
+      <!--<button type="button" class="btn watch-button"  (click)="showYoutube('youtubeVid')">Obejrzyj Zwiastun</button>-->
+      <!--<div style="display:none;" id="youtubeVid" class="youtubeVid">-->
+      <!--<iframe id="iframe1" width="560" height="315" src="https://www.youtube.com/embed/r9-DM9uBtVI" frameborder="0" allowfullscreen></iframe>-->
+      <!--<button type="button" class="btn watch-button" (click)="hideYoutube('youtubeVid', 'iframe1')">Zamknij Zwiastun</button>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</li>-->
     </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+      <button type="button" class="btn btn-primary button-reservation">17:00</button>
+    </div>
+
   </div>
-</div>
-</li>
-</ul>
+
+
 </div>

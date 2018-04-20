@@ -1,22 +1,49 @@
 @import "../variables";
-.navbar{
-  min-height: 1rem;
-  height:5rem;
-  top:2rem;
+
+.navbar-style {
+  //min-height: 1rem;
+  //height: 5rem;
+  //top: 2rem;
+  z-index: 1;
   background-color: $kino-purple;
+  //background-color: transparent;
 }
-.active>a, .active>a:hover{
+
+.active > a, .active > a:hover {
   background: transparent;
 }
-.account, .btn-kino{
-  right:5%;
-  top:0.5rem;
+
+.account, .btn-kino {
+  right: 5%;
+  top: 0.5rem;
   background: $kino-pink;
   border-color: $kino-pink;
   color: $kino-white;
   border-radius: 0.5rem;
 }
 
-.navbar-right .dropdown-menu{
-    background: $kino-pink;
+.navbar-right .dropdown-menu {
+  background: $kino-pink;
+}
+
+.dropdown-style {
+  background: $kino-pink;
+  color: $kino-white;
+  border-radius: 0.5rem;
+}
+
+.dropdown-item {
+  border-bottom: 1px solid white !important;
+}
+
+.dropdown-item:hover {
+  border-bottom: 1px solid $kino-pink !important;
+}
+
+.navbar-font-color {
+  color: $kino-sand !important;
+}
+
+.navbar-font-color:hover {
+  color: white !important;
 }

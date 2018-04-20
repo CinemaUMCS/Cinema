@@ -1,49 +1,63 @@
 @import "variables";
-.movielist{
-  padding-top:2rem;
-  color:$kino-sand;
+
+.movielist {
+  padding-top: 2rem;
+  color: $kino-sand;
+  margin-top: 40px;
+  height: auto;
+}
+
+.img-size {
+  max-width: 120px;
 }
 
 .small-image {
   margin-top: 2rem;
-  width:15rem;
-  height:24rem;
-  position:relative;
+  width: 15rem;
+  height: 24rem;
+  position: relative;
 }
 
-.details{
-  position:absolute;
+.details {
+  position: absolute;
   display: inline;
   padding-left: 2rem;
 }
 
-.title{
-  position:relative;
+.title {
+  position: relative;
 }
 
-.info{
+.info {
   font-size: 14px;
   width: 40%;
 }
 
-.watch-button{
+.watch-button {
   background-color: $kino-purple;
-  &:hover{
-    color:$kino-sand;
-    background-color: darken($kino-purple,10%)
+  &:hover {
+    color: $kino-sand;
+    background-color: darken($kino-purple, 10%)
   }
 }
 
-.youtubeVid{
+.youtubeVid {
   z-index: 10;
   height: 100%;
-  width:100%;
-  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
-  top:0;
-  left:0;
-:first-child {
-  margin-left: 40%;
-  margin-top: 15%;
+  top: 0;
+  left: 0;
+  :first-child {
+    margin-left: 30%;
+    margin-top: 15%;
   }
+}
+
+.border-right-style {
+  //border-right: 1px dotted white;
+}
+.button-reservation{
+  margin: 10px;
 }
