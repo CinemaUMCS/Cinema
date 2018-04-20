@@ -1,0 +1,89 @@
+<!--<nav class="navbar navbar-inverse navbar-style">-->
+<!--<div class="container-fluid">-->
+<!--<div class="navbar-header">-->
+<!--<a class="navbar-brand" routerLink="/dashboard">Strona Główna</a>-->
+<!--</div>-->
+<!--<ul style="display-list: none">-->
+<!--<li class="nav-item"><a routerLink="/nowplaying"> Repertuar</a></li>-->
+<!--<li class="nav-item"><a routerLink="/pricelist"> Cennik</a></li>-->
+<!--<li class="nav-item"><a routerLink="/contact"> Kontakt</a></li>-->
+<!--</ul>-->
+<!--<ul class="nav navbar-nav navbar-right">-->
+
+
+<!--<button class="btn-kino" *ngIf="this.authService.isLoggedIn" a routerLink="/profile">Profil</button>-->
+
+<!--<div class="btn-group " dropdown>-->
+<!--<button dropdownToggle type="button" class="btn btn-primary dropdown-toggle account">-->
+<!--Konto <span class="caret"></span>-->
+<!--</button>-->
+<!--<ul *dropdownMenu class="dropdown-menu" role="menu">-->
+<!--<li role="menuitem"><a *ngIf="!(this.authService.isLoggedIn)" class="dropdown-item " routerLink="/login">Zaloguj-->
+<!--się</a></li>-->
+<!--<li role="menuitem"><a (click)="onLogout()" *ngIf="this.authService.isLoggedIn" class="dropdown-item"-->
+<!--routerLink="/login">Wyloguj się</a></li>-->
+<!--<li role="menuitem"><a *ngIf="!(this.authService.isLoggedIn)" class="dropdown-item" routerLink="/register">Zarejestruj-->
+<!--się</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--</ul>-->
+<!--</div>-->
+<!--</nav>-->
+<!--<router-outlet></router-outlet> -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-style" >
+  <a class="navbar-brand navbar-font-color" routerLink="/dashboard">Strona Główna</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" style="color: white" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link navbar-font-color" routerLink="/nowplaying"> Repertuar</a>
+      </li>
+      <li class="nav-item navbar-font-color">
+        <!--<a class="nav-link" href="#">Link</a>-->
+        <a class="nav-link navbar-font-color" routerLink="/pricelist"> Cennik</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link navbar-font-color" routerLink="/contact"> Kontakt</a>
+      </li>
+    </ul>
+    <div class="navbar-nav" style="margin-right: 25px">
+      <button type="button" class="btn dropdown-toggle dropdown-style" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+        Konto
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" style="margin-right: 37px;margin-top: -20px; padding: 5px">
+        <button *ngIf="!(this.authService.isLoggedIn)" class="dropdown-item" routerLink="/login">Zaloguj
+          się
+        </button>
+        <button (click)="onLogout()" *ngIf="this.authService.isLoggedIn" class="dropdown-item"
+                routerLink="/login">Wyloguj się
+        </button>
+        <button *ngIf="!(this.authService.isLoggedIn)" class="dropdown-item" routerLink="/register">Zarejestruj
+          się
+        </button>
+      </div>
+      <!--<div class="nav-item dropdown dropdown-style">-->
+      <!--<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"-->
+      <!--aria-haspopup="true" aria-expanded="false">-->
+      <!--Konto-->
+      <!--</a>-->
+      <!--<div class="dropdown-menu dropdown-menu-right" style="margin-right: 50px" aria-labelledby="navbarDropdown">-->
+      <!--<a *ngIf="!(this.authService.isLoggedIn)" class="dropdown-item" routerLink="/login">Zaloguj-->
+      <!--się</a>-->
+      <!--<a (click)="onLogout()" *ngIf="this.authService.isLoggedIn" class="dropdown-item"-->
+      <!--routerLink="/login">Wyloguj się</a>-->
+      <!--<a *ngIf="!(this.authService.isLoggedIn)" class="dropdown-item" routerLink="/register">Zarejestruj-->
+      <!--się</a>-->
+      <!--</div>-->
+      <!--</div>-->
+    </div>
+
+  </div>
+
+</nav>
+

@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "73f8561e-e167-4b15-90eb-33007a5cba01",
+		"name": "Cinema",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"description": null,
+			"item": [
+				{
+					"name": "Rejestracja",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Email\": \"test12t4@o2.pl\",\n\t\"FirstName\": \"Test\",\n\t\"LastName\":\"Pess\",\n\t\"Password\": \"xxxDDD1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/account/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logowanie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Email\": \"test12t4@o2.pl\",\n\t\"Password\": \"xxxDDD1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/account/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"description": "",
+			"item": [
+				{
+					"name": "AddMovie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQwMzU4NjksImV4cCI6MTUyNDAzNjc2OX0.6AhPs-ggUyOCofKRyZ5p4zEiHekqxn33s5zkefHzXcM"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Title\":\"nowy3film\",\n\t\"TrailerPath\":\"http://www.ss.pl\",\n\t\"PosterPath\":\"http://www.sssaa.pl\",\n\t\"Category\": \"Thriller\",\t\t//Musi sie zgadzac z wartosciami z GetCategories\n\t\"Description\": \"blablababla\",\n\t\"ProductionDate\":\"2012-12-25\"\t\t//nieobowiazkowe\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllMovies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/movie/getCategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"getCategories"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7db13554-7ad3-4d4e-bc22-f4aafd66cd48",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f597518-0291-4428-a579-95dbcefc611b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"description": "",
+			"item": [
+				{
+					"name": "AddRoom",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjM5OTk0NDYsImV4cCI6MTUyNDAwMDM0Nn0.DuRrL550Jm_HMAff17rNPdiQLWOdaibDU8X0_uzD2mg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Name\":\"NowyPokoj\",\n\t\"NumberOfRows\": 12,\n\t\"NumberOfSeatsInRow\":20\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/room",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRooms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/room",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAvailableRoomsOnHour",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/room/availableRooms?seanceStart=2018-12-01T12:35&seanceEnd=2018-12-01T16:35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"room",
+								"availableRooms"
+							],
+							"query": [
+								{
+									"key": "seanceStart",
+									"value": "2018-12-01T12:35"
+								},
+								{
+									"key": "seanceEnd",
+									"value": "2018-12-01T16:35"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "07fa14fc-0b25-4470-9df6-a8ac0d10eac8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc55aa96-61d4-432e-8724-9b081df27db9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Seance",
+			"description": "",
+			"item": [
+				{
+					"name": "AddSeance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQwNDY4NTYsImV4cCI6MTUyNDA0Nzc1Nn0._aABOutQr3rmuNzZAt2PpscESSYQz4cpMDc_wHK7CBE"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"SeanceStart\":\"2018-12-01T13:55\",\n\t\"DurationInMinutes\":\"90\",\n\t\"MovieId\":\"1002\",\t\n\t\"RoomId\":\"1\",\t\t//Nalezy najpierw sprawdzic czy pokoj jest dostepny o danej godzinie (movie/getAvailableRoomsOnHour), w przeciwnym razie poleci wyjątek\n\t\"NormalTicketPrice\":\"12\",\n\t\"ConcessionaryTicketPrice\":\"6\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/seance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"seance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSeancesByDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/seance/getByDate/?date=2018-12-02",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"seance",
+								"getByDate",
+								""
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2018-12-02"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/seance/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"seance",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSeanceRoomData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/seance/getSeanceRoomData/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"seance",
+								"getSeanceRoomData",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e87cb35f-5f2b-42fc-aa68-b000897b8c13",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "56026f52-5306-43d5-94e0-252797c62dd1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
