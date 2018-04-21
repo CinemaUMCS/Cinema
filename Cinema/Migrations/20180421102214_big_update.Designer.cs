@@ -12,8 +12,8 @@ using System;
 namespace Cinema.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20180418095046_fixed_seances_name")]
-    partial class fixed_seances_name
+    [Migration("20180421102214_big_update")]
+    partial class big_update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,8 +69,6 @@ namespace Cinema.Migrations
                     b.Property<bool>("Paid");
 
                     b.Property<int>("SeanceId");
-
-                    b.Property<bool>("Status");
 
                     b.Property<int>("UserId");
 

@@ -21,7 +21,7 @@ namespace Cinema.Repositories
     {
       return await _context.Reservations.Include(r => r.Seance).ThenInclude(s => s.Movie)
         .Include(r => r.User)
-        .Include(r => r.ReservedSeats)
+        .Include(r => r.ReservedSeats).ThenInclude(r=>r.Seat)
         .ToListAsync();
     }
 
@@ -29,7 +29,8 @@ namespace Cinema.Repositories
     {
       var reservation = await _context.Reservations.Include(r => r.Seance).ThenInclude(s => s.Movie)
         .Include(r => r.User)
-        .Include(r => r.ReservedSeats).SingleOrDefaultAsync(s => s.Id == id);
+        .Include(r => r.ReservedSeats).ThenInclude(r=>r.Seat)
+        .SingleOrDefaultAsync(s => s.Id == id);
       return reservation;
     }
 
@@ -49,7 +50,6 @@ namespace Cinema.Repositories
       reservationdb.Paid = reservation.Paid;
       reservationdb.SeanceId = reservation.SeanceId;
       reservationdb.UserId = reservation.UserId;
-      reservationdb.Status = reservation.Status;
 
       await _context.SaveChangesAsync();
     }

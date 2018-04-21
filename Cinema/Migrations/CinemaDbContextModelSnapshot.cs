@@ -30,10 +30,15 @@ namespace Cinema.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<string>("PosterPath")
+                        .IsRequired();
+
                     b.Property<DateTime?>("ProductionDate");
 
                     b.Property<string>("Title")
                         .IsRequired();
+
+                    b.Property<string>("TrailerPath");
 
                     b.HasKey("Id");
 
@@ -60,17 +65,21 @@ namespace Cinema.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("NumberOfConcessionaryTickets");
+
+                    b.Property<int>("NumberOfNormalTickets");
+
                     b.Property<bool>("Paid");
 
-                    b.Property<int>("ShowId");
-
-                    b.Property<bool>("Status");
+                    b.Property<int>("SeanceId");
 
                     b.Property<int>("UserId");
 
+                    b.Property<double>("Value");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ShowId");
+                    b.HasIndex("SeanceId");
 
                     b.HasIndex("UserId");
 
@@ -100,11 +109,38 @@ namespace Cinema.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Number");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
                     b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("Cinema.Entities.Seance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("ConcessionaryTicketPrice");
+
+                    b.Property<TimeSpan>("Duration");
+
+                    b.Property<int>("MovieId");
+
+                    b.Property<double>("NormalTicketPrice");
+
+                    b.Property<int>("RoomId");
+
+                    b.Property<DateTime>("SeanceStart");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("Seances");
                 });
 
             modelBuilder.Entity("Cinema.Entities.Seat", b =>
@@ -123,26 +159,6 @@ namespace Cinema.Migrations
                     b.HasIndex("RoomId");
 
                     b.ToTable("Seats");
-                });
-
-            modelBuilder.Entity("Cinema.Entities.Show", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("MovieId");
-
-                    b.Property<int>("RoomId");
-
-                    b.Property<DateTime>("ShowDate");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
-
-                    b.HasIndex("RoomId");
-
-                    b.ToTable("Shows");
                 });
 
             modelBuilder.Entity("Cinema.Entities.User", b =>
@@ -188,9 +204,9 @@ namespace Cinema.Migrations
 
             modelBuilder.Entity("Cinema.Entities.Reservation", b =>
                 {
-                    b.HasOne("Cinema.Entities.Show", "Show")
+                    b.HasOne("Cinema.Entities.Seance", "Seance")
                         .WithMany("Reservations")
-                        .HasForeignKey("ShowId")
+                        .HasForeignKey("SeanceId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Cinema.Entities.User", "User")
@@ -212,23 +228,23 @@ namespace Cinema.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("Cinema.Entities.Seat", b =>
-                {
-                    b.HasOne("Cinema.Entities.Room", "Room")
-                        .WithMany("Seats")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Cinema.Entities.Show", b =>
+            modelBuilder.Entity("Cinema.Entities.Seance", b =>
                 {
                     b.HasOne("Cinema.Entities.Movie", "Movie")
-                        .WithMany("Shows")
+                        .WithMany("Seances")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Cinema.Entities.Room", "Room")
-                        .WithMany("Shows")
+                        .WithMany("Seances")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Cinema.Entities.Seat", b =>
+                {
+                    b.HasOne("Cinema.Entities.Room", "Room")
+                        .WithMany("Seats")
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

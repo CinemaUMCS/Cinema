@@ -8,13 +8,9 @@ namespace Cinema.Request
 {
   public class AddReservation
   {
-    public class Seat
-    {
-      public int Row { get; set; }
-      public int Column { get; set; }
-    }
-
     public int SeanceId { get; set; }
-    public IEnumerable<Seat> Seats { get; set; }
+    public IEnumerable<int> SeatsToReserveIds { get; set; }
+    public int NumberOfConcessionaryTickets { get; set; }
+    public int NumberOfNormalTickets { get; set; }
   }
 }

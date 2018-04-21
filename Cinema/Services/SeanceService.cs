@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -73,14 +74,13 @@ namespace Cinema.Services
       var seanceRoomData = new SeanceRoomData();
       seanceRoomData.RoomId = seance.RoomId;
       seanceRoomData.SeanceId = seance.Id;
-      foreach (var seat in seance.Room.Seats)
+      seanceRoomData.SeatsInRoom = _mapper.Map<ICollection<Seat>, ICollection<SeatDto>>(seance.Room.Seats);
+      foreach (var seat in seanceRoomData.SeatsInRoom)
       {
-        if (seance.Reservations.Any(r => r.ReservedSeats.Any(rs => rs.Seat == seat)))
+        if (seance.Reservations.Any(r => r.ReservedSeats.Any(rs => rs.SeatId == seat.Id)))
           seanceRoomData.ReservedSeats.Add(seat);
-        else
-          seanceRoomData.AvailableSeats.Add(seat);
       }
-      seanceRoomData.AvailableSeats = seance.Room.Seats;
+
       return seanceRoomData;
     }
   }

@@ -12,8 +12,8 @@ using System;
 namespace Cinema.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20180418092009_added_ticket_prices_in_seance")]
-    partial class added_ticket_prices_in_seance
+    [Migration("20180421122417_reservation_changes")]
+    partial class reservation_changes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,8 @@ namespace Cinema.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("PosterPath");
+                    b.Property<string>("PosterPath")
+                        .IsRequired();
 
                     b.Property<DateTime?>("ProductionDate");
 
@@ -65,13 +66,17 @@ namespace Cinema.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("NumberOfConcessionaryTickets");
+
+                    b.Property<int>("NumberOfNormalTickets");
+
                     b.Property<bool>("Paid");
 
                     b.Property<int>("SeanceId");
 
-                    b.Property<bool>("Status");
-
                     b.Property<int>("UserId");
+
+                    b.Property<double>("Value");
 
                     b.HasKey("Id");
 
@@ -136,7 +141,7 @@ namespace Cinema.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("Seance");
+                    b.ToTable("Seances");
                 });
 
             modelBuilder.Entity("Cinema.Entities.Seat", b =>

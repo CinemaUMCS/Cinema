@@ -27,8 +27,8 @@ namespace Cinema.Repositories
     public async Task<Seance> GetAsync(int id)
     {
       var show = await _context.Seances.Include(s => s.Movie)
-        .Include(s => s.Reservations)
-        .Include(s => s.Room).ThenInclude(r=>r.Seats) //todo
+        .Include(s => s.Reservations).ThenInclude(r=>r.ReservedSeats)
+        .Include(s => s.Room).ThenInclude(r=>r.Seats)
         .SingleOrDefaultAsync(s => s.Id == id);
       return show;
     }

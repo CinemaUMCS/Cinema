@@ -65,7 +65,6 @@ namespace Cinema.Data
       #region ReservationConfiguration
 
       builder.Entity<Reservation>().HasKey(u => u.Id);
-      builder.Entity<Reservation>().Property(r => r.Status).IsRequired();
       builder.Entity<Reservation>().Property(r => r.Paid).IsRequired();
       builder.Entity<Reservation>().HasOne(r => r.Seance).WithMany(s => s.Reservations)
           .HasForeignKey(r => r.SeanceId);

@@ -8,5 +8,15 @@ namespace Cinema.Entities
 
     public Reservation Reservation { get; set; }
     public Seat Seat { get; set; }
+
+    public ReservedSeat(int reservationId, int seatId)
+    {
+      ReservationId = reservationId;
+      SeatId = seatId;
+    }
+
+    public ReservedSeat()
+    {
+    }
   }
 }
