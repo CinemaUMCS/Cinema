@@ -6,3 +6,16 @@
 .active>a, .active>a:hover{
   background: transparent;
 }
+.parent{
+  //position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 99.9vh;
+}
+.child {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+

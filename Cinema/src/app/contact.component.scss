@@ -1,8 +1,12 @@
 @import "variables";
 
 .grid-container{
+  //margin-top: 80px;
+  padding-top: 100px;
   display: grid;
-  padding-left: 5rem;
+  padding-left: 6rem;
+  //margin-left: auto;
+  //margin-right: auto;
   .adress{
     grid-column: 2 / span 3;
     grid-row: 1 / 2;

@@ -23,6 +23,7 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { HeaderComponent } from './header/header.component';
 import { AdminComponent } from './admin/admin.component';
 import {ProfileComponent} from './profile/profile.component';
+import { ClientComponent } from './client/client.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {ProfileComponent} from './profile/profile.component';
     UserLoginComponent,
     UserRegistrationComponent,
     HeaderComponent,
-    AdminComponent
+    AdminComponent,
+    ClientComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),
