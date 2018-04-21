@@ -84,7 +84,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQwMzU4NjksImV4cCI6MTUyNDAzNjc2OX0.6AhPs-ggUyOCofKRyZ5p4zEiHekqxn33s5zkefHzXcM"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQzMDY1MzYsImV4cCI6MTUyNDMwNzQzNn0.dt8k0KWq5_Q2RTZWPIlEryQU5dzRbVFTEHc0fKfIeAo"
 							}
 						],
 						"body": {
@@ -181,7 +181,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjM5OTk0NDYsImV4cCI6MTUyNDAwMDM0Nn0.DuRrL550Jm_HMAff17rNPdiQLWOdaibDU8X0_uzD2mg"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQzMDY1MzYsImV4cCI6MTUyNDMwNzQzNn0.dt8k0KWq5_Q2RTZWPIlEryQU5dzRbVFTEHc0fKfIeAo"
 							},
 							{
 								"key": "Content-Type",
@@ -233,7 +233,7 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:5000/room/availableRooms?seanceStart=2018-12-01T12:35&seanceEnd=2018-12-01T16:35",
+							"raw": "http://localhost:5000/room/availableRooms?seanceStart=2018-12-03T12:35&seanceEnd=2018-12-03T16:35",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -246,11 +246,11 @@
 							"query": [
 								{
 									"key": "seanceStart",
-									"value": "2018-12-01T12:35"
+									"value": "2018-12-03T12:35"
 								},
 								{
 									"key": "seanceEnd",
-									"value": "2018-12-01T16:35"
+									"value": "2018-12-03T16:35"
 								}
 							]
 						}
@@ -292,7 +292,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQwNDY4NTYsImV4cCI6MTUyNDA0Nzc1Nn0._aABOutQr3rmuNzZAt2PpscESSYQz4cpMDc_wHK7CBE"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQzMTA5NTYsImV4cCI6MTUyNDMxMTg1Nn0.dArUTdpTybfeKfAMLGNondq_b4RRYh-CPXp0cviwF-o"
 							},
 							{
 								"key": "Content-Type",
@@ -301,7 +301,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"SeanceStart\":\"2018-12-01T13:55\",\n\t\"DurationInMinutes\":\"90\",\n\t\"MovieId\":\"1002\",\t\n\t\"RoomId\":\"1\",\t\t//Nalezy najpierw sprawdzic czy pokoj jest dostepny o danej godzinie (movie/getAvailableRoomsOnHour), w przeciwnym razie poleci wyjątek\n\t\"NormalTicketPrice\":\"12\",\n\t\"ConcessionaryTicketPrice\":\"6\"\n}"
+							"raw": "{\n\t\"SeanceStart\":\"2018-12-01T16:55\",\n\t\"DurationInMinutes\":\"50\",\n\t\"MovieId\":\"1\",\t\n\t\"RoomId\":\"1\",\t\t//Nalezy najpierw sprawdzic czy pokoj jest dostepny o danej godzinie (movie/getAvailableRoomsOnHour), w przeciwnym razie poleci wyjątek\n\t\"NormalTicketPrice\":\"12\",\n\t\"ConcessionaryTicketPrice\":\"6\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:5000/seance",
@@ -324,7 +324,7 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:5000/seance/getByDate/?date=2018-12-02",
+							"raw": "http://localhost:5000/seance/getByDate/?date=2018-12-01",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -338,7 +338,7 @@
 							"query": [
 								{
 									"key": "date",
-									"value": "2018-12-02"
+									"value": "2018-12-01"
 								}
 							]
 						}
@@ -373,7 +373,7 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:5000/seance/getSeanceRoomData/7",
+							"raw": "http://localhost:5000/seance/getSeanceRoomData/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -382,7 +382,28 @@
 							"path": [
 								"seance",
 								"getSeanceRoomData",
-								"7"
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSeance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/seance/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"seance",
+								"1"
 							]
 						}
 					},
@@ -409,6 +430,111 @@
 							""
 						]
 					}
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"description": "",
+			"item": [
+				{
+					"name": "GetReservationsForUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/reservation/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"reservation",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetReservation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/reservation/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"reservation",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddReservation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQzMTM2MjYsImV4cCI6MTUyNDMxNDUyNn0.ov3XzT_YjrTIlD_o8SHbLuXEOdLSCThqjEHQXDZnRs8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"SeanceId\":\"2\",\n\t\"SeatsToReserveIds\":\n\t[\n\t\t\"3\",\n\t\t\"8\",\n\t\t\"1\"\n\t],\n\t\"NumberOfConcessionaryTickets\":1,\n\t\"NumberOfNormalTickets\":2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/reservation/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"reservation",
+								""
+							]
+						},
+						"description": "\t"
+					},
+					"response": []
+				},
+				{
+					"name": "GetReservationsForSeance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/reservation/seance/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"reservation",
+								"seance",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
