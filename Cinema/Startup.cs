@@ -1,5 +1,6 @@
 using System.Text;
 using Cinema.Data;
+using Cinema.Middleware;
 using Cinema.Repositories;
 using Cinema.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -83,6 +84,7 @@ namespace Cinema
       //app.UseStaticFiles();
 
       app.UseAuthentication()
+        .UseMiddleware(typeof(ExceptionMiddleware))
         .UseMvc();
     }
   }
