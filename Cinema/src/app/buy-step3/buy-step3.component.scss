@@ -7,15 +7,16 @@ html {
 
 .plane {
   margin: 20px auto;
-  max-width: 300px;
+  max-width: 60vw;
+  border: 2px solid white;
 }
 
 .cockpit {
-  height: 140px;
+  //height: 140px;
   position: relative;
   overflow: hidden;
   text-align: center;
-  border-bottom: 5px solid #d8d8d8;
+  //border-bottom: 5px solid #d8d8d8;
 }
 
 .exit {
@@ -44,8 +45,9 @@ html {
 }
 
 .fuselage {
-  border-right: 5px solid #d8d8d8;
-  border-left: 5px solid #d8d8d8;
+  //border-right: 5px solid #d8d8d8;
+  //border-left: 5px solid #d8d8d8;
+  padding: 20px;
 }
 
 ol {
@@ -62,7 +64,10 @@ ol {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  width: 100%;
+  padding: 0;
+  //justify-content: center;
+  //justify-content: flex-start;
 }
 
 .seat {
@@ -79,7 +84,8 @@ ol {
   }
   input[type=checkbox]:checked {
     + label {
-      background: #bada55;
+      //background: #bada55;
+      background: #F42536;
       -webkit-animation-name: rubberBand;
           animation-name: rubberBand;
       animation-duration: 300ms;
@@ -114,22 +120,24 @@ ol {
     font-weight: bold;
     line-height: 1.5rem;
     padding: 4px 0;
-    background: #F42536;
+    //background: #F42536;
+    background: #bada55;
+
     border-radius: 5px;
     animation-duration: 300ms;
     animation-fill-mode: both;
 
-    &:before {
-      content: "";
-      position: absolute;
-      width: 75%;
-      height: 75%;
-      top: 1px;
-      left: 50%;
-      transform: translate(-50%, 0%);
-      background: rgba(255,255,255,.4);
-      border-radius: 3px;
-    }
+    //&:before {
+    //  content: "";
+    //  position: absolute;
+    //  width: 75%;
+    //  height: 75%;
+    //  top: 1px;
+    //  left: 50%;
+    //  transform: translate(-50%, 0%);
+    //  background: rgba(255,255,255,.4);
+    //  border-radius: 3px;
+    //}
     &:hover {
       cursor: pointer;
       box-shadow: 0 0 0px 2px #5C6AFF;
