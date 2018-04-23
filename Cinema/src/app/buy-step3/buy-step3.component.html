@@ -1,9 +1,9 @@
 <div class="buy-process">
   <div class=regulamin>
+    <div class="cockpit">
+      <h1 style="margin-top: 80px">Wybierz miejsca</h1>
+    </div>
     <div class="plane">
-      <div class="cockpit">
-        <h1>Please select a seat</h1>
-      </div>
       <div class="exit exit--front fuselage">
 
       </div>
@@ -23,8 +23,8 @@
               <label for="1C">1C</label>
             </li>
             <li class="seat">
-              <input type="checkbox" disabled id="1D" />
-              <label for="1D">Occupied</label>
+              <input type="checkbox"  [disabled]="flag" id="1D" />
+              <label for="1D">l</label>
             </li>
             <li class="seat">
               <input type="checkbox" id="1E" />
