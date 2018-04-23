@@ -10,6 +10,7 @@ export class NowPlayingComponent {
   list = [1, 2, 3, 3, 3, 33, 3, 3, 3, 3, 3, 3];
   test = new Date();
 
+
   showYoutube(id): void {
     document.getElementById(id).style.display = 'block';
     document.getElementById('hideYoutubeVid').style.display = 'block';

@@ -1,29 +1,29 @@
-import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ConfigService } from './config.service';
+import {Injectable} from '@angular/core';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {ConfigService} from './config.service';
 
-import {BaseService} from "./base.service";
+import {BaseService} from './base.service';
 
-import { Observable } from 'rxjs/Rx';
-import { BehaviorSubject } from 'rxjs/Rx';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import {Observable} from 'rxjs/Rx';
+import {BehaviorSubject} from 'rxjs/Rx';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 //import * as _ from 'lodash';
 // Add the RxJS Observable operators we need in this app.
 import './rxjs-operators';
-import { User } from './user';
-import { Component } from '@angular/core/src/metadata/directives';
+import {User} from './user';
+import {Component} from '@angular/core/src/metadata/directives';
 
 @Injectable()
 
 export class UserService extends BaseService {
 
   baseUrl: string = '';
-  user:User;
+  user: User;
   userStream: ReplaySubject<User> = new ReplaySubject();
 
-  userRx$(): Observable<User>{
+  userRx$(): Observable<User> {
     return this.userStream.asObservable();
   }
 
@@ -43,24 +43,24 @@ export class UserService extends BaseService {
     this.baseUrl = configService.getApiURI();
   }
 
-    register(email: string, password: string, firstName: string, lastName: string): Observable<User> {
-    let body = JSON.stringify({ email, password, firstName, lastName });
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+  register(email: string, password: string, firstName: string, lastName: string): Observable<User> {
+    let body = JSON.stringify({email, password, firstName, lastName});
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
 
-    return this.http.post(this.baseUrl + "/account/register", body, options)
+    return this.http.post(this.baseUrl + '/account/register', body, options)
       .map(res => true)
       .catch(this.handleError);
-  }  
+  }
 
-   login(email, password) {
+  login(email, password) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
       .post(
-      this.baseUrl + '/account/login',
-      JSON.stringify({ email, password }),{ headers }
+        this.baseUrl + '/account/login',
+        JSON.stringify({email, password}), {headers}
       )
       .map(res => res.json())
       .map(res => {
@@ -80,20 +80,22 @@ export class UserService extends BaseService {
 
   get isLoggedIn() {
     if (localStorage.getItem('auth_token') == undefined) {
-        this.loggedIn = false;
-        return this.loggedIn;
+      this.loggedIn = false;
+      return this.loggedIn;
     }
     else {
-        return true;
+      return true;
     }
   }
-  
+
   userDto(): Observable<User> {
     let token = 'Bearer ' + localStorage.getItem('auth_token');
     const httpOptions = {
-      headers : new HttpHeaders({ 'Content-Type': 'application/json', 
-    'Authorization': token})
-  };
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token
+      })
+    };
     // let options = new RequestOptions({ headers: headers });
     this.baseUrl = this.configService.getApiURI();
 
