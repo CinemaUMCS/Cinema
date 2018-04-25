@@ -10,5 +10,7 @@ namespace Cinema.DTO
     public Category Category { get; set; }
     public string Description { get; set; }
     public DateTime? ProductionDate { get; set; }
+    public string TrailerPath { get; set; }
+    public string PosterPath { get; set; }
   }
 }
