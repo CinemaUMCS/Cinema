@@ -1,24 +1,50 @@
 <div class="container movielist">
   <div class="row" style="margin-top: 15px">
-    <div class="col">
-      <button type="button" class="btn btn-primary">PN</button>
-      <button type="button" class="btn btn-primary">WT</button>
-      <button type="button" class="btn btn-primary">SR</button>
-      <button type="button" class="btn btn-primary">CZ</button>
-      <button type="button" class="btn btn-primary">PT</button>
-      <button type="button" class="btn btn-primary">SO</button>
-      <button type="button" class="btn btn-primary">ND</button>
-      <button type="text"
-              placeholder="Datepicker"
-              class="btn btn-primary"
-              bsDatepicker>::ng
+    <div class="col-10">
+      <button id="1" type="button" class="btn btn-primary"
+              [style.background-color]="1==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">PN
       </button>
+      <button id="2" type="button" class="btn btn-primary"
+              [style.background-color]="2==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">WT
+      </button>
+      <button id="3" type="button" class="btn btn-primary"
+              [style.background-color]="3==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">SR
+      </button>
+      <button id="4" type="button" class="btn btn-primary"
+              [style.background-color]="4==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">CZ
+      </button>
+      <button id="5" type="button" class="btn btn-primary"
+              [style.background-color]="5==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">PT
+      </button>
+      <button id="6" type="button" class="btn btn-primary"
+              [style.background-color]="6==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">SO
+      </button>
+      <button id="0" type="button" class="btn btn-primary"
+              [style.background-color]="0==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">ND
+      </button>
+      <!--<button type="text"-->
+      <!--placeholder="Datepicker"-->
+      <!--class="btn btn-primary"-->
+      <!--bsDatepicker>::ng-->
+      <!--</button>-->
+
+      <mat-datepicker-toggle class="btn btn-primary data-picker" matSuffix [for]="dp3"></mat-datepicker-toggle>
+      <input matInput [matDatepicker]="dp3" placeholder="Input disabled" [min]="minDate" [(ngModel)]="date" disabled
+             style="visibility: hidden">
+      <mat-datepicker #dp3 disabled="false"></mat-datepicker>
     </div>
-    <div class="col">
+    <div class="col-2">
     </div>
   </div>
   <div class="row" style="border-bottom: 2px solid white; margin-top: 15px;">
-    <div class="col-8">Wszystkie</div>
+    <div class="col-8">{{date|date: 'shortDate'}}</div>
     <div class="col-4">Godziny</div>
   </div>
   <!--<div class="row" style="background-color: white; height: 2px"></div>-->

@@ -16,6 +16,7 @@ import {UserService} from './user.service';
 import {ProfileComponent} from './profile/profile.component';
 import {AdminComponent} from './admin/admin.component';
 import {ClientComponent} from './client/client.component';
+import {AuthGuard} from './shared/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
       {path: 'login', component: UserLoginComponent},
       {path: 'register', component: UserRegistrationComponent},
       {path: 'user.service', component: UserService},
-      {path: 'profile', component: ProfileComponent}
+      {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
     ]
   },
   {path: 'admin', component: AdminComponent}
