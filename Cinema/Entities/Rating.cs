@@ -4,9 +4,9 @@ namespace Cinema.Entities
   {
     public int? Mark { get; set; }
 
-    public User User { get; set; }
-    public Movie Movie { get; set; }
-    public int UserId { get; set; }
-    public int MovieId { get; set; }
+    public virtual User User { get; set; }
+    public virtual Movie Movie { get; set; }
+    public virtual int UserId { get; set; }
+    public virtual int MovieId { get; set; }
   }
 }

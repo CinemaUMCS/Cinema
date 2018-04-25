@@ -14,16 +14,16 @@ namespace Cinema.Entities
 
   public class Movie
   {
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string TrailerPath { get; set; }
-    public string PosterPath { get; set; }
-    public Category Category { get; set; }
-    public string Description { get; set; }
-    public DateTime? ProductionDate { get; set; }
+    public virtual int Id { get; set; }
+    public virtual string Title { get; set; }
+    public virtual string TrailerPath { get; set; }
+    public virtual string PosterPath { get; set; }
+    public virtual Category Category { get; set; }
+    public virtual string Description { get; set; }
+    public virtual DateTime? ProductionDate { get; set; }
 
-    public ICollection<Rating> Ratings { get; set; }
-    public ICollection<Seance> Seances { get; set; }
+    public virtual ICollection<Rating> Ratings { get; set; }
+    public virtual ICollection<Seance> Seances { get; set; }
 
     public Movie()
     {

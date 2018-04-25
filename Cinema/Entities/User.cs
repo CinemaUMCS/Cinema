@@ -4,6 +4,16 @@ namespace Cinema.Entities
 {
   public class User
   {
+    public virtual int Id { get; set; }
+    public virtual string Email { get; set; }
+    public virtual string FirstName { get; set; }
+    public virtual string LastName { get; set; }
+    public virtual string Password { get; set; }
+    public virtual string Salt { get; set; }
+    public virtual string Role { get; set; }
+    public virtual ICollection<Reservation> Reservations { get; set; }
+    public virtual ICollection<Rating> Ratings { get; set; }
+
     public User()
     {
       Reservations = new HashSet<Reservation>();
@@ -19,17 +29,5 @@ namespace Cinema.Entities
       Salt = salt;
       Role = role;
     }
-
-    public int Id { get; set; }
-    public string Email { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Password { get; set; }
-    public string Salt { get; set; }
-    public string Role { get; set; }
-
-
-    public ICollection<Reservation> Reservations { get; set; }
-    public ICollection<Rating> Ratings { get; set; }
   }
 }

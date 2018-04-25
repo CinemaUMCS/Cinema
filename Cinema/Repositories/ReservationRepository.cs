@@ -19,17 +19,13 @@ namespace Cinema.Repositories
 
     public async Task<ICollection<Reservation>> GetAllAsync()
     {
-      return await _context.Reservations.Include(r => r.Seance).ThenInclude(s => s.Movie)
-        .Include(r => r.User)
-        .Include(r => r.ReservedSeats).ThenInclude(r=>r.Seat)
+      return await _context.Reservations
         .ToListAsync();
     }
 
     public async Task<Reservation> GetAsync(int id)
     {
-      var reservation = await _context.Reservations.Include(r => r.Seance).ThenInclude(s => s.Movie)
-        .Include(r => r.User)
-        .Include(r => r.ReservedSeats).ThenInclude(r=>r.Seat)
+      var reservation = await _context.Reservations
         .SingleOrDefaultAsync(s => s.Id == id);
       return reservation;
     }

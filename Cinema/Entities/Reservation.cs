@@ -5,18 +5,18 @@ namespace Cinema.Entities
 {
   public class Reservation
   {
-    public int Id { get; set; }
-    public int SeanceId { get; set; }
-    public int UserId { get; set; }
-    public bool Paid { get; set; }
-    public int NumberOfConcessionaryTickets { get; set; }
-    public int NumberOfNormalTickets { get; set; }
-    public double Value { get; set; }
+    public virtual int Id { get; set; }
+    public virtual int SeanceId { get; set; }
+    public virtual int UserId { get; set; }
+    public virtual bool Paid { get; set; }
+    public virtual int NumberOfConcessionaryTickets { get; set; }
+    public virtual int NumberOfNormalTickets { get; set; }
+    public virtual double Value { get; set; }
 
-    public ICollection<ReservedSeat> ReservedSeats { get; set; }
+    public virtual ICollection<ReservedSeat> ReservedSeats { get; set; }
 
-    public Seance Seance { get; set; }
-    public User User { get; set; }
+    public virtual Seance Seance { get; set; }
+    public virtual User User { get; set; }
 
     public Reservation()
     {

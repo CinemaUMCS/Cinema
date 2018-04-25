@@ -27,7 +27,8 @@ namespace Cinema
     {
       var connectionString = Configuration["Sql:ConnectionString"];
       services.AddDbContext<CinemaDbContext>(options =>
-        options.UseSqlServer(connectionString));
+        options.UseLazyLoadingProxies()
+          .UseSqlServer(connectionString));
 
       var jwtKey = Configuration["Jwt:Key"];
       services.AddAuthentication(options => { options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme; })
@@ -60,7 +61,9 @@ namespace Cinema
       services.AddScoped<IEncrypter, EncrypterService>();
       services.AddScoped<ITokenProvider, TokenProvider>();
       services.AddSingleton(AutoMapperConfig.Initialize());
-      services.AddMvc();
+      services.AddMvc()
+        .AddJsonOptions(options =>
+          options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

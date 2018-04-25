@@ -26,24 +26,18 @@ namespace Cinema.Repositories
     public async Task<IEnumerable<Room>> GetAllAsync()
     {
       return await _context.Rooms
-        .Include(r => r.Seances)
-        .Include(r => r.Seats)
         .ToListAsync();
     }
 
     public async Task<Room> GetById(int id)
     {
       return await _context.Rooms
-        .Include(r => r.Seances)
-        .Include(r => r.Seats)
         .FirstOrDefaultAsync(r => r.Id == id);
     }
 
     public async Task<Room> GetByName(string name)
     {
       return await _context.Rooms
-        .Include(r => r.Seances)
-        .Include(r => r.Seats)
         .FirstOrDefaultAsync(r => r.Name == name);
     }
   }

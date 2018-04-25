@@ -19,14 +19,12 @@ namespace Cinema.Repositories
 
     public async Task<ICollection<Movie>> GetAllAsync()
     {
-      return await _context.Movies.Include(m => m.Ratings).Include(m => m.Seances).ToListAsync();
+      return await _context.Movies.ToListAsync();
     }
 
     public async Task<Movie> GetAsync(int id)
     {
       var movie = await _context.Movies
-        .Include(m => m.Ratings)
-        .Include(m => m.Seances)
         .SingleOrDefaultAsync(m => m.Id == id);
       return movie;
     }
