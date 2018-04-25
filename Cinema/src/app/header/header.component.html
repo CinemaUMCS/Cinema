@@ -31,7 +31,7 @@
 <!--</div>-->
 <!--</nav>-->
 <!--<router-outlet></router-outlet> -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-style" >
+<nav class="navbar fixed-top navbar-expand-lg navbar-style">
   <a class="navbar-brand navbar-font-color" routerLink="/">Strona Główna</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,13 +57,13 @@
         Konto
       </button>
       <div class="dropdown-menu dropdown-menu-right" style="margin-right: 37px;margin-top: -20px; padding: 5px">
-        <button *ngIf="!(this.authService.isLoggedIn)" class="dropdown-item" routerLink="/login">Zaloguj
+        <button *ngIf="!isLogged" class="dropdown-item" routerLink="/login">Zaloguj
           się
         </button>
-        <button (click)="onLogout()" *ngIf="this.authService.isLoggedIn" class="dropdown-item"
+        <button (click)="onLogout()" *ngIf="isLogged" class="dropdown-item"
                 routerLink="/login">Wyloguj się
         </button>
-        <button *ngIf="!(this.authService.isLoggedIn)" class="dropdown-item" routerLink="/register">Zarejestruj
+        <button *ngIf="!isLogged" class="dropdown-item" routerLink="/register">Zarejestruj
           się
         </button>
       </div>

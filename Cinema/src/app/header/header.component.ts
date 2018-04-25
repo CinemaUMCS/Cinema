@@ -5,6 +5,8 @@ import {UserService} from '../user.service';
 
 import {AuthGuard} from '../auth.guard';
 import {ConfigService} from '../config.service';
+import {AuthenticationService} from '../shared/authentication.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-header',
@@ -16,18 +18,31 @@ export class HeaderComponent implements OnInit {
   isLoggedIn$: boolean;
   private href: string;
 
+  private isLogged: boolean;
+  private loggedSubscription: Subscription;
+
   constructor(private authService: UserService,
-              private router: Router) {
-      this.href = this.router.url;
-      console.log(this.href);
+              private router: Router, private authenticationService: AuthenticationService) {
+    this.href = this.router.url;
+    console.log(this.href);
+    this.loggedSubscription = this.authenticationService.getMessage().subscribe(value => this.isLogged = value);
   }
 
   ngOnInit() {
-    this.isLoggedIn$ = this.authService.isLoggedIn; // {2}
+    // this.isLoggedIn$ = this.authService.isLoggedIn; // {2}
+    this.isLogged = this.authenticationService.isLogged();
+  }
+
+  // onLogout() {
+  //   this.authService.logout();                      // {3}
+  // }
+  loginIn() {
+    return this.authenticationService.logged;
   }
 
   onLogout() {
-    this.authService.logout();                      // {3}
+    this.isLogged = false;
+    this.authenticationService.logout();
   }
 
 }
