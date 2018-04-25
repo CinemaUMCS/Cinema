@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {mod} from 'ngx-bootstrap/bs-moment/utils';
+//import {mod} from 'ngx-bootstrap/bs-moment/utils';
 import {DateFormatter} from 'ngx-bootstrap';
 import {DatePipe} from '@angular/common';
 

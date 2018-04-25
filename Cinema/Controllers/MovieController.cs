@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,12 +38,18 @@ namespace Cinema.Controllers
     [HttpGet("{id}", Name = "GetMovie")]
     public async Task<IActionResult> Get(int id)
     {
-      //wyswietlac jeszcze seanse i ratingi
       var movie = await _movieService.GetAsync(id);
       if (movie == null)
         return NotFound();
       return Ok(movie);
     }
+    [HttpGet("getMoviesPlayingAtDate")]
+    public async Task<IActionResult> GetMoviesPlayingAtDate(DateTime date)
+    {
+      var movies = await _movieService.GetMoviesPlayingAtDate(date);
+      return Json(movies);
+    }
+
 
     [HttpPost]
     [Authorize(Roles = "admin, employee")]

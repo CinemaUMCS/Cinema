@@ -66,6 +66,32 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "CurrentUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQ2NTA4NDksImV4cCI6MTUyNDY1MTc0OX0.F1t2SAkhDEPY_vBEW3ksw9mepWAIuNGA1f1fzfFNluc"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/account/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"details"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -141,6 +167,34 @@
 							"path": [
 								"movie",
 								"getCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMoviesPlayingAtDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/movie/GetMoviesPlayingAtDate/?date=2018-12-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"GetMoviesPlayingAtDate",
+								""
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2018-12-01"
+								}
 							]
 						}
 					},
@@ -318,6 +372,27 @@
 					"response": []
 				},
 				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/seance/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"seance",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GetSeancesByDate",
 					"request": {
 						"method": "GET",
@@ -346,13 +421,13 @@
 					"response": []
 				},
 				{
-					"name": "GetAll",
+					"name": "GetSeancesByMovieId",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:5000/seance/",
+							"raw": "http://localhost:5000/seance/getByMovieId/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -360,7 +435,39 @@
 							"port": "5000",
 							"path": [
 								"seance",
-								""
+								"getByMovieId",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByDateAndMovieId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/seance/getByDateAndMovieId?movieId=1&date=2018-12-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"seance",
+								"getByDateAndMovieId"
+							],
+							"query": [
+								{
+									"key": "movieId",
+									"value": "1"
+								},
+								{
+									"key": "date",
+									"value": "2018-12-01"
+								}
 							]
 						}
 					},

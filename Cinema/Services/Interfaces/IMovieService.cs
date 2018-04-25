@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cinema.Entities;
@@ -8,7 +9,8 @@ namespace Cinema.Services
 {
   public interface IMovieService
   {
-    Task<ICollection<MovieDto>> GetAllAsync();
+    Task<IEnumerable<MovieDto>> GetAllAsync();
+    Task<IEnumerable<MovieDto>> GetMoviesPlayingAtDate(DateTime date);
     Task<MovieDto> GetAsync(int id);
     Task AddAsync(AddMovie movie);
     Task UpdateAsync(int id, Movie movie);
