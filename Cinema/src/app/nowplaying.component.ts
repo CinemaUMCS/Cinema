@@ -1,7 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-//import {mod} from 'ngx-bootstrap/bs-moment/utils';
-import {DateFormatter} from 'ngx-bootstrap';
+
+
 import {DatePipe} from '@angular/common';
+import {SeanceService} from './shared/seance.service';
+import {MovieModel} from '../model/movie.model';
+import {CategoryModel} from '../model/category.model';
+import {SeanceModel} from '../model/seance.model';
 
 @Component({
   selector: 'app-nowplaying',
@@ -17,16 +21,86 @@ export class NowPlayingComponent implements OnInit {
   buttonDates = new Array<any>();
   actualDayOfWeek: number;
 
-  constructor(private datePipe: DatePipe) {
+  movieAtDay: MovieModel[];
+  categories: CategoryModel[];
+  seances: SeanceModel[];
 
+  emptyPage: boolean;
+
+  constructor(private datePipe: DatePipe, private seanceService: SeanceService) {
   }
 
   ngOnInit() {
     this.actualDayOfWeek = new Date().getDay();
     this.containDateWithButton();
-    const d = new Date('11-05-1991');
+    this.getAllCategories();
+    this.getRepartioryByDate(this.datePipe.transform(this.date, 'yyyy-MM-dd'));
+    // this.getRepartioryByDate('2018-12-01');
+  }
 
-    console.log(this.datePipe.transform(new Date(), 'yyyy-MM-ddThh:mm'));
+
+  clickWeekBtnEvent(event) {
+    const id = event.srcElement.id;
+    this.date = this.buttonDates[id];
+    this.getRepartioryByDate(this.datePipe.transform(this.date, 'yyyy-MM-dd'));
+
+  }
+
+  setDateFromDataPicker() {
+    this.getRepartioryByDate(this.datePipe.transform(this.date, 'yyyy-MM-dd'));
+  }
+
+
+  getRepartioryByDate(date: string) {
+    console.log(date);
+    this.getMovieByDate(date);
+    this.getSeanceByDate(date);
+  }
+
+
+  addDaysToActualDate(numberOfDay: number) {
+    return new Date(this.date.getTime() + numberOfDay * (60 * 60 * 24 * 1000));
+  }
+
+  containDateWithButton() {
+    const day = this.actualDayOfWeek;
+    for (let i = 0; i < 7; i++) {
+      console.log((day + i) % 7);
+      this.buttonDates[(day + i) % 7] = this.addDaysToActualDate(i);
+    }
+  }
+
+  getMovieByDate(date: string) {
+    date = this.datePipe.transform(date, 'yyyy-MM-dd');
+    this.seanceService.getAllMovieByDay(date).subscribe(
+      response => {
+        this.movieAtDay = response.json();
+        if (this.movieAtDay.length > 0) {
+          this.emptyPage = false;
+        } else {
+          this.emptyPage = true;
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  getAllCategories() {
+    this.seanceService.getAllCategories().subscribe(
+      response => this.categories = response.json(),
+      error2 => console.log(error2));
+  }
+
+  getSeanceByDate(date: string) {
+    this.seanceService.getSeanceByDate(date).subscribe(
+      response => {
+        this.seances = response.json();
+        console.log(this.seances);
+      },
+      error => console.log(error)
+    );
   }
 
   showYoutube(id): void {
@@ -41,22 +115,11 @@ export class NowPlayingComponent implements OnInit {
     document.getElementById('hideYoutubeVid').style.display = 'none';
   }
 
-  dayOfWeekBtn(event) {
-    const id = event.srcElement.id;
-    this.date = this.buttonDates[id];
+  chooseSeance(id) {
+    // logika spo kliknieciu w odpowieni seans
   }
 
-  addDaysToActualDate(numberOfDay: number) {
-    return new Date(this.date.getTime() + numberOfDay * (60 * 60 * 24 * 1000));
-  }
 
-  containDateWithButton() {
-    const day = this.actualDayOfWeek;
-    for (let i = 0; i < 7; i++) {
-      console.log((day + i) % 7);
-      this.buttonDates[(day + i) % 7] = this.addDaysToActualDate(i);
-    }
-  }
 }
 
 

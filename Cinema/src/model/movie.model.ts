@@ -6,4 +6,6 @@ export interface MovieModel {
   category: CategoryModel;
   description: string;
   productionDate?: Date;
+  trailerPath: string;
+  posterPath: string;
 }

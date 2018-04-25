@@ -64,6 +64,7 @@ import {
 import {AuthenticationService} from './shared/authentication.service';
 import {AuthGuard} from './shared/auth-guard.service';
 import {CommonModule, DatePipe} from '@angular/common';
+import {SeanceService} from './shared/seance.service';
 
 @NgModule({
   declarations: [
@@ -128,7 +129,7 @@ import {CommonModule, DatePipe} from '@angular/common';
     MatToolbarModule,
     MatTooltipModule,
   ],
-  providers: [AuthenticationService, AuthGuard,DatePipe],
+  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
