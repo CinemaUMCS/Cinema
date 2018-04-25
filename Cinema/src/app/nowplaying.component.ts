@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {mod} from 'ngx-bootstrap/bs-moment/utils';
+import {DateFormatter} from 'ngx-bootstrap';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-nowplaying',
@@ -15,11 +17,16 @@ export class NowPlayingComponent implements OnInit {
   buttonDates = new Array<any>();
   actualDayOfWeek: number;
 
+  constructor(private datePipe: DatePipe) {
+
+  }
 
   ngOnInit() {
     this.actualDayOfWeek = new Date().getDay();
     this.containDateWithButton();
-    console.log(this.buttonDates);
+    const d = new Date('11-05-1991');
+
+    console.log(this.datePipe.transform(new Date(), 'yyyy-MM-ddThh:mm'));
   }
 
   showYoutube(id): void {
@@ -34,9 +41,9 @@ export class NowPlayingComponent implements OnInit {
     document.getElementById('hideYoutubeVid').style.display = 'none';
   }
 
-
-  fun(event) {
-
+  dayOfWeekBtn(event) {
+    const id = event.srcElement.id;
+    this.date = this.buttonDates[id];
   }
 
   addDaysToActualDate(numberOfDay: number) {
@@ -47,7 +54,7 @@ export class NowPlayingComponent implements OnInit {
     const day = this.actualDayOfWeek;
     for (let i = 0; i < 7; i++) {
       console.log((day + i) % 7);
-      this.buttonDates[(day + i) % 7] = this.addDaysToActualDate(i).getDate();
+      this.buttonDates[(day + i) % 7] = this.addDaysToActualDate(i);
     }
   }
 }

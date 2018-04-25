@@ -63,7 +63,7 @@ import {
 } from '@angular/material';
 import {AuthenticationService} from './shared/authentication.service';
 import {AuthGuard} from './shared/auth-guard.service';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -128,7 +128,7 @@ import {CommonModule} from '@angular/common';
     MatToolbarModule,
     MatTooltipModule,
   ],
-  providers: [AuthenticationService, AuthGuard],
+  providers: [AuthenticationService, AuthGuard,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

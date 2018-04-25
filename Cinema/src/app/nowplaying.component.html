@@ -2,27 +2,32 @@
   <div class="row" style="margin-top: 15px">
     <div class="col-10">
       <button id="1" type="button" class="btn btn-primary"
-              [style.background-color]="1==actualDayOfWeek ?'#4CAF50': '#007bff'">
-        PN
+              [style.background-color]="1==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">PN
       </button>
       <button id="2" type="button" class="btn btn-primary"
-              [style.background-color]="2==actualDayOfWeek ?'#4CAF50': '#007bff'">WT
+              [style.background-color]="2==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">WT
       </button>
       <button id="3" type="button" class="btn btn-primary"
-              [style.background-color]="3==actualDayOfWeek ?'#4CAF50': '#007bff'">SR
+              [style.background-color]="3==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">SR
       </button>
       <button id="4" type="button" class="btn btn-primary"
-              [style.background-color]="4==actualDayOfWeek ?'#4CAF50': '#007bff'">CZ
+              [style.background-color]="4==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">CZ
       </button>
       <button id="5" type="button" class="btn btn-primary"
-              [style.background-color]="5==actualDayOfWeek ?'#4CAF50': '#007bff'">PT
+              [style.background-color]="5==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">PT
       </button>
       <button id="6" type="button" class="btn btn-primary"
-              [style.background-color]="6==actualDayOfWeek ?'#4CAF50': '#007bff'">SO
+              [style.background-color]="6==actualDayOfWeek ?'#4CAF50': '#007bff'"
+              (click)="dayOfWeekBtn($event)">SO
       </button>
       <button id="0" type="button" class="btn btn-primary"
               [style.background-color]="0==actualDayOfWeek ?'#4CAF50': '#007bff'"
-              (click)="fun($event)">ND
+              (click)="dayOfWeekBtn($event)">ND
       </button>
       <!--<button type="text"-->
       <!--placeholder="Datepicker"-->
