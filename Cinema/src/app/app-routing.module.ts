@@ -16,6 +16,16 @@ import {UserService} from './user.service';
 import {ProfileComponent} from './profile/profile.component';
 import {AdminComponent} from './admin/admin.component';
 import {ClientComponent} from './client/client.component';
+import { PanelLoginComponent } from './admin/panel-login/panel-login.component';
+import { HomePanelComponent } from './admin/home-panel/home-panel.component';
+import { MoviesComponent } from './admin/movies/movies.component';
+import { MovieDetailsComponent } from './admin/Movies/movie-details/movie-details.component';
+import { EditMovieComponent } from './admin/Movies/edit-movie/edit-movie.component';
+import { ReservationsComponent } from './admin/reservations/reservations.component';
+import { ReservationDetailsComponent } from './admin/reservation-details/reservation-details.component';
+import { SeancesComponent } from './admin/seances/seances.component';
+import { SeanceDetailsComponent } from './admin/Seances/seance-details/seance-details.component';
+import { EditSeanceComponent } from './admin/Seances/edit-seance/edit-seance.component';
 import {AuthGuard} from './shared/auth-guard.service';
 
 const routes: Routes = [
@@ -35,7 +45,21 @@ const routes: Routes = [
       {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
     ]
   },
-  {path: 'admin', component: AdminComponent}
+  {path: 'admin', component: AdminComponent, children: [
+    {path: 'login', component: PanelLoginComponent },
+    {path: 'panel', component: HomePanelComponent, children: [
+      {path: 'filmy', component: MoviesComponent },
+      {path: 'filmy/dodaj', component: EditMovieComponent },
+      {path: 'filmy/edycja/:id', component: EditMovieComponent },
+      {path: 'filmy/:id', component: MovieDetailsComponent },
+      {path: 'rezerwacje', component: ReservationsComponent },
+      {path: 'filmy/:id/seanse', component: SeancesComponent },
+      {path: 'filmy/:id/seanse/nowy', component: EditSeanceComponent },
+      {path: 'filmy/:id/seanse/edytuj/:id', component: EditSeanceComponent },
+      {path: 'filmy/:id/seanse/:id', component: SeanceDetailsComponent },
+    ] },
+
+  ]}
 
 
 ];

@@ -1,0 +1,42 @@
+<a [routerLink]="['dodaj']"class="btn btn-primary">Dodaj film</a>
+
+<mat-table #table [dataSource]="dataSource">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="ids">
+    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef> Tytuł </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef> Kategoria </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="productionDate">
+    <mat-header-cell *matHeaderCellDef> Data produkcji </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.productionDate.toISOString() | date: 'dd/MM/yyyy'}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="options">
+    <mat-header-cell *matHeaderCellDef> Opcje </mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-button [matMenuTriggerFor]="menu">opcje</button>
+      <mat-menu #menu="matMenu">
+          <button [routerLink]="[element.id, 'seanse']"  mat-menu-item>Seanse</button>
+        <button [routerLink]="['edycja', element.id]"  mat-menu-item>Edytuj</button>
+        <button (click)="remove(element.id)" mat-menu-item>Usuń</button>
+      </mat-menu></mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+</mat-paginator>

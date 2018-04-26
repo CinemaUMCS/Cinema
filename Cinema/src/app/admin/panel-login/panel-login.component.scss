@@ -1,0 +1,46 @@
+$login-button-color: rgb(16, 184, 114);
+$login-button-hover-color: rgb(15, 150, 94);
+
+.login-wrapper {
+    height: 100%;
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form {
+        text-align: center;
+
+        input {
+            border-radius: 0;
+        }
+    }
+    h1 {
+        text-align: center;
+        width: 100%;
+        color: #fff;
+        padding-bottom: 15px;
+    }
+    .container {
+        width: 300px;
+    }
+}
+
+.btn-login {
+    background-color: $login-button-color;
+    border: 1px solid $login-button-color;
+    width: 100%;
+    color: #fff;
+    border-radius: 0;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+.btn-login:hover {
+    background-color: $login-button-hover-color;
+    border: 1px solid $login-button-hover-color;
+    width: 100%;
+    color: #fff;
+    border-radius: 0;
+}
