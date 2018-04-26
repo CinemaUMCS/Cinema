@@ -83,6 +83,8 @@ export class NowPlayingComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.emptyPage = true;
+
       }
     );
   }
