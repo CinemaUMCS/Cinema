@@ -13,7 +13,8 @@ namespace Cinema.Data
         {
           cfg.CreateMap<User, UserDto>();
           cfg.CreateMap<Reservation, ReservationDto>();
-          cfg.CreateMap<Movie, MovieDto>();
+          cfg.CreateMap<Movie, MovieDto>()
+            .AfterMap((movie, movieDto) => movieDto.Category = Enum.GetName(typeof(Category), movie.Category));
           cfg.CreateMap<Seance, SeanceDto>();
           cfg.CreateMap<Room, RoomDto>();
           cfg.CreateMap<Seat, SeatDto>();
