@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <div class="example-container">
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput  formControlName="title" name="title" placeholder="Tytuł">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput  formControlName="description" name="description" placeholder="Opis"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select  formControlName="category" name="category" placeholder="Select">
+          <mat-option *ngFor="let cat of categories" [value]="cat">{{cat}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput  formControlName="productionDate" name="productionDate" [matDatepicker]="dp3" placeholder="Data produkcji"
+          disabled>
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput  formControlName="posterPath" name="posterPath" placeholder="poster URL">
+      </mat-form-field>
+      <!-- <img class="img img-fluid" [src]="movie.posterPath" onError="this.src = '../../../../assets/admin/no_img.png'" style="height: 200px; width: 150px; object-fit: contain"
+      /> -->
+      <mat-form-field>
+        <input matInput  formControlName="trailerPath" name="trailerPath" placeholder="trailer URL">
+      </mat-form-field>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!movieForm.valid">Submit</button>
+    </form>
+  </div>
+
+</div>
