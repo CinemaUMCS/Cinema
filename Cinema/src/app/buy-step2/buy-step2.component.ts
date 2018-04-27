@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 import {ReservationService} from '../shared/reservation.service';
+import {MatMenuTrigger} from '@angular/material';
+import {MyBookingModel} from '../../model/myBooking.model';
 
 @Component({
   selector: 'app-buy-step2',
@@ -8,17 +10,19 @@ import {ReservationService} from '../shared/reservation.service';
   styleUrls: ['./buy-step2.component.scss']
 })
 export class BuyStep2Component implements OnInit {
-  reservationSub: Subscription;
-  message: string;
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+  myBooking: MyBookingModel;
 
   constructor(private reservationService: ReservationService) {
   }
 
-  ngOnInit() {
-    this.reservationSub = this.reservationService.getMessage().subscribe(value => {
-      console.log(value);
-      this.message = value;
-    });
-    console.log(this.message);
+  click() {
+
   }
+
+  ngOnInit() {
+    this.myBooking = this.reservationService.getMessage();
+    console.log(this.myBooking);
+  }
+
 }

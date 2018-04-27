@@ -39,6 +39,7 @@ body, html {
 
 .buy-button {
   background-color: $kino-pink;
+  width: 130px;
   &:hover {
     color: $kino-sand;
     background-color: darken($kino-pink, 10%)
@@ -86,5 +87,8 @@ body, html {
 //}
 .padding-zero{
   padding: 0;
+}
+.height100{
+  height: 100%;
 }
 

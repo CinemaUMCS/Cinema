@@ -1,49 +1,88 @@
-<div class="buy-process">
+<!--<div class="buy-process">-->
+<!--<div class="form-group">-->
+<!--<table class="table">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th>Rodzaj</th>-->
+<!--<th>Cena</th>-->
+<!--<th>Ilość</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<tr>-->
+<!--<td>Ulgowy</td>-->
+<!--<td>14 zł</td>-->
+<!--<select class="form-control small">-->
+<!--<option>1</option>-->
+<!--<option>2</option>-->
+<!--<option>3</option>-->
+<!--<option>4</option>-->
+<!--</select>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>Normalny</td>-->
+<!--<td>20zł</td>-->
+<!--<select class="form-control small">-->
+<!--<option>1</option>-->
+<!--<option>2</option>-->
+<!--<option>3</option>-->
+<!--<option>4</option>-->
+<!--</select>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>Studencki</td>-->
+<!--<td>10zł</td>-->
+<!--<select class="form-control small">-->
+<!--<option>1</option>-->
+<!--<option>2</option>-->
+<!--<option>3</option>-->
+<!--<option>4</option>-->
+<!--</select>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
 
-  <div class="form-group">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Rodzaj</th>
-          <th>Cena</th>
-          <th>Ilość</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Ulgowy</td>
-          <td>14 zł</td>
-          <select class="form-control small">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
-        </tr>
-        <tr>
-          <td>Normalny</td>
-          <td>20zł</td>
-          <select class="form-control small">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
-        </tr>
-        <tr>
-          <td>Studencki</td>
-          <td>10zł</td>
-          <select class="form-control small">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
-        </tr>
-      </tbody>
-    </table>
-
+<!--</div>-->
+<!--<button type="button" class="btn buy-button prev-button" routerLink="/buy"> Wstecz </button>-->
+<!--<button type="button" class="btn buy-button next-button" routerLink="/buy-last"> Dalej </button>-->
+<!--</div>-->
+<div class="container my-container">
+  <div class="row" style="padding-top: 25px;border-bottom: 2px solid white">
+    <div class="col-2">
+      <img class="img-thumbnail img-size"
+           src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
+           alt="star wars">
+    </div>
+    <div class="col-6">
+      <div class="details">
+        <h2 class="title">Gwiezdne wojny</h2>
+        <p>Sci-Fi</p>
+        <p>Czas trwania: 130min<br/><span>12</span></p>
+      </div>
+    </div>
+    <div class="col-4 text-center">
+      <h5>Ilość biletów: {{myBooking.bookingSeats.length}} </h5>
+    </div>
   </div>
-  <button type="button" class="btn buy-button prev-button" routerLink="/buy"> Wstecz </button>
-  <button type="button" class="btn buy-button next-button" routerLink="/buy-last"> Dalej </button>
+  <div class="row tickets" style="margin-top: 10px;" *ngFor="let ticket of myBooking.bookingSeats">
+    <div class="col-8">
+      Sala nr: {{ticket.roomId}}<br/>
+      Rząd: {{ticket.row+1}} Miejsce: {{ticket.num+1}}
+    </div>
+    <div class="col-4">
+      <button mat-button [matMenuTriggerFor]="menu" style="margin-top: 5px">Rodzaj biletu
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Normalny</button>
+        <button mat-menu-item>Ulgowy</button>
+      </mat-menu>
+      Normalny
+    </div>
+  </div>
+  <div class="row" style="text-align: center; border-top: 2px solid white">
+    <div class="col">
+      <button type="button" class="btn accept-btn" routerLink="/buy/1/step3">POTWIERDŹ</button>
+    </div>
+  </div>
 </div>

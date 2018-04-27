@@ -117,8 +117,18 @@ export class NowPlayingComponent implements OnInit {
     document.getElementById('hideYoutubeVid').style.display = 'none';
   }
 
+  showInfo(id) {
+    document.getElementById(id).style.display = 'block';
+    document.getElementById('hideYoutubeVid').style.display = 'block';
+  }
+
+  closeInfo(id) {
+    document.getElementById(id).style.display = 'none';
+    document.getElementById('hideYoutubeVid').style.display = 'none';
+  }
+
   chooseSeance(id) {
-    this.router.navigate(['buy', id, 'buy-last']);
+    this.router.navigate(['buy', id, 'step1']);
   }
 
 

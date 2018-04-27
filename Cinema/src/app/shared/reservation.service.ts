@@ -6,18 +6,18 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class ReservationService {
-  private message = new Subject<string>();
+  message: any;
 
   constructor() {
     // this.message.next(null);
   }
 
-  publishMessage(data: string) {
-    this.message.next(data);
+  setMessage(newMessage: any) {
+    this.message = newMessage;
   }
 
-  getMessage(): Observable<any> {
-    return this.message.asObservable();
+  getMessage() {
+    return this.message;
   }
 
 }

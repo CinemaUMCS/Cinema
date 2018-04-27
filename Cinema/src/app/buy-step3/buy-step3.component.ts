@@ -6,6 +6,7 @@ import {SeanceRoomDataModel} from '../../model/seanceRoomData.model';
 import {SeanceService} from '../shared/seance.service';
 import {ReservationService} from '../shared/reservation.service';
 import {ReservationModel} from '../../model/reservation.model';
+import {MyBookingModel} from '../../model/myBooking.model';
 
 @Component({
   selector: 'app-buy-step3',
@@ -84,11 +85,10 @@ export class BuyStep3Component implements OnInit {
     return booking;
   }
 
-  getSeatModelReservations() {
-    for (let i = 1; i <= 10; i++) {
-      for (let j = 1; j <= 12; j++) {
+  getUserBookingSeatsList() {
+    for (let i = 0; i <= 10; i++) {
+      for (let j = 0; j <= 12; j++) {
         if (this.clickedSeats[i][j]) {
-          console.log('test');
           const seat: SeatModel = {id: null, row: i, num: j, roomId: this.seanceRoomData.roomId};
           this.listOfBookingSeats.push(seat);
         }
@@ -100,17 +100,13 @@ export class BuyStep3Component implements OnInit {
   }
 
   nextStepBtn() {
-    this.getSeatModelReservations()
-    const reservation: ReservationModel = {
-      userId: null,
-      id: null,
-      paid: true,
-      reservedSeats: null,
-      numberOfConcessionaryTickets: 1,
-      numberOfNormalTickets: 1,
-      value: null,
-      seanceId: this.seanceId
+    this.getUserBookingSeatsList();
+    const myBooking: MyBookingModel = {
+      seanceId: this.seanceId,
+      bookingSeats: this.listOfBookingSeats,
+      numberOfConcessionaryTickets: 0,
+      numberOfNormalTickets: 0
     };
-    this.reservationService.publishMessage('testowe');
+    this.reservationService.setMessage(myBooking);
   }
 }

@@ -55,9 +55,17 @@
           <p>Czas trwania: 130min<br/><span>12</span></p>
           <p>{{categories[movie.category]}}</p>
           <div>
-            <button type="button" class="btn buy-button" routerLink="/buy">Zarezerwuj</button>
+            <button type="button" class="btn buy-button" (click)="showInfo('info')">Zobacz opis</button>
             <button type="button" class="btn watch-button" (click)="showYoutube('youtubeVid1')">Obejrzyj Zwiastun
             </button>
+
+            <div style="display:none;" id="info" class="youtubeVid">
+              <div class="film-info-container">Opis: {{movie.title}}<br/> {{movie.description}}</div>
+              <button type="button" class="btn watch-button close-desc-btn" (click)="closeInfo('info')">Zamknij Opis
+              </button>
+
+            </div>
+
             <div style="display:none;" id="youtubeVid1" class="youtubeVid">
               <iframe id="iframe0" width="560" height="315" src="https://www.youtube.com/embed/Q0CbN8sfihY"
                       frameborder="0" allowfullscreen></iframe>
@@ -75,15 +83,6 @@
                   (click)="chooseSeance(seance.id)">
             {{seance.seanceStart|date:['HH:mm']}}
           </button>
-          <!--<button type="button" class="btn btn-primary button-reservation">17:00</button>-->
-          <!--<button type="button" class="btn btn-primary button-reservation">17:00</button>-->
-          <!--<button type="button" class="btn btn-primary button-reservation">17:00</button>-->
-          <!--<button type="button" class="btn btn-primary button-reservation">17:00</button>-->
-          <!--<button type="button" class="btn btn-primary button-reservation">17:00</button>-->
-          <!--<button type="button" class="btn btn-primary button-reservation">17:00</button>-->
-          <!--<button type="button" class="btn btn-primary button-reservation">17:00</button>-->
-          <!--<button type="button" class="btn btn-primary button-reservation">17:00</button>-->
-          <!--<button type="button" class="btn btn-primary button-reservation">17:00</button>-->
         </div>
       </div>
     </div>
