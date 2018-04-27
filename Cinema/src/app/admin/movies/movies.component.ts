@@ -1,20 +1,22 @@
 import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { DummyServiceService } from '../../services/dummy-service.service';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import {MatTableDataSource, MatPaginator, MatTable} from '@angular/material';
 import { Subscription } from 'rxjs';
-import { Movie } from '../model/model.component';
+import {MovieModel} from '../../../model/movie.model';
+import { MovieService } from '../services/movie.service';
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss'],
+  styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit, AfterViewInit, OnDestroy {
-  movies: Movie[];
+  movies: MovieModel[];
   displayedColumns = ['ids', 'title', 'category', 'productionDate', 'options'];
   dataSource;
   subscription: Subscription;
-  constructor(private dummyService: DummyServiceService) { }
+  // constructor(private dummyService: DummyServiceService) { }
+  constructor(private movieService: MovieService) { }
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   /**
@@ -22,22 +24,39 @@ export class MoviesComponent implements OnInit, AfterViewInit, OnDestroy {
    * be able to query its view for the initialized paginator.
    */
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+
   }
   ngOnInit() {
-    this.subscription = this.dummyService.subject.subscribe(
-      (movies: Movie[]) => { 
+    // this.subscription = this.dummyService.subject.subscribe(
+    //   (movies: MovieModel[]) => {
+    //     this.movies = movies;
+    //     this.dataSource = new MatTableDataSource(movies);
+    //   }
+    // );
+    this.subscription = this.movieService.movieSubject.subscribe(
+      (movies: MovieModel[]) => {
         this.movies = movies;
-        this.dataSource = new MatTableDataSource(movies);
+        console.log(movies);
+        this.dataSource = new MatTableDataSource(this.movies);
+        this.dataSource.paginator = this.paginator;
       }
     );
-    this.movies = this.dummyService.getMovies();
-    this.dataSource= new MatTableDataSource(this.movies);
-    console.log(this.movies);
+
+    this.movieService.updateMoviesFromDb();
+    //this.movies = this.movieService.getMovies();
+
+    // this.movieService.getMovies().subscribe(
+    //   data => {
+    //     this.movies = data;
+    //     console.log(this.movies);
+    //     this.dataSource = new MatTableDataSource(this.movies);
+    //     this.dataSource.paginator = this.paginator;
+    //   }
+    // );
   }
 
   remove(id: number) {
-    this.dummyService.removeMovie(id);
+    this.movieService.remove(id);
   }
 
   ngOnDestroy() {

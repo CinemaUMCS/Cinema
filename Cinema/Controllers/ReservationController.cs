@@ -42,9 +42,9 @@ namespace Cinema.Controllers
                 return NotFound();
             return Json(reservation);
         }
-        
+
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> AddReservation([FromBody]AddReservation addReservation)
         {
           if(!ModelState.IsValid)
@@ -54,7 +54,7 @@ namespace Cinema.Controllers
           await _reservationService.AddAsync(GetCurrentUserId(),addReservation);
           return Ok();
         }
-        
+
         [HttpPut("{id}")]
         //[Authorize(Roles = "admin, employee")]
         public async Task<IActionResult> Put(int id, [FromBody]Reservation reservation)
@@ -68,9 +68,10 @@ namespace Cinema.Controllers
 
             return Ok();
         }
-        
+
         [HttpDelete("{id}")]
-       // [Authorize(Roles = "admin, employee")]
+        //[Authorize(Roles = "admin, employee")]
+
         public async Task<IActionResult> Delete(int id)
         {
             await _reservationService.DeleteAsync(id);

@@ -1,5 +1,7 @@
 <a [routerLink]="['dodaj']"class="btn btn-primary">Dodaj film</a>
 
+<mat-paginator #paginator [pageSize]="50" [pageSizeOptions]="[10, 20, 50]" [showFirstLastButtons]="true">
+</mat-paginator>
 <mat-table #table [dataSource]="dataSource">
 
   <!-- Position Column -->
@@ -21,7 +23,7 @@
 
   <ng-container matColumnDef="productionDate">
     <mat-header-cell *matHeaderCellDef> Data produkcji </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.productionDate.toISOString() | date: 'dd/MM/yyyy'}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.productionDate}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="options">
@@ -38,5 +40,3 @@
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
-<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
-</mat-paginator>

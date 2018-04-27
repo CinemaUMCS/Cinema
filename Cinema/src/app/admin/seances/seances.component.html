@@ -1,1 +1,56 @@
-<a [routerLink]="['nowy']" class="btn btn-primary">Dodaj</a>
+<hr>
+
+<timepicker [(ngModel)]="myTime" (ngModelChange)="onChange($event)" [showMeridian]="false"></timepicker>
+<button class="btn-btn-primary" (click)="update()">wolne sale</button>
+<form *ngIf="loaded === true" [formGroup]="seanceForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="example-full-width">
+    <input matInput formControlName="durationInMinutes" placeholder="Czas trwania" value="">
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-select formControlName="roomId" placeholder="Sala">
+      <mat-option *ngFor="let option of options" [(value)]="option.id">{{option.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="normalTicketPrice" name="disprice" placeholder="cena ulgowa">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="concessionaryTicketPrice" name="disprice" placeholder="cena ulgowa">
+  </mat-form-field>
+  <button class="btn btn-primary" type="submit">Dodaj</button>
+</form>
+<hr>
+<mat-tab-group (selectedTabChange)="onLinkClick($event)">
+  <mat-tab *ngFor="let dateItem of nextDates; let i = index" label="{{ dateItem | date: 'dd/MM/yyyy'}}">
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <td>data</td>
+        <td>czas trwania</td>
+        <td>cena</td>
+        <td>cena ulgowa</td>
+        <td>pokoj</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of seances[i]">
+        <td>{{item.seanceStart | date: 'hh:mm'}}</td>
+        <td>{{item.duration}}</td>
+        <td>{{item.normalTicketPrice}}</td>
+        <td>{{item.concessionaryTicketPrice}}</td>
+        <td>{{item.roomId}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+
+  </mat-tab>
+</mat-tab-group>
+

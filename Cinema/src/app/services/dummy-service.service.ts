@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Movie, Seance } from '../admin/model/model.component';
 import { Subject } from 'rxjs';
-import { log } from 'util';
+
+import {MovieModel} from '../../model/movie.model';
+import {SeanceModel} from '../../model/seance.model';
+import {CategoryModel} from '../../model/category.model';
 
 @Injectable()
 export class DummyServiceService {
-  subject = new Subject<Movie[]>();
-  seances = new Subject<Seance[]>();
-  private seancesData: Seance[] = [];
-  private movies:Movie[] = [
+  subject = new Subject<MovieModel[]>();
+  seances = new Subject<SeanceModel[]>();
+  private seancesData: SeanceModel[] = [];
+  private movies:MovieModel[] = [
     {
       'id': 1,
-      'category': 'Action',
+      'category': 'Action' ,
       'description': 'dummy text',
       'productionDate': new Date(2018,1,1),
       'title': 'xDs',
@@ -20,7 +22,7 @@ export class DummyServiceService {
     },
     {
       'id': 2,
-      'category': 'Actidsdsddon',
+      'category': 'Action',
       'description': 'dumdssmysdsds text',
       'productionDate':  new Date(2018,1,1),
       'title': 'xDsds',
@@ -29,7 +31,7 @@ export class DummyServiceService {
     },
     {
       'id': 3,
-      'category': 'Acdsadsation',
+      'category': 'Action',
       'description': 'dumdsdsadmy text',
       'productionDate':  new Date(2018,1,1),
       'title': 'xddddD',
@@ -38,7 +40,7 @@ export class DummyServiceService {
     },
     {
       'id': 4,
-      'category': 'Acdstion',
+      'category': 'Action',
       'description': 'dummy text',
       'productionDate':  new Date(2018,1,1),
       'title': 'xDDDDD',
@@ -47,7 +49,7 @@ export class DummyServiceService {
     },
     {
       'id': 5,
-      'category': 'xD',
+      'category': 'Action',
       'description': 'dummy text',
       'productionDate':  new Date(2018,1,1),
       'title': 'xD!',
@@ -61,9 +63,9 @@ export class DummyServiceService {
     return this.movies.slice();
   }
   getMovie(id: number) {
-    return this.movies.find(m => m.id == id);
+    return this.movies.find(m => m.id === id);
   }
-  addMovie(movie: Movie) {
+  addMovie(movie: MovieModel) {
     this.movies.push(
       movie
     );
@@ -74,38 +76,35 @@ export class DummyServiceService {
 
   removeMovie(id: number) {
     console.log(id);
-    var remove = this.movies.indexOf(this.movies.find(n => n.id == id));
+    const remove = this.movies.indexOf(this.movies.find(n => n.id === id));
     console.log(remove);
     this.movies.splice(remove,1);
     console.log(this.movies);
     this.subject.next(this.movies.slice());
   }
-  editMove(index:number, movie: Movie) {
+  editMove(index:number, movie: MovieModel) {
     this.movies[index] = movie;
     this.subject.next(this.movies.slice());
   }
   getSeances(id: number) {
-    return this.seancesData.filter(s => s.id == id).slice();
+    return this.seancesData.filter(s => s.id === id).slice();
   }
 
-  getSeance(id: number) {
-    return this.seancesData.find(s => s.movieId == id);
-  }
 
-  addSeance(seance: Seance) {
+  addSeance(seance: SeanceModel) {
     this.seancesData.push(seance);
     this.seances.next(this.seancesData.slice());
   }
 
   removeSeance(id: number) {
-    var seanceId = this.seancesData.indexOf(this.seancesData.find(s => s.id == id));
+    const seanceId = this.seancesData.indexOf(this.seancesData.find(s => s.id === id));
     this.seancesData.splice(seanceId,1);
     this.seances.next(this.seancesData.slice());
   }
 
-  updateSeance(id: number, seance: Seance) {
+  updateSeance(id: number, seance: SeanceModel) {
     this.seancesData[id].seanceStart = seance.seanceStart;
-    this.seancesData[id].normalTicketPRice = seance.normalTicketPRice;
+    this.seancesData[id].normalTicketPrice = seance.normalTicketPrice;
     this.seancesData[id].concessionaryTicketPrice = seance.concessionaryTicketPrice;
     this.seancesData[id].movieId = seance.movieId;
     this.seancesData[id].roomId = seance.roomId;

@@ -66,7 +66,7 @@ namespace Cinema.Controllers
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "admin, employee")]
+    //[Authorize(Roles = "admin, employee")]
     public async Task<IActionResult> Put(int id, [FromBody] Movie movie)
     {
       if (!ModelState.IsValid)
@@ -80,7 +80,7 @@ namespace Cinema.Controllers
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "admin, employee")]
+    //[Authorize(Roles = "admin, employee")]
     public IActionResult Delete(int id)
     {
       _movieService.DeleteAsync(id);
