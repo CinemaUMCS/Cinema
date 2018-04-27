@@ -1,6 +1,6 @@
 export interface SeatModel {
   id: number;
   row: number;
-  num: number;
+  number: number;
   roomId: number;
 }

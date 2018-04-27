@@ -27,12 +27,15 @@ export class BuyStep3Component implements OnInit {
   // seat2: SeatModel = {id: 2, row: 3, num: 3, roomId: 1};
   clickedSeatsCount = 0;
   listOfBookingSeats = new Array<SeatModel>(); // wybrane miejsca do zarezerowania
+  bol: boolean[][];
 
   // mock_seat = [this.seat1, this.seat2];
 
   constructor(private route: ActivatedRoute, private seanceService: SeanceService, private reservationService: ReservationService) {
     this.booking_seats = this.onCreateBooleanSeatArrayRepresentationArray();
     this.clickedSeats = this.onCreateBooleanSeatArrayRepresentationArray();
+    // this.onCreateArray();
+    // console.log(this.bol);
     // console.log(this.clickedSeats);
   }
 
@@ -57,7 +60,9 @@ export class BuyStep3Component implements OnInit {
     this.seanceService.getSeanceRoomData(seanceId).subscribe(
       response => {
         this.seanceRoomData = response.json();
-        this.setBookedSeats();
+        // console.log(this.seanceRoomData);
+        this.setBookedSeats(this.seanceRoomData.reservedSeats);
+
       },
       error2 => {
         console.log(error2);
@@ -65,9 +70,11 @@ export class BuyStep3Component implements OnInit {
     );
   }
 
-  setBookedSeats() {
-    for (const s of this.seanceRoomData.reservedSeats) {
-      this.booking_seats[s.row][s.num] = true;
+  setBookedSeats(reservedSeats: SeatModel[]) {
+    console.log(reservedSeats);
+    for (const s of reservedSeats) {
+      console.log(s.row);
+      this.booking_seats[s.row][s.number] = true;
     }
   }
 
@@ -85,11 +92,20 @@ export class BuyStep3Component implements OnInit {
     return booking;
   }
 
+  onCreateArray() {
+    for (let i = 0; i <= 10; i++) {
+      for (let j = 0; j <= 12; j++) {
+        this.bol[i][j] = false;
+      }
+
+    }
+  }
+
   getUserBookingSeatsList() {
     for (let i = 0; i <= 10; i++) {
       for (let j = 0; j <= 12; j++) {
         if (this.clickedSeats[i][j]) {
-          const seat: SeatModel = {id: null, row: i, num: j, roomId: this.seanceRoomData.roomId};
+          const seat: SeatModel = {id: null, row: i, number: j, roomId: this.seanceRoomData.roomId};
           this.listOfBookingSeats.push(seat);
         }
         if (this.clickedSeatsCount < 1) {
