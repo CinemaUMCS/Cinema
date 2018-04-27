@@ -79,6 +79,8 @@ import {CommonModule, DatePipe} from '@angular/common';
 import {SeanceService} from './shared/seance.service';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import {AuthGuardAdmin} from './admin/services/auth-guard-admin.service';
+import {BuyComponent} from './buy/buy.component';
+import {ReservationService} from './shared/reservation.service';
 
 @NgModule({
   declarations: [
@@ -108,6 +110,7 @@ import {AuthGuardAdmin} from './admin/services/auth-guard-admin.service';
     SeanceDetailsComponent,
     EditSeanceComponent,
     AdminHeaderComponent,
+    BuyComponent
   ],
   imports: [
     CommonModule,
@@ -155,8 +158,9 @@ import {AuthGuardAdmin} from './admin/services/auth-guard-admin.service';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+
   ],
-  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin],
+  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
