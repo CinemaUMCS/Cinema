@@ -44,7 +44,7 @@ namespace Cinema.Controllers
         }
         
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> AddReservation([FromBody]AddReservation addReservation)
         {
           if(!ModelState.IsValid)
@@ -56,7 +56,7 @@ namespace Cinema.Controllers
         }
         
         [HttpPut("{id}")]
-        [Authorize(Roles = "admin, employee")]
+        //[Authorize(Roles = "admin, employee")]
         public async Task<IActionResult> Put(int id, [FromBody]Reservation reservation)
         {
             if(!ModelState.IsValid)
@@ -70,7 +70,7 @@ namespace Cinema.Controllers
         }
         
         [HttpDelete("{id}")]
-        [Authorize(Roles = "admin, employee")]
+        //[Authorize(Roles = "admin, employee")]
         public async Task<IActionResult> Delete(int id)
         {
             await _reservationService.DeleteAsync(id);

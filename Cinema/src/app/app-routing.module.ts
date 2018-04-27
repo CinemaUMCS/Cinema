@@ -27,6 +27,7 @@ import { SeancesComponent } from './admin/seances/seances.component';
 import { SeanceDetailsComponent } from './admin/Seances/seance-details/seance-details.component';
 import { EditSeanceComponent } from './admin/Seances/edit-seance/edit-seance.component';
 import {AuthGuard} from './shared/auth-guard.service';
+import {AuthGuardAdmin} from './admin/services/auth-guard-admin.service';
 
 const routes: Routes = [
   {

@@ -67,7 +67,7 @@ namespace Cinema.Controllers
     }
 
     [HttpPost]
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public async Task<IActionResult> Post([FromBody] AddSeance seance)
     {
       if (!ModelState.IsValid)
@@ -81,7 +81,7 @@ namespace Cinema.Controllers
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "admin, employee")]
+    //[Authorize(Roles = "admin, employee")]
     public async Task<IActionResult> Put(int id, [FromBody] Seance seance)
     {
       if (!ModelState.IsValid)
@@ -95,7 +95,7 @@ namespace Cinema.Controllers
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "admin, employee")]
+    //[Authorize(Roles = "admin, employee")]
     public async Task<IActionResult> Delete(int id)
     {
       await _seanceService.DeleteAsync(id);

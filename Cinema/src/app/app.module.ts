@@ -77,6 +77,8 @@ import {AuthenticationService} from './shared/authentication.service';
 import {AuthGuard} from './shared/auth-guard.service';
 import {CommonModule, DatePipe} from '@angular/common';
 import {SeanceService} from './shared/seance.service';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import {AuthGuardAdmin} from './admin/services/auth-guard-admin.service';
 
 @NgModule({
   declarations: [
@@ -113,6 +115,7 @@ import {SeanceService} from './shared/seance.service';
     CarouselModule.forRoot(),
     AlertModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     HttpModule,
@@ -153,7 +156,7 @@ import {SeanceService} from './shared/seance.service';
     MatToolbarModule,
     MatTooltipModule,
   ],
-  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService],
+  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin],
   bootstrap: [AppComponent]
 })
 export class AppModule {

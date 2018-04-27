@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="example-container">
-    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+    <form *ngIf="loaded === true" [formGroup]="movieForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <input matInput  formControlName="title" name="title" placeholder="Tytuł">
       </mat-form-field>
