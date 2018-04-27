@@ -25,4 +25,8 @@ export class SeanceService extends BaseHttpService {
   getSeanceByDate(date: string) {
     return this.http.get(super.setUrl('seance/getByDate/?date=') + date);
   }
+
+  getSeanceRoomData(seanceId: number) {
+    return this.http.get(super.setUrl('seance/getSeanceRoomData/' + seanceId));
+  }
 }

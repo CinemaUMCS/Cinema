@@ -52,7 +52,7 @@ namespace Cinema.Controllers
 
 
     [HttpPost]
-    [Authorize(Roles = "admin, employee")]
+    //[Authorize(Roles = "admin, employee")]
     public async Task<IActionResult> Post([FromBody] AddMovie movie)
     {
       if (!ModelState.IsValid)

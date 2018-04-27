@@ -23,7 +23,7 @@ namespace Cinema.Controllers
     }
 
     [HttpPost]
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public async Task<IActionResult> AddRoom([FromBody] AddRoom addRoom)
     {
       await _roomService.AddRoom(addRoom.Name, addRoom.NumberOfRows, addRoom.NumberOfSeatsInRow);

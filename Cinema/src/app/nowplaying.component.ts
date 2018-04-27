@@ -6,6 +6,7 @@ import {SeanceService} from './shared/seance.service';
 import {MovieModel} from '../model/movie.model';
 import {CategoryModel} from '../model/category.model';
 import {SeanceModel} from '../model/seance.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-nowplaying',
@@ -27,7 +28,7 @@ export class NowPlayingComponent implements OnInit {
 
   emptyPage: boolean;
 
-  constructor(private datePipe: DatePipe, private seanceService: SeanceService) {
+  constructor(private datePipe: DatePipe, private seanceService: SeanceService, private router: Router) {
   }
 
   ngOnInit() {
@@ -84,7 +85,6 @@ export class NowPlayingComponent implements OnInit {
       error => {
         console.log(error);
         this.emptyPage = true;
-
       }
     );
   }
@@ -118,7 +118,7 @@ export class NowPlayingComponent implements OnInit {
   }
 
   chooseSeance(id) {
-    // logika spo kliknieciu w odpowieni seans
+    this.router.navigate(['buy', id, 'buy-last']);
   }
 
 
