@@ -1,10 +1,10 @@
-﻿using SimpleCrypto;
+using SimpleCrypto;
 
 namespace Cinema.Services
 {
   public class EncrypterService : IEncrypter
   {
-    private readonly SimpleCrypto.ICryptoService _simpleCrypto;
+    private readonly ICryptoService _simpleCrypto;
 
     public EncrypterService()
     {

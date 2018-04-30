@@ -11,7 +11,6 @@ namespace Cinema.Services
 {
   public class UserService : IUserService
   {
-    private readonly IEncrypter _encrypter;
     private readonly ITokenProvider _tokenProvider;
     private readonly IMapper _mapper;
     private readonly IUserRepository _userRepository;
