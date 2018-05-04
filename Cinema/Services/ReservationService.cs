@@ -8,33 +8,33 @@ using Cinema.Request;
 using System;
 using System.Linq;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Cinema.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
   public class ReservationService : IReservationService
   {
-    private readonly IReservationRepository _reservationRepository;
     private readonly ISeanceRepository _seanceRepository;
-    private readonly IUserRepository _userRepository;
+    private readonly CinemaDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public ReservationService(IReservationRepository reservationRepository, ISeanceRepository seanceRepository, IUserRepository userRepository,  IMapper mapper)
+    public ReservationService(CinemaDbContext dbContext, ISeanceRepository seanceRepository,  IMapper mapper)
     {
-      _reservationRepository = reservationRepository;
+      _dbContext = dbContext;
       _seanceRepository = seanceRepository;
-      _userRepository = userRepository;
       _mapper = mapper;
     }
 
     public async Task<ICollection<ReservationDto>> GetAllAsync()
     {
-      var reservations = await _reservationRepository.GetAllAsync();
+      var reservations = await _dbContext.Reservations.ToListAsync();
       return _mapper.Map<ICollection<Reservation>, ICollection<ReservationDto>>(reservations);
     }
 
     public async Task<ReservationDto> GetAsync(int id)
     {
-      var reservation = await _reservationRepository.GetAsync(id);
+      var reservation = await _dbContext.Reservations.FirstOrDefaultAsync(x => x.Id == id);
       return _mapper.Map<Reservation, ReservationDto>(reservation);
     }
 
@@ -48,23 +48,21 @@ namespace Cinema.Services
       if(seance==null)
         throw new Exception("Seance doesn't exist");
 
-      Reservation reservation=new Reservation(addReservation.SeanceId,userId);
+      Reservation reservation=new Reservation(addReservation.SeanceId,userId,addReservation.NumberOfNormalTickets,addReservation.NumberOfConcessionaryTickets);
       foreach (var seatToReserveId in addReservation.SeatsToReserveIds)
       {
         if(seance.Room.Seats.All(s=>s.Id!=seatToReserveId))
           throw new Exception($"SeatId: {seatToReserveId} is invalid");
         if(seance.Reservations.Any(r=>r.ReservedSeats.Any(rs=>rs.SeatId==seatToReserveId)))
           throw new Exception($"Seat {seatToReserveId} already reserved");
-        reservation.ReservedSeats.Add(new ReservedSeat(reservation.Id,seatToReserveId));
+        reservation.AddReservedSeat(seatToReserveId, _dbContext);
       }
-
-      reservation.NumberOfConcessionaryTickets = addReservation.NumberOfConcessionaryTickets;
-      reservation.NumberOfNormalTickets = addReservation.NumberOfNormalTickets;
 
       double concessionaryTicketsCost = addReservation.NumberOfConcessionaryTickets * seance.ConcessionaryTicketPrice;
       double normalTicketsCost = addReservation.NumberOfNormalTickets * seance.NormalTicketPrice;
       reservation.Value = concessionaryTicketsCost + normalTicketsCost;
-      await _reservationRepository.AddAsync(reservation);
+      await _dbContext.Reservations.AddAsync(reservation);
+      await _dbContext.SaveChangesAsync();
     }
 
     public async Task UpdateAsync(int id, Reservation reservation)
@@ -74,17 +72,21 @@ namespace Cinema.Services
 
     public async Task DeleteAsync(int id)
     {
-      await _reservationRepository.DeleteAsync(id);
+      var reservation = await _dbContext.Seances.FirstOrDefaultAsync(s => s.Id == id);
+
+      if (reservation == null)
+        throw new Exception($"Reservation with id: {id} not found.");
+      _dbContext.Seances.Remove(reservation);
+      await _dbContext.SaveChangesAsync();
     }
 
     public async Task<IEnumerable<ReservationDto>> GetReservationsForUserAsync(int userId)
     {
-      var user = await _userRepository.GetByIdAsync(userId);
+      var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
       if(user==null)
         throw new Exception($"User with id={userId} doesn't exist");
-      var reservations = await _reservationRepository.GetAllAsync();
-      var userReservations =reservations.Where((r => r.UserId == userId));
-      return _mapper.Map<IEnumerable<Reservation>, IEnumerable<ReservationDto>>(userReservations);
+      var reservations = await _dbContext.Reservations.Where((r => r.UserId == userId)).ToListAsync();
+      return _mapper.Map<IEnumerable<Reservation>, IEnumerable<ReservationDto>>(reservations);
     }
 
     public async Task<IEnumerable<ReservationDto>> GetReservationsForSeanceAsync(int seanceId)
@@ -93,9 +95,8 @@ namespace Cinema.Services
       if(seance==null)
         throw new Exception($"Seance with id={seanceId} doesn't exist");
 
-      var reservations = await _reservationRepository.GetAllAsync();
-      var seanceReservations =reservations.Where((r => r.SeanceId == seanceId));
-      return _mapper.Map<IEnumerable<Reservation>, IEnumerable<ReservationDto>>(seanceReservations);
+      var reservations = await _dbContext.Reservations.Where((r => r.SeanceId == seanceId)).ToListAsync();
+      return _mapper.Map<IEnumerable<Reservation>, IEnumerable<ReservationDto>>(reservations);
     }
   }
 }
