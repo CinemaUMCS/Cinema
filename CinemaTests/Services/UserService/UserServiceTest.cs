@@ -16,18 +16,17 @@ namespace CinemaTests.Services.UserService
         protected Mock<IUserRepository> UserRepositoryMock;
         protected Mock<ITokenProvider> TokenProviderMock;
         protected Mock<IEncrypter> EncrypterMock;
-        public IMapper Mapper;
+        protected IMapper Mapper;
         protected IUserService UserService;
-        protected User User = new User("test123@o2.pl", "FirstName", "LastName", "Secret123", "salt123", "user");
+        protected User User;
 
-        protected void SetUp()
+        protected void SetUp(CinemaDbContext cinemaDbContext)
         {
-            User = new User("test123@o2.pl", "FirstName", "LastName", "Secret123", "salt123", "user");
-            UserRepositoryMock = new Mock<IUserRepository>();
+            User = new User("test123@o2.pl", "FirstName", "LastName", "Secret123", "user");
             TokenProviderMock = new Mock<ITokenProvider>();
             EncrypterMock = new Mock<IEncrypter>();
             Mapper = AutoMapperConfig.Initialize();
-            UserService = new Cinema.Services.UserService(UserRepositoryMock.Object, EncrypterMock.Object, TokenProviderMock.Object,Mapper);
+            UserService = new Cinema.Services.UserService(cinemaDbContext, EncrypterMock.Object, TokenProviderMock.Object,Mapper);
         }
     }
 }

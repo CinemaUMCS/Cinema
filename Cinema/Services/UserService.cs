@@ -6,72 +6,39 @@ using Cinema.Entities;
 using Cinema.DTO;
 using Cinema.Exceptions;
 using Cinema.Repositories;
+using Cinema.Data;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
   public class UserService : IUserService
   {
     private readonly ITokenProvider _tokenProvider;
+    private readonly IEncrypter _encrypter;
     private readonly IMapper _mapper;
-    private readonly IUserRepository _userRepository;
+    private readonly CinemaDbContext _dbContext;
 
-    public UserService(IUserRepository userRepository, IEncrypter encrypter, ITokenProvider tokenProvider,
+    public UserService(CinemaDbContext dbContext, IEncrypter encrypter, ITokenProvider tokenProvider, 
       IMapper mapper)
     {
-      _userRepository = userRepository;
-      _encrypter = encrypter;
+      _dbContext = dbContext;
       _tokenProvider = tokenProvider;
+      this._encrypter = encrypter;
       _mapper = mapper;
     }
 
     public async Task RegisterAsync(string email, string firstName, string lastName, string password, string role)
     {
-      bool emailIsValid = new EmailAddressAttribute().IsValid(email);
-      if (!emailIsValid)
-        throw new InvalidEmail("Given email is not valid.");
-      if (await _userRepository.GetByEmailAsync(email) != null)
+      var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
+      if (user!=null)
         throw new InvalidEmail("User with this email already exist.");
-      if (!RoleIsValid(role))
-        throw new InvalidRole();
-      if (!PasswordIsValid(password))
-        throw new InvalidPassword(
-          "You're password should contain at least six characters within number, upper case letter and lower case letter.");
-
-      var salt = _encrypter.GenerateSalt();
-      var hashPassword = _encrypter.Compute(password, salt);
-      var user = new User(email, firstName, lastName,
-        hashPassword, salt, "user");
-      await _userRepository.AddAsync(user);
+      user = new User(email, firstName, lastName, password, role);
+      await _dbContext.Users.AddAsync(user);
     }
-
-    private bool RoleIsValid(string role)
-    {
-      if (role == "user")
-        return true;
-      if (role == "admin")
-        return true;
-      return false;
-    }
-
-    private bool PasswordIsValid(string password)
-    {
-      if (password.Length < 6)
-        return false;
-      var lower = new Regex("(.*[a-z].*)");
-      if (!lower.Match(password).Success)
-        return false;
-      var upper = new Regex("(.*[A-Z].*)");
-      if (!upper.Match(password).Success)
-        return false;
-      var number = new Regex("(.*[0-9].*)");
-      if (!number.Match(password).Success)
-        return false;
-      return true;
-    }
-
     public async Task<TokenModel> LoginAsync(string email, string password)
     {
-      var user = await _userRepository.GetByEmailAsync(email);
+      var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
       if (user == null)
         throw new InvalidCredentials();
       var generatedHash = _encrypter.Compute(password, user.Salt);
@@ -80,10 +47,9 @@ namespace Cinema.Services
       var token = _tokenProvider.CreateToken(user.Id, user.Role);
       return token;
     }
-
     public async Task<UserDto> GetByIdAsync(int id)
     {
-      var user = await _userRepository.GetByIdAsync(id);
+      var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
       return _mapper.Map<User, UserDto>(user);
     }
   }

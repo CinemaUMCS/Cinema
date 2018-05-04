@@ -4,7 +4,7 @@ using Cinema.Data;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
-namespace CinemaTests.Repositories
+namespace CinemaTests
 {
     public class CinemaDbContextFactory : IDisposable
     {

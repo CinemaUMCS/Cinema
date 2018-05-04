@@ -2,6 +2,7 @@ using Cinema.Exceptions;
 using Cinema.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -22,9 +23,9 @@ namespace Cinema.Entities
     public virtual IEnumerable<Reservation> Reservations => _reservations.ToList();
     public virtual IEnumerable<Rating> Ratings => _ratings.ToList();
 
-    public User(string email, string firstName, string lastName, string password, string salt, string role)
+    public User(string email, string firstName, string lastName, string password, string role)
     {
-      Email = email;
+      SetEmail(email);
       FirstName = firstName;
       LastName = lastName;
       SetPassword(password);
@@ -32,9 +33,16 @@ namespace Cinema.Entities
       _reservations = new HashSet<Reservation>();
       _ratings = new HashSet<Rating>();
     }
+    private void SetEmail(string email)
+    {
+      bool isEmailValid = new EmailAddressAttribute().IsValid(email);
+      if (!isEmailValid)
+        throw new InvalidEmail();
+      Email = email;
+    }
     public void SetPassword(string password)
     {
-      if (IsPasswordValid(password))
+      if (!IsPasswordValid(password))
         throw new InvalidPassword();
       var encrypterService = new EncrypterService();
       Salt = encrypterService.GenerateSalt();
@@ -64,7 +72,7 @@ namespace Cinema.Entities
     }
     private bool IsRoleValid(string role)
     {
-      if (role == "user" && role == "admin" && role == "employee")
+      if (role == "user" || role == "admin" || role == "employee")
         return true;
       return false;
     }

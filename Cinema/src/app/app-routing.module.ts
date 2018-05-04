@@ -25,7 +25,7 @@ import { ReservationsComponent } from './admin/reservations/reservations.compone
 import { ReservationDetailsComponent } from './admin/reservation-details/reservation-details.component';
 import { SeancesComponent } from './admin/seances/seances.component';
 import { SeanceDetailsComponent } from './admin/Seances/seance-details/seance-details.component';
-import { EditSeanceComponent } from './admin/Seances/edit-seance/edit-seance.component';
+//import { EditSeanceComponent } from './admin/Seances/edit-seance/edit-seance.component';
 import {AuthGuard} from './shared/auth-guard.service';
 
 const routes: Routes = [
@@ -54,8 +54,8 @@ const routes: Routes = [
       {path: 'filmy/:id', component: MovieDetailsComponent },
       {path: 'rezerwacje', component: ReservationsComponent },
       {path: 'filmy/:id/seanse', component: SeancesComponent },
-      {path: 'filmy/:id/seanse/nowy', component: EditSeanceComponent },
-      {path: 'filmy/:id/seanse/edytuj/:id', component: EditSeanceComponent },
+      //{path: 'filmy/:id/seanse/nowy', component: EditSeanceComponent },
+      //{path: 'filmy/:id/seanse/edytuj/:id', component: EditSeanceComponent },
       {path: 'filmy/:id/seanse/:id', component: SeanceDetailsComponent },
     ] },
 
