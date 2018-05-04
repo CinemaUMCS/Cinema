@@ -6,7 +6,7 @@ using Cinema.Entities;
 
 namespace Cinema.Request
 {
-  public class AddMovie
+  public class MovieRequest
   {
     public string Title { get; set; }
     public string TrailerPath { get; set; }

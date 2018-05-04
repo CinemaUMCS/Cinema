@@ -54,7 +54,6 @@ namespace Cinema
       services.AddScoped<IUserRepository, UserRepository>();
       services.AddScoped<ISeanceRepository, SeanceRepository>();
       services.AddScoped<IReservationRepository, ReservationRepository>();
-      services.AddScoped<IMovieRepository, MovieRepository>();
       services.AddScoped<IRoomRepository, RoomRepository>();
 
 

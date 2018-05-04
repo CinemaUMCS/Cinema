@@ -10,18 +10,18 @@ namespace Cinema.Entities
 {
   public class User
   {
-    public virtual int Id { get; private set; }
-    public virtual string Email { get; private set; }
-    public virtual string FirstName { get; private set; }
-    public virtual string LastName { get; private set; }
-    public virtual string Password { get; private set; }
-    public virtual string Salt { get; private set; }
-    public virtual string Role { get; private set; }
+    public int Id { get; private set; }
+    public string Email { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public string Password { get; private set; }
+    public string Salt { get; private set; }
+    public string Role { get; private set; }
 
     private HashSet<Reservation> _reservations;
     private HashSet<Rating> _ratings;
-    public virtual IEnumerable<Reservation> Reservations => _reservations.ToList();
-    public virtual IEnumerable<Rating> Ratings => _ratings.ToList();
+    public IEnumerable<Reservation> Reservations => _reservations.ToList();
+    public IEnumerable<Rating> Ratings => _ratings.ToList();
 
     public User(string email, string firstName, string lastName, string password, string role)
     {

@@ -12,8 +12,8 @@ namespace Cinema.Services
     Task<IEnumerable<MovieDto>> GetAllAsync();
     Task<IEnumerable<MovieDto>> GetMoviesPlayingAtDate(DateTime date);
     Task<MovieDto> GetAsync(int id);
-    Task AddAsync(AddMovie movie);
-    Task UpdateAsync(int id, Movie movie);
+    Task AddAsync(MovieRequest addMovie);
+    Task UpdateAsync(int id, MovieRequest updateMovie);
     Task DeleteAsync(int id);
     IEnumerable<string> GetCategories();
   }

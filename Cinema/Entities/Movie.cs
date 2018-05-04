@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cinema.Entities
 {
@@ -14,21 +15,54 @@ namespace Cinema.Entities
 
   public class Movie
   {
-    public virtual int Id { get; set; }
-    public virtual string Title { get; set; }
-    public virtual string TrailerPath { get; set; }
-    public virtual string PosterPath { get; set; }
-    public virtual Category Category { get; set; }
-    public virtual string Description { get; set; }
-    public virtual DateTime? ProductionDate { get; set; }
+    public int Id { get; private set; }
+    public string Title { get; private set; }
+    public string TrailerPath { get; private set; }
+    public string PosterPath { get; private set; }
+    public Category Category { get; private set; }
+    public string Description { get; private set; }
+    public DateTime? ProductionDate { get; private set; }
 
-    public virtual ICollection<Rating> Ratings { get; set; }
-    public virtual ICollection<Seance> Seances { get; set; }
+    private HashSet<Rating> _ratings;
+    private HashSet<Seance> _seances;
+    public IEnumerable<Rating> Ratings => _ratings.ToList();
+    public IEnumerable<Seance> Seances => _seances.ToList();
 
-    public Movie()
+    public Movie(string title, string trailerPath, string posterPath, Category category, string description, DateTime? productionDate)
     {
-      Ratings = new HashSet<Rating>();
-      Seances = new HashSet<Seance>();
+      Title = title;
+      TrailerPath = trailerPath;
+      PosterPath = posterPath;
+      Category = category;
+      Description = description;
+      ProductionDate = productionDate;
+      _ratings = new HashSet<Rating>();
+      _seances = new HashSet<Seance>();
     }
+    public void SetTitle(string title)
+    {
+      Title = title;
+    }
+    public void SetTrailerPath(string trailerPath)
+    {
+      TrailerPath = trailerPath;
+    }
+    public void SetPosterPath(string posterPath)
+    {
+      PosterPath = posterPath;
+    }
+    public void SetCategory(Category category)
+    {
+      Category = category;
+    }
+    public void SetDescription(string description)
+    {
+      Description = description;
+    }
+    public void SetProductionDate(DateTime? productionDate)
+    {
+      ProductionDate = productionDate;
+    }
+
   }
 }
