@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ReservedSeatModel} from '../../model/reservedSeat.model';
 import {SeatModel} from '../../model/seat.model';
 import {SeanceRoomDataModel} from '../../model/seanceRoomData.model';
@@ -7,6 +7,8 @@ import {SeanceService} from '../shared/seance.service';
 import {ReservationService} from '../shared/reservation.service';
 import {ReservationModel} from '../../model/reservation.model';
 import {MyBookingModel} from '../../model/myBooking.model';
+import {MatDialog} from '@angular/material';
+import {DialogComponent} from './dialog/dialog.component';
 
 @Component({
   selector: 'app-buy-step3',
@@ -15,6 +17,7 @@ import {MyBookingModel} from '../../model/myBooking.model';
 })
 export class BuyStep3Component implements OnInit {
 
+  spinner = true;
   seanceId: any;
   number_columns = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12]];
   word_number_rows = ['startValue', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
@@ -27,11 +30,11 @@ export class BuyStep3Component implements OnInit {
   // seat2: SeatModel = {id: 2, row: 3, num: 3, roomId: 1};
   clickedSeatsCount = 0;
   listOfBookingSeats = new Array<SeatModel>(); // wybrane miejsca do zarezerowania
-  bol: boolean[][];
 
   // mock_seat = [this.seat1, this.seat2];
 
-  constructor(private route: ActivatedRoute, private seanceService: SeanceService, private reservationService: ReservationService) {
+  constructor(private route: ActivatedRoute, private seanceService: SeanceService,
+              private reservationService: ReservationService, private router: Router, public dialog: MatDialog) {
     this.booking_seats = this.onCreateBooleanSeatArrayRepresentationArray();
     this.clickedSeats = this.onCreateBooleanSeatArrayRepresentationArray();
     // this.onCreateArray();
@@ -60,7 +63,6 @@ export class BuyStep3Component implements OnInit {
     this.seanceService.getSeanceRoomData(seanceId).subscribe(
       response => {
         this.seanceRoomData = response.json();
-        // console.log(this.seanceRoomData);
         this.setBookedSeats(this.seanceRoomData.reservedSeats);
 
       },
@@ -71,11 +73,10 @@ export class BuyStep3Component implements OnInit {
   }
 
   setBookedSeats(reservedSeats: SeatModel[]) {
-    console.log(reservedSeats);
     for (const s of reservedSeats) {
-      console.log(s.row);
       this.booking_seats[s.row][s.number] = true;
     }
+    this.spinner = false;
   }
 
   // false - miejsce wolne, true - miejsce zajete
@@ -90,15 +91,6 @@ export class BuyStep3Component implements OnInit {
       booking.push(row);
     }
     return booking;
-  }
-
-  onCreateArray() {
-    for (let i = 0; i <= 10; i++) {
-      for (let j = 0; j <= 12; j++) {
-        this.bol[i][j] = false;
-      }
-
-    }
   }
 
   getUserBookingSeatsList() {
@@ -116,6 +108,10 @@ export class BuyStep3Component implements OnInit {
   }
 
   nextStepBtn() {
+    if (this.clickedSeatsCount < 1) {
+      this.openDialog();
+      return;
+    }
     this.getUserBookingSeatsList();
     const myBooking: MyBookingModel = {
       seanceId: this.seanceId,
@@ -124,5 +120,16 @@ export class BuyStep3Component implements OnInit {
       numberOfNormalTickets: 0
     };
     this.reservationService.setMessage(myBooking);
+    this.router.navigate(['buy', this.seanceId, 'step2']);
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      height: '210px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

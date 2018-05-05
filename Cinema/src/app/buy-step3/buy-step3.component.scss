@@ -1,3 +1,4 @@
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -9,7 +10,8 @@ html {
 .margin-left {
   margin-left: 10px;
 }
-.margin-right{
+
+.margin-right {
   margin-right: 10px;
 }
 
@@ -21,6 +23,7 @@ html {
 
 .cockpit {
   //height: 140px;
+  margin-top: 20px;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -231,4 +234,69 @@ ol {
 .rubberBand {
   -webkit-animation-name: rubberBand;
   animation-name: rubberBand;
+}
+
+.view {
+  font-weight: bold;
+  text-align: center;
+  background-color: white;
+  min-height: 15px;
+  color: black;
+}
+
+.centerItem {
+  text-align: center;
+}
+
+.next-step-btn {
+  background-color: #f5821e;
+  width: 130px;
+  &:hover {
+    color: #c0b3a0;
+    background-color: darken(#f5821e, 10%)
+  }
+}
+
+.centerBlock {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.seats-info-box {
+  height: 20px;
+  width: 20px;
+  background-color: #555;
+}
+
+.color-free {
+  background-color: #bada55;
+}
+
+.color-booked {
+  background-color: grey;
+}
+
+.color-your-choose {
+  background-color: #F42536 ;
+}
+
+.flex-container {
+  display: flex;
+  margin-left: 14px;
+}
+
+.text-info {
+  font-size: small;
+  margin-left: 5px;
+  margin-top: 2px;
+  color: white !important;
+}
+.spinner{
+  display: table;
+  margin: 0 auto;
+}
+.error{
+  background-color: #F42536;
+  color: white;
 }

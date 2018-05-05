@@ -41,7 +41,7 @@ const routes: Routes = [
         path: 'buy', component: BuyComponent, children: [
           {path: ':seanceId/step2', component: BuyStep2Component},
           {path: ':seanceId/step1', component: BuyStep3Component},
-          {path: ':seanceId/step3', component: BuySuccessComponent},
+          // {path: ':seanceId/step3', component: BuySuccessComponent},
         ]
       },
       {path: 'login', component: UserLoginComponent},

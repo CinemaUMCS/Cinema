@@ -47,39 +47,61 @@
 <!--<button type="button" class="btn buy-button next-button" routerLink="/buy-last"> Dalej </button>-->
 <!--</div>-->
 <div class="container my-container">
-  <div class="row" style="padding-top: 25px;border-bottom: 2px solid white">
-    <div class="col-2">
-      <img class="img-thumbnail img-size"
-           src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
-           alt="star wars">
+  <!--<div class="row" style="padding-top: 25px;border-bottom: 2px solid white">-->
+  <!--<div class="col-2">-->
+  <!--<img class="img-thumbnail img-size"-->
+  <!--src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"-->
+  <!--alt="star wars">-->
+  <!--</div>-->
+  <!--<div class="col-6">-->
+  <!--<div class="details">-->
+  <!--<h2 class="title">Gwiezdne wojny</h2>-->
+  <!--<p>Sci-Fi</p>-->
+  <!--<p>Czas trwania: 130min<br/><span>12</span></p>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="col-4 text-center">-->
+  <!--&lt;!&ndash;<h5>Ilość biletów: {{myBooking.bookingSeats.length}} </h5>&ndash;&gt;-->
+  <!--</div>-->
+  <!--</div>-->
+  <div class="row">
+    <div class="col">
+      <h6 style="color:#f5821e ">WYBIERZ RODZAJ BILETÓW</h6>
     </div>
-    <div class="col-6">
-      <div class="details">
-        <h2 class="title">Gwiezdne wojny</h2>
-        <p>Sci-Fi</p>
-        <p>Czas trwania: 130min<br/><span>12</span></p>
+
+
+  </div>
+  <div *ngIf="myBooking!=null; else emptyContainer">
+    <div class="row tickets" style="margin-top: 10px;" *ngFor="let ticket of myBooking.bookingSeats">
+      <div class="col-6">
+        Sala nr: {{ticket.roomId}}<br/>
+        Rząd: {{ticket.row+1}} Miejsce: {{ticket.number+1}}
+      </div>
+      <div class="col-6">
+        <!--<button mat-button [matMenuTriggerFor]="menu" style="margin-top: 5px">Rodzaj biletu-->
+        <!--<mat-icon>more_vert</mat-icon>-->
+        <!--</button>-->
+        <!--<mat-menu #menu="matMenu">-->
+        <!--<button mat-menu-item>Normalny</button>-->
+        <!--<button mat-menu-item>Ulgowy</button>-->
+        <!--</mat-menu>-->
+        <!--Normalny-->
+        <mat-form-field>
+          <!--<mat-select placeholder="Favorite animal" [formControl]="animalControl" required>-->
+          <mat-select placeholder="Favorite animal">
+            <!--<mat-option>&#45;&#45;</mat-option>-->
+            <mat-option>NORMALNY</mat-option>
+            <mat-option>ULGOWY</mat-option>
+          </mat-select>
+          <!--<mat-error *ngIf="animalControl.hasError('required')">Proszę wybrac bilet</mat-error>-->
+          <!--<mat-hint>{{animalControl.value?.sound}}</mat-hint>-->
+        </mat-form-field>
       </div>
     </div>
-    <div class="col-4 text-center">
-      <h5>Ilość biletów: {{myBooking.bookingSeats.length}} </h5>
-    </div>
   </div>
-  <div class="row tickets" style="margin-top: 10px;" *ngFor="let ticket of myBooking.bookingSeats">
-    <div class="col-8">
-      Sala nr: {{ticket.roomId}}<br/>
-      Rząd: {{ticket.row+1}} Miejsce: {{ticket.num+1}}
-    </div>
-    <div class="col-4">
-      <button mat-button [matMenuTriggerFor]="menu" style="margin-top: 5px">Rodzaj biletu
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Normalny</button>
-        <button mat-menu-item>Ulgowy</button>
-      </mat-menu>
-      Normalny
-    </div>
-  </div>
+  <ng-template #emptyContainer>
+    Problem z serwerem
+  </ng-template>
   <div class="row" style="text-align: center; border-top: 2px solid white">
     <div class="col">
       <button type="button" class="btn accept-btn" routerLink="/buy/1/step3">POTWIERDŹ</button>

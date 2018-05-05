@@ -1,35 +1,54 @@
 <div class="buy-process">
   <div class=regulamin>
     <div class="cockpit">
-      <h1 style="margin-top: 80px">Wybierz miejsca</h1>
-    </div>
-    <div class="plane">
-      <div class="exit exit--front fuselage">
-
-      </div>
-      <ol class="cabin fuselage">
-        <li class="row row--1" *ngFor="let row of number_rows">
-          <ol class="seats" type="A">
-            <li class="seat" *ngFor="let col of number_columns">
-              <input type="checkbox" id={{row}}{{col[0]}} class="" (click)="onClickSeat(row,col[0])"
-                     [disabled]="booking_seats[row][col[0]]"/>
-              <label for="{{row}}{{col[0]}}" class="margin-right">{{word_number_rows[row]}}{{col[0]}}</label>
-
-              <input type="checkbox" id={{row}}{{col[1]}} class="margin-left" (click)="onClickSeat(row,col[1])"
-                     [disabled]="booking_seats[row][col[1]]"/>
-              <label for="{{row}}{{col[1]}}">{{word_number_rows[row]}}{{col[1]}}</label>
-            </li>
-          </ol>
-        </li>
-      </ol>
-
-      <div class="exit exit--back fuselage">
-
+      <h2>Wybierz miejsca</h2>
+      <div class="flex-container">
+        <div class="flex-container">
+          <div class="seats-info-box color-free"></div>
+          <span class="text-info"> WOLNE MIEJSCA</span>
+          <div class="seats-info-box color-booked" style="margin-left: 20px"></div>
+          <span class="text-info"> ZAJETE MIEJSCA</span>
+          <div class="seats-info-box color-your-choose" style="margin-left: 20px"></div>
+          <span class="text-info">TWÓJ WYBÓR</span>
+        </div>
+        <div style="margin-left: auto; margin-right: 14px; font-size: small">
+          REZERWACJE: {{clickedSeatsCount}}
+        </div>
       </div>
     </div>
+    <div *ngIf="!spinner">
+      <div class="plane">
+        <div class="view">
+          EKRAN
+        </div>
+        <div class="exit exit--front fuselage">
+        </div>
+        <ol class="cabin fuselage">
+          <li class="row row--1" *ngFor="let row of number_rows">
+            <ol class="seats" type="A">
+              <li class="seat" *ngFor="let col of number_columns">
+                <input type="checkbox" id={{row}}{{col[0]}} class="" (click)="onClickSeat(row,col[0])"
+                       [disabled]="booking_seats[row][col[0]]"/>
+                <label for="{{row}}{{col[0]}}" class="margin-right">{{word_number_rows[row]}}{{col[0]}}</label>
 
-    <button type="button" class="btn buy-button prev-button"> Wstecz</button>
-    <button type="button" class="btn buy-button next-button" routerLink="/buy/1/step2" (click)="nextStepBtn()"> Dalej
-    </button>
+                <input type="checkbox" id={{row}}{{col[1]}} class="margin-left" (click)="onClickSeat(row,col[1])"
+                       [disabled]="booking_seats[row][col[1]]"/>
+                <label for="{{row}}{{col[1]}}">{{word_number_rows[row]}}{{col[1]}}</label>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+      <div class="centerBlock centerItem">
+        <button type="button" class="btn next-step-btn" (click)="nextStepBtn()">Dalej</button>
+        <!--<button  mat-button (click)="nextStepBtn()">Dalej</button>-->
+      </div>
+    </div>
+    <div style="width: 100%; margin-top: 100px" *ngIf="spinner">
+      <mat-spinner class="spinner"></mat-spinner>
+    </div>
+
+    <!--<button type="button" class="btn buy-button next-button" routerLink="/buy/1/step2" (click)="nextStepBtn()"> Dalej-->
+    <!--</button>-->
   </div>
 </div>

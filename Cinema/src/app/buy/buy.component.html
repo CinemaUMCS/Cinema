@@ -1,1 +1,71 @@
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->
+
+<div class="container content">
+  <div class="row" style="margin:0px">
+  </div>
+  <div class="row" style="margin: 0px">
+    <div class="col" style="padding: 0px">
+      <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper" class="">
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Wybierz Miejsca</ng-template>
+            <!--<mat-form-field>-->
+            <!--<input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>-->
+            <!--</mat-form-field>-->
+            <!--<div class="col-10 justify-content-center">-->
+            <div class="row">
+              <div class="col-2">
+                <div class="info-film">
+                  <div class="align-center">
+                    <img class="img-thumbnail img-size"
+                         src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
+                         alt="star wars">
+                  </div>
+                  <div style="color: white" class="centerBlock">
+                    <h5 class="bold">Gwiezdne wojny: Przebudzenie mocy</h5>
+                    <h6>17:00 11-05-2018</h6>
+                    <span style="color: #f5821e">Ograniczenia wiekowe: 16+</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-10">
+                <router-outlet></router-outlet>
+              </div>
+            </div>
+
+
+            <!--</div>-->
+
+            <!--<div class="align-center">-->
+            <!--<button mat-button matStepperNext>Next</button>-->
+            <!--</div>-->
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Bilety</ng-template>
+            <!--<mat-form-field>-->
+            <!--<input matInput placeholder="Address" formControlName="secondCtrl" required>-->
+            <!--</mat-form-field>-->
+            <!--<div>-->
+            <!--<button mat-button matStepperPrevious>Back</button>-->
+            <!--<button mat-button matStepperNext>Next</button>-->
+            <!--</div>-->
+            <app-buy-step2></app-buy-step2>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Potwierdzenie</ng-template>
+          <app-buy-success></app-buy-success>
+          <!--You are now done.-->
+          <!--<div>-->
+          <!--<button mat-button matStepperPrevious>Back</button>-->
+          <!--<button mat-button (click)="stepper.reset()">Reset</button>-->
+          <!--</div>-->
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+
+</div>
+

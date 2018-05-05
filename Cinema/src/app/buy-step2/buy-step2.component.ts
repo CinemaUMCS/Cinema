@@ -3,6 +3,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {ReservationService} from '../shared/reservation.service';
 import {MatMenuTrigger} from '@angular/material';
 import {MyBookingModel} from '../../model/myBooking.model';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-buy-step2',
@@ -12,8 +13,14 @@ import {MyBookingModel} from '../../model/myBooking.model';
 export class BuyStep2Component implements OnInit {
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
   myBooking: MyBookingModel;
+  // animalControl = new FormControl('', [Validators.required]);
+  animals = [
+    {name: 'NORMALNY'},
+    {name: 'ULGOWY'},
+  ];
 
   constructor(private reservationService: ReservationService) {
+    // this.createFormControl();
   }
 
   click() {
