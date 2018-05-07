@@ -1,14 +1,19 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cinema.Entities
 {
   public class Room
   {
-    public virtual int Id { get; set; }
-    public virtual string Name { get; set; }
+    public int Id { get; private set; }
+    public string Name { get;private set; }
 
-    public virtual ICollection<Seat> Seats { get; set; }
-    public virtual ICollection<Seance> Seances { get; set; }
+
+    private HashSet<Seance> _seances;
+    private HashSet<Seat> _seats;
+    public IEnumerable<Seat> Seats => _seats.ToList();
+    public IEnumerable<Seance> Seances => _seances.ToList();
+
 
     public Room(string name) : this()
     {
@@ -17,8 +22,12 @@ namespace Cinema.Entities
 
     public Room()
     {
-      Seats = new HashSet<Seat>();
-      Seances = new HashSet<Seance>();
+      _seats = new HashSet<Seat>();
+      _seances = new HashSet<Seance>();
+    }
+    public void AddSeat(Seat seat)
+    {
+      _seats.Add(seat);
     }
   }
 }

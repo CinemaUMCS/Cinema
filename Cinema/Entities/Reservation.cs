@@ -23,6 +23,10 @@ namespace Cinema.Entities
     private HashSet<ReservedSeat> _reservedSeats;
     public IEnumerable<ReservedSeat> ReservedSeats => _reservedSeats.ToList();
 
+    private Reservation()
+    {
+
+    }
     public Reservation(int seanceId, int userId, int numberOfNormalTickets, int numberOfConcessionaryTickets)
     {
       SeanceId = seanceId;
@@ -30,6 +34,7 @@ namespace Cinema.Entities
       NumberOfNormalTickets = numberOfNormalTickets;
       NumberOfConcessionaryTickets = numberOfConcessionaryTickets;
       _reservedSeats = new HashSet<ReservedSeat>();
+      
     }
     public void AddReservedSeat(int seatId,CinemaDbContext context = null)
     {
@@ -50,6 +55,11 @@ namespace Cinema.Entities
       {
         throw new InvalidOperationException("Could not add a reservedSeat.");
       }
+    }
+    private void UpdateReservationValue()
+    {
+      //double concessionaryTicketsCost = NumberOfConcessionaryTickets * Seance.ConcessionaryTicketPrice;
+      //double normalTicketsCost = addReservation.NumberOfNormalTickets * Seance.NormalTicketPrice;
     }
   }
 }

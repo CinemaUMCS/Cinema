@@ -1,5 +1,8 @@
+using System;
+using System.Threading.Tasks;
 using Cinema.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Extensions;
 
 namespace Cinema.Data
 {
@@ -43,6 +46,7 @@ namespace Cinema.Data
       builder.Entity<Seance>().HasOne(s => s.Movie).WithMany(m => m.Seances).HasForeignKey(m => m.MovieId);
       builder.Entity<Seance>().Property(s => s.ConcessionaryTicketPrice).IsRequired();
       builder.Entity<Seance>().Property(s => s.NormalTicketPrice).IsRequired();
+      builder.Entity<Seance>().Metadata.FindNavigation(nameof(Seance.Reservations)).SetPropertyAccessMode(PropertyAccessMode.Field);
 
       #endregion
 
@@ -57,10 +61,11 @@ namespace Cinema.Data
       builder.Entity<User>().Property(u => u.Password).IsRequired();
       builder.Entity<User>().Property(u => u.Salt).IsRequired();
       builder.Entity<User>().Property(u => u.Role).IsRequired();
-
+      builder.Entity<User>().Metadata.FindNavigation(nameof(User.Reservations)).SetPropertyAccessMode(PropertyAccessMode.Field);
+      builder.Entity<User>().Metadata.FindNavigation(nameof(User.Ratings)).SetPropertyAccessMode(PropertyAccessMode.Field);
       #endregion
 
-      // ******************** ReservationConfiguration *****************//
+      //********************ReservationConfiguration * ****************
 
       #region ReservationConfiguration
 
@@ -70,6 +75,7 @@ namespace Cinema.Data
           .HasForeignKey(r => r.SeanceId);
       builder.Entity<Reservation>().HasOne(r => r.User).WithMany(u => u.Reservations)
           .HasForeignKey(r => r.UserId);
+      builder.Entity<Reservation>().Metadata.FindNavigation(nameof(Reservation.ReservedSeats)).SetPropertyAccessMode(PropertyAccessMode.Field);
 
       #endregion
 
@@ -79,6 +85,8 @@ namespace Cinema.Data
 
       builder.Entity<Room>().HasKey(r => r.Id);
       builder.Entity<Room>().Property(r => r.Name).IsRequired();
+      builder.Entity<Room>().Metadata.FindNavigation(nameof(Room.Seances)).SetPropertyAccessMode(PropertyAccessMode.Field);
+      builder.Entity<Room>().Metadata.FindNavigation(nameof(Room.Seats)).SetPropertyAccessMode(PropertyAccessMode.Field);
 
       #endregion
 
@@ -113,6 +121,8 @@ namespace Cinema.Data
       builder.Entity<Movie>().Property(m => m.ProductionDate).IsRequired(false);
       builder.Entity<Movie>().Property(m => m.TrailerPath).IsRequired(false);
       builder.Entity<Movie>().Property(m => m.PosterPath).IsRequired(true);
+      builder.Entity<Movie>().Metadata.FindNavigation(nameof(Movie.Seances)).SetPropertyAccessMode(PropertyAccessMode.Field);
+      builder.Entity<Movie>().Metadata.FindNavigation(nameof(Movie.Ratings)).SetPropertyAccessMode(PropertyAccessMode.Field);
 
       #endregion
     }

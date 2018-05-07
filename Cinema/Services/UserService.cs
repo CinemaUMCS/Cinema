@@ -5,7 +5,6 @@ using AutoMapper;
 using Cinema.Entities;
 using Cinema.DTO;
 using Cinema.Exceptions;
-using Cinema.Repositories;
 using Cinema.Data;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +34,7 @@ namespace Cinema.Services
         throw new InvalidEmail("User with this email already exist.");
       user = new User(email, firstName, lastName, password, role);
       await _dbContext.Users.AddAsync(user);
+      await _dbContext.SaveChangesAsync();
     }
     public async Task<TokenModel> LoginAsync(string email, string password)
     {

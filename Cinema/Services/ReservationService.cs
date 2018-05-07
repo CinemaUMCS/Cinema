@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Cinema.Entities;
 using Cinema.DTO;
-using Cinema.Repositories;
 using Cinema.Request;
 using System;
 using System.Linq;
@@ -15,14 +14,12 @@ namespace Cinema.Services
 {
   public class ReservationService : IReservationService
   {
-    private readonly ISeanceRepository _seanceRepository;
     private readonly CinemaDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public ReservationService(CinemaDbContext dbContext, ISeanceRepository seanceRepository,  IMapper mapper)
+    public ReservationService(CinemaDbContext dbContext,  IMapper mapper)
     {
       _dbContext = dbContext;
-      _seanceRepository = seanceRepository;
       _mapper = mapper;
     }
 
@@ -44,7 +41,7 @@ namespace Cinema.Services
           addReservation.SeatsToReserveIds.Count())
         throw new Exception("Number of tickets is not equal to number of choosen seats");
 
-      Seance seance = await _seanceRepository.GetAsync(addReservation.SeanceId);
+      Seance seance = await _dbContext.Seances.FirstOrDefaultAsync(x => x.Id == addReservation.SeanceId);
       if(seance==null)
         throw new Exception("Seance doesn't exist");
 
@@ -60,14 +57,24 @@ namespace Cinema.Services
 
       double concessionaryTicketsCost = addReservation.NumberOfConcessionaryTickets * seance.ConcessionaryTicketPrice;
       double normalTicketsCost = addReservation.NumberOfNormalTickets * seance.NormalTicketPrice;
-      reservation.Value = concessionaryTicketsCost + normalTicketsCost;
+      //reservation.Value = concessionaryTicketsCost + normalTicketsCost;
       await _dbContext.Reservations.AddAsync(reservation);
       await _dbContext.SaveChangesAsync();
     }
 
     public async Task UpdateAsync(int id, Reservation reservation)
     {
-      await _reservationRepository.UpdateAsync(id, reservation);
+      //var reservationdb = await _context.Reservations.SingleOrDefaultAsync(r => r.Id == id);
+
+      //if (reservationdb == null)
+      //  throw new Exception($"Reservation with id: {id} not found.");
+
+      //reservationdb.Paid = reservation.Paid;
+      //reservationdb.SeanceId = reservation.SeanceId;
+      //reservationdb.UserId = reservation.UserId;
+
+      //await _context.SaveChangesAsync();
+      //await _reservationRepository.UpdateAsync(id, reservation);
     }
 
     public async Task DeleteAsync(int id)
@@ -91,7 +98,7 @@ namespace Cinema.Services
 
     public async Task<IEnumerable<ReservationDto>> GetReservationsForSeanceAsync(int seanceId)
     {
-      var seance = await _seanceRepository.GetAsync(seanceId);
+      var seance = await _dbContext.Seances.FirstOrDefaultAsync(x => x.Id == seanceId);
       if(seance==null)
         throw new Exception($"Seance with id={seanceId} doesn't exist");
 

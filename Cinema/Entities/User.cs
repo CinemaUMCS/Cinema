@@ -23,6 +23,7 @@ namespace Cinema.Entities
     public IEnumerable<Reservation> Reservations => _reservations.ToList();
     public IEnumerable<Rating> Ratings => _ratings.ToList();
 
+    private User() { }
     public User(string email, string firstName, string lastName, string password, string role)
     {
       SetEmail(email);

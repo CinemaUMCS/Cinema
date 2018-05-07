@@ -24,11 +24,11 @@ namespace Cinema.Data
           cfg.CreateMap<MovieRequest, Movie>();
           cfg.CreateMap<AddSeance, Seance>()
             .AfterMap(
-              (addSeance, seance) => seance.Duration = TimeSpan.FromMinutes(addSeance.DurationInMinutes))
+              (addSeance, seance) => seance.SetDuration(TimeSpan.FromMinutes(addSeance.DurationInMinutes)))
             .AfterMap(((addSeance, seance) =>
-              seance.NormalTicketPrice = Math.Round(addSeance.NormalTicketPrice, 2)))
+              seance.SetNormalTicketPrice(Math.Round(addSeance.NormalTicketPrice, 2))))
             .AfterMap(((addSeance, seance) =>
-              seance.ConcessionaryTicketPrice = Math.Round(addSeance.ConcessionaryTicketPrice, 2)));
+              seance.SetConcessionaryTicketPrice(Math.Round(addSeance.ConcessionaryTicketPrice, 2))));
         })
         .CreateMapper();
   }

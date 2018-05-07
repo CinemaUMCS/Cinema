@@ -2,11 +2,16 @@ namespace Cinema.Entities
 {
   public class Rating
   {
-    public int? Mark { get; set; }
+    public int? Mark { get; private set; }
 
-    public virtual User User { get; set; }
-    public virtual Movie Movie { get; set; }
-    public virtual int UserId { get; set; }
-    public virtual int MovieId { get; set; }
+    public User User { get; private set; }
+    public Movie Movie { get; private set; }
+    public int UserId { get; private set; }
+    public int MovieId { get; private set; }
+
+    private Rating()
+    {
+
+    }
   }
 }

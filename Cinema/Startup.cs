@@ -1,12 +1,12 @@
 using System.Text;
 using Cinema.Data;
 using Cinema.Middleware;
-using Cinema.Repositories;
 using Cinema.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -27,8 +27,7 @@ namespace Cinema
     {
       var connectionString = Configuration["Sql:ConnectionString"];
       services.AddDbContext<CinemaDbContext>(options =>
-        options.UseLazyLoadingProxies()
-          .UseSqlServer(connectionString));
+          options.UseSqlServer(connectionString));
 
       var jwtKey = Configuration["Jwt:Key"];
       services.AddAuthentication(options => { options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme; })
@@ -51,12 +50,6 @@ namespace Cinema
       services.AddScoped<IMovieService, MovieService>();
       services.AddScoped<IRoomService, RoomService>();
 
-      services.AddScoped<IUserRepository, UserRepository>();
-      services.AddScoped<ISeanceRepository, SeanceRepository>();
-      services.AddScoped<IReservationRepository, ReservationRepository>();
-      services.AddScoped<IRoomRepository, RoomRepository>();
-
-
       services.AddScoped<IEncrypter, EncrypterService>();
       services.AddScoped<ITokenProvider, TokenProvider>();
       services.AddSingleton(AutoMapperConfig.Initialize());
@@ -71,6 +64,7 @@ namespace Cinema
       if (env.IsDevelopment())
         app.UseDeveloperExceptionPage();
       app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+
 
       //Angular
       //app.Use(async (context, next) =>

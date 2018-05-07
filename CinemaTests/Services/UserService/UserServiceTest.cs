@@ -4,7 +4,6 @@ using System.Text;
 using AutoMapper;
 using Cinema.Data;
 using Cinema.Entities;
-using Cinema.Repositories;
 using Cinema.Services;
 using Moq;
 
@@ -13,7 +12,6 @@ namespace CinemaTests.Services.UserService
     public abstract class UserServiceTest
     {
 
-        protected Mock<IUserRepository> UserRepositoryMock;
         protected Mock<ITokenProvider> TokenProviderMock;
         protected Mock<IEncrypter> EncrypterMock;
         protected IMapper Mapper;

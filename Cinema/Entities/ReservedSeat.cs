@@ -2,13 +2,17 @@ namespace Cinema.Entities
 {
   public class ReservedSeat
   {
-    public virtual int Id { get; set; }
-    public virtual int ReservationId { get; set; }
-    public virtual int SeatId { get; set; }
+    public int Id { get; private set; }
+    public int ReservationId { get; private set; }
+    public int SeatId { get; private set; }
 
-    public virtual Reservation Reservation { get; set; }
-    public virtual Seat Seat { get; set; }
+    public Reservation Reservation { get; private set; }
+    public Seat Seat { get;private set; }
 
+    private ReservedSeat()
+    {
+
+    }
     public ReservedSeat(int seatId)
     {
 

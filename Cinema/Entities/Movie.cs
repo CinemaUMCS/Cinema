@@ -28,6 +28,10 @@ namespace Cinema.Entities
     public IEnumerable<Rating> Ratings => _ratings.ToList();
     public IEnumerable<Seance> Seances => _seances.ToList();
 
+    private Movie()
+    {
+
+    }
     public Movie(string title, string trailerPath, string posterPath, Category category, string description, DateTime? productionDate)
     {
       Title = title;

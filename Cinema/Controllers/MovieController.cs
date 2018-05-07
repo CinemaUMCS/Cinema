@@ -67,7 +67,7 @@ namespace Cinema.Controllers
 
     [HttpPut("{id}")]
     [Authorize(Roles = "admin, employee")]
-    public async Task<IActionResult> Put(int id, [FromBody] Movie movie)
+    public async Task<IActionResult> Put(int id, [FromBody] MovieRequest movie)
     {
       if (!ModelState.IsValid)
       {

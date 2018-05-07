@@ -6,29 +6,28 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Cinema.Entities;
 using Cinema.DTO;
-using Cinema.Repositories;
 using Cinema.Request;
+using Cinema.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
   class SeanceService : ISeanceService
   {
-    private readonly ISeanceRepository _seanceRepository;
-    private readonly IMovieRepository _movieRepository;
     private readonly IMapper _mapper;
     private readonly IRoomService _roomService;
+    private readonly CinemaDbContext _dbContext;
 
-    public SeanceService(IRoomService roomService, ISeanceRepository seanceRepository,IMovieRepository movieRepository, IMapper mapper)
+    public SeanceService(CinemaDbContext dbContext,IRoomService roomService, IMapper mapper)
     {
+      _dbContext = dbContext;
       _roomService = roomService;
-      _seanceRepository = seanceRepository;
-      this._movieRepository = movieRepository;
       _mapper = mapper;
     }
 
     public async Task<IEnumerable<SeanceDto>> GetAllAsync()
     {
-      var shows = await _seanceRepository.GetAllAsync();
+      var shows = await _dbContext.Seances.ToListAsync();
       return _mapper.Map<ICollection<Seance>, ICollection<SeanceDto>>(shows);
     }
 
@@ -41,7 +40,7 @@ namespace Cinema.Services
 
     public async Task<IEnumerable<SeanceDto>> GetByMovieId(int id)
     {
-      var movie = await _movieRepository.GetAsync(id);
+      var movie = await _dbContext.Movies.FirstOrDefaultAsync(x => x.Id == id);
       if (movie == null)
         throw new Exception("Movie with this id doesn't exists");
       var seances = await GetAllAsync();
@@ -50,7 +49,7 @@ namespace Cinema.Services
     }
     public async Task<IEnumerable<SeanceDto>> GetByDateAndMovieId(DateTime seanceDate,int id)
     {
-      var movie = await _movieRepository.GetAsync(id);
+      var movie = await _dbContext.Movies.FirstOrDefaultAsync(x => x.Id == id);
       if (movie == null)
         throw new Exception("Movie with this id doesn't exists");
       var seances = await GetAllAsync();
@@ -61,7 +60,7 @@ namespace Cinema.Services
 
     public async Task<SeanceDto> GetAsync(int id)
     {
-      var show = await _seanceRepository.GetAsync(id);
+      var show = await _dbContext.Seances.FirstOrDefaultAsync(x => x.Id == id);
       return _mapper.Map<Seance, SeanceDto>(show);
     }
 
@@ -76,26 +75,31 @@ namespace Cinema.Services
         throw new Exception("Room is not available");
       }
 
-      await _seanceRepository.AddAsync(newSeance);
+      await _dbContext.Seances.AddAsync(newSeance);
+      await _dbContext.SaveChangesAsync();
     }
 
     public async Task UpdateAsync(int id, Seance seance)
     {
-      await _seanceRepository.UpdateAsync(id, seance);
+      throw new NotImplementedException();
     }
 
     public async Task DeleteAsync(int id)
     {
-      await _seanceRepository.DeleteAsync(id);
+      var show = _dbContext.Seances.SingleOrDefault(s => s.Id == id);
+      if (show == null)
+        throw new Exception($"Seances with id: {id} not found.");
+      _dbContext.Seances.Remove(show);
+      await _dbContext.SaveChangesAsync();
     }
 
     public async Task<SeanceRoomData> GetSeanceRoomData(int id)
     {
-      var seance = await _seanceRepository.GetAsync(id);
+      var seance = await _dbContext.Seances.FirstOrDefaultAsync(x => x.Id == id);
       var seanceRoomData = new SeanceRoomData();
       seanceRoomData.RoomId = seance.RoomId;
       seanceRoomData.SeanceId = seance.Id;
-      seanceRoomData.SeatsInRoom = _mapper.Map<ICollection<Seat>, ICollection<SeatDto>>(seance.Room.Seats);
+      seanceRoomData.SeatsInRoom = _mapper.Map<ICollection<Seat>, ICollection<SeatDto>>(seance.Room.Seats.ToList());
       foreach (var seat in seanceRoomData.SeatsInRoom)
       {
         if (seance.Reservations.Any(r => r.ReservedSeats.Any(rs => rs.SeatId == seat.Id)))

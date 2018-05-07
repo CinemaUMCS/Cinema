@@ -2,12 +2,12 @@ namespace Cinema.Entities
 {
   public class Seat
   {
-    public virtual int Id { get; set; }
-    public virtual int Row { get; set; }
-    public virtual int Number { get; set; }
+    public int Id { get;private set; }
+    public int Row { get;private set; }
+    public int Number { get;private set; }
 
-    public virtual Room Room { get; set; }
-    public virtual int RoomId { get; set; }
+    public Room Room { get;private set; }
+    public int RoomId { get;private set; }
 
     public Seat(int row, int number)
     {
@@ -15,6 +15,6 @@ namespace Cinema.Entities
       Number = number;
     }
 
-    public Seat() { }
+    private Seat() { }
   }
 }
