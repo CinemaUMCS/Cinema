@@ -29,15 +29,16 @@ body, html {
     font-size: 24px;
   }
   .form-group {
-    position: absolute;
+    //position: absolute;
     margin-left: 2rem;
     margin-right: 2rem;
-    margin-top: 10rem;
+    margin-top: 20px;
     width: 90%;
   }
 }
 
 .buy-button {
+  margin-top: 20px;
   background-color: $kino-pink;
   width: 130px;
   &:hover {
@@ -47,9 +48,10 @@ body, html {
 }
 
 .next-button {
-  position: absolute;
+  //position: absolute;
   bottom: 4rem;
-  right: 4rem;
+  margin-left: auto;
+  margin-right: auto;
   color: $kino-sand;
 }
 

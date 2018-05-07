@@ -128,7 +128,7 @@ export class NowPlayingComponent implements OnInit {
   }
 
   chooseSeance(id) {
-    this.router.navigate(['buy', id, 'step1']);
+    this.router.navigate(['buy', id, 'step0']);
   }
 
 

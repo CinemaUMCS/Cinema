@@ -81,7 +81,11 @@ import {TimepickerModule} from 'ngx-bootstrap/timepicker';
 import {AuthGuardAdmin} from './admin/services/auth-guard-admin.service';
 import {ReservationService} from './shared/reservation.service';
 import {BuyComponent} from './buy/buy.component';
-import { DialogComponent } from './buy-step3/dialog/dialog.component';
+import {DialogComponent} from './buy-step3/dialog/dialog.component';
+import {BuyStep0Component} from './buy-step-0/buy-step-0.component';
+import {BookingSeatsService} from './shared/booking-seats.service';
+import {Step1GuardService} from './shared/step1-guard.service';
+import {RegulationsComponent} from './regulations/regulations.component';
 
 
 @NgModule({
@@ -114,6 +118,8 @@ import { DialogComponent } from './buy-step3/dialog/dialog.component';
     EditSeanceComponent,
     AdminHeaderComponent,
     DialogComponent,
+    BuyStep0Component,
+    RegulationsComponent,
   ],
   imports: [
     CommonModule,
@@ -163,9 +169,9 @@ import { DialogComponent } from './buy-step3/dialog/dialog.component';
     MatTooltipModule,
   ],
   entryComponents: [
-    DialogComponent
+    DialogComponent, RegulationsComponent
   ],
-  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService],
+  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService, BookingSeatsService, Step1GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

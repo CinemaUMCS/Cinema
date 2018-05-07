@@ -5,14 +5,10 @@
   </div>
   <div class="row" style="margin: 0px">
     <div class="col" style="padding: 0px">
-      <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper" class="">
+      <mat-horizontal-stepper [linear]="false" #stepper="matHorizontalStepper" class="">
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Wybierz Miejsca</ng-template>
-            <!--<mat-form-field>-->
-            <!--<input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>-->
-            <!--</mat-form-field>-->
-            <!--<div class="col-10 justify-content-center">-->
             <div class="row">
               <div class="col-2">
                 <div class="info-film">
@@ -32,26 +28,11 @@
                 <router-outlet></router-outlet>
               </div>
             </div>
-
-
-            <!--</div>-->
-
-            <!--<div class="align-center">-->
-            <!--<button mat-button matStepperNext>Next</button>-->
-            <!--</div>-->
           </form>
         </mat-step>
         <mat-step [stepControl]="secondFormGroup">
           <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Bilety</ng-template>
-            <!--<mat-form-field>-->
-            <!--<input matInput placeholder="Address" formControlName="secondCtrl" required>-->
-            <!--</mat-form-field>-->
-            <!--<div>-->
-            <!--<button mat-button matStepperPrevious>Back</button>-->
-            <!--<button mat-button matStepperNext>Next</button>-->
-            <!--</div>-->
-            <app-buy-step2></app-buy-step2>
           </form>
         </mat-step>
         <mat-step>

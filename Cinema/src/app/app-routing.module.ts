@@ -29,6 +29,9 @@ import {EditSeanceComponent} from './admin/Seances/edit-seance/edit-seance.compo
 import {AuthGuard} from './shared/auth-guard.service';
 import {AuthGuardAdmin} from './admin/services/auth-guard-admin.service';
 import {BuyComponent} from './buy/buy.component';
+import {BuyStep0Component} from './buy-step-0/buy-step-0.component';
+import {Step1GuardService} from './shared/step1-guard.service';
+import {RegulationsComponent} from './regulations/regulations.component';
 
 const routes: Routes = [
   {
@@ -38,9 +41,10 @@ const routes: Routes = [
       {path: 'pricelist', component: PriceComponent},
       {path: 'contact', component: ContactComponent},
       {
-        path: 'buy', component: BuyComponent, children: [
-          {path: ':seanceId/step2', component: BuyStep2Component},
-          {path: ':seanceId/step1', component: BuyStep3Component},
+        path: 'buy/:seanceId', component: BuyComponent, children: [
+          {path: 'step2', component: BuyStep2Component},
+          {path: 'step1', component: BuyStep3Component,canActivate: [Step1GuardService]},
+          {path: 'step0', component: BuyStep0Component},
           // {path: ':seanceId/step3', component: BuySuccessComponent},
         ]
       },

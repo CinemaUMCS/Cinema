@@ -1,8 +1,14 @@
 <div class="buy-process">
   <div class=regulamin>
     <div class="cockpit">
-      <h2>Wybierz miejsca</h2>
-      <div class="flex-container">
+      <h2>WYBIERZ MIEJSCA</h2>
+      <div  class="clicked-places-info" *ngIf="choosenSeatsCount>0">
+        Prosze wybrać {{choosenSeatsCount}} miejsce(a)
+      </div>
+      <div  class="clicked-places-info" *ngIf="choosenSeatsCount<1">
+        Wybrano wszystkie miejsca!
+      </div>
+      <div class="">
         <div class="flex-container">
           <div class="seats-info-box color-free"></div>
           <span class="text-info"> WOLNE MIEJSCA</span>
@@ -10,9 +16,6 @@
           <span class="text-info"> ZAJETE MIEJSCA</span>
           <div class="seats-info-box color-your-choose" style="margin-left: 20px"></div>
           <span class="text-info">TWÓJ WYBÓR</span>
-        </div>
-        <div style="margin-left: auto; margin-right: 14px; font-size: small">
-          REZERWACJE: {{clickedSeatsCount}}
         </div>
       </div>
     </div>
@@ -27,11 +30,11 @@
           <li class="row row--1" *ngFor="let row of number_rows">
             <ol class="seats" type="A">
               <li class="seat" *ngFor="let col of number_columns">
-                <input type="checkbox" id={{row}}{{col[0]}} class="" (click)="onClickSeat(row,col[0])"
+                <input #in type="checkbox" id="{{row}}{{col[0]}}" class="" (click)="onClickSeat(row,col[0],in)"
                        [disabled]="booking_seats[row][col[0]]"/>
                 <label for="{{row}}{{col[0]}}" class="margin-right">{{word_number_rows[row]}}{{col[0]}}</label>
 
-                <input type="checkbox" id={{row}}{{col[1]}} class="margin-left" (click)="onClickSeat(row,col[1])"
+                <input #iin type="checkbox" id="{{row}}{{col[1]}}" class="right" (click)="onClickSeat(row,col[1],iin)"
                        [disabled]="booking_seats[row][col[1]]"/>
                 <label for="{{row}}{{col[1]}}">{{word_number_rows[row]}}{{col[1]}}</label>
               </li>

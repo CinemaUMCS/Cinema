@@ -13,10 +13,11 @@ import {FormControl, Validators} from '@angular/forms';
 export class BuyStep2Component implements OnInit {
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
   myBooking: MyBookingModel;
-  // animalControl = new FormControl('', [Validators.required]);
+  animalControl = new FormControl('', [Validators.required]);
+
   animals = [
-    {name: 'NORMALNY'},
-    {name: 'ULGOWY'},
+    {name: 'Normalny', sound: '18PLN'},
+    {name: 'Ulgowy', sound: '12PLN'},
   ];
 
   constructor(private reservationService: ReservationService) {

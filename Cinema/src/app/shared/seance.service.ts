@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {BaseHttpService} from './base-http.service';
+import {SeanceModel} from '../../model/seance.model';
 
 
 @Injectable()
 export class SeanceService extends BaseHttpService {
+
+  actualSeance: SeanceModel;
 
   constructor(private http: Http) {
     super();
@@ -28,5 +31,13 @@ export class SeanceService extends BaseHttpService {
 
   getSeanceRoomData(seanceId: number) {
     return this.http.get(super.setUrl('seance/getSeanceRoomData/' + seanceId));
+  }
+
+  getSeanceById(seanceId: number) {
+    return this.http.get(super.setUrl('seance/' + seanceId));
+  }
+
+  setActualSeance(seance: SeanceModel) {
+    this.actualSeance = seance;
   }
 }

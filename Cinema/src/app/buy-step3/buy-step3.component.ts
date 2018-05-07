@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ReservedSeatModel} from '../../model/reservedSeat.model';
 import {SeatModel} from '../../model/seat.model';
@@ -9,6 +9,7 @@ import {ReservationModel} from '../../model/reservation.model';
 import {MyBookingModel} from '../../model/myBooking.model';
 import {MatDialog} from '@angular/material';
 import {DialogComponent} from './dialog/dialog.component';
+import {BookingSeatsService} from '../shared/booking-seats.service';
 
 @Component({
   selector: 'app-buy-step3',
@@ -29,42 +30,50 @@ export class BuyStep3Component implements OnInit {
   // seat1: SeatModel = {id: 1, row: 2, num: 2, roomId: 1};
   // seat2: SeatModel = {id: 2, row: 3, num: 3, roomId: 1};
   clickedSeatsCount = 0;
+  choosenSeatsCount: number;
   listOfBookingSeats = new Array<SeatModel>(); // wybrane miejsca do zarezerowania
 
-  // mock_seat = [this.seat1, this.seat2];
-
   constructor(private route: ActivatedRoute, private seanceService: SeanceService,
-              private reservationService: ReservationService, private router: Router, public dialog: MatDialog) {
+              private reservationService: ReservationService, private router: Router, public dialog: MatDialog,
+              private booking_service: BookingSeatsService) {
     this.booking_seats = this.onCreateBooleanSeatArrayRepresentationArray();
     this.clickedSeats = this.onCreateBooleanSeatArrayRepresentationArray();
-    // this.onCreateArray();
-    // console.log(this.bol);
-    // console.log(this.clickedSeats);
   }
 
   ngOnInit() {
-    this.seanceId = this.route.snapshot.params['seanceId'];
+    this.seanceId = this.route.parent.snapshot.params['seanceId'];
+    // this.seanceId = this.seanceService.actualSeance.id;
     this.getSeanceRoomData(this.seanceId);
+    this.choosenSeatsCount = this.booking_service.choosenSeats;
   }
 
-  onClickSeat(row, col) {
+  onClickSeat(row, col, ref) {
     row = row - 1;
     col = col - 1;
     if (this.clickedSeats[row][col]) {
       this.clickedSeats[row][col] = false;
       this.clickedSeatsCount = this.clickedSeatsCount - 1;
+      this.choosenSeatsCount = this.choosenSeatsCount + 1;
     } else {
+      if (this.choosenSeatsCount < 1) {
+        this.openDialog('Wszystkie zadeklarowane miejsca zostaly wybrane!');
+        this.clickedSeats[row][col] = false;
+        ref.checked = false;
+        return;
+      }
       this.clickedSeats[row][col] = true;
       this.clickedSeatsCount = this.clickedSeatsCount + 1;
+      this.choosenSeatsCount = this.choosenSeatsCount - 1;
     }
   }
+
 
   getSeanceRoomData(seanceId: number) {
     this.seanceService.getSeanceRoomData(seanceId).subscribe(
       response => {
         this.seanceRoomData = response.json();
         this.setBookedSeats(this.seanceRoomData.reservedSeats);
-
+        this.spinner = false;
       },
       error2 => {
         console.log(error2);
@@ -76,7 +85,7 @@ export class BuyStep3Component implements OnInit {
     for (const s of reservedSeats) {
       this.booking_seats[s.row][s.number] = true;
     }
-    this.spinner = false;
+    // this.spinner = false;
   }
 
   // false - miejsce wolne, true - miejsce zajete
@@ -108,8 +117,8 @@ export class BuyStep3Component implements OnInit {
   }
 
   nextStepBtn() {
-    if (this.clickedSeatsCount < 1) {
-      this.openDialog();
+    if (this.choosenSeatsCount !== 0) {
+      this.openDialog('Prosze wybrac jeszcze ' + this.choosenSeatsCount + ' miejsce(a)');
       return;
     }
     this.getUserBookingSeatsList();
@@ -123,9 +132,13 @@ export class BuyStep3Component implements OnInit {
     this.router.navigate(['buy', this.seanceId, 'step2']);
   }
 
-  openDialog() {
+  openDialog(data: string) {
+    // const dialogRef = this.dialog.open(DialogComponent, {
+    //   height: '210px'
+    // });
     const dialogRef = this.dialog.open(DialogComponent, {
-      height: '210px'
+      data: data,
+      minHeight: '210px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

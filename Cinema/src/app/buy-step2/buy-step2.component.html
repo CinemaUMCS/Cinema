@@ -1,51 +1,4 @@
-<!--<div class="buy-process">-->
-<!--<div class="form-group">-->
-<!--<table class="table">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th>Rodzaj</th>-->
-<!--<th>Cena</th>-->
-<!--<th>Ilość</th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody>-->
-<!--<tr>-->
-<!--<td>Ulgowy</td>-->
-<!--<td>14 zł</td>-->
-<!--<select class="form-control small">-->
-<!--<option>1</option>-->
-<!--<option>2</option>-->
-<!--<option>3</option>-->
-<!--<option>4</option>-->
-<!--</select>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--<td>Normalny</td>-->
-<!--<td>20zł</td>-->
-<!--<select class="form-control small">-->
-<!--<option>1</option>-->
-<!--<option>2</option>-->
-<!--<option>3</option>-->
-<!--<option>4</option>-->
-<!--</select>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--<td>Studencki</td>-->
-<!--<td>10zł</td>-->
-<!--<select class="form-control small">-->
-<!--<option>1</option>-->
-<!--<option>2</option>-->
-<!--<option>3</option>-->
-<!--<option>4</option>-->
-<!--</select>-->
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
 
-<!--</div>-->
-<!--<button type="button" class="btn buy-button prev-button" routerLink="/buy"> Wstecz </button>-->
-<!--<button type="button" class="btn buy-button next-button" routerLink="/buy-last"> Dalej </button>-->
-<!--</div>-->
 <div class="container my-container">
   <!--<div class="row" style="padding-top: 25px;border-bottom: 2px solid white">-->
   <!--<div class="col-2">-->
@@ -72,7 +25,7 @@
 
   </div>
   <div *ngIf="myBooking!=null; else emptyContainer">
-    <div class="row tickets" style="margin-top: 10px;" *ngFor="let ticket of myBooking.bookingSeats">
+    <div class="row tickets" style="margin-top: 10px;" *ngFor="let ticket of myBooking.bookingSeats; let i = index" [attr.data-index]="i">
       <div class="col-6">
         Sala nr: {{ticket.roomId}}<br/>
         Rząd: {{ticket.row+1}} Miejsce: {{ticket.number+1}}
@@ -87,14 +40,14 @@
         <!--</mat-menu>-->
         <!--Normalny-->
         <mat-form-field>
-          <!--<mat-select placeholder="Favorite animal" [formControl]="animalControl" required>-->
-          <mat-select placeholder="Favorite animal">
-            <!--<mat-option>&#45;&#45;</mat-option>-->
-            <mat-option>NORMALNY</mat-option>
-            <mat-option>ULGOWY</mat-option>
+          <mat-select placeholder="Rodzaj biletu" [formControl]="animalControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let animal of animals" [value]="animal">
+              {{animal.name}}
+            </mat-option>
           </mat-select>
-          <!--<mat-error *ngIf="animalControl.hasError('required')">Proszę wybrac bilet</mat-error>-->
-          <!--<mat-hint>{{animalControl.value?.sound}}</mat-hint>-->
+          <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>
+          <mat-hint>{{animalControl.value?.sound}}</mat-hint>
         </mat-form-field>
       </div>
     </div>
