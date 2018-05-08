@@ -78,9 +78,13 @@ namespace Cinema
       //});
       //app.UseDefaultFiles();
       //app.UseStaticFiles();
-
+      using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+      {
+        var context = serviceScope.ServiceProvider.GetService<CinemaDbContext>();
+        context.Database.Migrate();
+      }
       app.UseAuthentication()
-        //.UseMiddleware(typeof(ExceptionMiddleware))
+        .UseMiddleware(typeof(ExceptionMiddleware))
         .UseMvc();
     }
   }

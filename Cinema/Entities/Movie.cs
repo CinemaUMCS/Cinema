@@ -22,6 +22,8 @@ namespace Cinema.Entities
     public Category Category { get; private set; }
     public string Description { get; private set; }
     public DateTime? ProductionDate { get; private set; }
+    public TimeSpan Duration { get; private set; }
+    public int? MinimalAge { get; private set; }
 
     private HashSet<Rating> _ratings;
     private HashSet<Seance> _seances;
@@ -33,14 +35,16 @@ namespace Cinema.Entities
 
     }
 
-    public Movie(string title, string trailerPath, string posterPath, Category category, string description, DateTime? productionDate)
+    public Movie(string title, string trailerPath, string posterPath, Category category, string description, DateTime? productionDate, TimeSpan duration, int minimalAge)
     {
-      Title = title;
-      TrailerPath = trailerPath;
-      PosterPath = posterPath;
-      Category = category;
-      Description = description;
-      ProductionDate = productionDate;
+      SetTitle(title);
+      SetTrailerPath(trailerPath);
+      SetPosterPath(posterPath);
+      SetCategory(category);
+      SetDescription(description);
+      SetProductionDate(productionDate);
+      SetDuration(duration);
+      SetMinimalAge(minimalAge);
       _ratings = new HashSet<Rating>();
       _seances = new HashSet<Seance>();
     }
@@ -69,5 +73,14 @@ namespace Cinema.Entities
       ProductionDate = productionDate;
     }
 
+    internal void SetDuration(TimeSpan duration)
+    {
+      Duration = duration;
+    }
+
+    internal void SetMinimalAge(int minimalAge)
+    {
+      MinimalAge = minimalAge;
+    }
   }
 }

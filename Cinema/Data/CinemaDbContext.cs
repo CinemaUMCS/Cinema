@@ -121,6 +121,8 @@ namespace Cinema.Data
       builder.Entity<Movie>().Property(m => m.ProductionDate).IsRequired(false);
       builder.Entity<Movie>().Property(m => m.TrailerPath).IsRequired(false);
       builder.Entity<Movie>().Property(m => m.PosterPath).IsRequired(true);
+      builder.Entity<Movie>().Property(m => m.Duration).IsRequired(true);
+      builder.Entity<Movie>().Property(m => m.MinimalAge).IsRequired(false);
       builder.Entity<Movie>().Metadata.FindNavigation(nameof(Movie.Seances)).SetPropertyAccessMode(PropertyAccessMode.Field);
       builder.Entity<Movie>().Metadata.FindNavigation(nameof(Movie.Ratings)).SetPropertyAccessMode(PropertyAccessMode.Field);
 

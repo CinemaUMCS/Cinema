@@ -26,7 +26,6 @@ namespace Cinema.Data
           cfg.CreateMap<ReservedSeat, ReservedSeatDto>();
          
 
-          cfg.CreateMap<MovieRequest, Movie>();
           cfg.CreateMap<AddSeance, Seance>()
             .AfterMap(
               (addSeance, seance) => seance.SetDuration(TimeSpan.FromMinutes(addSeance.DurationInMinutes)))

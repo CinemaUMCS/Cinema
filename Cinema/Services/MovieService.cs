@@ -41,7 +41,8 @@ namespace Cinema.Services
 
     public async Task AddAsync(MovieRequest addMovie)
     {
-      var newMovie = _mapper.Map<MovieRequest, Movie>(addMovie);
+      var newMovie = new Movie(addMovie.Title, addMovie.TrailerPath, addMovie.PosterPath, addMovie.Category, addMovie.Description, addMovie.ProductionDate
+        ,addMovie.Duration, addMovie.MinimalAge);
       await _dbContext.Movies.AddAsync(newMovie);
       await _dbContext.SaveChangesAsync();
     }
@@ -58,6 +59,8 @@ namespace Cinema.Services
       movie.SetPosterPath(updateMovie.TrailerPath);
       movie.SetCategory(updateMovie.Category);
       movie.SetDescription(updateMovie.Description);
+      movie.SetDuration(updateMovie.Duration);
+      movie.SetMinimalAge(updateMovie.MinimalAge);
       _dbContext.Update(movie);
       await _dbContext.SaveChangesAsync();
     }

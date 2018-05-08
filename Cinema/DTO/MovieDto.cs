@@ -12,5 +12,7 @@ namespace Cinema.DTO
     public DateTime? ProductionDate { get; set; }
     public string TrailerPath { get; set; }
     public string PosterPath { get; set; }
+    public TimeSpan Duration { get; private set; }
+    public int MinimalAge { get; private set; }
   }
 }

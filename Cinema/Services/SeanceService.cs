@@ -67,8 +67,14 @@ namespace Cinema.Services
     public async Task AddAsync(AddSeance seance)
     {
       var newSeance = _mapper.Map<AddSeance, Seance>(seance);
-      var availableRooms =
-        await _roomService.GetAvailableRoomsOnTimeAsync(newSeance.SeanceStart,
+      var movie = await _dbContext.Movies.FirstOrDefaultAsync(x => x.Id == newSeance.Id);
+      if (movie == null)
+        throw new Exception("Movie with this id doesn't exists.");
+      if(movie.Duration<newSeance.Duration)
+      {
+        throw new Exception("Seance duration cannot be shorter than movie duration.");
+      }
+      var availableRooms = await _roomService.GetAvailableRoomsOnTimeAsync(newSeance.SeanceStart,
           newSeance.SeanceStart.Add(newSeance.Duration));
       if (!availableRooms.Select(r => r.Id).Contains(newSeance.RoomId))
       {
@@ -91,6 +97,7 @@ namespace Cinema.Services
     public async Task<SeanceRoomData> GetSeanceRoomData(int id)
     {
       var seance = await _dbContext.Seances
+        .Include(x=>x.Reservations).ThenInclude(x=>x.ReservedSeats)
         .Include(x=>x.Room).ThenInclude(x=>x.Seats)
         .FirstOrDefaultAsync(x => x.Id == id);
       var seanceRoomData = new SeanceRoomData();
@@ -102,7 +109,6 @@ namespace Cinema.Services
         if (seance.Reservations.Any(r => r.ReservedSeats.Any(rs => rs.SeatId == seat.Id)))
           seanceRoomData.ReservedSeats.Add(seat);
       }
-
       return seanceRoomData;
     }
   }
