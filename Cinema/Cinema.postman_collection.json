@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "73f8561e-e167-4b15-90eb-33007a5cba01",
+		"_postman_id": "6e84f515-8045-4b18-bafc-7ca112308891",
 		"name": "Cinema",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -77,7 +77,10 @@
 								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQ2NTA4NDksImV4cCI6MTUyNDY1MTc0OX0.F1t2SAkhDEPY_vBEW3ksw9mepWAIuNGA1f1fzfFNluc"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/account/details",
 							"protocol": "http",
@@ -97,7 +100,7 @@
 		},
 		{
 			"name": "Movie",
-			"description": "",
+			"description": null,
 			"item": [
 				{
 					"name": "AddMovie",
@@ -136,7 +139,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/movie",
 							"protocol": "http",
@@ -156,7 +162,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/movie/getCategories",
 							"protocol": "http",
@@ -177,7 +186,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/movie/GetMoviesPlayingAtDate/?date=2018-12-01",
 							"protocol": "http",
@@ -205,7 +217,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/movie/1",
 							"protocol": "http",
@@ -247,7 +262,7 @@
 		},
 		{
 			"name": "Room",
-			"description": "",
+			"description": null,
 			"item": [
 				{
 					"name": "AddRoom",
@@ -286,7 +301,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/room",
 							"protocol": "http",
@@ -306,7 +324,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/room/availableRooms?seanceStart=2018-12-03T12:35&seanceEnd=2018-12-03T16:35",
 							"protocol": "http",
@@ -358,7 +379,7 @@
 		},
 		{
 			"name": "Seance",
-			"description": "",
+			"description": null,
 			"item": [
 				{
 					"name": "AddSeance",
@@ -397,7 +418,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/seance/",
 							"protocol": "http",
@@ -418,7 +442,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/seance/getByDate/?date=2018-12-01",
 							"protocol": "http",
@@ -446,7 +473,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/seance/getByMovieId/1",
 							"protocol": "http",
@@ -468,7 +498,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/seance/getByDateAndMovieId?movieId=1&date=2018-12-01",
 							"protocol": "http",
@@ -499,7 +532,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/seance/getSeanceRoomData/1",
 							"protocol": "http",
@@ -521,7 +557,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/seance/1",
 							"protocol": "http",
@@ -563,14 +602,17 @@
 		},
 		{
 			"name": "Reservation",
-			"description": "",
+			"description": null,
 			"item": [
 				{
 					"name": "GetReservationsForUser",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/reservation/user/1",
 							"protocol": "http",
@@ -592,7 +634,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/reservation/1",
 							"protocol": "http",
@@ -615,7 +660,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQzMTM2MjYsImV4cCI6MTUyNDMxNDUyNn0.ov3XzT_YjrTIlD_o8SHbLuXEOdLSCThqjEHQXDZnRs8"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjU3NzIzNjYsImV4cCI6MTUyNTc3MzI2Nn0.UggIXurTVOnsuatecS-pERc5-_u7ZQCtUIAZ2z77Kxc"
 							},
 							{
 								"key": "Content-Type",
@@ -624,7 +669,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"SeanceId\":\"2\",\n\t\"SeatsToReserveIds\":\n\t[\n\t\t\"3\",\n\t\t\"8\",\n\t\t\"1\"\n\t],\n\t\"NumberOfConcessionaryTickets\":1,\n\t\"NumberOfNormalTickets\":2\n}"
+							"raw": "{\n\t\"SeanceId\":\"1\",\n\t\"SeatsToReserve\":\n\t[\n\t\t{\n\t\t\t\"Row\":\"1\",\n\t\t\t\"Number\":\"3\"\n\t\t},\n\t\t{\n\t\t\t\"Row\":\"1\",\n\t\t\t\"Number\":\"4\"\n\t\t},\n\t\t{\n\t\t\t\"Row\":\"1\",\n\t\t\t\"Number\":5\n\t\t}\n\t\t\n\t],\n\t\"NumberOfConcessionaryTickets\":1,\n\t\"NumberOfNormalTickets\":2\n}"
 						},
 						"url": {
 							"raw": "http://localhost:5000/reservation/",
@@ -647,7 +692,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/reservation/seance/1",
 							"protocol": "http",
