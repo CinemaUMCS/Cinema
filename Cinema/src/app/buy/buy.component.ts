@@ -7,6 +7,7 @@ import {SeanceService} from '../shared/seance.service';
 import {SeanceModel} from '../../model/seance.model';
 import {RegulationsComponent} from '../regulations/regulations.component';
 import {MatDialog} from '@angular/material';
+import {MovieModel} from '../../model/movie.model';
 
 @Component({
   selector: 'app-buy',
@@ -15,18 +16,28 @@ import {MatDialog} from '@angular/material';
   // providers:[ReservationService]
 })
 export class BuyComponent implements OnInit {
-  // isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   seanceId: number;
+  movie: MovieModel;
+  // loading = true;
   seance: SeanceModel;
 
-  constructor(private _formBuilder: FormBuilder, private route: ActivatedRoute, private seance_service: SeanceService, private router: Router, public dialog: MatDialog,) {
+  constructor(private _formBuilder: FormBuilder, private route: ActivatedRoute, private seance_service: SeanceService,
+              public dialog: MatDialog,) {
   }
 
   ngOnInit() {
-    this.seanceId = this.route.snapshot.params['seanceId'];
-    this.getSeance(this.seanceId);
+    this.route.data.subscribe(value => {
+      this.seance = value['data'].json();
+      // this.seance_service.setActualSeanceObservable(this.seance);
+      this.seance_service.setActualSeance(this.seance);
+    });
+    this.getMovie(+this.seance.movieId);
+    this.validate();
+  }
+
+  validate() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -35,11 +46,12 @@ export class BuyComponent implements OnInit {
     });
   }
 
-  getSeance(seanceId: number) {
-    this.seance_service.getSeanceById(seanceId).subscribe(
+  getMovie(movieId: number) {
+    this.seance_service.getMovieById(movieId).subscribe(
       value => {
-        this.seance = value.json();
-        this.seance_service.setActualSeance(this.seance);
+        this.movie = value.json();
+        console.log(this.movie);
+        this.seance_service.setActualMovieObservable(this.movie);
       },
       error2 => {
         console.log(error2);

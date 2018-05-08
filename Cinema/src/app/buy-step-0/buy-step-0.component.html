@@ -15,7 +15,7 @@
         <tbody>
         <tr>
           <td>Ulgowy</td>
-          <td>14 zł</td>
+          <td>{{ticket_concession_price}}</td>
           <td>
             <select class="form-control" [(ngModel)]="ticket_concession">
               <option value="0" selected>0</option>
@@ -35,7 +35,7 @@
         </tr>
         <tr class="border-bottom">
           <td>Normalny</td>
-          <td>20zł</td>
+          <td>{{ticket_normal_price}}</td>
           <td>
             <select class="form-control text-center" [(ngModel)]="ticket_normal">
               <option value="0" selected>0</option>

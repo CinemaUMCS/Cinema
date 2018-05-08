@@ -15,34 +15,29 @@ import {SeanceModel} from '../../model/seance.model';
 })
 export class BuyStep0Component implements OnInit {
   spinner_flag = true; // odpowiada za wyswietlanie spinnera
-  ticket_normal_price: number;
-  ticket_concession_price: number;
+  ticket_normal_price: string;
+  ticket_concession_price: string;
   ticket_normal = '0';
   ticket_concession = '0';
   seanceId: number;
   seanceRoomData: SeanceRoomDataModel;
   ticketSum: number;
   seance: SeanceModel;
+  // seance: SeanceModel;
+
   allSeats = 120; // wszystkie miejsca na 1 sali
 
-  constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute, private booking_service: BookingSeatsService, private seance_serivce: SeanceService) {
-    // this.seanceId = this.route.snapshot.params['seanceId'];
+  constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute, private booking_service: BookingSeatsService,
+              private seance_serivce: SeanceService) {
     this.seanceId = this.route.parent.snapshot.params['seanceId'];
-    // this.seanceId = this.seance_serivce.actualSeance.id;
     this.booking_service.setCurrentSeanceId(this.seanceId);
     console.log('seansID', this.seanceId);
-    // console.log(this.seance_serivce.actualSeance.id);
   }
 
   ngOnInit() {
     this.openRegulationsDialog();
-    this.booking_service.currentSeance.subscribe(
-      message => {
-        this.seanceRoomData = message;
-        this.spinner_flag = false;
-
-      }
-    );
+    this.getSeanceRoomData();
+    this.getActualSeanse();
   }
 
   nextStep() {
@@ -62,9 +57,37 @@ export class BuyStep0Component implements OnInit {
       this.openDialog('Brak wolnych miejsc, maksymalna ilość dostępnych miejsc wynosi: ' + free_seats);
       return;
     }
-    this.booking_service.setChoosenSeatsCount(this.ticketSum);
+    this.setBookingProperties()
     this.router.navigate(['buy', this.seanceId, 'step1']);
   }
+
+  setBookingProperties() {
+    this.booking_service.setNumberOfConsessionaryTicket(+this.ticket_concession);
+    this.booking_service.setNumberOfNormalTicket(+this.ticket_normal);
+    this.booking_service.setChoosenSeatsCount(this.ticketSum);
+  }
+
+  // potrzebne do wyciagniecia ilosci wolnych miejsc
+  getSeanceRoomData() {
+    this.booking_service.currentSeance.subscribe(
+      message => {
+        this.seanceRoomData = message;
+        this.spinner_flag = false;
+      }
+    );
+  }
+
+  getActualSeanse() {
+    this.seance = this.seance_serivce.actualSeance;
+    this.ticket_concession_price = this.seance.concessionaryTicketPrice;
+    this.ticket_normal_price = this.seance.normalTicketPrice;
+  }
+
+  // getSeanceFromParentResolver() {
+  //   this.route.parent.data.subscribe(value => {
+  //     this.seance = value['data'].json();
+  //   });
+  // }
 
   openDialog(data: string) {
     const dialogRef = this.dialog.open(DialogComponent, {

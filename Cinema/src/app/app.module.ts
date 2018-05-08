@@ -86,6 +86,7 @@ import {BuyStep0Component} from './buy-step-0/buy-step-0.component';
 import {BookingSeatsService} from './shared/booking-seats.service';
 import {Step1GuardService} from './shared/step1-guard.service';
 import {RegulationsComponent} from './regulations/regulations.component';
+import {BuyResolverService} from './buy/buy-resolver.service';
 
 
 @NgModule({
@@ -171,7 +172,7 @@ import {RegulationsComponent} from './regulations/regulations.component';
   entryComponents: [
     DialogComponent, RegulationsComponent
   ],
-  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService, BookingSeatsService, Step1GuardService],
+  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService, BookingSeatsService, Step1GuardService,BuyResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

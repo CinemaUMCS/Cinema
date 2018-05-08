@@ -41,6 +41,7 @@ export class BuyStep3Component implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.booking_service.myBookingModel);
     this.seanceId = this.route.parent.snapshot.params['seanceId'];
     // this.seanceId = this.seanceService.actualSeance.id;
     this.getSeanceRoomData(this.seanceId);
