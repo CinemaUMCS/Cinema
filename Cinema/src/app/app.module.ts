@@ -70,7 +70,7 @@ import { SeancesComponent } from './admin/seances/seances.component';
 import { ReservationsComponent } from './admin/reservations/reservations.component';
 import { ReservationDetailsComponent } from './admin/reservation-details/reservation-details.component';
 import { SeanceDetailsComponent } from './admin/Seances/seance-details/seance-details.component';
-//import { EditSeanceComponent } from './admin/Seances/edit-seance/edit-seance.component';
+import { EditSeanceComponent } from './admin/Seances/edit-seance/edit-seance.component';
 import { AdminHeaderComponent } from './admin/header/admin-header.component';
 import { DummyServiceComponent } from './services/dummy-service/dummy-service.component';
 import {AuthenticationService} from './shared/authentication.service';
@@ -104,7 +104,7 @@ import {SeanceService} from './shared/seance.service';
     ReservationsComponent,
     ReservationDetailsComponent,
     SeanceDetailsComponent,
-    //EditSeanceComponent,
+    EditSeanceComponent,
     AdminHeaderComponent,
   ],
   imports: [
