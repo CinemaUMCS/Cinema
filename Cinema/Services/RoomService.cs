@@ -35,7 +35,6 @@ namespace Cinema.Services
           room.AddSeat(seat);
         }
       }
-
       await _dbContext.Rooms.AddAsync(room);
       await _dbContext.SaveChangesAsync();
     }

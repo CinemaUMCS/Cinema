@@ -45,7 +45,7 @@ namespace Cinema.Services
     public async Task AddAsync(int userId, AddReservation addReservation)
     {
       if (addReservation.NumberOfConcessionaryTickets + addReservation.NumberOfNormalTickets !=
-          addReservation.SeatsToReserveIds.Count())
+          addReservation.SeatsToReserve.Count())
         throw new Exception("Number of tickets is not equal to number of choosen seats");
 
       Seance seance = await _dbContext.Seances
@@ -56,17 +56,15 @@ namespace Cinema.Services
         throw new Exception("Seance doesn't exist");
 
       Reservation reservation = new Reservation(addReservation.SeanceId, userId, addReservation.NumberOfNormalTickets, addReservation.NumberOfConcessionaryTickets);
-      foreach (var seatToReserveId in addReservation.SeatsToReserveIds)
+      foreach (var seatToReserve in addReservation.SeatsToReserve)
       {
-        if (seance.Room.Seats.All(s => s.Id != seatToReserveId))
-          throw new Exception($"SeatId: {seatToReserveId} is invalid");
-        if (seance.Reservations.Any(r => r.ReservedSeats.Any(rs => rs.SeatId == seatToReserveId)))
-          throw new Exception($"Seat {seatToReserveId} already reserved");
-        reservation.AddReservedSeat(seatToReserveId, _dbContext);
+        var seat = await _dbContext.Seats.SingleOrDefaultAsync(x => x.RoomId == seance.RoomId && x.Number == seatToReserve.Number && x.Row == seatToReserve.Row);
+        if (seat == null)
+          throw new Exception("Seat with given row and numer doesn't exist in seance room.");
+        if (seance.Reservations.Any(r => r.ReservedSeats.Any(rs => rs.SeatId == seat.Id)))
+          throw new Exception($"Seat {seat.Row}|{seat.Number} already reserved");
+        reservation.AddReservedSeat(seat.Id, _dbContext);
       }
-      double concessionaryTicketsCost = addReservation.NumberOfConcessionaryTickets * seance.ConcessionaryTicketPrice;
-      double normalTicketsCost = addReservation.NumberOfNormalTickets * seance.NormalTicketPrice;
-      //reservation.Value = concessionaryTicketsCost + normalTicketsCost;
       await _dbContext.Reservations.AddAsync(reservation);
       await _dbContext.SaveChangesAsync();
     }
