@@ -30,8 +30,9 @@ export class BuyStep0Component implements OnInit {
   constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute, private booking_service: BookingSeatsService,
               private seance_serivce: SeanceService) {
     this.seanceId = this.route.parent.snapshot.params['seanceId'];
-    this.booking_service.setCurrentSeanceId(this.seanceId);
+    this.booking_service.setCurrentSeanceId(this.seanceId); //musi zostac
     console.log('seansID', this.seanceId);
+
   }
 
   ngOnInit() {
@@ -65,6 +66,7 @@ export class BuyStep0Component implements OnInit {
     this.booking_service.setNumberOfConsessionaryTicket(+this.ticket_concession);
     this.booking_service.setNumberOfNormalTicket(+this.ticket_normal);
     this.booking_service.setChoosenSeatsCount(this.ticketSum);
+    this.booking_service.setSeanceId(this.seanceId);
   }
 
   // potrzebne do wyciagniecia ilosci wolnych miejsc

@@ -4,6 +4,7 @@ import {ReservationService} from '../shared/reservation.service';
 import {MatMenuTrigger} from '@angular/material';
 import {MyBookingModel} from '../../model/myBooking.model';
 import {FormControl, Validators} from '@angular/forms';
+import {BookingSeatsService} from '../shared/booking-seats.service';
 
 @Component({
   selector: 'app-buy-step2',
@@ -20,17 +21,17 @@ export class BuyStep2Component implements OnInit {
     {name: 'Ulgowy', sound: '12PLN'},
   ];
 
-  constructor(private reservationService: ReservationService) {
+  constructor(private reservationService: ReservationService, private bookingSeatsService: BookingSeatsService) {
     // this.createFormControl();
+  }
+
+  ngOnInit() {
+    this.myBooking = this.bookingSeatsService.myBookingModel;
+    console.log(this.myBooking);
   }
 
   click() {
 
-  }
-
-  ngOnInit() {
-    this.myBooking = this.reservationService.getMessage();
-    console.log(this.myBooking);
   }
 
 }

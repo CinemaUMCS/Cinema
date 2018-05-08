@@ -123,14 +123,9 @@ export class BuyStep3Component implements OnInit {
       return;
     }
     this.getUserBookingSeatsList();
-    const myBooking: MyBookingModel = {
-      seanceId: this.seanceId,
-      bookingSeats: this.listOfBookingSeats,
-      numberOfConcessionaryTickets: 0,
-      numberOfNormalTickets: 0
-    };
-    this.reservationService.setMessage(myBooking);
-    this.router.navigate(['buy', this.seanceId, 'step2']);
+    this.booking_service.setBookingSeats(this.listOfBookingSeats);
+
+    // this.router.navigate(['buy', this.seanceId, 'step2']);
   }
 
   openDialog(data: string) {

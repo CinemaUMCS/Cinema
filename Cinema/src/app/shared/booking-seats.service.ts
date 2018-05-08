@@ -3,6 +3,7 @@ import {SeanceService} from './seance.service';
 import {SeanceRoomDataModel} from '../../model/seanceRoomData.model';
 import {Subject} from 'rxjs/Subject';
 import {MyBookingModel} from '../../model/myBooking.model';
+import {SeatModel} from '../../model/seat.model';
 
 @Injectable()
 export class BookingSeatsService {
@@ -35,12 +36,20 @@ export class BookingSeatsService {
     );
   }
 
+  setBookingSeats(bookingSeats: SeatModel[]) {
+    this.myBookingModel.bookingSeats = bookingSeats;
+  }
+
   setNumberOfNormalTicket(ticket: number) {
     this.myBookingModel.numberOfNormalTickets = ticket;
   }
 
   setNumberOfConsessionaryTicket(ticket: number) {
     this.myBookingModel.numberOfConcessionaryTickets = ticket;
+  }
+
+  setSeanceId(id: number) {
+    this.myBookingModel.seanceId = id;
   }
 
   setChoosenSeatsCount(i: number) {
