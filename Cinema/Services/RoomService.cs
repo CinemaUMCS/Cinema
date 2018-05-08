@@ -42,10 +42,9 @@ namespace Cinema.Services
 
     public async Task<IEnumerable<RoomDto>> GetAvailableRoomsOnTimeAsync(DateTime seanceStart, DateTime seanceEnd)
     {
-      var rooms = await _dbContext.Rooms.ToListAsync();
-      var availableRooms = rooms.Where(r =>
-        !r.Seances.Any(s => s.SeanceStart < seanceEnd && s.SeanceStart.Add(s.Duration) > seanceStart));
-      return _mapper.Map<IEnumerable<Room>, IEnumerable<RoomDto>>(availableRooms);
+      var rooms = await _dbContext.Rooms
+        .Where(r =>!r.Seances.Any(s => s.SeanceStart < seanceEnd && s.SeanceStart.Add(s.Duration) > seanceStart)).ToListAsync();
+      return _mapper.Map<IEnumerable<Room>, IEnumerable<RoomDto>>(rooms);
     }
 
     public async Task<IEnumerable<RoomDto>> GetAllAsync()

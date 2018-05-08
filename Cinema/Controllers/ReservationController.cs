@@ -55,19 +55,19 @@ namespace Cinema.Controllers
           return Ok();
         }
         
-        [HttpPut("{id}")]
-        [Authorize(Roles = "admin, employee")]
-        public async Task<IActionResult> Put(int id, [FromBody]Reservation reservation)
-        {
-            if(!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //[Authorize(Roles = "admin, employee")]
+        //public async Task<IActionResult> Put(int id, [FromBody]Reservation reservation)
+        //{
+        //    if(!ModelState.IsValid)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            await _reservationService.UpdateAsync(id, reservation);
+        //    await _reservationService.UpdateAsync(id, reservation);
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
         
         [HttpDelete("{id}")]
         [Authorize(Roles = "admin, employee")]

@@ -79,11 +79,6 @@ namespace Cinema.Services
       await _dbContext.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(int id, Seance seance)
-    {
-      throw new NotImplementedException();
-    }
-
     public async Task DeleteAsync(int id)
     {
       var show = _dbContext.Seances.SingleOrDefault(s => s.Id == id);
@@ -95,7 +90,9 @@ namespace Cinema.Services
 
     public async Task<SeanceRoomData> GetSeanceRoomData(int id)
     {
-      var seance = await _dbContext.Seances.FirstOrDefaultAsync(x => x.Id == id);
+      var seance = await _dbContext.Seances
+        .Include(x=>x.Room).ThenInclude(x=>x.Seats)
+        .FirstOrDefaultAsync(x => x.Id == id);
       var seanceRoomData = new SeanceRoomData();
       seanceRoomData.RoomId = seance.RoomId;
       seanceRoomData.SeanceId = seance.Id;
@@ -108,7 +105,5 @@ namespace Cinema.Services
 
       return seanceRoomData;
     }
-
-
   }
 }

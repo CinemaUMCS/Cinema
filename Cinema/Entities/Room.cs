@@ -18,12 +18,13 @@ namespace Cinema.Entities
     public Room(string name) : this()
     {
       Name = name;
-    }
-
-    public Room()
-    {
       _seats = new HashSet<Seat>();
       _seances = new HashSet<Seance>();
+    }
+
+    private Room()
+    {
+
     }
     public void AddSeat(Seat seat)
     {

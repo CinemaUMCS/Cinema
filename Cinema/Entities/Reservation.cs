@@ -13,7 +13,6 @@ namespace Cinema.Entities
     public bool Paid { get; private set; }
     public int NumberOfConcessionaryTickets { get; private set; }
     public int NumberOfNormalTickets { get; private set; }
-    public double Value { get; private set; }
 
     public int SeanceId { get; private set; }
     public int UserId { get; private set; }
@@ -21,7 +20,7 @@ namespace Cinema.Entities
     public User User { get; private set; }
 
     private HashSet<ReservedSeat> _reservedSeats;
-    public IEnumerable<ReservedSeat> ReservedSeats => _reservedSeats.ToList();
+    public IEnumerable<ReservedSeat> ReservedSeats => _reservedSeats?.ToList();
 
     private Reservation()
     {

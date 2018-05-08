@@ -80,7 +80,7 @@ namespace Cinema
       //app.UseStaticFiles();
 
       app.UseAuthentication()
-        .UseMiddleware(typeof(ExceptionMiddleware))
+        //.UseMiddleware(typeof(ExceptionMiddleware))
         .UseMvc();
     }
   }

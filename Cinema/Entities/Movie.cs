@@ -32,6 +32,7 @@ namespace Cinema.Entities
     {
 
     }
+
     public Movie(string title, string trailerPath, string posterPath, Category category, string description, DateTime? productionDate)
     {
       Title = title;

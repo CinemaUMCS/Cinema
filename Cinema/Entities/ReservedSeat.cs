@@ -13,13 +13,14 @@ namespace Cinema.Entities
     {
 
     }
+
     public ReservedSeat(int seatId)
     {
-
+      SeatId = seatId;
     }
-    public ReservedSeat(int seatId, int reservationId)
+    public ReservedSeat(int seatId, int reservationId): this(seatId)
     {
-
+      ReservationId = reservationId;
     }
   }
 }

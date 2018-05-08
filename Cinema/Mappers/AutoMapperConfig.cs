@@ -2,6 +2,7 @@ using System;
 using AutoMapper;
 using Cinema.DTO;
 using Cinema.Entities;
+using Cinema.Mappers;
 using Cinema.Request;
 
 namespace Cinema.Data
@@ -11,8 +12,12 @@ namespace Cinema.Data
     public static IMapper Initialize()
       => new MapperConfiguration(cfg =>
         {
+          cfg.ShouldMapField = fieldInfo => true;
+          cfg.ShouldMapProperty = propertyInfo => true;
+
           cfg.CreateMap<User, UserDto>();
-          cfg.CreateMap<Reservation, ReservationDto>();
+          cfg.CreateMap<Reservation, ReservationDto>()
+          .AfterMap((r, rDto) => rDto.Value = ReservationMapperHelpers.CalculateReservationValue(r));
           cfg.CreateMap<Movie, MovieDto>()
             .AfterMap((movie, movieDto) => movieDto.Category = Enum.GetName(typeof(Category), movie.Category));
           cfg.CreateMap<Seance, SeanceDto>();

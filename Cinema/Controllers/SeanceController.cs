@@ -80,26 +80,25 @@ namespace Cinema.Controllers
       return Ok();
     }
 
-    [HttpPut("{id}")]
-    [Authorize(Roles = "admin, employee")]
-    public async Task<IActionResult> Put(int id, [FromBody] Seance seance)
-    {
-      if (!ModelState.IsValid)
-      {
-        return BadRequest();
-      }
+    //[HttpPut("{id}")]
+    //[Authorize(Roles = "admin, employee")]
+    //public async Task<IActionResult> Put(int id, [FromBody] Seance seance)
+    //{
+    //  if (!ModelState.IsValid)
+    //  {
+    //    return BadRequest();
+    //  }
 
-      await _seanceService.UpdateAsync(id, seance);
+    //  await _seanceService.UpdateAsync(id, seance);
 
-      return Ok();
-    }
+    //  return Ok();
+    //}
 
     [HttpDelete("{id}")]
     [Authorize(Roles = "admin, employee")]
     public async Task<IActionResult> Delete(int id)
     {
       await _seanceService.DeleteAsync(id);
-
       return Ok();
 
     }

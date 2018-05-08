@@ -15,7 +15,7 @@ namespace Cinema.Services
         Task<IEnumerable<SeanceDto>> GetByDateAndMovieId(DateTime date, int id);
         Task<SeanceDto> GetAsync(int id);
         Task AddAsync(AddSeance seance);
-        Task UpdateAsync(int id, Seance seance);
+        //Task UpdateAsync(int id, Seance seance);
         Task DeleteAsync(int id);
         Task<SeanceRoomData> GetSeanceRoomData(int id);
 

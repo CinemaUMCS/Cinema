@@ -8,13 +8,13 @@ namespace Cinema.Entities
     {
 
         public int Id { get; private set; }
-        public DateTime SeanceStart { get;private  set; }
-        public TimeSpan Duration { get;private  set; }
+        public DateTime SeanceStart { get; private set; }
+        public TimeSpan Duration { get; private set; }
         public double ConcessionaryTicketPrice { get;private set; }
-        public double NormalTicketPrice { get;private set; }
+        public double NormalTicketPrice { get; private set; }
 
         private HashSet<Reservation> _reservations;
-        public ICollection<Reservation> Reservations => _reservations.ToList();
+        public ICollection<Reservation> Reservations => _reservations?.ToList();
         public Room Room { get; private set; }
         public Movie Movie { get;private set; }
         public int MovieId { get;private set; }
@@ -22,22 +22,32 @@ namespace Cinema.Entities
 
     public Seance()
     {
-      _reservations=new HashSet<Reservation>();
     }
 
-    internal void SetDuration(TimeSpan timeSpan)
+    public Seance(int movieId, int roomId,DateTime seanceStart, TimeSpan duration, double concessionaryTicketPrice, double normalTicketPrice)
     {
-      throw new NotImplementedException();
+      SeanceStart = seanceStart;
+      Duration = duration;
+      ConcessionaryTicketPrice = concessionaryTicketPrice;
+      NormalTicketPrice = normalTicketPrice;
+      MovieId = movieId;
+      RoomId = roomId;
+      _reservations = new HashSet<Reservation>();
     }
 
-    internal void SetNormalTicketPrice(double v)
+    public void SetDuration(TimeSpan timeSpan)
     {
-      throw new NotImplementedException();
+      Duration = timeSpan;
     }
 
-    internal void SetConcessionaryTicketPrice(double v)
+    public void SetNormalTicketPrice(double normalTicketPrice)
     {
-      throw new NotImplementedException();
+      NormalTicketPrice = normalTicketPrice;
+    }
+
+    public void SetConcessionaryTicketPrice(double concessionaryTicketPrice)
+    {
+      ConcessionaryTicketPrice = concessionaryTicketPrice;
     }
   }
 }
