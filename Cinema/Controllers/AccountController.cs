@@ -36,6 +36,17 @@ namespace Cinema.Controllers
       return Json(token);
     }
 
+    [HttpPut("changePassword")]
+    public async Task<IActionResult> ChangePassword([FromBody]ChangeUserPassword changePassword)
+    {
+      if (!ModelState.IsValid)
+      {
+        return BadRequest();
+      }
+      await _userService.ChangePassword(GetCurrentUserId(), changePassword.OldPassword, changePassword.NewPassword);
+      return Ok();
+    }
+
     [HttpGet("details")]
     [Authorize]
     public async Task<IActionResult> GetCurrentUser()

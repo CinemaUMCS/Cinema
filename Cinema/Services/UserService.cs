@@ -47,6 +47,16 @@ namespace Cinema.Services
       var token = _tokenProvider.CreateToken(user.Id, user.Role);
       return token;
     }
+    public async Task ChangePassword(int userId, string oldPassword, string newPassword)
+    {
+      var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
+      var hash = _encrypter.Compute(oldPassword, user.Salt);
+      if (!_encrypter.Compare(hash, user.Password))
+        throw new InvalidCredentials();
+      user.SetPassword(newPassword);
+      _dbContext.Users.Update(user);
+      await _dbContext.SaveChangesAsync();
+    }
     public async Task<UserDto> GetByIdAsync(int id)
     {
       var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);

@@ -67,7 +67,7 @@ namespace Cinema.Controllers
     }
 
     [HttpPost]
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin, employee")]
     public async Task<IActionResult> Post([FromBody] AddSeance seance)
     {
       if (!ModelState.IsValid)
