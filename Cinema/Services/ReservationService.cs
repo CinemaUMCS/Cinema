@@ -15,11 +15,13 @@ namespace Cinema.Services
   {
     private readonly CinemaDbContext _dbContext;
     private readonly IMapper _mapper;
+    private readonly IEmailSender _emailSender;
 
-    public ReservationService(CinemaDbContext dbContext, IMapper mapper)
+    public ReservationService(CinemaDbContext dbContext, IEmailSender emailSender, IMapper mapper)
     {
       _dbContext = dbContext;
       _mapper = mapper;
+      _emailSender = emailSender;
     }
 
     public async Task<ICollection<ReservationDto>> GetAllAsync()
@@ -67,6 +69,9 @@ namespace Cinema.Services
       }
       await _dbContext.Reservations.AddAsync(reservation);
       await _dbContext.SaveChangesAsync();
+
+      var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
+      await _emailSender.SendEmailAsync(user.Email, "Potwierdzenie rezerwacji", "Twoja rezerwacja zakoñczy³a siê powodzeniem");
     }
 
     //public async Task UpdateAsync(int id, Reservation reservation)
