@@ -71,7 +71,7 @@ namespace Cinema.Services
       await _dbContext.SaveChangesAsync();
 
       var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
-      await _emailSender.SendEmailAsync(user.Email, "Potwierdzenie rezerwacji", "Twoja rezerwacja zakoñczy³a siê powodzeniem");
+      _emailSender.SendEmailAsync(user.Email, "Potwierdzenie rezerwacji", "Twoja rezerwacja zakoÅ„czyÅ‚a siÄ™ powodzeniem");
     }
 
     //public async Task UpdateAsync(int id, Reservation reservation)

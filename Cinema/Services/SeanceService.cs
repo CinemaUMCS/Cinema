@@ -67,10 +67,10 @@ namespace Cinema.Services
     public async Task AddAsync(AddSeance seance)
     {
       var newSeance = _mapper.Map<AddSeance, Seance>(seance);
-      var movie = await _dbContext.Movies.FirstOrDefaultAsync(x => x.Id == newSeance.Id);
+      var movie = await _dbContext.Movies.FirstOrDefaultAsync(x => x.Id == newSeance.MovieId);
       if (movie == null)
         throw new Exception("Movie with this id doesn't exists.");
-      if(movie.Duration<newSeance.Duration)
+      if(movie.Duration>newSeance.Duration)
       {
         throw new Exception("Seance duration cannot be shorter than movie duration.");
       }
