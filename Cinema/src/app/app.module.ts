@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AlertModule, BsDatepickerModule} from 'ngx-bootstrap';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './/app-routing.module';
@@ -38,7 +38,7 @@ import {
   MatDialogModule,
   MatDividerModule,
   MatExpansionModule,
-  MatGridListModule,
+  MatGridListModule, MatHorizontalStepper,
   MatIconModule,
   MatInputModule,
   MatListModule,
@@ -61,25 +61,38 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
-import { PanelLoginComponent } from './admin/panel-login/panel-login.component';
-import { HomePanelComponent } from './admin/home-panel/home-panel.component';
-import { MoviesComponent } from './admin/movies/movies.component';
-import { MovieDetailsComponent } from './admin/Movies/movie-details/movie-details.component';
-import { EditMovieComponent } from './admin/Movies/edit-movie/edit-movie.component';
-import { SeancesComponent } from './admin/seances/seances.component';
-import { ReservationsComponent } from './admin/reservations/reservations.component';
-import { ReservationDetailsComponent } from './admin/reservation-details/reservation-details.component';
-import { SeanceDetailsComponent } from './admin/Seances/seance-details/seance-details.component';
-import { EditSeanceComponent } from './admin/Seances/edit-seance/edit-seance.component';
-import { AdminHeaderComponent } from './admin/header/admin-header.component';
-import { DummyServiceComponent } from './services/dummy-service/dummy-service.component';
+import {PanelLoginComponent} from './admin/panel-login/panel-login.component';
+import {HomePanelComponent} from './admin/home-panel/home-panel.component';
+import {MoviesComponent} from './admin/movies/movies.component';
+import {MovieDetailsComponent} from './admin/Movies/movie-details/movie-details.component';
+import {EditMovieComponent} from './admin/Movies/edit-movie/edit-movie.component';
+import {SeancesComponent} from './admin/seances/seances.component';
+import {ReservationsComponent} from './admin/reservations/reservations.component';
+import {ReservationDetailsComponent} from './admin/reservation-details/reservation-details.component';
+import {SeanceDetailsComponent} from './admin/Seances/seance-details/seance-details.component';
+import {EditSeanceComponent} from './admin/Seances/edit-seance/edit-seance.component';
+import {AdminHeaderComponent} from './admin/header/admin-header.component';
+import {DummyServiceComponent} from './services/dummy-service/dummy-service.component';
 import {AuthenticationService} from './shared/authentication.service';
 import {AuthGuard} from './shared/auth-guard.service';
 import {CommonModule, DatePipe} from '@angular/common';
 import {SeanceService} from './shared/seance.service';
+import {TimepickerModule} from 'ngx-bootstrap/timepicker';
+import {AuthGuardAdmin} from './admin/services/auth-guard-admin.service';
+import {ReservationService} from './shared/reservation.service';
+import {BuyComponent} from './buy/buy.component';
+import {DialogComponent} from './buy-step3/dialog/dialog.component';
+import {BuyStep0Component} from './buy-step-0/buy-step-0.component';
+import {BookingSeatsService} from './shared/booking-seats.service';
+import {Step1GuardService} from './shared/step1-guard.service';
+import {RegulationsComponent} from './regulations/regulations.component';
+import {BuyResolverService} from './buy/buy-resolver.service';
+import {OrderContainerComponent} from './order-container/order-container.component';
+
 
 @NgModule({
   declarations: [
+    BuyComponent,
     AppComponent,
     ProfileComponent,
     NowPlayingComponent,
@@ -106,6 +119,10 @@ import {SeanceService} from './shared/seance.service';
     SeanceDetailsComponent,
     EditSeanceComponent,
     AdminHeaderComponent,
+    DialogComponent,
+    BuyStep0Component,
+    RegulationsComponent,
+    OrderContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -113,6 +130,7 @@ import {SeanceService} from './shared/seance.service';
     CarouselModule.forRoot(),
     AlertModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     HttpModule,
@@ -153,7 +171,10 @@ import {SeanceService} from './shared/seance.service';
     MatToolbarModule,
     MatTooltipModule,
   ],
-  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService],
+  entryComponents: [
+    DialogComponent, RegulationsComponent
+  ],
+  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService, BookingSeatsService, Step1GuardService, BuyResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

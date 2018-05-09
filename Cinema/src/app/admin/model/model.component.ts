@@ -1,4 +1,4 @@
-import { Time } from "ngx-bootstrap/timepicker/timepicker.models";
+import {Time} from 'ngx-bootstrap/timepicker/timepicker.models';
 
 export interface Movie {
   id: number,
@@ -7,7 +7,7 @@ export interface Movie {
   category: string,
   productionDate: Date,
   posterPath: string,
-  trailerPath: string
+  trailerPath: string,
 }
 
 export interface Seance {

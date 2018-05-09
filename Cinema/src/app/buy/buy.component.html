@@ -1,0 +1,54 @@
+<!--<router-outlet></router-outlet>-->
+
+<div class="container content">
+  <div class="row" style="margin:0px">
+  </div>
+  <div class="row" style="margin: 0px">
+    <div class="col" style="padding: 0px">
+      <mat-horizontal-stepper [linear]="false" #stepper="matHorizontalStepper" class="">
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Wybierz Miejsca</ng-template>
+            <div class="row">
+              <div class="col-2">
+                <div class="info-film">
+                  <div class="align-center">
+                    <img class="img-thumbnail img-size"
+                         src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
+                         alt="star wars">
+                  </div>
+                  <div style="color: white" class="centerBlock">
+                    <h6 class="bold">{{movie?.title}}</h6>
+                    <h6>{{seance.seanceStart|date: 'HH:mm dd-MM-yyyy'}}</h6>
+                    <span style="color: #f5821e">Ograniczenia wiekowe: 16+</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-10">
+                <router-outlet></router-outlet>
+              </div>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Bilety</ng-template>
+            <!--<app-buy-step2></app-buy-step2>-->
+            <!--<router-outlet></router-outlet>-->
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Potwierdzenie</ng-template>
+          <app-buy-success></app-buy-success>
+          <!--You are now done.-->
+          <!--<div>-->
+          <!--<button mat-button matStepperPrevious>Back</button>-->
+          <!--<button mat-button (click)="stepper.reset()">Reset</button>-->
+          <!--</div>-->
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+
+</div>
+
