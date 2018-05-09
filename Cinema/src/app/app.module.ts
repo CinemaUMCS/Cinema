@@ -87,6 +87,7 @@ import {BookingSeatsService} from './shared/booking-seats.service';
 import {Step1GuardService} from './shared/step1-guard.service';
 import {RegulationsComponent} from './regulations/regulations.component';
 import {BuyResolverService} from './buy/buy-resolver.service';
+import {OrderContainerComponent} from './order-container/order-container.component';
 
 
 @NgModule({
@@ -121,6 +122,7 @@ import {BuyResolverService} from './buy/buy-resolver.service';
     DialogComponent,
     BuyStep0Component,
     RegulationsComponent,
+    OrderContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -172,7 +174,7 @@ import {BuyResolverService} from './buy/buy-resolver.service';
   entryComponents: [
     DialogComponent, RegulationsComponent
   ],
-  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService, BookingSeatsService, Step1GuardService,BuyResolverService],
+  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService, BookingSeatsService, Step1GuardService, BuyResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

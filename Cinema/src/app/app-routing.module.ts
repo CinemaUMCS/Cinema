@@ -51,6 +51,7 @@ const routes: Routes = [
           // {path: ':seanceId/step3', component: BuySuccessComponent},
         ]
       },
+      {path: 'buy/:seanceId/step2', component: BuyStep2Component},
       {path: 'login', component: UserLoginComponent},
       {path: 'register', component: UserRegistrationComponent},
       {path: 'user.service', component: UserService},

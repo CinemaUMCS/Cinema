@@ -125,7 +125,7 @@ export class BuyStep3Component implements OnInit {
     this.getUserBookingSeatsList();
     this.booking_service.setBookingSeats(this.listOfBookingSeats);
 
-    // this.router.navigate(['buy', this.seanceId, 'step2']);
+    this.router.navigate(['buy', this.seanceId, 'step2']);
   }
 
   openDialog(data: string) {
