@@ -23,7 +23,7 @@ namespace CinemaTests.Services.UserService
         }
 
         [Fact]
-        public async Task GivenUniqueEmailAndValidPasswordUserShouldBeRegistered()
+        public async Task GivenValidCredentialsUserShouldBeLogged()
         {
             using (var context = new CinemaDbContextFactory().CreateContext())
             {

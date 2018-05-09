@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Cinema.Entities;
 using Cinema.DTO;
-using System.Linq;
 using Cinema.Request;
 using Cinema.Data;
 using Microsoft.EntityFrameworkCore;

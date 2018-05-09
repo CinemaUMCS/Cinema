@@ -55,66 +55,21 @@ namespace CinemaTests.Services.UserService
                 fun.ShouldThrow<InvalidEmail>();
             }
         }
-        [Fact]
-        public void GivenPasswordShorterThanSixExceptionShouldBeThrown()
+
+        [Theory]
+        [InlineData("123")] //too short
+        [InlineData("abckkkkkkk123")] //no upper case
+        [InlineData("ABCKKKKKKK123")] //no lower case
+        [InlineData("ABCKdada")] //no number
+        public void GivenInvalidPasswordExceptionShouldBeThrown(string password)
         {
             using (var context = new CinemaDbContextFactory().CreateContext())
             {
                 SetUp(context);
-                var shortPassword = "123";
 
                 Func<Task> fun = async () =>
                 {
-                    await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, shortPassword, User.Role);
-                };
-
-                fun.ShouldThrow<InvalidPassword>();
-            }
-        }
-        [Fact]
-        public void GivenPasswordWithoutAtLeastOneUpperCaseExceptionShouldBeThrown()
-        {
-
-            using (var context = new CinemaDbContextFactory().CreateContext())
-            {
-                SetUp(context);
-                var noUpperPassword = "abckkkkkkk123";
-
-                Func<Task> fun = async () =>
-                {
-                    await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, noUpperPassword, User.Role);
-                };
-
-                fun.ShouldThrow<InvalidPassword>();
-            }
-        }
-        [Fact]
-        public void GivenPasswordWithoutAtLeastOneLowerCaseExceptionShouldBeThrown()
-        {
-            using (var context = new CinemaDbContextFactory().CreateContext())
-            {
-                SetUp(context);
-                var noLowerPassword = "ABCKKKKKKK123";
-
-                Func<Task> fun = async () =>
-                {
-                    await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, noLowerPassword, User.Role);
-                };
-
-                fun.ShouldThrow<InvalidPassword>();
-            }
-        }
-        [Fact]
-        public void GivenPasswordWithoutAtLeastOneNumberExceptionShouldBeThrown()
-        {
-            using (var context = new CinemaDbContextFactory().CreateContext())
-            {
-                SetUp(context);
-                var noNumbersPassword = "ABCKdada";
-
-                Func<Task> fun = async () =>
-                {
-                    await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, noNumbersPassword, User.Role);
+                    await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, password, User.Role);
                 };
 
                 fun.ShouldThrow<InvalidPassword>();
