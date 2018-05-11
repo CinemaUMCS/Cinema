@@ -1,23 +1,18 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
-import {ReservationModel} from '../../model/reservation.model';
-import {Observable} from 'rxjs/Observable';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {BaseHttpService} from './base-http.service';
+import {Headers, Http} from '@angular/http';
+import {MyBookingModel} from '../../model/myBooking.model';
+import {AuthenticationService} from './authentication.service';
 
 @Injectable()
-export class ReservationService {
-  message: any;
-
-  constructor() {
-    // this.message.next(null);
+export class ReservationService extends BaseHttpService {
+  constructor(private http: Http, private authenticationService: AuthenticationService) {
+    super();
   }
 
-  setMessage(newMessage: any) {
-    this.message = newMessage;
-  }
-
-  getMessage() {
-    return this.message;
+  onSeatsReservation(myBookingModel: MyBookingModel) {
+    const header = new Headers({'authorization': this.authenticationService.getToken()});
+    return this.http.post(this.setUrl('reservation'), myBookingModel, {headers: header});
   }
 
 }

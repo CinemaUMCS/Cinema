@@ -8,4 +8,6 @@ export interface MovieModel {
   productionDate: Date;
   trailerPath: string;
   posterPath: string;
+  duration: string;
+  MinimalAge: number;
 }

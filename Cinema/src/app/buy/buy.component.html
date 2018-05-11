@@ -8,7 +8,7 @@
       <mat-horizontal-stepper [linear]="false" #stepper="matHorizontalStepper" class="">
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Wybierz Miejsca</ng-template>
+            <ng-template matStepLabel>WYBIERZ MIEJSCA</ng-template>
             <div class="row">
               <div class="col-2">
                 <div class="info-film">
@@ -32,13 +32,14 @@
         </mat-step>
         <mat-step [stepControl]="secondFormGroup">
           <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Bilety</ng-template>
-            <!--<app-buy-step2></app-buy-step2>-->
-            <!--<router-outlet></router-outlet>-->
+            <ng-template matStepLabel>POTWIERDZENIE</ng-template>
+            <div *ngIf="step2Flag">
+              <app-buy-step1></app-buy-step1>
+            </div>
           </form>
         </mat-step>
         <mat-step>
-          <ng-template matStepLabel>Potwierdzenie</ng-template>
+          <ng-template matStepLabel>ZAKONCZENIE</ng-template>
           <app-buy-success></app-buy-success>
           <!--You are now done.-->
           <!--<div>-->

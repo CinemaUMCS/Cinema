@@ -10,6 +10,8 @@ import {MyBookingModel} from '../../model/myBooking.model';
 import {MatDialog} from '@angular/material';
 import {DialogComponent} from './dialog/dialog.component';
 import {BookingSeatsService} from '../shared/booking-seats.service';
+import {BuyComponent} from '../buy/buy.component';
+import {BuyProcessService} from '../shared/buy-process.service';
 
 @Component({
   selector: 'app-buy-step3',
@@ -35,7 +37,7 @@ export class BuyStep3Component implements OnInit {
 
   constructor(private route: ActivatedRoute, private seanceService: SeanceService,
               private reservationService: ReservationService, private router: Router, public dialog: MatDialog,
-              private booking_service: BookingSeatsService) {
+              private booking_service: BookingSeatsService, private buyProcessService: BuyProcessService) {
     this.booking_seats = this.onCreateBooleanSeatArrayRepresentationArray();
     this.clickedSeats = this.onCreateBooleanSeatArrayRepresentationArray();
   }
@@ -107,7 +109,7 @@ export class BuyStep3Component implements OnInit {
     for (let i = 0; i <= 10; i++) {
       for (let j = 0; j <= 12; j++) {
         if (this.clickedSeats[i][j]) {
-          const seat: SeatModel = {id: null, row: i, number: j, roomId: this.seanceRoomData.roomId};
+          const seat: SeatModel = {id: 1, row: i, number: j, roomId: this.seanceRoomData.roomId};
           this.listOfBookingSeats.push(seat);
         }
         if (this.clickedSeatsCount < 1) {
@@ -124,8 +126,8 @@ export class BuyStep3Component implements OnInit {
     }
     this.getUserBookingSeatsList();
     this.booking_service.setBookingSeats(this.listOfBookingSeats);
-
-    this.router.navigate(['buy', this.seanceId, 'step2']);
+    this.buyProcessService.setStep1Flag(true);
+    // this.router.navigate(['buy', this.seanceId, 'step2']);
   }
 
   openDialog(data: string) {

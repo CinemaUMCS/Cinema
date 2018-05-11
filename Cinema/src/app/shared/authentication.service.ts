@@ -45,4 +45,9 @@ export class AuthenticationService {
   getMessage(): Observable<any> {
     return this.loggedSubject.asObservable();
   }
+
+  getToken() {
+    return 'Bearer ' + localStorage.getItem('token');
+  }
+
 }

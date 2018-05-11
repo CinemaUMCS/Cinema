@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {ReservationService} from '../shared/reservation.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router, RouterStateSnapshot} from '@angular/router';
-import {SeancesService} from '../admin/services/seances.service';
 import {SeanceService} from '../shared/seance.service';
 import {SeanceModel} from '../../model/seance.model';
-import {RegulationsComponent} from '../regulations/regulations.component';
 import {MatDialog} from '@angular/material';
 import {MovieModel} from '../../model/movie.model';
+import {ReservationService} from '../shared/reservation.service';
+import {BuyProcessService} from '../shared/buy-process.service';
 
 @Component({
   selector: 'app-buy',
@@ -16,18 +15,19 @@ import {MovieModel} from '../../model/movie.model';
   // providers:[ReservationService]
 })
 export class BuyComponent implements OnInit {
+  step2Flag: boolean;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   seanceId: number;
   movie: MovieModel;
-  // loading = true;
   seance: SeanceModel;
 
   constructor(private _formBuilder: FormBuilder, private route: ActivatedRoute, private seance_service: SeanceService,
-              public dialog: MatDialog,) {
+              public dialog: MatDialog, private buyProcessService: BuyProcessService) {
   }
 
   ngOnInit() {
+    this.buyProcessService.step1flag.subscribe(value => this.step2Flag = value);
     this.route.data.subscribe(value => {
       this.seance = value['data'].json();
       // this.seance_service.setActualSeanceObservable(this.seance);
@@ -35,6 +35,7 @@ export class BuyComponent implements OnInit {
     });
     this.getMovie(+this.seance.movieId);
     this.validate();
+
   }
 
   validate() {
@@ -50,7 +51,6 @@ export class BuyComponent implements OnInit {
     this.seance_service.getMovieById(movieId).subscribe(
       value => {
         this.movie = value.json();
-        console.log(this.movie);
         this.seance_service.setActualMovieObservable(this.movie);
       },
       error2 => {

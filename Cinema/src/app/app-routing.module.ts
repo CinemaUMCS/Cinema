@@ -48,7 +48,7 @@ const routes: Routes = [
           {path: 'step2', component: BuyStep2Component},
           {path: 'step1', component: BuyStep3Component, canActivate: [Step1GuardService]},
           {path: 'step0', component: BuyStep0Component},
-          // {path: ':seanceId/step3', component: BuySuccessComponent},
+          // {path: 'step3', component: BuyStep1Component},
         ]
       },
       {path: 'buy/:seanceId/step2', component: BuyStep2Component},

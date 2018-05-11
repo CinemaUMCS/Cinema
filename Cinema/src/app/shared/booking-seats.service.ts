@@ -8,7 +8,7 @@ import {SeatModel} from '../../model/seat.model';
 @Injectable()
 export class BookingSeatsService {
 
-  seance;
+  // seance;
   seanceId: number;
   seanceRoomData = new Subject<SeanceRoomDataModel>();
   currentSeance = this.seanceRoomData.asObservable();
