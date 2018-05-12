@@ -61,8 +61,8 @@
         <div class="row margin-top border-bottom-custom">
           <div class="col-6">Miejsca</div>
           <div class="col-6">
-            <div *ngFor="let seat of myBookingModel.bookingSeats">
-              Rząd {{seat.row+1}} Miejsce {{seat.number+1}}<br/>
+            <div *ngFor="let seat of myBookingModel.seatsToReserve">
+              Rząd {{seat.row}} Miejsce {{seat.number}}<br/>
             </div>
           </div>
         </div>

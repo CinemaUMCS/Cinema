@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router, RouterStateSnapshot} from '@angular/router';
 import {SeanceService} from '../shared/seance.service';
 import {SeanceModel} from '../../model/seance.model';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatHorizontalStepper, MatStepper} from '@angular/material';
 import {MovieModel} from '../../model/movie.model';
 import {ReservationService} from '../shared/reservation.service';
 import {BuyProcessService} from '../shared/buy-process.service';
@@ -15,6 +15,7 @@ import {BuyProcessService} from '../shared/buy-process.service';
   // providers:[ReservationService]
 })
 export class BuyComponent implements OnInit {
+  @ViewChild('stepper') stepper: MatHorizontalStepper;
   step2Flag: boolean;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -52,11 +53,20 @@ export class BuyComponent implements OnInit {
       value => {
         this.movie = value.json();
         this.seance_service.setActualMovieObservable(this.movie);
+        this.seance_service.setActualMovie(this.movie);
       },
       error2 => {
         console.log(error2);
       }
     );
+  }
+
+  goForward() {
+    this.stepper.next();
+  }
+
+  goBack() {
+    this.stepper.previous();
   }
 }
 

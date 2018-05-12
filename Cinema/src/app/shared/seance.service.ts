@@ -11,6 +11,7 @@ import {MovieModel} from '../../model/movie.model';
 export class SeanceService extends BaseHttpService {
 
   actualSeance: SeanceModel;
+  actualMovie: MovieModel;
   private seanceSubject = new Subject<SeanceModel>();
   private movieSubject = new Subject<MovieModel>();
 
@@ -55,6 +56,10 @@ export class SeanceService extends BaseHttpService {
 
   setActualSeanceObservable(seance: SeanceModel) {
     this.seanceSubject.next(seance);
+  }
+
+  setActualMovie(movie: MovieModel) {
+    this.actualMovie = movie;
   }
 
   setActualMovieObservable(movie: MovieModel) {

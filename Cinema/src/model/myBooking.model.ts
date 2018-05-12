@@ -2,7 +2,7 @@ import {SeatModel} from './seat.model';
 
 export interface MyBookingModel {
   seanceId: number;
-  bookingSeats: SeatModel[];
+  seatsToReserve: SeatModel[];
   numberOfConcessionaryTickets: number;
   numberOfNormalTickets: number;
 }
