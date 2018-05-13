@@ -1,5 +1,14 @@
+@import "../variables";
 .profile-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
+}
+.border-right-custom{
+  border-right: 2px solid $kino-sand;
+}
+.edit-button{
+}
+.center-items-custom{
+  text-align: center;
 }

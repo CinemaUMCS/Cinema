@@ -1,1 +1,35 @@
-<p>Profile works</p>
+<div class="container" style="padding-top: 80px;color: white">
+  <div class="row">
+    <div class="col center-items-custom"><h2>TWOJE DANE</h2></div>
+  </div>
+  <div class="row" style="padding-top: 30px">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <form>
+        <div class="form-group">
+          <label for="Email">Email address</label>
+          <input type="email" class="form-control" id="Email" placeholder="name@example.com" [disabled]="editFlag">
+        </div>
+        <div class="form-group">
+          <label for="firstName">Imię</label>
+          <input type="text" class="form-control" id="firstName" placeholder="Pawel" [disabled]="editFlag">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Nazwisko</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Sosnowka" value="Sosnówka" [disabled]="editFlag" >
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Numer telefonu</label>
+          <input type="number" class="form-control" id="phoneNumber" placeholder="123-123-123" [disabled]="editFlag">
+        </div>
+      </form>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col center-items-custom">
+      <button type="button" class="btn edit-button" (click)="onEdit()" *ngIf="editFlag">EDYTUJ</button>
+    </div>
+  </div>
+</div>

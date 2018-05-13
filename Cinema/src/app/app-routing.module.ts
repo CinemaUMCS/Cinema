@@ -50,13 +50,13 @@ const routes: Routes = [
           {path: 'step1', component: BuyStep3Component, canActivate: [Step1GuardService]},
           {path: 'step0', component: BuyStep0Component},
           // {path: 'step3', component: BuyStep1Component},
-        ]
+        ], canActivate: [AuthGuard]
       },
-      {path: 'buy/:seanceId/step2', component: BuyStep2Component},
+      // {path: 'buy/:seanceId/step2', component: BuyStep2Component},
       {path: 'login', component: UserLoginComponent},
       {path: 'register', component: UserRegistrationComponent},
       {path: 'user.service', component: UserService},
-      {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
+      {path: 'profile', component: ProfileComponent}
     ]
   },
   {

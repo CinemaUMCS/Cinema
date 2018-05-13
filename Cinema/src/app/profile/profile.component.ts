@@ -12,12 +12,17 @@ import {HeaderOpacityService} from '../shared/header-opacity.service';
   providers: [UserService, ConfigService]
 })
 export class ProfileComponent implements OnInit {
+  editFlag = true;
 
   constructor(private headerOpacityService: HeaderOpacityService) {
   }
 
   ngOnInit() {
     this.isDashboardComponent();
+  }
+
+  onEdit() {
+    this.editFlag = false;
   }
 
   isDashboardComponent() {
