@@ -33,6 +33,7 @@ import {BuyStep0Component} from './buy-step-0/buy-step-0.component';
 import {Step1GuardService} from './shared/step1-guard.service';
 import {RegulationsComponent} from './regulations/regulations.component';
 import {BuyResolverService} from './buy/buy-resolver.service';
+import {ActualComponentResolverService} from './shared/actual-component-resolver.service';
 
 const routes: Routes = [
   {

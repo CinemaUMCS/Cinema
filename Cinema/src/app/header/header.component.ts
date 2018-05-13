@@ -7,6 +7,7 @@ import {AuthGuard} from '../auth.guard';
 import {ConfigService} from '../config.service';
 import {AuthenticationService} from '../shared/authentication.service';
 import {Subscription} from 'rxjs/Subscription';
+import {HeaderOpacityService} from '../shared/header-opacity.service';
 
 @Component({
   selector: 'app-header',
@@ -15,30 +16,29 @@ import {Subscription} from 'rxjs/Subscription';
   providers: [UserService, ConfigService]
 })
 export class HeaderComponent implements OnInit {
+  divToChange = document.getElementById('customNav');
   isLoggedIn$: boolean;
   private href: string;
-
   private isLogged: boolean;
   private loggedSubscription: Subscription;
 
+  backgroundNavbarColor = '#fff';
+
   constructor(private authService: UserService,
-              private router: Router, private authenticationService: AuthenticationService, private activatedRoute: ActivatedRoute) {
-    // this.href = this.router.url;
-    // console.log(this.href);
+              private router: Router, private authenticationService: AuthenticationService,
+              private activatedRoute: ActivatedRoute, private headerOpacityService: HeaderOpacityService) {
+
     this.loggedSubscription = this.authenticationService.getMessage().subscribe(value => this.isLogged = value);
   }
 
   ngOnInit() {
-    // this.isLoggedIn$ = this.authService.isLoggedIn; // {2}
+    this.isDashboardComponent();
     this.isLogged = this.authenticationService.isLogged();
-    // this.activatedRoute.params.subscribe(paramsId => {
-    //   console.log(paramsId);
-    // });
+    this.headerOpacityService.dashboardToolbarColor.subscribe(
+      value => this.backgroundNavbarColor = value
+    );
   }
 
-  // onLogout() {
-  //   this.authService.logout();                      // {3}
-  // }
   loginIn() {
     return this.authenticationService.logged;
   }
@@ -46,6 +46,10 @@ export class HeaderComponent implements OnInit {
   onLogout() {
     this.isLogged = false;
     this.authenticationService.logout();
+  }
+
+  isDashboardComponent() {
+    this.headerOpacityService.isDashboardComponentLoad(true);
   }
 
 }

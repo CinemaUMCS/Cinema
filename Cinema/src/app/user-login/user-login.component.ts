@@ -8,6 +8,7 @@ import {ConfigService} from '../config.service';
 import {CredentialisModel} from '../../model/credentialis.model';
 import {LoggedUserModel} from '../../model/loggedUser.model';
 import {AuthenticationService} from '../shared/authentication.service';
+import {HeaderOpacityService} from '../shared/header-opacity.service';
 
 @Component({
   selector: 'app-user-login',
@@ -32,40 +33,17 @@ export class UserLoginComponent implements OnInit, OnDestroy {
   password: string;
   private loggedUserResponse: LoggedUserModel;
 
-  constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute, private authService: AuthenticationService) {
+  constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute, private authService: AuthenticationService,
+              private headerOpacityService: HeaderOpacityService) {
   }
 
   ngOnInit() {
-
-    // subscribe to router event
-    // this.subscription = this.activatedRoute.queryParams.subscribe(
-    //   (param: any) => {
-    //     this.brandNew = param['brandNew'];
-    //     this.credentials.email = param['email'];
-    //   });
+    this.isDashboardComponent();
   }
 
   ngOnDestroy() {
-    // prevent memory leak by unsubscribing
-    // this.subscription.unsubscribe();
   }
 
-  // login({value, valid}: { value: Credentials, valid: boolean }) {
-  //   this.submitted = true;
-  //   this.isRequesting = true;
-  //   this.errors = '';
-  //   if (valid) {
-  //     this.userService.login(value.email, value.password)
-  //       .finally(() => this.isRequesting = false)
-  //       .subscribe(
-  //         result => {
-  //           if (result) {
-  //             this.router.navigate(['/dashboard']);
-  //           }
-  //         },
-  //         error => this.errors = error);
-  //   }
-  // }
   onLogin() {
 
     this.myCredent = {
@@ -86,5 +64,9 @@ export class UserLoginComponent implements OnInit, OnDestroy {
         console.log(this.authService.isLogged());
       }
     );
+  }
+
+  isDashboardComponent() {
+    this.headerOpacityService.isDashboardComponentLoad(false);
   }
 }

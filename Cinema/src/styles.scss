@@ -13,6 +13,7 @@ body, html {
   background: $kino-main;
   font-family: 'Roboto', sans-serif !important;
   color: $kino-sand;
+  //color: $kino-sand;
   margin: 0;
   padding: 0;
 }
@@ -92,7 +93,7 @@ body, html {
 }
 
 .height100 {
-  height: 100%;
+  height: calc(100% - 57px);
 }
 
 //stepper
@@ -101,9 +102,10 @@ body, html {
 }
 
 .mat-step-header .mat-step-label, .mat-step-header .mat-step-optional {
-  color: white!important;
+  color: white !important;
 }
-.mat-horizontal-stepper-header-container{
+
+.mat-horizontal-stepper-header-container {
   background-color: grey;
 }
 

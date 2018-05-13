@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HeaderOpacityService} from '../shared/header-opacity.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +8,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() {
+  constructor(private headerOpacityService: HeaderOpacityService) {
   }
 
   ngOnInit() {
+    this.headerOpacityService.isDashboardComponentLoad(true);
   }
 
 }

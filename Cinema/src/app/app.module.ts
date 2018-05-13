@@ -89,6 +89,8 @@ import {RegulationsComponent} from './regulations/regulations.component';
 import {BuyResolverService} from './buy/buy-resolver.service';
 import {OrderContainerComponent} from './order-container/order-container.component';
 import {BuyProcessService} from './shared/buy-process.service';
+import {HeaderOpacityService} from './shared/header-opacity.service';
+import {ActualComponentResolverService} from './shared/actual-component-resolver.service';
 
 
 @NgModule({
@@ -175,7 +177,8 @@ import {BuyProcessService} from './shared/buy-process.service';
   entryComponents: [
     DialogComponent, RegulationsComponent
   ],
-  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService, BookingSeatsService, Step1GuardService, BuyResolverService, BuyProcessService],
+  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService,
+    BookingSeatsService, Step1GuardService, BuyResolverService, BuyProcessService, HeaderOpacityService, ActualComponentResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

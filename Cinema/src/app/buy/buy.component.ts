@@ -7,6 +7,7 @@ import {MatDialog, MatHorizontalStepper, MatStepper} from '@angular/material';
 import {MovieModel} from '../../model/movie.model';
 import {ReservationService} from '../shared/reservation.service';
 import {BuyProcessService} from '../shared/buy-process.service';
+import {HeaderOpacityService} from '../shared/header-opacity.service';
 
 @Component({
   selector: 'app-buy',
@@ -24,10 +25,11 @@ export class BuyComponent implements OnInit {
   seance: SeanceModel;
 
   constructor(private _formBuilder: FormBuilder, private route: ActivatedRoute, private seance_service: SeanceService,
-              public dialog: MatDialog, private buyProcessService: BuyProcessService) {
+              public dialog: MatDialog, private buyProcessService: BuyProcessService, private headerOpacityService: HeaderOpacityService) {
   }
 
   ngOnInit() {
+    this.isDashboardComponent();
     this.buyProcessService.step1flag.subscribe(value => this.step2Flag = value);
     this.route.data.subscribe(value => {
       this.seance = value['data'].json();
@@ -36,8 +38,8 @@ export class BuyComponent implements OnInit {
     });
     this.getMovie(+this.seance.movieId);
     this.validate();
-
   }
+
 
   validate() {
     this.firstFormGroup = this._formBuilder.group({
@@ -67,6 +69,10 @@ export class BuyComponent implements OnInit {
 
   goBack() {
     this.stepper.previous();
+  }
+
+  isDashboardComponent() {
+    this.headerOpacityService.isDashboardComponentLoad(false);
   }
 }
 

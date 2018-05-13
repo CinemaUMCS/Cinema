@@ -55,7 +55,9 @@
           <p>Czas trwania: 130min<br/><span>12</span></p>
           <p>{{categories[movie.category]}}</p>
           <div>
-            <button type="button" class="btn buy-button" style="margin-top: 0px" (click)="showInfo('info')">Zobacz opis</button>
+            <button type="button" class="btn buy-button" style="margin-top: 0px" (click)="showInfo('info')">Zobacz
+              opis
+            </button>
             <button type="button" class="btn watch-button" (click)="showYoutube('youtubeVid1')">Obejrzyj Zwiastun
             </button>
 
@@ -80,9 +82,13 @@
       <div class="col-4">
         <div *ngFor="let seance of seances">
           <button type="button" class="btn btn-primary button-reservation" *ngIf="seance.movieId==movie.id"
-                  (click)="chooseSeance(seance.id)">
+                  (click)="chooseSeance(seance.id,tooltip)">
             {{seance.seanceStart|date:['HH:mm']}}
           </button>
+          <span matTooltip="Musisz byc zalogowany" #tooltip="matTooltip" class="tooltip-init">
+            e
+          </span>
+
         </div>
       </div>
     </div>

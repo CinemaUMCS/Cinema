@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {UserService} from '../user.service';
-import { User } from '../user';
-import { ConfigService } from '../config.service';
+import {User} from '../user';
+import {ConfigService} from '../config.service';
+import {HeaderOpacityService} from '../shared/header-opacity.service';
 
 @Component({
   selector: 'app-user-registration',
@@ -12,32 +13,36 @@ import { ConfigService } from '../config.service';
   providers: [UserService, ConfigService]
 })
 export class UserRegistrationComponent implements OnInit {
-  errors: string;  
+  errors: string;
   isRequesting: boolean;
   submitted: boolean = false;
-  
-  constructor(private userService: UserService,private router: Router) { }
 
-  ngOnInit() {
+  constructor(private userService: UserService, private router: Router, private headerOpacityService: HeaderOpacityService) {
   }
 
-  obj = {
-  };
+  ngOnInit() {
+    this.isDashboardComponent();
+  }
 
-  registerUser({ value, valid }: { value: User, valid: boolean }) {
+  registerUser({value, valid}: { value: User, valid: boolean }) {
     this.submitted = true;
     this.isRequesting = true;
-    this.errors='';
-    if(valid)
-    {
-        this.userService.register(value.email,value.password,value.firstName,value.lastName)
-                  .finally(() => this.isRequesting = false)
-                  .subscribe(
-                    result  => {if(result){
-                        this.router.navigate(['/login'],{queryParams: {brandNew: true,email:value.email}});                         
-                    }},
-                    errors =>  this.errors = errors);
+    this.errors = '';
+    if (valid) {
+      this.userService.register(value.email, value.password, value.firstName, value.lastName)
+        .finally(() => this.isRequesting = false)
+        .subscribe(
+          result => {
+            if (result) {
+              this.router.navigate(['/login'], {queryParams: {brandNew: true, email: value.email}});
+            }
+          },
+          errors => this.errors = errors);
     }
-  }      
+  }
+
+  isDashboardComponent() {
+    this.headerOpacityService.isDashboardComponentLoad(false);
+  }
 
 }

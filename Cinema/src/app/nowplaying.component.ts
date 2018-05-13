@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 
 import {DatePipe} from '@angular/common';
@@ -7,6 +7,9 @@ import {MovieModel} from '../model/movie.model';
 import {CategoryModel} from '../model/category.model';
 import {SeanceModel} from '../model/seance.model';
 import {Router} from '@angular/router';
+import {MatHorizontalStepper, MatTooltip} from '@angular/material';
+import {AuthenticationService} from './shared/authentication.service';
+import {HeaderOpacityService} from './shared/header-opacity.service';
 
 @Component({
   selector: 'app-nowplaying',
@@ -14,7 +17,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./nowplaying.component.scss']
 })
 export class NowPlayingComponent implements OnInit {
-
+  @ViewChild('tooltip') tooltip: MatTooltip;
+  position = 'below';
   title = 'app';
   list = [1, 2, 3, 3, 3, 33, 3, 3, 3, 3, 3, 3];
   date = new Date();
@@ -28,10 +32,12 @@ export class NowPlayingComponent implements OnInit {
 
   emptyPage: boolean;
 
-  constructor(private datePipe: DatePipe, private seanceService: SeanceService, private router: Router) {
+  constructor(private datePipe: DatePipe, private seanceService: SeanceService, private router: Router, private authenticationService: AuthenticationService,
+              private headerOpacityService: HeaderOpacityService) {
   }
 
   ngOnInit() {
+    this.isDashboardComponent();
     this.actualDayOfWeek = new Date().getDay();
     this.containDateWithButton();
     this.getAllCategories();
@@ -127,8 +133,15 @@ export class NowPlayingComponent implements OnInit {
     document.getElementById('hideYoutubeVid').style.display = 'none';
   }
 
-  chooseSeance(id) {
-    this.router.navigate(['buy', id, 'step0']);
+  chooseSeance(id, toolTip: MatTooltip) {
+    if (this.authenticationService.isLogged()) {
+      this.router.navigate(['buy', id, 'step0']);
+      return;
+    }
+    toolTip.show();
+  }
+  isDashboardComponent() {
+    this.headerOpacityService.isDashboardComponentLoad(false);
   }
 
 

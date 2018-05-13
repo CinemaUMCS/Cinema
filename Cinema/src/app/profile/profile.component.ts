@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
-import { ConfigService } from '../config.service';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { UserService } from '../user.service';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../user';
+import {ConfigService} from '../config.service';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import {UserService} from '../user.service';
+import {HeaderOpacityService} from '../shared/header-opacity.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,18 +12,15 @@ import { UserService } from '../user.service';
   providers: [UserService, ConfigService]
 })
 export class ProfileComponent implements OnInit {
-  user:User;
-  baseUrl:string= '';
-  
-  constructor(private http: Http, private authService: UserService) { 
+
+  constructor(private headerOpacityService: HeaderOpacityService) {
   }
 
   ngOnInit() {
-    this.getUser();
+    this.isDashboardComponent();
   }
 
-  getUser(): void {
-    this.authService.userDto()
-    .subscribe(heroes => this.user = heroes);
+  isDashboardComponent() {
+    this.headerOpacityService.isDashboardComponentLoad(false);
   }
 }
