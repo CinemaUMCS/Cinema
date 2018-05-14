@@ -2,34 +2,58 @@
   <div class="row">
     <div class="col center-items-custom"><h2>TWOJE DANE</h2></div>
   </div>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4 succes-edit" *ngIf="succesEditFlag">Pomyślnie zapisano zmiany</div>
+    <div class="col-4"></div>
+  </div>
   <div class="row" style="padding-top: 30px">
     <div class="col-4"></div>
     <div class="col-4">
-      <form>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
         <div class="form-group">
           <label for="Email">Email address</label>
-          <input type="email" class="form-control" id="Email" placeholder="name@example.com" [disabled]="editFlag">
+          <input type="email" class="form-control" id="Email" [disabled]="!editFlag"
+                 (change)="onChange()" name="email" [(ngModel)]="actualUser.email" required email #email="ngModel">
+          <span class="help-block mat-error" *ngIf="!email.valid && email.touched">Prosze wprowadz poprawny adres E-mail!</span>
         </div>
         <div class="form-group">
           <label for="firstName">Imię</label>
-          <input type="text" class="form-control" id="firstName" placeholder="Pawel" [disabled]="editFlag">
+          <input type="text" class="form-control" id="firstName" [value]="actualUser.firstName" [disabled]="!editFlag"
+                 name="firstName" [(ngModel)]="actualUser.firstName" #firstName="ngModel" required>
+          <span class="help-block mat-error"
+                *ngIf="!firstName.valid && lastName.touched">Pole nie może byc puste</span>
         </div>
         <div class="form-group">
           <label for="lastName">Nazwisko</label>
-          <input type="text" class="form-control" id="lastName" placeholder="Sosnowka" value="Sosnówka" [disabled]="editFlag" >
+          <input type="text" class="form-control" id="lastName" [value]="actualUser.lastName" [disabled]="!editFlag"
+                 name="lastName" [(ngModel)]="actualUser.lastName" #lastName="ngModel" required>
+          <span class="help-block mat-error"
+                *ngIf="!lastName.valid && lastName.touched">Pole nie może byc puste</span>
         </div>
         <div class="form-group">
           <label for="phoneNumber">Numer telefonu</label>
-          <input type="number" class="form-control" id="phoneNumber" placeholder="123-123-123" [disabled]="editFlag">
+          <input type="text" class="form-control" id="phoneNumber" [disabled]="!editFlag"
+                 name="phoneNumber" ngModel #phoneNumber="ngModel" required
+                 pattern="[0-9]*"
+                 minlength="10"
+                 maxlength="10">
+          <span class="help-block mat-error" *ngIf="!phoneNumber.valid && phoneNumber.touched">Niepoprawny numer telefonu</span>
+        </div>
+        <div class="row" *ngIf="editFlag">
+          <div class="col center-items-custom">
+            <button class="btn btn-primary" type="button" (click)="onReset()">RESET</button>
+            <button class="btn btn-save" type="submit" [disabled]="!f.valid">ZAPISZ</button>
+          </div>
         </div>
       </form>
     </div>
     <div class="col-4">
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="padding-top: 20px">
     <div class="col center-items-custom">
-      <button type="button" class="btn edit-button" (click)="onEdit()" *ngIf="editFlag">EDYTUJ</button>
+      <button type="button" class="btn edit-button" (click)="onEdit()" *ngIf="!editFlag">EDYTUJ</button>
     </div>
   </div>
 </div>

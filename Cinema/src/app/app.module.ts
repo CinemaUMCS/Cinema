@@ -91,6 +91,7 @@ import {OrderContainerComponent} from './order-container/order-container.compone
 import {BuyProcessService} from './shared/buy-process.service';
 import {HeaderOpacityService} from './shared/header-opacity.service';
 import {ActualComponentResolverService} from './shared/actual-component-resolver.service';
+import {UserApiService} from './shared/user-api.service';
 
 
 @NgModule({
@@ -178,7 +179,7 @@ import {ActualComponentResolverService} from './shared/actual-component-resolver
     DialogComponent, RegulationsComponent
   ],
   providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService,
-    BookingSeatsService, Step1GuardService, BuyResolverService, BuyProcessService, HeaderOpacityService, ActualComponentResolverService],
+    BookingSeatsService, Step1GuardService, BuyResolverService, BuyProcessService, HeaderOpacityService, ActualComponentResolverService, UserApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

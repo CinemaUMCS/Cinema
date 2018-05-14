@@ -1,14 +1,35 @@
 @import "../variables";
+
 .profile-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
 }
-.border-right-custom{
+
+.border-right-custom {
   border-right: 2px solid $kino-sand;
 }
-.edit-button{
+
+.edit-button {
 }
-.center-items-custom{
+
+.center-items-custom {
   text-align: center;
+}
+
+.btn-save {
+  background-color: #1e7e34;
+  &:disabled {
+    background-color: white;
+  }
+}
+
+.succes-edit {
+  text-align: center;
+  background-color: #1e7e34;
+  color: white;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid #f44336;
 }

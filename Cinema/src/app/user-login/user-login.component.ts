@@ -9,6 +9,7 @@ import {CredentialisModel} from '../../model/credentialis.model';
 import {LoggedUserModel} from '../../model/loggedUser.model';
 import {AuthenticationService} from '../shared/authentication.service';
 import {HeaderOpacityService} from '../shared/header-opacity.service';
+import {UserApiService} from '../shared/user-api.service';
 
 @Component({
   selector: 'app-user-login',
@@ -33,8 +34,9 @@ export class UserLoginComponent implements OnInit, OnDestroy {
   password: string;
   private loggedUserResponse: LoggedUserModel;
 
-  constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute, private authService: AuthenticationService,
-              private headerOpacityService: HeaderOpacityService) {
+  constructor(private userService: UserService, private router: Router,
+              private activatedRoute: ActivatedRoute, private authService: AuthenticationService,
+              private headerOpacityService: HeaderOpacityService, private userApiService: UserApiService) {
   }
 
   ngOnInit() {
@@ -57,7 +59,9 @@ export class UserLoginComponent implements OnInit, OnDestroy {
         console.log(this.loggedUserResponse);
         localStorage.setItem('token', this.loggedUserResponse.token);
         this.authService.userLogIn();
+        this.setActualUser();
         this.router.navigate(['/']);
+
       },
       (error) => {
         this.credentialisError = true;
@@ -66,7 +70,18 @@ export class UserLoginComponent implements OnInit, OnDestroy {
     );
   }
 
+  setActualUser() {
+    this.userApiService.getActualUser().subscribe(
+      value => {
+        this.authService.actualUser = value.json();
+      },
+      error2 => {
+        console.log(error2);
+      });
+  }
+
   isDashboardComponent() {
     this.headerOpacityService.isDashboardComponentLoad(false);
   }
 }
+
