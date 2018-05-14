@@ -16,5 +16,7 @@ namespace Cinema.Services
     Task UpdateAsync(int id, MovieRequest updateMovie);
     Task DeleteAsync(int id);
     IEnumerable<string> GetCategories();
+    Task RateAsync(int userId, int movieId, int rating);
+    Task UpdateRateAsync(int userId, int movieId, int rating);
   }
 }

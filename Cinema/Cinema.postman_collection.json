@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6e84f515-8045-4b18-bafc-7ca112308891",
+		"_postman_id": "e2e36cad-269b-44d4-901a-993d061dc317",
 		"name": "Cinema",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -91,6 +91,39 @@
 							"path": [
 								"account",
 								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjYzMzI5NzIsImV4cCI6MTUyNjQxOTM3Mn0.hvGQZr1BV2sVL--LFH2bLFFP4OvZXlDWAXiLeD-JZbM"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"OldPassword\":\"xxxDDD1\",\n\t\"NewPassword\":\"Password12\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/account/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"changePassword"
 							]
 						}
 					},
@@ -231,6 +264,72 @@
 							"path": [
 								"movie",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjYzMjg2NjcsImV4cCI6MTUyNjQxNTA2N30.Gf7_zQlyYWyHsgIBeUl0hLgHdeiyrp7-irLe3i4bFYI"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/movie/1/Rate?rating=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"1",
+								"Rate"
+							],
+							"query": [
+								{
+									"key": "rating",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjYzMjg2NjcsImV4cCI6MTUyNjQxNTA2N30.Gf7_zQlyYWyHsgIBeUl0hLgHdeiyrp7-irLe3i4bFYI"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/movie/1/UpdateRate?rating=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"1",
+								"UpdateRate"
+							],
+							"query": [
+								{
+									"key": "rating",
+									"value": "7"
+								}
 							]
 						}
 					},
@@ -707,6 +806,43 @@
 								"reservation",
 								"seance",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MarkReservationAsPaid",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjYzMjg2NjcsImV4cCI6MTUyNjQxNTA2N30.Gf7_zQlyYWyHsgIBeUl0hLgHdeiyrp7-irLe3i4bFYI"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Author",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/reservation/1/MarkAsPaid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"reservation",
+								"1",
+								"MarkAsPaid"
 							]
 						}
 					},

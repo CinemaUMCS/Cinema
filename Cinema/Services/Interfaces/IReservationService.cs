@@ -15,5 +15,6 @@ namespace Cinema.Services
     Task DeleteAsync(int id);
     Task<IEnumerable<ReservationDto>> GetReservationsForUserAsync(int userId);
     Task<IEnumerable<ReservationDto>> GetReservationsForSeanceAsync(int seanceId);
+    Task MarkReservationAsPaid(int reservationId);
   }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -28,7 +28,7 @@ namespace Cinema.Services
         new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
         new Claim(ClaimTypes.Role, role)
       };
-      DateTime expires = DateTime.UtcNow.AddMinutes(15);
+      DateTime expires = DateTime.UtcNow.AddDays(1);
       var token = new JwtSecurityToken(
         claims: claims,
         expires: expires,

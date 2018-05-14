@@ -14,6 +14,7 @@ namespace Cinema.Entities
     public string Email { get; private set; }
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
+    public string PhoneNumber { get; set; }
     public string Password { get; private set; }
     public string Salt { get; private set; }
     public string Role { get; private set; }
@@ -34,6 +35,14 @@ namespace Cinema.Entities
       _reservations = new HashSet<Reservation>();
       _ratings = new HashSet<Rating>();
     }
+
+    private void SetPhoneNumber(string phoneNumber)
+    {
+      if(!phoneNumber.All(char.IsDigit) || phoneNumber.Length!=9)
+        throw new Exception("Invalid phone number");
+      PhoneNumber=phoneNumber;
+    }
+
     private void SetEmail(string email)
     {
       bool isEmailValid = new EmailAddressAttribute().IsValid(email);

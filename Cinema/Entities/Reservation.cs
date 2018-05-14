@@ -55,10 +55,9 @@ namespace Cinema.Entities
         throw new InvalidOperationException("Could not add a reservedSeat.");
       }
     }
-    private void UpdateReservationValue()
+    public void MarkAsPaid()
     {
-      //double concessionaryTicketsCost = NumberOfConcessionaryTickets * Seance.ConcessionaryTicketPrice;
-      //double normalTicketsCost = addReservation.NumberOfNormalTickets * Seance.NormalTicketPrice;
+      Paid=true;
     }
   }
 }

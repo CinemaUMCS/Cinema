@@ -81,10 +81,24 @@ namespace Cinema.Controllers
 
     [HttpDelete("{id}")]
     [Authorize(Roles = "admin, employee")]
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-      _movieService.DeleteAsync(id);
+      await _movieService.DeleteAsync(id);
 
+      return Ok();
+    }
+    [HttpPost("{movieId}/Rate")]
+    [Authorize]
+    public async Task<IActionResult> Rate(int movieId,int rating)
+    {
+      await _movieService.RateAsync(GetCurrentUserId(),movieId,rating);
+      return Ok();
+    }
+    [HttpPut("{movieId}/UpdateRate")]
+    [Authorize]
+    public async Task<IActionResult> UpdateRate(int movieId, int rating)
+    {
+      await _movieService.UpdateRateAsync(GetCurrentUserId(), movieId, rating);
       return Ok();
     }
   }

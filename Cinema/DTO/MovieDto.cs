@@ -14,5 +14,6 @@ namespace Cinema.DTO
     public string PosterPath { get; set; }
     public TimeSpan Duration { get; private set; }
     public int MinimalAge { get; private set; }
+    public double AverageRating { get; set; }
   }
 }

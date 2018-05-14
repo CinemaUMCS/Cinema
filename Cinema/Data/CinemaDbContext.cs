@@ -32,7 +32,7 @@ namespace Cinema.Data
       builder.Entity<Rating>().HasKey(r => new { r.MovieId, r.UserId });
       builder.Entity<Rating>().HasOne(r => r.Movie).WithMany(m => m.Ratings).HasForeignKey(r => r.MovieId);
       builder.Entity<Rating>().HasOne(r => r.User).WithMany(u => u.Ratings).HasForeignKey(r => r.UserId);
-      builder.Entity<Rating>().Property(r => r.Mark).IsRequired(false);
+      builder.Entity<Rating>().Property(r => r.Mark).IsRequired();
 
       #endregion
 
@@ -59,6 +59,7 @@ namespace Cinema.Data
       builder.Entity<User>().Property(u => u.LastName).IsRequired();
       builder.Entity<User>().Property(u => u.Email).IsRequired();
       builder.Entity<User>().Property(u => u.Password).IsRequired();
+      builder.Entity<User>().Property(u=>u.PhoneNumber).IsRequired(false);
       builder.Entity<User>().Property(u => u.Salt).IsRequired();
       builder.Entity<User>().Property(u => u.Role).IsRequired();
       builder.Entity<User>().Metadata.FindNavigation(nameof(User.Reservations)).SetPropertyAccessMode(PropertyAccessMode.Field);

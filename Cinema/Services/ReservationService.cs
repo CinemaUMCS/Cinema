@@ -113,7 +113,8 @@ namespace Cinema.Services
 
     public async Task<IEnumerable<ReservationDto>> GetReservationsForSeanceAsync(int seanceId)
     {
-      var seance = await _dbContext.Seances.FirstOrDefaultAsync(x => x.Id == seanceId);
+      var seance = await _dbContext.Seances.
+        FirstOrDefaultAsync(x => x.Id == seanceId);
       if (seance == null)
         throw new Exception($"Seance with id={seanceId} doesn't exist");
 
@@ -121,7 +122,17 @@ namespace Cinema.Services
         .Include(x => x.ReservedSeats).ThenInclude(x=>x.Seat)
         .Include(x => x.Seance)
         .Where((r => r.SeanceId == seanceId)).ToListAsync();
+
+
       return _mapper.Map<IEnumerable<Reservation>, IEnumerable<ReservationDto>>(reservations);
+    }
+
+    public async Task MarkReservationAsPaid(int reservationId)
+    {
+      var reservation = await _dbContext.Reservations.SingleOrDefaultAsync(x => x.Id == reservationId);
+      reservation.MarkAsPaid();
+      _dbContext.Reservations.Update(reservation);
+      await _dbContext.SaveChangesAsync();
     }
 
   }
