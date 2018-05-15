@@ -93,6 +93,7 @@ import {HeaderOpacityService} from './shared/header-opacity.service';
 import {ActualComponentResolverService} from './shared/actual-component-resolver.service';
 import {UserApiService} from './shared/user-api.service';
 import {UserRegistrationService} from './shared/user-registration.service';
+import {BlockAfterLoginService} from './shared/block-after-login.service';
 
 
 @NgModule({
@@ -180,7 +181,8 @@ import {UserRegistrationService} from './shared/user-registration.service';
     DialogComponent, RegulationsComponent
   ],
   providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService,
-    BookingSeatsService, Step1GuardService, BuyResolverService, BuyProcessService, HeaderOpacityService, ActualComponentResolverService, UserApiService, UserRegistrationService],
+    BookingSeatsService, Step1GuardService, BuyResolverService, BuyProcessService, HeaderOpacityService, ActualComponentResolverService,
+    UserApiService, UserRegistrationService, BlockAfterLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

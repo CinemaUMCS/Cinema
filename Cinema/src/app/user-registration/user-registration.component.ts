@@ -6,6 +6,7 @@ import {HeaderOpacityService} from '../shared/header-opacity.service';
 import {NgForm} from '@angular/forms';
 import {CreateUserModel} from '../../model/createUser.model';
 import {UserRegistrationService} from '../shared/user-registration.service';
+import {_document} from '@angular/platform-browser/src/browser';
 
 @Component({
   selector: 'app-user-registration',
@@ -30,7 +31,8 @@ export class UserRegistrationComponent implements OnInit {
   };
   errorMessage: string;
 
-  constructor(private userService: UserService, private router: Router, private headerOpacityService: HeaderOpacityService, private userRegistrationService: UserRegistrationService) {
+  constructor(private userService: UserService, private router: Router, private headerOpacityService: HeaderOpacityService,
+              private userRegistrationService: UserRegistrationService) {
   }
 
   ngOnInit() {
@@ -78,17 +80,26 @@ export class UserRegistrationComponent implements OnInit {
             this.progressBarFlag = false;
             this.errorRegister();
             console.log(error2);
+            this.scroll('errorTest');
           });
       }, 1000
     );
   }
 
+
   succesRegister() {
     this.succesRegistrationFlag = true;
     this.errorRegistrationFlag = false;
+    this.scroll('errorTest');
     setTimeout(() => {
       this.router.navigate(['']);
-    }, 5000);
+    }, 6000);
+  }
+
+  scroll(id: any) {
+    const el = document.getElementById(id);
+    el.scrollIntoView();
+
   }
 
   errorRegister() {

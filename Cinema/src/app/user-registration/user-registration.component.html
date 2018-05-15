@@ -11,6 +11,7 @@
 <!--</div>-->
 <!--</div>-->
 <mat-progress-bar class="spinner-mod" mode="indeterminate" *ngIf="progressBarFlag"></mat-progress-bar>
+<p id="errorTest"> asd</p>
 <div class="container custom-container">
   <div class="center-content">
     <div class="row">
@@ -18,10 +19,29 @@
         <h4 style="font-weight: bold;">REJESTRACJA</h4>
       </div>
     </div>
-    <div class="row" *ngIf="errorRegistrationFlag">
-      <div class="col">
-        <div class="error-message container-position">
-          Wystapiły błedy
+    <!--<div class="row" *ngIf="true" >-->
+      <!--<div class="col">-->
+        <!--<div class="succes-create container-position">-->
+          <!--Użytkownik o danym adresie email juz istnieje-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <div *ngIf="errorRegistrationFlag" class="error-message container-position">
+      <div class="row">
+        <div class="col-lg-12">
+          Użytkownik o danym adresie email juz istnieje
+        </div>
+      </div>
+    </div>
+    <div *ngIf="succesRegistrationFlag" class="succes-create container-position" id="succes">
+      <div class="row">
+        <div class="col-lg-8">
+          Sukces! Potwierdzenie przyjdzie mailem.
+          <span class="succes-hint"><br/>za chwilę zostaniesz przekierowany...</span>
+        </div>
+        <div class="col-lg-4 spinner-wraper">
+          <mat-spinner [diameter]="40"></mat-spinner>
+          <!--<button class="btn btn-primary">test</button>-->
         </div>
       </div>
     </div>
@@ -107,23 +127,11 @@
             </div>
           </form>
         </div>
-        <div *ngIf="succesRegistrationFlag" class="succes-create container-position">
-          <div class="row">
-            <div class="col-lg-8">
-              Sukces! Potwierdzenie przyjdzie mailem.
-              <span class="succes-hint"><br/>za chwilę zostaniesz przekierowany...</span>
-            </div>
-            <div class="col-lg-4 spinner-wraper">
-              <mat-spinner [diameter]="40"></mat-spinner>
-              <!--<button class="btn btn-primary">test</button>-->
-            </div>
-          </div>
-
-        </div>
       </div>
     </div>
   </div>
 </div>
+<div id="succesTest"></div>
 <!--
 <div class="row">
   <div class="col-md-6">

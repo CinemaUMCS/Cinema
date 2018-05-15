@@ -34,6 +34,7 @@ import {Step1GuardService} from './shared/step1-guard.service';
 import {RegulationsComponent} from './regulations/regulations.component';
 import {BuyResolverService} from './buy/buy-resolver.service';
 import {ActualComponentResolverService} from './shared/actual-component-resolver.service';
+import {BlockAfterLoginService} from './shared/block-after-login.service';
 
 const routes: Routes = [
   {
@@ -53,8 +54,8 @@ const routes: Routes = [
         ], canActivate: [AuthGuard]
       },
       // {path: 'buy/:seanceId/step2', component: BuyStep2Component},
-      {path: 'login', component: UserLoginComponent},
-      {path: 'register', component: UserRegistrationComponent},
+      {path: 'login', component: UserLoginComponent, canActivate: [BlockAfterLoginService]},
+      {path: 'register', component: UserRegistrationComponent, canActivate: [BlockAfterLoginService]},
       {path: 'user.service', component: UserService},
       {path: 'profile', component: ProfileComponent}
     ]

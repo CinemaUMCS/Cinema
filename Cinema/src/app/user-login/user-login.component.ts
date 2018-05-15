@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Router, ActivatedRoute} from '@angular/router';
 
@@ -10,6 +10,8 @@ import {LoggedUserModel} from '../../model/loggedUser.model';
 import {AuthenticationService} from '../shared/authentication.service';
 import {HeaderOpacityService} from '../shared/header-opacity.service';
 import {UserApiService} from '../shared/user-api.service';
+import {NgForm} from '@angular/forms';
+import {ServerResponseError} from '../../model/server-response-error';
 
 @Component({
   selector: 'app-user-login',
@@ -17,19 +19,18 @@ import {UserApiService} from '../shared/user-api.service';
   styleUrls: ['./user-login.component.scss'],
   providers: [UserService, ConfigService]
 })
-export class UserLoginComponent implements OnInit, OnDestroy {
+export class UserLoginComponent implements OnInit {
+  @ViewChild('f') registerForm: NgForm;
 
-  private subscription: Subscription;
+  progressBarFlag = false;
+  errorFlag = false;
 
-  // brandNew: boolean;
-  // errors: string;
-  // isRequesting: boolean;
-  // submitted = false;
-  // credentials: Credentials = {email: '', password: ''};
-
-
-  myCredent: CredentialisModel;
+  myCredent: CredentialisModel = {
+    email: null,
+    password: null
+  };
   credentialisError = false;
+  errorText: string;
   username: string;
   password: string;
   private loggedUserResponse: LoggedUserModel;
@@ -43,41 +44,49 @@ export class UserLoginComponent implements OnInit, OnDestroy {
     this.isDashboardComponent();
   }
 
-  ngOnDestroy() {
+  onSubmit() {
+    if (this.registerForm.invalid) {
+      this.errorText = 'Błąd, niepoprawne dane!';
+      this.errorFlag = true;
+      return;
+    }
+    this.onLogin();
   }
 
   onLogin() {
+    this.progressBarFlag = true;
+    setTimeout(() => {
+      this.setCredentialisModelFromForm();
+      this.authService.login(this.myCredent).subscribe(
+        (response) => {
+          this.loggedUserResponse = response.json();
+          localStorage.setItem('token', this.loggedUserResponse.token);
+          this.authService.userLogIn();
+          this.progressBarFlag = false;
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          console.log(error.json());
+          this.progressBarFlag = false;
+          this.onErrorLogin(error.json());
+        }
+      );
+    }, 1000);
 
-    this.myCredent = {
-      email: this.username,
-      password: this.password
-    };
-
-    this.authService.login(this.myCredent).subscribe(
-      (response) => {
-        this.loggedUserResponse = response.json();
-        console.log(this.loggedUserResponse);
-        localStorage.setItem('token', this.loggedUserResponse.token);
-        this.authService.userLogIn();
-        this.setActualUser();
-        this.router.navigate(['/']);
-
-      },
-      (error) => {
-        this.credentialisError = true;
-        console.log(this.authService.isLogged());
-      }
-    );
   }
 
-  setActualUser() {
-    this.userApiService.getActualUser().subscribe(
-      value => {
-        this.authService.actualUser = value.json();
-      },
-      error2 => {
-        console.log(error2);
-      });
+  onErrorLogin(errorModel: ServerResponseError) {
+    if (errorModel.errorCode === 'InvalidCredentials') {
+      this.errorText = 'Niepoprawny login lub hasło';
+    } else {
+      this.errorText = 'Adres email nie został potwierdzony';
+    }
+    this.errorFlag = true;
+  }
+
+  setCredentialisModelFromForm() {
+    this.myCredent.email = this.registerForm.value.email;
+    this.myCredent.password = this.registerForm.value.password;
   }
 
   isDashboardComponent() {

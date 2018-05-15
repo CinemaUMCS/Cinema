@@ -102,7 +102,8 @@
 }
 
 .content {
-  padding: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   padding-right: 50px;
   padding-left: 50px;
   color: white;
@@ -122,13 +123,13 @@
 }
 
 .message-info {
-  margin-top: 20px;
+  margin-top: 15px;
   font-size: 14px;
   text-align: center;
 }
 
 .color-login {
-  color: $kino-gold;
+  color: $kino-blue;
   &:hover {
     cursor: pointer;
   }
@@ -154,13 +155,8 @@ input.ng-invalid.ng-touched {
   font-size: 12px;
 }
 
-.spinner-mod {
-  top: 52px;
-  position: fixed;
-}
-
 .container-position {
-  max-width: 600px;
+  max-width: 450px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -169,7 +165,9 @@ input.ng-invalid.ng-touched {
   background-color: $kino-error;
   color: white;
   padding: 10px;
-  font-weight: bold;
+
+  //font-weight: bold;
+  font-size: 14px;
   text-align: center;
 }
 .succes-create{
@@ -190,4 +188,8 @@ input.ng-invalid.ng-touched {
 }
 .center-content{
 
+}
+.spinner-mod {
+  top: 52px;
+  position: fixed;
 }

@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
   onLogout() {
     this.isLogged = false;
     this.authenticationService.logout();
+    this.router.navigate(['/']);
   }
 
   isDashboardComponent() {
