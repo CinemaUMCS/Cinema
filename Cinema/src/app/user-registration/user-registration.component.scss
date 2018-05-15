@@ -97,7 +97,7 @@
 //  -moz-osx-font-smoothing: grayscale;
 //}
 .custom-container {
-  margin-top: 54px;
+  padding-top: 54px;
   height: calc(100% - 54px);
 }
 
@@ -108,9 +108,6 @@
   color: white;
   background-color: lighten($kino-main, 5%);
   //border: 1px solid darken($kino-main, 10%);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .row-custom {
@@ -131,7 +128,7 @@
 }
 
 .color-login {
-  color: $kino-green;
+  color: $kino-gold;
   &:hover {
     cursor: pointer;
   }
@@ -145,12 +142,52 @@
 }
 
 .register-btn {
-
+  color: white;
+  background-color: $kino-green;
 }
 
 input.ng-invalid.ng-touched {
   border: 1px solid #f44336;
 }
-.help-block{
+
+.help-block {
   font-size: 12px;
+}
+
+.spinner-mod {
+  top: 52px;
+  position: fixed;
+}
+
+.container-position {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-message {
+  background-color: $kino-error;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.succes-create{
+  background-color: $kino-green;
+  color: white;
+  padding: 10px;
+  padding-left: 20px;
+  font-weight: bold;
+}
+.succes-hint{
+  font-weight: lighter;
+  font-size: 12px;
+}
+.spinner-wraper{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.center-content{
+
 }

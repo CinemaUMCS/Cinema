@@ -10,87 +10,116 @@
 <!--</form>-->
 <!--</div>-->
 <!--</div>-->
+<mat-progress-bar class="spinner-mod" mode="indeterminate" *ngIf="progressBarFlag"></mat-progress-bar>
 <div class="container custom-container">
-  <div class="row">
-    <div class="col title">
-      <h4 style="font-weight: bold;">REJESTRACJA</h4>
+  <div class="center-content">
+    <div class="row">
+      <div class="col title">
+        <h4 style="font-weight: bold;">REJESTRACJA</h4>
+      </div>
     </div>
-  </div>
-  <div class="row row-custom">
-    <div class="col">
-      <div class="content">
-        <form (ngSubmit)="onSubmit()" #f="ngForm">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Adres E-mail</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                   ngModel
-                   name="email"
-                   required email #email="ngModel">
-            <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
-            <span class="help-block mat-error" *ngIf="!email.valid && email.touched">Niepoprawny adres email</span>
-          </div>
-          <div class="form-group">
-            <label for="password">Haslo</label>
-            <input type="password" class="form-control" id="password"
-                   name="password"
-                   ngModel
-                   required
-                   #password="ngModel">
-            <span class="help-block mat-error" *ngIf="!password.valid && password.touched">Hasło musi zawierac: cyfre, mała litere, duża litere</span>
-          </div>
-          <div class="form-group">
-            <label for="confirmPassword">Powtórz hasło</label>
-            <input type="password" class="form-control" id="confirmPassword"
-                   name="confirmPassword"
-                   ngModel
-                   required
-                   #confirmPassword="ngModel">
-            <span class="help-block mat-error"
-                  *ngIf="(confirmPassword.value!==password.value) && confirmPassword.touched">Podane hasła nie zgadzają się</span>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-lg-6">
-              <label for="firstName">Imię</label>
-              <input type="text" class="form-control" id="firstName"
-                     name="firstName"
-                     ngModel
-                     required
-                     #firstName="ngModel">
-              <span class="help-block mat-error"
-                    *ngIf="!firstName.valid && firstName.touched">Pole nie może byc puste</span>
-            </div>
-            <div class="form-group col-lg-6">
-              <label for="lastName">Nazwisko</label>
-              <input type="text" class="form-control" id="lastName"
-                     name="lastName"
-                     ngModel
-                     required
-                     #lastName="ngModel">
-              <span class="help-block mat-error"
-                    *ngIf="!lastName.valid && lastName.touched">Pole nie może byc puste</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="phoneNumber">Numer telefonu</label>
-            <input type="text" class="form-control" id="phoneNumber"
-                   name="phoneNumber"
-                   ngModel
-                   required
-                   pattern="[0-9]*"
-                   minlength="9"
-                   maxlength="10"
-                   #phoneNumber="ngModel">
-            <span class="help-block mat-error" *ngIf="!phoneNumber.valid && phoneNumber.touched">Niepoprawny numer telefonu</span>
-          </div>
-          <!--<div class="form-check">-->
-          <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">-->
-          <!--<label class="form-check-label" for="exampleCheck1">Akceptuje regulamin</label>-->
+    <div class="row" *ngIf="errorRegistrationFlag">
+      <div class="col">
+        <div class="error-message container-position">
+          Wystapiły błedy
+        </div>
+      </div>
+    </div>
+    <div class="row row-custom">
+      <div class="col">
+        <div class="content container-position">
+          <!--<div class="error-message">-->
+          <!--Wystapiły błedy-->
           <!--</div>-->
-          <div style="text-align: center">
-            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">ZAREJESTRUJ</button>
+          <form (ngSubmit)="onSubmit()" #f="ngForm">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Adres E-mail</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                     ngModel
+                     name="email"
+                     required email #email="ngModel">
+              <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+              <span class="help-block mat-error" *ngIf="!email.valid && email.touched">Niepoprawny adres email</span>
+            </div>
+            <div class="form-group">
+              <label for="password">Haslo</label>
+              <input type="password" class="form-control" id="password"
+                     name="password"
+                     ngModel
+                     required
+                     minlength="6"
+                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*"
+                     #password="ngModel">
+              <span class="help-block mat-error" *ngIf="!password.valid && password.touched">Hasło musi zawierać co najmniej 6 znaków(cyfre, mała litere, duża litere)</span>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Powtórz hasło</label>
+              <input type="password" class="form-control" id="confirmPassword"
+                     name="confirmPassword"
+                     ngModel
+                     required
+                     #confirmPassword="ngModel">
+              <span class="help-block mat-error"
+                    *ngIf="(confirmPassword.value!==password.value) && confirmPassword.touched">Podane hasła nie zgadzają się</span>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-lg-6">
+                <label for="firstName">Imię</label>
+                <input type="text" class="form-control" id="firstName"
+                       name="firstName"
+                       ngModel
+                       required
+                       #firstName="ngModel">
+                <span class="help-block mat-error"
+                      *ngIf="!firstName.valid && firstName.touched">Pole nie może byc puste</span>
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="lastName">Nazwisko</label>
+                <input type="text" class="form-control" id="lastName"
+                       name="lastName"
+                       ngModel
+                       required
+                       #lastName="ngModel">
+                <span class="help-block mat-error"
+                      *ngIf="!lastName.valid && lastName.touched">Pole nie może byc puste</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Numer telefonu</label>
+              <input type="text" class="form-control" id="phoneNumber"
+                     name="phoneNumber"
+                     ngModel
+                     required
+                     pattern="[0-9]*"
+                     minlength="9"
+                     maxlength="10"
+                     #phoneNumber="ngModel">
+              <span class="help-block mat-error" *ngIf="!phoneNumber.valid && phoneNumber.touched">Niepoprawny numer telefonu</span>
+            </div>
+            <!--<div class="form-check">-->
+            <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+            <!--<label class="form-check-label" for="exampleCheck1">Akceptuje regulamin</label>-->
+            <!--</div>-->
+            <div style="text-align: center">
+              <button type="submit" class="btn register-btn" [disabled]="!f.valid">ZAREJESTRUJ</button>
+            </div>
+            <div class="message-info">Masz już konto? <span class="color-login" routerLink="/login">Zaloguj się!</span>
+            </div>
+          </form>
+        </div>
+        <div *ngIf="succesRegistrationFlag" class="succes-create container-position">
+          <div class="row">
+            <div class="col-lg-8">
+              Sukces! Potwierdzenie przyjdzie mailem.
+              <span class="succes-hint"><br/>za chwilę zostaniesz przekierowany...</span>
+            </div>
+            <div class="col-lg-4 spinner-wraper">
+              <mat-spinner [diameter]="40"></mat-spinner>
+              <!--<button class="btn btn-primary">test</button>-->
+            </div>
           </div>
-          <div class="message-info">Masz już konto? <span class="color-login">Zaloguj się!</span></div>
-        </form>
+
+        </div>
       </div>
     </div>
   </div>
