@@ -1,36 +1,40 @@
 <div class="container movielist">
   <div class="row" style="margin-top: 15px">
     <div class="col-10">
-      <button id="1" type="button" class="btn btn-primary"
-              [style.background-color]="1==actualDayOfWeek ?'#4CAF50': '#007bff'"
-              (click)="clickWeekBtnEvent($event)">PN
+      <!--<button id="1" type="button" class="btn day-btn week-btn"-->
+      <!--[style.background-color]="1==actualDayOfWeek ?'#3F3250': '#2d313a'"-->
+      <!--(click)="clickWeekBtnEvent($event)">PN-->
+      <!--</button>-->
+      <button id="1" type="button" class="btn" (click)="clickWeekBtnEvent($event)"
+              [ngClass]="1==actualDayOfWeek?'week-btn':'day-btn'">PN
       </button>
-      <button id="2" type="button" class="btn btn-primary"
-              [style.background-color]="2==actualDayOfWeek ?'#4CAF50': '#007bff'"
+
+      <button id="2" type="button" class="btn day-btn"
+              [ngClass]="2==actualDayOfWeek?'week-btn':'day-btn'"
               (click)="clickWeekBtnEvent($event)">WT
       </button>
-      <button id="3" type="button" class="btn btn-primary"
-              [style.background-color]="3==actualDayOfWeek ?'#4CAF50': '#007bff'"
+      <button id="3" type="button" class="btn day-btn"
+              [ngClass]="3==actualDayOfWeek?'week-btn':'day-btn'"
               (click)="clickWeekBtnEvent($event)">SR
       </button>
-      <button id="4" type="button" class="btn btn-primary"
-              [style.background-color]="4==actualDayOfWeek ?'#4CAF50': '#007bff'"
+      <button id="4" type="button" class="btn day-btn"
+              [ngClass]="4==actualDayOfWeek?'week-btn':'day-btn'"
               (click)="clickWeekBtnEvent($event)">CZ
       </button>
-      <button id="5" type="button" class="btn btn-primary"
-              [style.background-color]="5==actualDayOfWeek ?'#4CAF50': '#007bff'"
+      <button id="5" type="button" class="btn day-btn"
+              [ngClass]="5==actualDayOfWeek?'week-btn':'day-btn'"
               (click)="clickWeekBtnEvent($event)">PT
       </button>
-      <button id="6" type="button" class="btn btn-primary"
-              [style.background-color]="6==actualDayOfWeek ?'#4CAF50': '#007bff'"
+      <button id="6" type="button" class="btn day-btn"
+              [ngClass]="6==actualDayOfWeek?'week-btn':'day-btn'"
               (click)="clickWeekBtnEvent($event)">SO
       </button>
-      <button id="0" type="button" class="btn btn-primary"
-              [style.background-color]="0==actualDayOfWeek ?'#4CAF50': '#007bff'"
+      <button id="0" type="button" class="btn day-btn"
+              [ngClass]="7==actualDayOfWeek?'week-btn':'day-btn'"
               (click)="clickWeekBtnEvent($event)">ND
       </button>
 
-      <mat-datepicker-toggle class="btn btn-primary data-picker" matSuffix [for]="dp3"></mat-datepicker-toggle>
+      <mat-datepicker-toggle class="btn data-picker" matSuffix [for]="dp3"></mat-datepicker-toggle>
       <input matInput [matDatepicker]="dp3" placeholder="Input disabled" [min]="minDate" [(ngModel)]="date"
              (dateChange)="setDateFromDataPicker()"
              style="visibility: hidden">
@@ -39,31 +43,38 @@
     <div class="col-2">
     </div>
   </div>
-  <div class="row" style="border-bottom: 2px solid white; margin-top: 30px;">
+  <div class="row" style="border-bottom:1px solid #c0b3a0; margin-top: 30px;">
     <div class="col-8">{{date|date}}</div>
     <div class="col-4">Godziny</div>
   </div>
   <!--<div class="row" style="background-color: white; height: 2px"></div>-->
   <div *ngIf="!emptyPage; else emptyContainer">
-    <div class="row" style="padding-top: 25px" *ngFor="let movie of movieAtDay">
-      <div class="col-8 border-right">
-        <img class="img-thumbnail img-size"
+    <div class="row" style="padding-top: 25px;" *ngFor="let movie of movieAtDay">
+      <div class="col-8" style="border-right: 1px solid #c0b3a0">
+        <img class="img-thumbnail img-size" style="width: 100px;"
              src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
              alt="star wars">
         <div class="details">
           <h2 class="title">{{movie.title}}</h2>
-          <p>Czas trwania: 130min<br/><span>12</span></p>
+          <p><i class="far fa-clock"></i>&nbsp;130min<br/><span>ograniczenia:
+            <span *ngIf="movie.MinimalAge==null">brak</span>
+            <span *ngIf="movie.MinimalAge!=null">{{movie.MinimalAge}}</span>
+          </span>
+          </p>
           <p>{{categories[movie.category]}}</p>
           <div>
-            <button type="button" class="btn buy-button" style="margin-top: 0px" (click)="showInfo('info')">Zobacz
-              opis
+            <button type="button" class="btn desc-btn" style="margin-top: 0px" (click)="openDialog(movie)">
+              OPIS
             </button>
-            <button type="button" class="btn watch-button" (click)="showYoutube('youtubeVid1')">Obejrzyj Zwiastun
+            <button type="button" class="btn watch-button" (click)="showYoutube('youtubeVid1')">ZWIASTUN
             </button>
 
             <div style="display:none;" id="info" class="youtubeVid">
-              <div class="film-info-container">Opis: {{movie.title}}<br/> {{movie.description}}</div>
-              <button type="button" class="btn watch-button close-desc-btn" (click)="closeInfo('info')">Zamknij Opis
+              <div class="film-info-container">
+                <span>OPIS</span>
+                <span>te: {{movie.title}}<br/> {{movie.description}}</span>
+              </div>
+              <button type="button" class="btn watch-button close-desc-btn" (click)="closeInfo('info')">ZAMKNIJ
               </button>
 
             </div>
@@ -71,17 +82,16 @@
             <div style="display:none;" id="youtubeVid1" class="youtubeVid">
               <iframe id="iframe0" width="560" height="315" src="https://www.youtube.com/embed/Q0CbN8sfihY"
                       frameborder="0" allowfullscreen></iframe>
-              <button type="button" class="btn watch-button" (click)="hideYoutube('youtubeVid1','iframe0')">Zamknij
-                Zwiastun
+              <button type="button" class="btn watch-button" (click)="hideYoutube('youtubeVid1','iframe0')">ZAMKNIJ
               </button>
             </div>
           </div>
         </div>
 
       </div>
-      <div class="col-4">
+      <div class="col-4" style="display: flex">
         <div *ngFor="let seance of seances">
-          <button type="button" class="btn btn-primary button-reservation" *ngIf="seance.movieId==movie.id"
+          <button type="button" class="btn button-reservation" *ngIf="seance.movieId==movie.id"
                   (click)="chooseSeance(seance.id,tooltip)">
             {{seance.seanceStart|date:['HH:mm']}}
           </button>

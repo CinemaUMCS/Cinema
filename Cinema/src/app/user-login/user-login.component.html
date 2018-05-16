@@ -1,34 +1,7 @@
-<!--<div class="login-page">-->
-<!--<div class="form">-->
-<!--<form #f="ngForm" novalidate (ngSubmit)="login(f)" class="login-form">-->
-<!--<input type="text" placeholder="username" tmFocus ngModel name="email" [(ngModel)]="username"/>-->
-<!--<input type="password" placeholder="password" ngModel name="password" [(ngModel)]="password"/>-->
-<!--<button (click)="onLogin()">login</button>-->
-<!--&lt;!&ndash;<button type="button" (click)="onLogin()">test</button>&ndash;&gt;-->
-<!--<p class="mat-error" *ngIf="credentialisError">Nieprawidłowy login lub hasło</p>-->
-<!--<p class="message">Not registered? <a href="#">Create an account</a></p>-->
-<!--</form>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="wrapper">-->
-
-
-<!--<div class="login-page">-->
-<!--<div class="form">-->
-<!--<form #f="ngForm" novalidate  class="login-form">-->
-<!--<input type="text" placeholder="username" tmFocus ngModel name="email" [(ngModel)]="username"/>-->
-<!--<input type="password" placeholder="password" ngModel name="password" [(ngModel)]="password"/>-->
-<!--<button (click)="onLogin()">login</button>-->
-<!--&lt;!&ndash;<button type="button" (click)="onLogin()">test</button>&ndash;&gt;-->
-<!--<p class="mat-error" *ngIf="credentialisError">Nieprawidłowy login lub hasło</p>-->
-<!--<p class="message">Not registered? <a href="#">Create an account</a></p>-->
-<!--</form>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
 <mat-progress-bar class="spinner-mod" mode="indeterminate" *ngIf="progressBarFlag"></mat-progress-bar>
 <div class="content">
   <div class="wrapper-position login-wrapper">
+
     <div class="error-message" *ngIf="errorFlag">
       {{errorText}}
     </div>

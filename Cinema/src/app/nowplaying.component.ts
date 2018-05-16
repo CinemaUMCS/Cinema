@@ -7,9 +7,11 @@ import {MovieModel} from '../model/movie.model';
 import {CategoryModel} from '../model/category.model';
 import {SeanceModel} from '../model/seance.model';
 import {Router} from '@angular/router';
-import {MatHorizontalStepper, MatTooltip} from '@angular/material';
+import {MatDialog, MatHorizontalStepper, MatTooltip} from '@angular/material';
 import {AuthenticationService} from './shared/authentication.service';
 import {HeaderOpacityService} from './shared/header-opacity.service';
+import {DialogComponent} from './buy-step3/dialog/dialog.component';
+import {DescriptionDialogComponent} from './description-dialog/description-dialog.component';
 
 @Component({
   selector: 'app-nowplaying',
@@ -21,7 +23,7 @@ export class NowPlayingComponent implements OnInit {
   position = 'below';
   title = 'app';
   list = [1, 2, 3, 3, 3, 33, 3, 3, 3, 3, 3, 3];
-  date = new Date();
+  date = new Date('12-01-2018');
   minDate = new Date();
   buttonDates = new Array<any>();
   actualDayOfWeek: number;
@@ -33,7 +35,7 @@ export class NowPlayingComponent implements OnInit {
   emptyPage: boolean;
 
   constructor(private datePipe: DatePipe, private seanceService: SeanceService, private router: Router, private authenticationService: AuthenticationService,
-              private headerOpacityService: HeaderOpacityService) {
+              private headerOpacityService: HeaderOpacityService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -140,6 +142,22 @@ export class NowPlayingComponent implements OnInit {
     }
     toolTip.show();
   }
+
+  openDialog(data: string) {
+    // const dialogRef = this.dialog.open(DialogComponent, {
+    //   height: '210px'
+    // });
+    const dialogRef = this.dialog.open(DescriptionDialogComponent, {
+      data: data,
+      width: '600px',
+      minHeight: '300px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
   isDashboardComponent() {
     this.headerOpacityService.isDashboardComponentLoad(false);
   }

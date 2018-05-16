@@ -4,11 +4,13 @@
   padding-top: 80px;
   color: $kino-sand;
   //margin-top: 40px;
+  color: white !important;
   height: auto;
 }
 
-.img-size {
+.img-custom {
   max-width: 120px;
+  margin: 0px;
 }
 
 .small-image {
@@ -34,10 +36,24 @@
 }
 
 .watch-button {
-  background-color: $kino-purple;
+  font-size: 14px;
+  margin-left: 10px;
+  color: white;
+  width: 120px;
+  background-color: $kino-pink;
   &:hover {
     color: $kino-sand;
-    background-color: darken($kino-purple, 10%)
+    background-color: darken($kino-pink, 10%)
+  }
+}
+
+.desc-btn {
+  font-size: 14px;
+  width: 120px;
+  color: white;
+  background-color: $kino-pink;
+  &:hover {
+    background-color: darken($kino-pink, 10%)
   }
 }
 
@@ -61,16 +77,22 @@
 
 .button-reservation {
   margin: 10px;
-}
-
-.button-reservation:hover {
-  background-color: #4CAF50;
+  color: white;
+  background-color: $kino-gold;
+  &:hover {
+    color: $kino-sand;
+    background-color: darken($kino-gold, 10%);
+  }
 }
 
 .data-picker {
   max-height: 38px;
   padding: 0px;
-
+  margin-left: 15px;
+  background-color: $kino-dark-grey;
+  &:hover {
+    background-color: lighten($kino-dark-grey, 10%);
+  }
 }
 
 .film-info-container {
@@ -84,8 +106,42 @@
   margin-top: 5px;
   margin-left: 48%;
 }
-.tooltip-init{
+
+.tooltip-init {
   color: #22252C;
   font-size: 1px;
 }
+
+.day-btn {
+  color: white;
+  background-color: $kino-dark-grey;
+  &:focus {
+    border: 1px solid white;
+  }
+  &:hover {
+    background-color: lighten($kino-dark-grey, 10%);
+  }
+}
+
+.week-btn {
+  color: white;
+  background-color: $kino-purple;
+  &:focus {
+    border: 1px solid white;
+  }
+  &:hover {
+    background-color: lighten($kino-purple, 10%);
+  }
+}
+
+//.week-btn {
+//  color: white;
+//  background-color: $kino-dark-grey;
+//  &:focus {
+//    border: 1px solid white;
+//  }
+//  &:hover {
+//    background-color: lighten($kino-dark-grey, 40%);
+//  }
+//}
 

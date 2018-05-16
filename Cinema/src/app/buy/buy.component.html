@@ -5,14 +5,14 @@
   </div>
   <div class="row" style="margin: 0px">
     <div class="col" style="padding: 0px">
-      <mat-horizontal-stepper [linear]="false" #stepper="matHorizontalStepper" class="">
+      <mat-horizontal-stepper [linear]="false" #stepper="matHorizontalStepper" class="mat-stepper-display">
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>WYBIERZ MIEJSCA</ng-template>
-            <div class="row">
-              <div class="col-2">
+            <div class="row" style="padding-top: 20px">
+              <div class="col-lg-2 col-md-3 col-xs-0">
                 <div class="info-film">
-                  <div class="align-center">
+                  <div class="align-start">
                     <img class="img-thumbnail img-size"
                          src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
                          alt="star wars">
@@ -20,11 +20,11 @@
                   <div style="color: white" class="centerBlock">
                     <h6 class="bold">{{movie?.title}}</h6>
                     <h6>{{seance.seanceStart|date: 'HH:mm dd-MM-yyyy'}}</h6>
-                    <span style="color: #f5821e">Ograniczenia wiekowe: 16+</span>
+                    <span style="color: #f5821e">Ograniczenia wiekowe: {{movie?.MinimalAge}}+</span>
                   </div>
                 </div>
               </div>
-              <div class="col-10">
+              <div class="col-lg-10 col-md-9 col-xs-12">
                 <router-outlet></router-outlet>
               </div>
             </div>

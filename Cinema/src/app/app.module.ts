@@ -94,6 +94,7 @@ import {ActualComponentResolverService} from './shared/actual-component-resolver
 import {UserApiService} from './shared/user-api.service';
 import {UserRegistrationService} from './shared/user-registration.service';
 import {BlockAfterLoginService} from './shared/block-after-login.service';
+import { DescriptionDialogComponent } from './description-dialog/description-dialog.component';
 
 
 @NgModule({
@@ -129,6 +130,7 @@ import {BlockAfterLoginService} from './shared/block-after-login.service';
     BuyStep0Component,
     RegulationsComponent,
     OrderContainerComponent,
+    DescriptionDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -178,7 +180,7 @@ import {BlockAfterLoginService} from './shared/block-after-login.service';
     MatTooltipModule,
   ],
   entryComponents: [
-    DialogComponent, RegulationsComponent
+    DialogComponent, RegulationsComponent,DescriptionDialogComponent
   ],
   providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService,
     BookingSeatsService, Step1GuardService, BuyResolverService, BuyProcessService, HeaderOpacityService, ActualComponentResolverService,

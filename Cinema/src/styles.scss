@@ -40,6 +40,7 @@ body, html {
 
 .buy-button {
   margin-top: 20px;
+  color: white;
   background-color: $kino-pink;
   width: 130px;
   &:hover {
@@ -106,15 +107,47 @@ body, html {
 }
 
 .mat-horizontal-stepper-header-container {
-  background-color: grey;
+  pointer-events: none;
+  border-radius: 5px;
+  background-color: #2d313a;
+  border: 1px solid #1e2026;
 }
+
 //.spinner-mod{
 //  top: 52px;
 //  position: fixed;
 //}
 
-
 //spiner
 .mat-spinner circle {
   stroke: #fff !important;
+}
+
+.back-btn {
+  color: white;
+  width: 130px;
+  background-color: #3F3250;
+  height: 40px;
+  border-radius: 5px !important;
+  &:hover {
+    border-radius: 5px;
+  }
+}
+.next-step-btn {
+  background-color: #f5821e;
+  width: 130px;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  min-height: 40px;
+  &:hover {
+    color: #c0b3a0;
+    background-color: darken(#f5821e, 10%)
+  }
+}
+
+@media(max-width: 767px) {
+  .mat-horizontal-stepper-header-container {
+    display: none;
+  }
 }
