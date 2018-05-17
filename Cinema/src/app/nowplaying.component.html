@@ -42,15 +42,19 @@
     </div>
     <div class="col-4">
       <div class="dropdown">
-        <button class="btn dropdown-toggle day-btn dropdown-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        <button class="btn dropdown-toggle day-btn dropdown-btn" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" value="test">
           <span *ngIf="selectedMovie==null">WYBIERZ FILM</span>
           <span *ngIf="selectedMovie!=null">{{selectedMovie.title}}</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-          <button class="dropdown-item dropdown-movies" type="button" (click)="filterMovie(null)">WSZYSTKIE FILMY</button>
+          <button class="dropdown-item dropdown-movies" type="button" (click)="filterMovie(null)">WSZYSTKIE FILMY
+          </button>
           <div class="dropdown-divider"></div>
-          <button class="dropdown-item dropdown-movies" type="button" [ngClass]="item.id==selectedMovie?.id?'active': ''" *ngFor="let item of allMoviesModel" (click)="filterMovie(item)">
+          <button class="dropdown-item dropdown-movies" type="button"
+                  [ngClass]="item.id==selectedMovie?.id?'active': ''" *ngFor="let item of allMoviesModel"
+                  (click)="filterMovie(item)">
             {{item.title}}
           </button>
         </div>
@@ -65,17 +69,22 @@
   <div *ngIf="!emptyPage; else emptyContainer">
     <div class="row" style="padding-top: 25px;" *ngFor="let movie of movieAtDay|filterMovies: selectedMovie">
       <div class="col-8" style="border-right: 1px solid #c0b3a0">
-        <img class="img-thumbnail img-size" style="width: 100px;"
+        <img class="img-thumbnail img-size" style="width: 117px;"
              src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
              alt="star wars">
         <div class="details">
-          <h2 class="title">{{movie.title}}</h2>
-          <p><i class="far fa-clock"></i>&nbsp;130min<br/><span>ograniczenia:
-            <span *ngIf="movie.MinimalAge==null">brak</span>
-            <span *ngIf="movie.MinimalAge!=null">{{movie.MinimalAge}}</span>
-          </span>
-          </p>
-          <p>{{categories[movie.category]}}</p>
+          <h5 class="title">{{movie.title}}</h5>
+          <div class="info">
+            <p>
+              {{movie.category}}<br/>
+              <i class="far fa-clock"></i>&nbsp;130min<br/>
+              <span>ograniczenia:
+                <span *ngIf="movie.MinimalAge==null">brak</span>
+                <span *ngIf="movie.MinimalAge!=null">{{movie.MinimalAge}}</span>
+              </span><br/>
+              <i class="fas fa-star rating-custom"></i>&nbsp;{{movie.averageRating}}/5
+            </p>
+          </div>
           <div>
             <button type="button" class="btn desc-btn" style="margin-top: 0px" (click)="openDialog(movie)">
               OPIS
@@ -83,15 +92,15 @@
             <button type="button" class="btn watch-button" (click)="showYoutube('youtubeVid1')">ZWIASTUN
             </button>
 
-            <div style="display:none;" id="info" class="youtubeVid">
-              <div class="film-info-container">
-                <span>OPIS</span>
-                <span>te: {{movie.title}}<br/> {{movie.description}}</span>
-              </div>
-              <button type="button" class="btn watch-button close-desc-btn" (click)="closeInfo('info')">ZAMKNIJ
-              </button>
+            <!--<div style="display:none;" id="info" class="youtubeVid">-->
+            <!--<div class="film-info-container">-->
+            <!--<span>OPIS</span>-->
+            <!--<span>te: {{movie.title}}<br/> {{movie.description}}</span>-->
+            <!--</div>-->
+            <!--<button type="button" class="btn watch-button close-desc-btn" (click)="closeInfo('info')">ZAMKNIJ-->
+            <!--</button>-->
 
-            </div>
+            <!--</div>-->
 
             <div style="display:none;" id="youtubeVid1" class="youtubeVid">
               <iframe id="iframe0" width="560" height="315" src="https://www.youtube.com/embed/Q0CbN8sfihY"

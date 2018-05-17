@@ -1,0 +1,54 @@
+@import "../variables";
+
+.desc-btn {
+  font-size: 14px;
+  width: 120px;
+  color: white;
+  background-color: $kino-pink;
+  &:hover {
+    background-color: darken($kino-pink, 10%)
+  }
+}
+.details {
+  position: absolute;
+  display: inline;
+  padding-left: 2rem;
+}
+.title {
+  position: relative;
+  font-weight: bold;
+}
+.custom-star{
+  color: $kino-gold;
+}
+
+
+.rating > span:hover:before {
+  content: "\2605";
+  position: absolute;
+}
+.rating {
+  color: #d39e00;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+}
+.rating {
+  font-size: 30px;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 0.8em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+}

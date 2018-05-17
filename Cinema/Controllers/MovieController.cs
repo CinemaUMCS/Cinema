@@ -52,7 +52,7 @@ namespace Cinema.Controllers
 
 
     [HttpPost]
-    [Authorize(Roles = "admin, employee")]
+    //[Authorize(Roles = "admin, employee")]
     public async Task<IActionResult> Post([FromBody] MovieRequest movie)
     {
       if (!ModelState.IsValid)
@@ -66,7 +66,7 @@ namespace Cinema.Controllers
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "admin, employee")]
+    //[Authorize(Roles = "admin, employee")]
     public async Task<IActionResult> Put(int id, [FromBody] MovieRequest movie)
     {
       if (!ModelState.IsValid)
@@ -80,7 +80,7 @@ namespace Cinema.Controllers
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "admin, employee")]
+    //[Authorize(Roles = "admin, employee")]
     public async Task<IActionResult> Delete(int id)
     {
       await _movieService.DeleteAsync(id);
@@ -88,14 +88,14 @@ namespace Cinema.Controllers
       return Ok();
     }
     [HttpPost("{movieId}/Rate")]
-    [Authorize]
+    //[Authorize]
     public async Task<IActionResult> Rate(int movieId,int rating)
     {
       await _movieService.RateAsync(GetCurrentUserId(),movieId,rating);
       return Ok();
     }
     [HttpPut("{movieId}/UpdateRate")]
-    [Authorize]
+    //[Authorize]
     public async Task<IActionResult> UpdateRate(int movieId, int rating)
     {
       await _movieService.UpdateRateAsync(GetCurrentUserId(), movieId, rating);
