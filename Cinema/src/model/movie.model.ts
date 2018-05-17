@@ -10,4 +10,5 @@ export interface MovieModel {
   posterPath: string;
   duration: string;
   MinimalAge: number;
+  averageRating: number;
 }

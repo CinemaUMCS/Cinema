@@ -47,7 +47,6 @@ export class NowPlayingComponent implements OnInit {
     this.actualDayOfWeek = new Date().getDay();
     this.getAllMovies();
     this.containDateWithButton();
-    this.getAllCategories();
     this.getRepartioryByDate(this.datePipe.transform(this.date, 'yyyy-MM-dd'));
     // this.getRepartioryByDate('2018-12-01');
   }

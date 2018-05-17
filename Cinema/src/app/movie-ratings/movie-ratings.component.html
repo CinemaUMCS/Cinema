@@ -1,0 +1,58 @@
+<div class="container" style="padding-top: 54px; color: white">
+  <div class="row" style="padding-top: 30px">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="row">
+        <div class="col">
+          <h4>OCENY</h4>
+          <p>Juz teraz możesz wystawic ocenę filmu który widzialeś</p></div>
+      </div>
+      <div class="row" style="border-bottom: 1px solid white">
+        <div class="col-8">
+          Film
+        </div>
+        <div class="col-4">
+          Ocena
+        </div>
+      </div>
+      <div class="row" style="margin-top: 15px">
+        <div class="col-8">
+          <img class="img-thumbnail img-size" style="width: 100px;"
+               src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
+               alt="star wars">
+          <div class="details">
+            <h6 class="title">Gwiezdne Wojny: Przebudzenie mocy</h6>
+            <div style="font-size: 15px">
+              <p>
+                Thriler<br/>
+                <i class="far fa-clock"></i>&nbsp;130min<br/><span>
+                ograniczenia: 16+
+                <!--<span *ngIf="movie.MinimalAge==null">brak</span>-->
+                <!--<span *ngIf="movie.MinimalAge!=null">{{movie.MinimalAge}}</span>-->
+            </span><br/>
+                <i class="fas fa-star custom-star"></i>&nbsp;4.5/5
+              </p>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="col-4">
+          <!--<i id="1" class="fas fa-star custom-star" (mouseover)="test()" ngStyle="starHover[0]?'star-hover':''"></i>-->
+          <!--<i id="2" class="fas fa-star custom-star"></i>-->
+          <!--<i id="3" class="fas fa-star custom-star"></i>-->
+          <div class="rating">
+            <span (click)="getRating(5)">☆</span>
+            <span (click)="getRating(4)">☆</span>
+            <span (click)="getRating(3)">☆</span>
+            <span (click)="getRating(2)">☆</span>
+            <span (click)="getRating(1)">☆</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-2"></div>
+</div>
+
