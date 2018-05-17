@@ -85,37 +85,6 @@ namespace Cinema.Services
       return categories;
     }
 
-    public async Task RateAsync(int userId, int movieId, int mark)
-    {
-      var movie = await _dbContext.Movies.SingleOrDefaultAsync(x => x.Id == movieId);
-      if (movie == null)
-        throw new Exception("Movie doesn't exists");
 
-      var user=await _dbContext.Users.
-        Include(x=>x.Reservations).ThenInclude(x=>x.Seance).
-        SingleOrDefaultAsync(x=>x.Id==userId);
-
-      if(user==null)
-        throw new Exception("User doesn't exists");
-      if(!user.Reservations.Any(x =>x.Paid == true && x.Seance.MovieId==movieId) )
-        throw new Exception("User didn't watch selected movie");
-
-      var ratingInDb=await _dbContext.Ratings.SingleOrDefaultAsync(x=>x.UserId==userId && x.MovieId==movieId);
-      if(ratingInDb!=null)
-        throw new Exception("User already rate this movie");
-      
-      ratingInDb=new Rating(userId,movieId,mark);
-      await _dbContext.Ratings.AddAsync(ratingInDb);
-      await _dbContext.SaveChangesAsync();
-    }
-    public async Task UpdateRateAsync(int userId, int movieId, int mark)
-    {
-      var rating= await _dbContext.Ratings.SingleOrDefaultAsync(x => x.UserId == userId && x.MovieId == movieId);
-      if(rating==null)
-        throw new Exception("Rating doesn't exists");
-      rating.SetMark(mark);
-      _dbContext.Ratings.Update(rating);
-      await _dbContext.SaveChangesAsync();
-    }
   }
 }

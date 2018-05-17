@@ -25,7 +25,7 @@ namespace Cinema.Entities
 
     public void SetMark(int mark)
     {
-      if(mark<1 || mark>10)
+      if(mark<1 || mark>5)
         throw new Exception("Mark must be in range from 1 to 10");
       Mark=mark;
     }

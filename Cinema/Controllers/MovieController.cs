@@ -10,16 +10,19 @@ using Cinema.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Cinema.Services.Interfaces;
 
 namespace Cinema.Controllers
 {
   public class MovieController : BaseController
   {
     private readonly IMovieService _movieService;
+    private readonly IRateService _rateService;
 
-    public MovieController(IMovieService movieService)
+    public MovieController(IMovieService movieService, IRateService rateService)
     {
       _movieService = movieService;
+      this._rateService = rateService;
     }
 
     [HttpGet]
@@ -85,20 +88,6 @@ namespace Cinema.Controllers
     {
       await _movieService.DeleteAsync(id);
 
-      return Ok();
-    }
-    [HttpPost("{movieId}/Rate")]
-    [Authorize]
-    public async Task<IActionResult> Rate(int movieId,int rating)
-    {
-      await _movieService.RateAsync(GetCurrentUserId(),movieId,rating);
-      return Ok();
-    }
-    [HttpPut("{movieId}/UpdateRate")]
-    [Authorize]
-    public async Task<IActionResult> UpdateRate(int movieId, int rating)
-    {
-      await _movieService.UpdateRateAsync(GetCurrentUserId(), movieId, rating);
       return Ok();
     }
   }

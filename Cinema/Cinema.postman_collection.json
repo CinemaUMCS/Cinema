@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1c24aee9-623e-4295-98ef-2119645c9e36",
+		"_postman_id": "35751278-478e-489e-b47c-c679202c5983",
 		"name": "Cinema",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -134,7 +134,10 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/account/validate_token/1002/joxuoyvq",
 							"protocol": "http",
@@ -157,7 +160,10 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/account/validate_token/1002/joxuoyvq",
 							"protocol": "http",
@@ -310,78 +316,6 @@
 							"path": [
 								"movie",
 								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Rate",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjYzMjg2NjcsImV4cCI6MTUyNjQxNTA2N30.Gf7_zQlyYWyHsgIBeUl0hLgHdeiyrp7-irLe3i4bFYI"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:5000/movie/1/Rate?rating=7",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"movie",
-								"1",
-								"Rate"
-							],
-							"query": [
-								{
-									"key": "rating",
-									"value": "7"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateRate",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjYzMjg2NjcsImV4cCI6MTUyNjQxNTA2N30.Gf7_zQlyYWyHsgIBeUl0hLgHdeiyrp7-irLe3i4bFYI"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:5000/movie/1/UpdateRate?rating=7",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"movie",
-								"1",
-								"UpdateRate"
-							],
-							"query": [
-								{
-									"key": "rating",
-									"value": "7"
-								}
 							]
 						}
 					},
@@ -894,6 +828,108 @@
 								"reservation",
 								"1",
 								"MarkAsPaid"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ratings",
+			"description": "",
+			"item": [
+				{
+					"name": "Rate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjY1ODM3MDUsImV4cCI6MTUyNjY3MDEwNX0.UZrdQJAIh19yqPC7_BTWT0VBBzwEYKdrJbUOjyobEMA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/rating/2?rating=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"rating",
+								"2"
+							],
+							"query": [
+								{
+									"key": "rating",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjY1ODQ1ODIsImV4cCI6MTUyNjY3MDk4Mn0.VbG5Pjc6WvbCHThp5AHa_xdJ5_32tLCwAPfQE6ryWRU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/rating/1?rating=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"rating",
+								"1"
+							],
+							"query": [
+								{
+									"key": "rating",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUnrated",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjY1ODM3MDUsImV4cCI6MTUyNjY3MDEwNX0.UZrdQJAIh19yqPC7_BTWT0VBBzwEYKdrJbUOjyobEMA"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/rating/UnratedMovies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"rating",
+								"UnratedMovies"
 							]
 						}
 					},

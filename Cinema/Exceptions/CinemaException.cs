@@ -5,7 +5,7 @@ namespace Cinema.Exceptions
 {
   public class CinemaException : Exception
   {
-    public CinemaException(string errorCode)
+    public CinemaException(string errorCode): base(errorCode)
     {
       ErrorCode = errorCode;
     }

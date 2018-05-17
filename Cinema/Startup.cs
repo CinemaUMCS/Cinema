@@ -2,6 +2,7 @@ using System.Text;
 using Cinema.Data;
 using Cinema.Middleware;
 using Cinema.Services;
+using Cinema.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -50,6 +51,7 @@ namespace Cinema
       services.AddScoped<IMovieService, MovieService>();
       services.AddScoped<IRoomService, RoomService>();
       services.AddScoped<IEmailSender, EmailSender>();
+      services.AddScoped<IRateService,RateService>();
 
       services.AddScoped<IEncrypter, EncrypterService>();
       services.AddScoped<ITokenProvider, TokenProvider>();
