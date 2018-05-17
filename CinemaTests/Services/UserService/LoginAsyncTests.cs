@@ -52,7 +52,7 @@ namespace CinemaTests.Services.UserService
                     await UserService.LoginAsync(invalidEmail, password);
                 };
 
-                fun.ShouldThrow<InvalidCredentials>();
+                fun.ShouldThrow<CinemaException>();
             }
         }
         [Fact]
@@ -69,7 +69,7 @@ namespace CinemaTests.Services.UserService
                     await UserService.LoginAsync(email, invalidPassword);
                 };
 
-                fun.ShouldThrow<InvalidCredentials>();
+                fun.ShouldThrow<CinemaException>();
             }
         }
     }

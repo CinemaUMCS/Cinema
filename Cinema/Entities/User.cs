@@ -47,13 +47,13 @@ namespace Cinema.Entities
     {
       bool isEmailValid = new EmailAddressAttribute().IsValid(email);
       if (!isEmailValid)
-        throw new InvalidEmail();
+        throw new CinemaException(ErrorCodes.InvalidEmail);
       Email = email;
     }
     public void SetPassword(string password)
     {
       if (!IsPasswordValid(password))
-        throw new InvalidPassword();
+        throw new CinemaException(ErrorCodes.InvalidPassword);
       var encrypterService = new EncrypterService();
       Salt = encrypterService.GenerateSalt();
       Password = encrypterService.Compute(password, Salt);
@@ -78,7 +78,7 @@ namespace Cinema.Entities
       if (IsRoleValid(role))
         Role = role;
       else
-        throw new InvalidRole();
+        throw new CinemaException(ErrorCodes.InvalidRole);
     }
     private bool IsRoleValid(string role)
     {

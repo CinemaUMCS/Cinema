@@ -31,7 +31,7 @@ namespace Cinema.Services
     {
       var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
       if (user!=null)
-        throw new InvalidEmail("User with this email already exist.");
+        throw new CinemaException(ErrorCodes.EmailOccupied);
       user = new User(email, firstName, lastName, password, role);
       await _dbContext.Users.AddAsync(user);
       await _dbContext.SaveChangesAsync();
@@ -40,10 +40,10 @@ namespace Cinema.Services
     {
       var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
       if (user == null)
-        throw new InvalidCredentials();
+        throw new CinemaException(ErrorCodes.InvalidCredentials);
       var generatedHash = _encrypter.Compute(password, user.Salt);
       if (!_encrypter.Compare(generatedHash, user.Password))
-        throw new InvalidCredentials();
+        throw new CinemaException(ErrorCodes.InvalidCredentials);
       var token = _tokenProvider.CreateToken(user.Id, user.Role);
       return token;
     }
@@ -52,7 +52,7 @@ namespace Cinema.Services
       var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
       var hash = _encrypter.Compute(oldPassword, user.Salt);
       if (!_encrypter.Compare(hash, user.Password))
-        throw new InvalidCredentials();
+        throw new CinemaException(ErrorCodes.InvalidCredentials);
       user.SetPassword(newPassword);
       _dbContext.Users.Update(user);
       await _dbContext.SaveChangesAsync();

@@ -20,7 +20,7 @@ namespace Cinema.Data
           cfg.CreateMap<Reservation, ReservationDto>()
           .AfterMap((r, rDto) => rDto.Value = ReservationMapperHelpers.CalculateReservationValue(r));
           cfg.CreateMap<Movie, MovieDto>()
-            .AfterMap((movie, movieDto)=>movieDto.AverageRating= movie.Ratings.Average(x => x.Mark))
+            .AfterMap((movie, movieDto)=>movieDto.AverageRating= movie.Ratings.Count()!=0 ? movie.Ratings.Average(x => x.Mark):0)
             .AfterMap((movie, movieDto) => movieDto.Category = Enum.GetName(typeof(Category), movie.Category));
           cfg.CreateMap<Seance, SeanceDto>();
           cfg.CreateMap<Room, RoomDto>();

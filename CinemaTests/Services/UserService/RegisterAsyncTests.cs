@@ -34,7 +34,7 @@ namespace CinemaTests.Services.UserService
                     await UserService.RegisterAsync(invalidEmail, User.FirstName, User.LastName, User.Password, User.Role);
                 };
 
-                fun.ShouldThrow<InvalidEmail>();
+                fun.ShouldThrow<CinemaException>();
             }
         }
         [Fact]
@@ -52,7 +52,7 @@ namespace CinemaTests.Services.UserService
                     await UserService.RegisterAsync(occupiedEmail, User.FirstName, User.LastName, User.Password, User.Role);
                 };
 
-                fun.ShouldThrow<InvalidEmail>();
+                fun.ShouldThrow<CinemaException>();
             }
         }
 
@@ -72,7 +72,7 @@ namespace CinemaTests.Services.UserService
                     await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, password, User.Role);
                 };
 
-                fun.ShouldThrow<InvalidPassword>();
+                fun.ShouldThrow<CinemaException>();
             }
         }
         [Fact]
@@ -88,7 +88,7 @@ namespace CinemaTests.Services.UserService
                     await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, User.Password, invalidRole);
                 };
 
-                fun.ShouldThrow<InvalidRole>();
+                fun.ShouldThrow<CinemaException>();
             }
         }
     }

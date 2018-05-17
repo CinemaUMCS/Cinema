@@ -1,21 +1,21 @@
-﻿using System;
+using System;
 using System.Runtime.Serialization;
 
 namespace Cinema.Exceptions
 {
-  public abstract class CinemaException : Exception
+  public class CinemaException : Exception
   {
-    protected CinemaException(string errorCode)
+    public CinemaException(string errorCode)
     {
       ErrorCode = errorCode;
     }
 
-    protected CinemaException(string errorCode, string message) : base(message)
+    public  CinemaException(string errorCode, string message) : base(message)
     {
       ErrorCode = errorCode;
     }
 
-    protected CinemaException(string errorCode, string message, Exception innerException) : base(message,
+    public CinemaException(string errorCode, string message, Exception innerException) : base(message,
       innerException)
     {
       ErrorCode = errorCode;
