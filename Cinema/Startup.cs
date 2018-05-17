@@ -42,7 +42,7 @@ namespace Cinema
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
           };
         });
-
+      services.AddMemoryCache();
 
       services.AddScoped<IUserService, UserService>();
       services.AddScoped<ISeanceService, SeanceService>();

@@ -19,7 +19,7 @@ namespace CinemaTests.Services.UserService
             EncrypterMock.Setup(m => m.Compare(User.Password, User.Password)).Returns(true);
             cinemaDbContext.Add(User);
             cinemaDbContext.SaveChanges();
-            UserService = new Cinema.Services.UserService(cinemaDbContext, EncrypterMock.Object, TokenProviderMock.Object, Mapper);
+            UserService = new Cinema.Services.UserService(cinemaDbContext, EncrypterMock.Object, TokenProviderMock.Object, Mapper, MemoryCache, EmailSenderMock.Object);
         }
 
         [Fact]
@@ -37,6 +37,22 @@ namespace CinemaTests.Services.UserService
             }
 
 
+        }
+
+        [Fact]
+        public async Task UserWithUnconfirmedEmailShouldntBeLogged()
+        {
+            using (var context = new CinemaDbContextFactory().CreateContext())
+            {
+                SetUp(context);
+                var email = User.Email;
+                var password = User.Password;
+                
+
+                await UserService.LoginAsync(email, password);
+
+                TokenProviderMock.Verify(m => m.CreateToken(It.IsAny<int>(), User.Role), Times.Once());
+            }
         }
         [Fact]
         public void GivenInvalidEmailExceptionShouldBeThrown()

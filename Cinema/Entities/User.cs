@@ -18,6 +18,7 @@ namespace Cinema.Entities
     public string Password { get; private set; }
     public string Salt { get; private set; }
     public string Role { get; private set; }
+    public bool IsConfirmed { get; private set; }
 
     private HashSet<Reservation> _reservations;
     private HashSet<Rating> _ratings;
@@ -85,6 +86,10 @@ namespace Cinema.Entities
       if (role == "user" || role == "admin" || role == "employee")
         return true;
       return false;
+    }
+    public void ConfirmEmail()
+    {
+      IsConfirmed=true;
     }
   }
 }

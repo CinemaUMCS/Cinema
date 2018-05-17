@@ -55,5 +55,18 @@ namespace Cinema.Controllers
       var user = await _userService.GetByIdAsync(id);
       return Json(user);
     }
+
+    [HttpPost("generate_token/{id}")]
+    public async Task<IActionResult> GenerateToken(int id)
+    {
+      await _userService.SendConfirmTokenAsync(id);
+      return Ok();
+    }
+    [HttpPost("validate_token/{id}/{token}")]
+    public async Task<IActionResult> ValidateToken(int id, string token)
+    {
+      await _userService.ValidateConfirmTokenAsync(id, token);
+      return Ok();
+    }
   }
 }

@@ -15,5 +15,7 @@ namespace Cinema.Exceptions
     public static string InvalidPassword => "InvalidPassword";
     public static string InvalidCredentials => "InvalidCredentials";
     public static string InvalidRole => "InvalidRole";
+    public static string InvalidToken => "InvalidToken";
+    public static string TokenExpired => "TokenExpired";
   }
 }
