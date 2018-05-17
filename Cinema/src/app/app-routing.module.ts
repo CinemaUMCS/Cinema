@@ -35,6 +35,7 @@ import {RegulationsComponent} from './regulations/regulations.component';
 import {BuyResolverService} from './buy/buy-resolver.service';
 import {ActualComponentResolverService} from './shared/actual-component-resolver.service';
 import {BlockAfterLoginService} from './shared/block-after-login.service';
+import {MovieRatingsComponent} from './movie-ratings/movie-ratings.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,7 @@ const routes: Routes = [
       {path: 'nowplaying', component: NowPlayingComponent},
       {path: 'pricelist', component: PriceComponent},
       {path: 'contact', component: ContactComponent},
+      {path: 'ratings', component: MovieRatingsComponent },
       {
         path: 'buy/:seanceId', component: BuyComponent, resolve: {
           data: BuyResolverService
