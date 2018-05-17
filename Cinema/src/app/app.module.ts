@@ -95,6 +95,7 @@ import {UserApiService} from './shared/user-api.service';
 import {UserRegistrationService} from './shared/user-registration.service';
 import {BlockAfterLoginService} from './shared/block-after-login.service';
 import { DescriptionDialogComponent } from './description-dialog/description-dialog.component';
+import { FilterMoviesPipe } from './shared/pipes/filter-movies.pipe';
 
 
 @NgModule({
@@ -131,6 +132,7 @@ import { DescriptionDialogComponent } from './description-dialog/description-dia
     RegulationsComponent,
     OrderContainerComponent,
     DescriptionDialogComponent,
+    FilterMoviesPipe,
   ],
   imports: [
     CommonModule,

@@ -22,6 +22,10 @@ export class SeanceService extends BaseHttpService {
     super();
   }
 
+  getALlMovies() {
+    return this.http.get(super.setUrl('movie'));
+  }
+
   getAllMovieByDay(date: any) {
     return this.http.get(super.setUrl('movie/GetMoviesPlayingAtDate/?date=') + date);
   }

@@ -32,6 +32,10 @@ export class NowPlayingComponent implements OnInit {
   categories: CategoryModel[];
   seances: SeanceModel[];
 
+  allMoviesModel: MovieModel[];
+  selectedMovie: MovieModel = null;
+  selectedMovieTitle: string = null;
+
   emptyPage: boolean;
 
   constructor(private datePipe: DatePipe, private seanceService: SeanceService, private router: Router, private authenticationService: AuthenticationService,
@@ -41,6 +45,7 @@ export class NowPlayingComponent implements OnInit {
   ngOnInit() {
     this.isDashboardComponent();
     this.actualDayOfWeek = new Date().getDay();
+    this.getAllMovies();
     this.containDateWithButton();
     this.getAllCategories();
     this.getRepartioryByDate(this.datePipe.transform(this.date, 'yyyy-MM-dd'));
@@ -143,10 +148,24 @@ export class NowPlayingComponent implements OnInit {
     toolTip.show();
   }
 
+  getAllMovies() {
+    this.seanceService.getALlMovies().subscribe(
+      value => {
+        this.allMoviesModel = value.json();
+        console.log(this.allMoviesModel);
+      },
+      error2 => {
+        console.log(error2);
+      });
+  }
+
+  filterMovie(movie: MovieModel) {
+    this.selectedMovie = movie;
+    console.log('MOVIE:',movie);
+
+  }
+
   openDialog(data: string) {
-    // const dialogRef = this.dialog.open(DialogComponent, {
-    //   height: '210px'
-    // });
     const dialogRef = this.dialog.open(DescriptionDialogComponent, {
       data: data,
       width: '600px',

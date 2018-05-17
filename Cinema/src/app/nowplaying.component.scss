@@ -134,14 +134,20 @@
   }
 }
 
-//.week-btn {
-//  color: white;
-//  background-color: $kino-dark-grey;
-//  &:focus {
-//    border: 1px solid white;
-//  }
-//  &:hover {
-//    background-color: lighten($kino-dark-grey, 40%);
-//  }
-//}
+.select-picker {
+  min-width: 200px;
+}
+
+.dropdown-movies {
+  font-size: 13px !important;
+  //&:hover {
+  //  background-color: darken(white, 10%);
+  //  cursor: pointer;
+  //}
+}
+
+.dropdown-btn {
+  min-width: 180px;
+  //min-width: 160px;
+}
 
