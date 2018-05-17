@@ -1,28 +1,44 @@
-<!--<div class="login-page">-->
-  <!--<div class="form">-->
-    <!--<form #f="ngForm" novalidate (ngSubmit)="login(f)" class="login-form">-->
-      <!--<input type="text" placeholder="username" tmFocus ngModel name="email" [(ngModel)]="username"/>-->
-      <!--<input type="password" placeholder="password" ngModel name="password" [(ngModel)]="password"/>-->
-      <!--<button (click)="onLogin()">login</button>-->
-      <!--&lt;!&ndash;<button type="button" (click)="onLogin()">test</button>&ndash;&gt;-->
-      <!--<p class="mat-error" *ngIf="credentialisError">Nieprawidłowy login lub hasło</p>-->
-      <!--<p class="message">Not registered? <a href="#">Create an account</a></p>-->
-    <!--</form>-->
-  <!--</div>-->
-<!--</div>-->
-<div class="wrapper">
+<mat-progress-bar class="spinner-mod" mode="indeterminate" *ngIf="progressBarFlag"></mat-progress-bar>
+<div class="content">
+  <div class="wrapper-position login-wrapper">
 
-
-<div class="login-page">
-  <div class="form">
-    <form #f="ngForm" novalidate  class="login-form">
-      <input type="text" placeholder="username" tmFocus ngModel name="email" [(ngModel)]="username"/>
-      <input type="password" placeholder="password" ngModel name="password" [(ngModel)]="password"/>
-      <button (click)="onLogin()">login</button>
-      <!--<button type="button" (click)="onLogin()">test</button>-->
-      <p class="mat-error" *ngIf="credentialisError">Nieprawidłowy login lub hasło</p>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
-    </form>
+    <div class="error-message" *ngIf="errorFlag">
+      {{errorText}}
+    </div>
+    <div class="form-login">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Adres e-mail</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                 ngModel
+                 #email="ngModel"
+                 name="email"
+                 email
+                 required>
+          <span class="help-block mat-error" *ngIf="!email.valid && email.touched">Niepoprawny adres email</span>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col">
+              <label for="password">Hasło</label>
+            </div>
+            <div class="col forgot-password-container"><span class="forgot-password">Zapomniałes hasła?</span></div>
+          </div>
+          <input type="password" class="form-control" id="password"
+                 name="password"
+                 ngModel
+                 #password="ngModel"
+                 required>
+          <span class="help-block mat-error" *ngIf="!password.valid && password.touched">Pole nie może byc puste</span>
+        </div>
+        <div class="login-btn-wrapper">
+          <button type="submit" class="btn login-btn">Zaloguj</button>
+        </div>
+        <div class="message-info">Nie masz konta?<span class="color-login"
+                                                       routerLink="/register"> Zarejestruj się!</span>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
-</div>
+

@@ -33,6 +33,8 @@ import {BuyStep0Component} from './buy-step-0/buy-step-0.component';
 import {Step1GuardService} from './shared/step1-guard.service';
 import {RegulationsComponent} from './regulations/regulations.component';
 import {BuyResolverService} from './buy/buy-resolver.service';
+import {ActualComponentResolverService} from './shared/actual-component-resolver.service';
+import {BlockAfterLoginService} from './shared/block-after-login.service';
 
 const routes: Routes = [
   {
@@ -48,14 +50,15 @@ const routes: Routes = [
           {path: 'step2', component: BuyStep2Component},
           {path: 'step1', component: BuyStep3Component, canActivate: [Step1GuardService]},
           {path: 'step0', component: BuyStep0Component},
-          // {path: ':seanceId/step3', component: BuySuccessComponent},
+          // {path: 'step3', component: BuyStep1Component},
+        // ], canActivate: [AuthGuard]
         ]
       },
-      {path: 'buy/:seanceId/step2', component: BuyStep2Component},
-      {path: 'login', component: UserLoginComponent},
-      {path: 'register', component: UserRegistrationComponent},
+      // {path: 'buy/:seanceId/step2', component: BuyStep2Component},
+      {path: 'login', component: UserLoginComponent, canActivate: [BlockAfterLoginService]},
+      {path: 'register', component: UserRegistrationComponent, canActivate: [BlockAfterLoginService]},
       {path: 'user.service', component: UserService},
-      {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
+      {path: 'profile', component: ProfileComponent}
     ]
   },
   {

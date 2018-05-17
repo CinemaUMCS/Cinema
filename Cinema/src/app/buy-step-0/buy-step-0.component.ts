@@ -31,8 +31,6 @@ export class BuyStep0Component implements OnInit {
               private seance_serivce: SeanceService) {
     this.seanceId = this.route.parent.snapshot.params['seanceId'];
     this.booking_service.setCurrentSeanceId(this.seanceId); //musi zostac
-    console.log('seansID', this.seanceId);
-
   }
 
   ngOnInit() {

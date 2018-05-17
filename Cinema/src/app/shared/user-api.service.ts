@@ -1,20 +1,18 @@
 import {Injectable} from '@angular/core';
 import {BaseHttpService} from './base-http.service';
 import {Headers, Http} from '@angular/http';
-import {MyBookingModel} from '../../model/myBooking.model';
 import {AuthenticationService} from './authentication.service';
 
 @Injectable()
-export class ReservationService extends BaseHttpService {
+export class UserApiService extends BaseHttpService {
+
   constructor(private http: Http, private authenticationService: AuthenticationService) {
     super();
   }
 
-  onSeatsReservation(myBookingModel: MyBookingModel) {
+  getActualUser() {
     const header = new Headers({'authorization': this.authenticationService.getToken()});
-    return this.http.post(this.setUrl('reservation'), myBookingModel, {headers: header});
+    return this.http.get(this.setUrl('account/details'), {headers: header});
   }
 
 }
-
-

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 
 import {DatePipe} from '@angular/common';
@@ -7,6 +7,11 @@ import {MovieModel} from '../model/movie.model';
 import {CategoryModel} from '../model/category.model';
 import {SeanceModel} from '../model/seance.model';
 import {Router} from '@angular/router';
+import {MatDialog, MatHorizontalStepper, MatTooltip} from '@angular/material';
+import {AuthenticationService} from './shared/authentication.service';
+import {HeaderOpacityService} from './shared/header-opacity.service';
+import {DialogComponent} from './buy-step3/dialog/dialog.component';
+import {DescriptionDialogComponent} from './description-dialog/description-dialog.component';
 
 @Component({
   selector: 'app-nowplaying',
@@ -14,10 +19,11 @@ import {Router} from '@angular/router';
   styleUrls: ['./nowplaying.component.scss']
 })
 export class NowPlayingComponent implements OnInit {
-
+  @ViewChild('tooltip') tooltip: MatTooltip;
+  position = 'below';
   title = 'app';
   list = [1, 2, 3, 3, 3, 33, 3, 3, 3, 3, 3, 3];
-  date = new Date();
+  date = new Date('12-01-2018');
   minDate = new Date();
   buttonDates = new Array<any>();
   actualDayOfWeek: number;
@@ -26,13 +32,20 @@ export class NowPlayingComponent implements OnInit {
   categories: CategoryModel[];
   seances: SeanceModel[];
 
+  allMoviesModel: MovieModel[];
+  selectedMovie: MovieModel = null;
+  selectedMovieTitle: string = null;
+
   emptyPage: boolean;
 
-  constructor(private datePipe: DatePipe, private seanceService: SeanceService, private router: Router) {
+  constructor(private datePipe: DatePipe, private seanceService: SeanceService, private router: Router, private authenticationService: AuthenticationService,
+              private headerOpacityService: HeaderOpacityService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.isDashboardComponent();
     this.actualDayOfWeek = new Date().getDay();
+    this.getAllMovies();
     this.containDateWithButton();
     this.getAllCategories();
     this.getRepartioryByDate(this.datePipe.transform(this.date, 'yyyy-MM-dd'));
@@ -127,8 +140,45 @@ export class NowPlayingComponent implements OnInit {
     document.getElementById('hideYoutubeVid').style.display = 'none';
   }
 
-  chooseSeance(id) {
-    this.router.navigate(['buy', id, 'step0']);
+  chooseSeance(id, toolTip: MatTooltip) {
+    if (this.authenticationService.isLogged()) {
+      this.router.navigate(['buy', id, 'step0']);
+      return;
+    }
+    toolTip.show();
+  }
+
+  getAllMovies() {
+    this.seanceService.getALlMovies().subscribe(
+      value => {
+        this.allMoviesModel = value.json();
+        console.log(this.allMoviesModel);
+      },
+      error2 => {
+        console.log(error2);
+      });
+  }
+
+  filterMovie(movie: MovieModel) {
+    this.selectedMovie = movie;
+    console.log('MOVIE:',movie);
+
+  }
+
+  openDialog(data: string) {
+    const dialogRef = this.dialog.open(DescriptionDialogComponent, {
+      data: data,
+      width: '600px',
+      minHeight: '300px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  isDashboardComponent() {
+    this.headerOpacityService.isDashboardComponentLoad(false);
   }
 
 

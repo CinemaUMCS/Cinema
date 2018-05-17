@@ -32,13 +32,17 @@
   border-radius: 0.5rem;
 }
 
-.dropdown-item {
-  border-bottom: 1px solid white !important;
+.dropdown-item-custom {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 }
 
 .dropdown-item:hover {
-  border-bottom: 1px solid $kino-pink !important;
+
 }
+
 
 .navbar-font-color {
   color: $kino-sand !important;
@@ -47,3 +51,25 @@
 .navbar-font-color:hover {
   color: white !important;
 }
+
+.or-color {
+  color: darken(#c0b3a0, 20%)
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.custom-dropdown {
+  background-color: $kino-pink;
+  padding: 5px !important;
+  //border-color: $kino-sand;
+}
+
+.custom-divider {
+  margin: 4px !important;
+}
+.custom-dropdown-list{
+  padding-bottom: 0px;
+}
+

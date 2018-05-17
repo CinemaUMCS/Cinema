@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ReservedSeatModel} from '../../model/reservedSeat.model';
 import {SeatModel} from '../../model/seat.model';
@@ -7,9 +7,11 @@ import {SeanceService} from '../shared/seance.service';
 import {ReservationService} from '../shared/reservation.service';
 import {ReservationModel} from '../../model/reservation.model';
 import {MyBookingModel} from '../../model/myBooking.model';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatHorizontalStepper, MatStepper} from '@angular/material';
 import {DialogComponent} from './dialog/dialog.component';
 import {BookingSeatsService} from '../shared/booking-seats.service';
+import {BuyComponent} from '../buy/buy.component';
+import {BuyProcessService} from '../shared/buy-process.service';
 
 @Component({
   selector: 'app-buy-step3',
@@ -17,7 +19,6 @@ import {BookingSeatsService} from '../shared/booking-seats.service';
   styleUrls: ['./buy-step3.component.scss']
 })
 export class BuyStep3Component implements OnInit {
-
   spinner = true;
   seanceId: any;
   number_columns = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12]];
@@ -35,13 +36,14 @@ export class BuyStep3Component implements OnInit {
 
   constructor(private route: ActivatedRoute, private seanceService: SeanceService,
               private reservationService: ReservationService, private router: Router, public dialog: MatDialog,
-              private booking_service: BookingSeatsService) {
+              private booking_service: BookingSeatsService, private buyProcessService: BuyProcessService,
+              @Inject(BuyComponent) private parent: BuyComponent) {
     this.booking_seats = this.onCreateBooleanSeatArrayRepresentationArray();
     this.clickedSeats = this.onCreateBooleanSeatArrayRepresentationArray();
   }
 
   ngOnInit() {
-    console.log(this.booking_service.myBookingModel);
+    // this.stepper.next();
     this.seanceId = this.route.parent.snapshot.params['seanceId'];
     // this.seanceId = this.seanceService.actualSeance.id;
     this.getSeanceRoomData(this.seanceId);
@@ -49,8 +51,8 @@ export class BuyStep3Component implements OnInit {
   }
 
   onClickSeat(row, col, ref) {
-    row = row - 1;
-    col = col - 1;
+    // row = row - 1;
+    // col = col - 1;
     if (this.clickedSeats[row][col]) {
       this.clickedSeats[row][col] = false;
       this.clickedSeatsCount = this.clickedSeatsCount - 1;
@@ -107,7 +109,7 @@ export class BuyStep3Component implements OnInit {
     for (let i = 0; i <= 10; i++) {
       for (let j = 0; j <= 12; j++) {
         if (this.clickedSeats[i][j]) {
-          const seat: SeatModel = {id: null, row: i, number: j, roomId: this.seanceRoomData.roomId};
+          const seat: SeatModel = {id: null, row: i, number: j, roomId: null};
           this.listOfBookingSeats.push(seat);
         }
         if (this.clickedSeatsCount < 1) {
@@ -124,8 +126,9 @@ export class BuyStep3Component implements OnInit {
     }
     this.getUserBookingSeatsList();
     this.booking_service.setBookingSeats(this.listOfBookingSeats);
-
-    this.router.navigate(['buy', this.seanceId, 'step2']);
+    this.buyProcessService.setStep1Flag(true);
+    this.goForward();
+    // this.router.navigate(['buy', this.seanceId, 'step2']);
   }
 
   openDialog(data: string) {
@@ -140,5 +143,9 @@ export class BuyStep3Component implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  goForward() {
+    this.parent.goForward();
   }
 }

@@ -2,10 +2,10 @@
   <div class=regulamin>
     <div class="cockpit">
       <h2>WYBIERZ MIEJSCA</h2>
-      <div  class="clicked-places-info" *ngIf="choosenSeatsCount>0">
+      <div class="clicked-places-info" *ngIf="choosenSeatsCount>0">
         Prosze wybrać {{choosenSeatsCount}} miejsce(a)
       </div>
-      <div  class="clicked-places-info" *ngIf="choosenSeatsCount<1">
+      <div class="clicked-places-info" *ngIf="choosenSeatsCount<1">
         Wybrano wszystkie miejsca!
       </div>
       <div class="">
@@ -43,7 +43,8 @@
         </ol>
       </div>
       <div class="centerBlock centerItem">
-        <button type="button" class="btn next-step-btn" (click)="nextStepBtn()" mat-button matStepperNext>Dalej</button>
+        <button mat-button class="back-btn" style="float: left" >WSTECZ</button>
+        <button type="button" class="btn next-step-btn" (click)="nextStepBtn()" style="float:right">DALEJ</button>
         <!--<button  mat-button (click)="nextStepBtn()">Dalej</button>-->
       </div>
     </div>

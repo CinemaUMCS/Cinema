@@ -5,7 +5,7 @@
   <div class="buy-process">
     <div class="form-group">
       <table class="table">
-        <thead class="border-up">
+        <thead>
         <tr>
           <th>Rodzaj</th>
           <th>Cena</th>
@@ -33,7 +33,7 @@
           </td>
 
         </tr>
-        <tr class="border-bottom">
+        <tr>
           <td>Normalny</td>
           <td>{{ticket_normal_price}}</td>
           <td>
@@ -59,8 +59,8 @@
     <!--<button type="button" class="btn buy-button prev-button" routerLink="/buy"> Wstecz</button>-->
     <!--<button type="button" class="btn buy-button next-button" routerLink="/buy-last"> Dalej</button>-->
     <div class="row">
-      <div class="col text-center">
-        <button type="button" class="btn buy-button" (click)="nextStep()"> Dalej</button>
+      <div class="col text-right">
+        <button type="button" class="btn next-step-btn" style="margin-right: 67px; margin-top: 20px" (click)="nextStep()">DALEJ</button>
       </div>
     </div>
   </div>

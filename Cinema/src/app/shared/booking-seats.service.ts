@@ -8,7 +8,7 @@ import {SeatModel} from '../../model/seat.model';
 @Injectable()
 export class BookingSeatsService {
 
-  seance;
+  // seance;
   seanceId: number;
   seanceRoomData = new Subject<SeanceRoomDataModel>();
   currentSeance = this.seanceRoomData.asObservable();
@@ -18,7 +18,7 @@ export class BookingSeatsService {
   constructor(private seanceService: SeanceService) {
     this.myBookingModel = {
       seanceId: this.seanceId,
-      bookingSeats: null,
+      seatsToReserve: null,
       numberOfConcessionaryTickets: 0,
       numberOfNormalTickets: 0
     };
@@ -37,7 +37,7 @@ export class BookingSeatsService {
   }
 
   setBookingSeats(bookingSeats: SeatModel[]) {
-    this.myBookingModel.bookingSeats = bookingSeats;
+    this.myBookingModel.seatsToReserve = bookingSeats;
   }
 
   setNumberOfNormalTicket(ticket: number) {

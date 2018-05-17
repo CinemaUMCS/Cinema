@@ -88,6 +88,14 @@ import {Step1GuardService} from './shared/step1-guard.service';
 import {RegulationsComponent} from './regulations/regulations.component';
 import {BuyResolverService} from './buy/buy-resolver.service';
 import {OrderContainerComponent} from './order-container/order-container.component';
+import {BuyProcessService} from './shared/buy-process.service';
+import {HeaderOpacityService} from './shared/header-opacity.service';
+import {ActualComponentResolverService} from './shared/actual-component-resolver.service';
+import {UserApiService} from './shared/user-api.service';
+import {UserRegistrationService} from './shared/user-registration.service';
+import {BlockAfterLoginService} from './shared/block-after-login.service';
+import { DescriptionDialogComponent } from './description-dialog/description-dialog.component';
+import { FilterMoviesPipe } from './shared/pipes/filter-movies.pipe';
 
 
 @NgModule({
@@ -123,6 +131,8 @@ import {OrderContainerComponent} from './order-container/order-container.compone
     BuyStep0Component,
     RegulationsComponent,
     OrderContainerComponent,
+    DescriptionDialogComponent,
+    FilterMoviesPipe,
   ],
   imports: [
     CommonModule,
@@ -172,9 +182,11 @@ import {OrderContainerComponent} from './order-container/order-container.compone
     MatTooltipModule,
   ],
   entryComponents: [
-    DialogComponent, RegulationsComponent
+    DialogComponent, RegulationsComponent,DescriptionDialogComponent
   ],
-  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService, BookingSeatsService, Step1GuardService, BuyResolverService],
+  providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService,
+    BookingSeatsService, Step1GuardService, BuyResolverService, BuyProcessService, HeaderOpacityService, ActualComponentResolverService,
+    UserApiService, UserRegistrationService, BlockAfterLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

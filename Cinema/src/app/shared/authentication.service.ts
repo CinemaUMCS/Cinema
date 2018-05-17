@@ -4,6 +4,7 @@ import {CredentialisModel} from '../../model/credentialis.model';
 import {LoggedUserModel} from '../../model/loggedUser.model';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
+import {UserModel} from '../../model/user.model';
 
 @Injectable()
 export class AuthenticationService {
@@ -11,6 +12,7 @@ export class AuthenticationService {
   BASE_URL = 'http://localhost:5000/';
   logged: boolean;
   private loggedSubject = new Subject<any>();
+  actualUser: UserModel;
 
   constructor(private http: Http) {
     this.isLogged();
@@ -45,4 +47,9 @@ export class AuthenticationService {
   getMessage(): Observable<any> {
     return this.loggedSubject.asObservable();
   }
+
+  getToken() {
+    return 'Bearer ' + localStorage.getItem('token');
+  }
+
 }

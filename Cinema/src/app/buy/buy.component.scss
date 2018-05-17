@@ -1,4 +1,5 @@
 @import '~@angular/material/theming';
+@import "../variables";
 
 .content {
   //height: calc(100% - 80px);
@@ -14,34 +15,49 @@
   //border-top-color: mat-color(white);
   border-top-color: white;
 }
-.mat-step-header .mat-step-label, .mat-step-header .mat-step-optional{
+
+.mat-step-header .mat-step-label, .mat-step-header .mat-step-optional {
   color: white;
 }
-.film-container{
+
+.film-container {
   height: 100%;
   margin-top: 50px;
   border-right: 2px solid white;
 }
-.img-size{
+
+.img-size {
   width: 100px;
-  margin: 10px;
+  margin: 10px 10px 10px 0px;
 }
-.border-left{
+
+.border-left {
   border-left: 2px solid white;
 }
+
 .centerBlock {
-  margin-left:auto;
-  margin-right:auto;
-  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
-.align-center{
-  text-align:center
+
+.align-center {
+  text-align: center
 }
+
 .bold {
   font-weight: bold;
 }
-.info-film{
+
+.info-film {
   padding: 5px;
+  padding-top: 10px;
   min-height: 100%;
-  border-right: 1px solid white;
+  border-right: 1px solid $kino-grey;
+}
+
+@media(max-width: 767px) {
+  .info-film {
+    display: none;
+  }
 }
