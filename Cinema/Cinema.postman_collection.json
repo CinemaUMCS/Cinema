@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e2e36cad-269b-44d4-901a-993d061dc317",
+		"_postman_id": "1c24aee9-623e-4295-98ef-2119645c9e36",
 		"name": "Cinema",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -124,6 +124,52 @@
 							"path": [
 								"account",
 								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ValidateConfirmToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/account/validate_token/1002/joxuoyvq",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"validate_token",
+								"1002",
+								"joxuoyvq"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GenerateConfirmToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/account/validate_token/1002/joxuoyvq",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"validate_token",
+								"1002",
+								"joxuoyvq"
 							]
 						}
 					},
@@ -279,7 +325,10 @@
 								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjYzMjg2NjcsImV4cCI6MTUyNjQxNTA2N30.Gf7_zQlyYWyHsgIBeUl0hLgHdeiyrp7-irLe3i4bFYI"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/movie/1/Rate?rating=7",
 							"protocol": "http",
@@ -312,7 +361,10 @@
 								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjYzMjg2NjcsImV4cCI6MTUyNjQxNTA2N30.Gf7_zQlyYWyHsgIBeUl0hLgHdeiyrp7-irLe3i4bFYI"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://localhost:5000/movie/1/UpdateRate?rating=7",
 							"protocol": "http",
@@ -827,7 +879,6 @@
 								{
 									"key": "Author",
 									"value": "",
-									"description": "",
 									"type": "text"
 								}
 							]
