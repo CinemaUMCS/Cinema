@@ -1,0 +1,21 @@
+<div class="container" style="padding-top: 60px;height: 100%">
+  <div class="row" style="height: 100%">
+    <div class="col" style="height: 100%">
+      <div class="content-custom">
+        <div style="text-align: center">
+          <div *ngIf="waitingForServerFlag">
+            <h1>Trwa sprawdzanie, czekaj...</h1>
+          </div>
+          <div *ngIf="!waitingForServerFlag">
+            <h1 *ngIf="!errorFlag">Potwierdzenie przebiegło pomyślnie</h1>
+            <h2 *ngIf="errorFlag">Wystąpił błąd przepraszamy</h2>
+          </div>
+          <h6>Za chwile zostaniesz przekierowany</h6>
+          <mat-progress-spinner *ngIf="spinnerFlag" mode="indeterminate"
+                                style="margin-left: auto;margin-right: auto;margin-top: 25px"
+                                [diameter]="90"></mat-progress-spinner>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -100,6 +100,7 @@ import { MovieRatingsComponent } from './movie-ratings/movie-ratings.component';
 import { RatingDialogComponent } from './movie-ratings/rating-dialog/rating-dialog.component';
 import {RatingsService} from './shared/ratings.service';
 import {FilterRatingPipePipe} from './shared/pipes/filter-rating-pipe.pipe';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 
 
 @NgModule({
@@ -139,7 +140,8 @@ import {FilterRatingPipePipe} from './shared/pipes/filter-rating-pipe.pipe';
     FilterMoviesPipe,
     MovieRatingsComponent,
     RatingDialogComponent,
-    FilterRatingPipePipe
+    FilterRatingPipePipe,
+    ConfirmEmailComponent
   ],
   imports: [
     CommonModule,
