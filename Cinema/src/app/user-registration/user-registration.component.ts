@@ -80,7 +80,7 @@ export class UserRegistrationComponent implements OnInit {
             this.progressBarFlag = false;
             this.errorRegister();
             console.log(error2);
-            this.scroll('errorTest');
+
           });
       }, 1000
     );
@@ -104,6 +104,8 @@ export class UserRegistrationComponent implements OnInit {
 
   errorRegister() {
     this.errorRegistrationFlag = true;
+
+    this.scroll('errorTest');
   }
 
   isDashboardComponent() {

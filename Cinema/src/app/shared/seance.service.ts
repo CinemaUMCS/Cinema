@@ -21,7 +21,6 @@ export class SeanceService extends BaseHttpService {
   constructor(private http: Http) {
     super();
   }
-
   getALlMovies() {
     return this.http.get(super.setUrl('movie'));
   }

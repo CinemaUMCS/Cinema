@@ -1,0 +1,18 @@
+@import "../../variables";
+
+.empty-fill-star {
+  font-weight: 400;
+}
+
+.full-fill-star {
+  font-weight: bold;
+}
+
+.custom-star {
+  font-size: 20px;
+  color: $kino-gold;
+}
+.star-container{
+  text-align: center;
+  margin-bottom: 20px;
+}

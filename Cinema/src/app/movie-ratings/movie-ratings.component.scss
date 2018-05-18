@@ -9,46 +9,75 @@
     background-color: darken($kino-pink, 10%)
   }
 }
+
 .details {
   position: absolute;
   display: inline;
   padding-left: 2rem;
 }
+
 .title {
   position: relative;
   font-weight: bold;
 }
-.custom-star{
+
+.custom-star {
   color: $kino-gold;
 }
 
+.center-items-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.filter-dropdown {
+  font-size: 13px !important;
+  &:hover{
+    cursor:pointer;
+  }
+}
+.filter-btn{
+  font-size: 13px !important;
+  float: right;
+}
+
+//star-rating
 .rating > span:hover:before {
   content: "\2605";
   position: absolute;
+  cursor: pointer;
 }
+
 .rating {
-  color: #d39e00;
+  color: $kino-gold;
   unicode-bidi: bidi-override;
   direction: rtl;
+  cursor: pointer;
 }
+
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
+  cursor: pointer;
   content: "\2605";
   position: absolute;
 }
+
 .rating {
   font-size: 30px;
   unicode-bidi: bidi-override;
   direction: rtl;
 }
+
 .rating > span {
   display: inline-block;
   position: relative;
   width: 0.8em;
 }
+
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
   content: "\2605";
   position: absolute;
+  cursor: pointer;
 }

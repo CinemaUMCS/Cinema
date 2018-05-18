@@ -97,6 +97,9 @@ import {BlockAfterLoginService} from './shared/block-after-login.service';
 import { DescriptionDialogComponent } from './description-dialog/description-dialog.component';
 import { FilterMoviesPipe } from './shared/pipes/filter-movies.pipe';
 import { MovieRatingsComponent } from './movie-ratings/movie-ratings.component';
+import { RatingDialogComponent } from './movie-ratings/rating-dialog/rating-dialog.component';
+import {RatingsService} from './shared/ratings.service';
+import {FilterRatingPipePipe} from './shared/pipes/filter-rating-pipe.pipe';
 
 
 @NgModule({
@@ -135,6 +138,8 @@ import { MovieRatingsComponent } from './movie-ratings/movie-ratings.component';
     DescriptionDialogComponent,
     FilterMoviesPipe,
     MovieRatingsComponent,
+    RatingDialogComponent,
+    FilterRatingPipePipe
   ],
   imports: [
     CommonModule,
@@ -184,11 +189,11 @@ import { MovieRatingsComponent } from './movie-ratings/movie-ratings.component';
     MatTooltipModule,
   ],
   entryComponents: [
-    DialogComponent, RegulationsComponent,DescriptionDialogComponent
+    DialogComponent, RegulationsComponent,DescriptionDialogComponent,RatingDialogComponent
   ],
   providers: [AuthenticationService, AuthGuard, DatePipe, SeanceService, AuthGuardAdmin, ReservationService,
     BookingSeatsService, Step1GuardService, BuyResolverService, BuyProcessService, HeaderOpacityService, ActualComponentResolverService,
-    UserApiService, UserRegistrationService, BlockAfterLoginService],
+    UserApiService, UserRegistrationService, BlockAfterLoginService,RatingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
