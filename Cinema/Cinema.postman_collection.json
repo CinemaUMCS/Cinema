@@ -165,7 +165,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:5000/account/validate_token/1002/joxuoyvq",
+							"raw": "http://localhost:5000/account/generate_token/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -173,9 +173,8 @@
 							"port": "5000",
 							"path": [
 								"account",
-								"validate_token",
-								"1002",
-								"joxuoyvq"
+								"generate_token",
+								"1"
 							]
 						}
 					},
