@@ -1,5 +1,4 @@
 import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
-import {Subscription} from 'rxjs';
 import {Router, ActivatedRoute} from '@angular/router';
 
 import {Credentials} from '../credentials';
@@ -12,6 +11,7 @@ import {HeaderOpacityService} from '../shared/header-opacity.service';
 import {UserApiService} from '../shared/user-api.service';
 import {NgForm} from '@angular/forms';
 import {ServerResponseError} from '../../model/server-response-error';
+import {CodeStatus} from '../shared/utils/codeStatus';
 
 @Component({
   selector: 'app-user-login',
@@ -33,6 +33,8 @@ export class UserLoginComponent implements OnInit {
   errorText: string;
   username: string;
   password: string;
+
+  disableLogInBtn = false;
   private loggedUserResponse: LoggedUserModel;
 
   constructor(private userService: UserService, private router: Router,
@@ -55,6 +57,7 @@ export class UserLoginComponent implements OnInit {
 
   onLogin() {
     this.progressBarFlag = true;
+    this.disableLogInBtn = true;
     setTimeout(() => {
       this.setCredentialisModelFromForm();
       this.authService.login(this.myCredent).subscribe(
@@ -63,11 +66,13 @@ export class UserLoginComponent implements OnInit {
           localStorage.setItem('token', this.loggedUserResponse.token);
           this.authService.userLogIn();
           this.progressBarFlag = false;
+          this.disableLogInBtn = false;
           this.router.navigate(['/']);
         },
         (error) => {
           console.log(error.json());
           this.progressBarFlag = false;
+          this.disableLogInBtn = false;
           this.onErrorLogin(error.json());
         }
       );
@@ -76,10 +81,12 @@ export class UserLoginComponent implements OnInit {
   }
 
   onErrorLogin(errorModel: ServerResponseError) {
-    if (errorModel.errorCode === 'InvalidCredentials') {
+    if (errorModel.errorCode === CodeStatus.invalidCredentials) {
       this.errorText = 'Niepoprawny login lub hasło';
-    } else {
+    } else if (errorModel.errorCode === CodeStatus.notActivated) {
       this.errorText = 'Adres email nie został potwierdzony';
+    } else {
+      this.errorText = 'Błąd z serwerem';
     }
     this.errorFlag = true;
   }

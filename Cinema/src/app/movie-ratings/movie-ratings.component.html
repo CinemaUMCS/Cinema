@@ -5,7 +5,23 @@
       <div class="row">
         <div class="col">
           <h4>OCENY</h4>
-          <p>Juz teraz możesz wystawic ocenę filmu który widzialeś</p></div>
+          <p>Czy podobał Ci się film na którym byles? Zostaw ocenę!</p></div>
+      </div>
+      <div class="row" style="">
+        <div class="col">
+          <div class="dropdown">
+            <button mat-button class="dropdown-toggle filter-btn" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{dropdownTitle}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button class="dropdown-item filter-dropdown" (click)="changeFilterFlag(null)">WSZYSTKIE</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item filter-dropdown" (click)="changeFilterFlag(true)">OCENIONE</button>
+              <button class="dropdown-item filter-dropdown" (click)="changeFilterFlag(false)">BRAK OCENY</button>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="row" style="border-bottom: 1px solid white">
         <div class="col-8">
@@ -15,39 +31,56 @@
           Ocena
         </div>
       </div>
-      <div class="row" style="margin-top: 15px">
+      <div class="row" style="margin-top: 25px;"
+           *ngFor="let movie of ratingMovieModel|filterRatingPipe:isRatingFilterPipeFlag">
+        <!--*ngFor="let movie of ratingMovieModel|filterRatingPipe:'null'">-->
+
         <div class="col-8">
-          <img class="img-thumbnail img-size" style="width: 100px;"
+          <img class="img-thumbnail img-size" style="width: 80px;"
                src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
                alt="star wars">
           <div class="details">
-            <h6 class="title">Gwiezdne Wojny: Przebudzenie mocy</h6>
+            <h6 class="title">{{movie.movie.title}}</h6>
             <div style="font-size: 15px">
               <p>
-                Thriler<br/>
-                <i class="far fa-clock"></i>&nbsp;130min<br/><span>
-                ograniczenia: 16+
+                {{movie.movie.category}}<br/>
+                <i class="far fa-clock"></i>&nbsp;{{movie.movie.duration}}min<br/><span>
+                ograniczenia: {{movie.movie.MinimalAge}}+
                 <!--<span *ngIf="movie.MinimalAge==null">brak</span>-->
                 <!--<span *ngIf="movie.MinimalAge!=null">{{movie.MinimalAge}}</span>-->
             </span><br/>
-                <i class="fas fa-star custom-star"></i>&nbsp;4.5/5
+                <i class="fas fa-star custom-star"></i>&nbsp;{{movie.movie.averageRating}}/5
               </p>
 
             </div>
           </div>
-
         </div>
-        <div class="col-4">
+        <div class="col-4 center-items-container">
           <!--<i id="1" class="fas fa-star custom-star" (mouseover)="test()" ngStyle="starHover[0]?'star-hover':''"></i>-->
           <!--<i id="2" class="fas fa-star custom-star"></i>-->
           <!--<i id="3" class="fas fa-star custom-star"></i>-->
-          <div class="rating">
-            <span (click)="getRating(5)">☆</span>
-            <span (click)="getRating(4)">☆</span>
-            <span (click)="getRating(3)">☆</span>
-            <span (click)="getRating(2)">☆</span>
-            <span (click)="getRating(1)">☆</span>
+          <div style="text-align: center">
+            <div *ngIf="movie.rating==null">
+              <div class="rating">
+                <span (click)="getRating(5,movie.movie)">☆</span>
+                <span (click)="getRating(4,movie.movie)">☆</span>
+                <span (click)="getRating(3,movie.movie)">☆</span>
+                <span (click)="getRating(2,movie.movie)">☆</span>
+                <span (click)="getRating(1,movie.movie)">☆</span>
+              </div>
+              <span style="font-size: 12px;color:#5a6268">Kliknij aby ocenić</span>
+            </div>
+            <div *ngIf="movie.rating!=null" style="text-align: center">
+              Twoja ocena: {{movie.rating}}/5<br/>
+              <span style="font-size: 12px;color:#5a6268; cursor: pointer"
+                    (click)="changeMovieMark(movie.id)">zmień</span>
+            </div>
           </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="ratingMovieModel.length<1">
+        <div class="col" style="text-align: center;marign-top:30px">
+          <h3>Brak obejrzanych filmów</h3>
         </div>
       </div>
     </div>

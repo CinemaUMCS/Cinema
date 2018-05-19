@@ -13,4 +13,8 @@ export class UserRegistrationService extends BaseHttpService {
   onRegister(createUser: CreateUserModel) {
     return this.http.post(this.setUrl('account/register'), createUser);
   }
+
+  confirmEmail(id: string, token: string) {
+    return this.http.post(this.setUrl('account/validate_token/') + id + '/' + token,null);
+  }
 }

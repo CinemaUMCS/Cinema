@@ -36,10 +36,12 @@ import {BuyResolverService} from './buy/buy-resolver.service';
 import {ActualComponentResolverService} from './shared/actual-component-resolver.service';
 import {BlockAfterLoginService} from './shared/block-after-login.service';
 import {MovieRatingsComponent} from './movie-ratings/movie-ratings.component';
+import {ConfirmEmailComponent} from './confirm-email/confirm-email.component';
 
 const routes: Routes = [
   {
     path: '', component: ClientComponent, children: [
+      {path:'account/validate_token/:id/:token', component: ConfirmEmailComponent},
       {path: '', component: DashboardComponent},
       {path: 'nowplaying', component: NowPlayingComponent},
       {path: 'pricelist', component: PriceComponent},

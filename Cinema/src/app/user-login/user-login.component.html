@@ -32,10 +32,10 @@
           <span class="help-block mat-error" *ngIf="!password.valid && password.touched">Pole nie może byc puste</span>
         </div>
         <div class="login-btn-wrapper">
-          <button type="submit" class="btn login-btn">Zaloguj</button>
+          <button type="submit" class="btn login-btn" [disabled]="disableLogInBtn">Zaloguj</button>
         </div>
-        <div class="message-info">Nie masz konta?<span class="color-login"
-                                                       routerLink="/register"> Zarejestruj się!</span>
+        <div #logIn class="message-info">Nie masz konta?<span class="color-login"
+                                                                       routerLink="/register"> Zarejestruj się!</span>
         </div>
       </form>
     </div>
