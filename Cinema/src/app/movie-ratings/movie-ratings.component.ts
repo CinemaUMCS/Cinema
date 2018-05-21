@@ -6,6 +6,7 @@ import {RatingDialogComponent} from './rating-dialog/rating-dialog.component';
 import {RatingsService} from '../shared/ratings.service';
 import {MovieModel} from '../../model/movie.model';
 import {RatingMovieModel} from '../../model/rating-movie.model';
+import {RatingsResponseModel} from '../../model/ratingsResponse.model';
 
 @Component({
   selector: 'app-movie-ratings',
@@ -124,6 +125,7 @@ export class MovieRatingsComponent implements OnInit {
     }
   ];
 
+  ratingModel: RatingsResponseModel[];
 
   ngOnInit() {
     this.isDashboardComponent();
@@ -189,7 +191,10 @@ export class MovieRatingsComponent implements OnInit {
     } else {
       this.dropdownTitle = 'BRAK OCENY';
     }
+  }
 
+  getRatingModel() {
+    
   }
 
 }

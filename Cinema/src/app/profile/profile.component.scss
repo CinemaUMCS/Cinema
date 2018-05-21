@@ -18,15 +18,25 @@
 }
 
 .btn-save {
-  background-color: #1e7e34;
+  color:white;
+  background-color: $kino-green;
   &:disabled {
+    color: $kino-sand;
     background-color: white;
   }
 }
 
 .succes-edit {
+  padding: 10px;
   text-align: center;
-  background-color: #1e7e34;
+  background-color: $kino-green;
+  color: white;
+}
+
+.error-edit {
+  padding: 10px;
+  text-align: center;
+  background-color: $kino-error;
   color: white;
 }
 

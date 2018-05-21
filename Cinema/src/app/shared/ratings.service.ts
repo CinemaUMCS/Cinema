@@ -23,4 +23,9 @@ export class RatingsService extends BaseHttpService {
     return this.http.post(super.setUrl('rating') + movieId, body, {headers: header});
   }
 
+  getAllViewedMovies() {
+    const header = new Headers({'authorization': this.authenticationService.getToken()});
+    return this.http.get(super.setUrl('rating/WatchedMoviesWithRatings'), {headers: header});
+  }
+
 }

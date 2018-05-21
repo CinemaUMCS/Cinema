@@ -39,23 +39,6 @@ export class UserRegistrationComponent implements OnInit {
     this.isDashboardComponent();
   }
 
-  // registerUser({value, valid}: { value: User, valid: boolean }) {
-  //   this.submitted = true;
-  //   this.isRequesting = true;
-  //   this.errors = '';
-  //   if (valid) {
-  //     this.userService.register(value.email, value.password, value.firstName, value.lastName)
-  //       .finally(() => this.isRequesting = false)
-  //       .subscribe(
-  //         result => {
-  //           if (result) {
-  //             this.router.navigate(['/login'], {queryParams: {brandNew: true, email: value.email}});
-  //           }
-  //         },
-  //         errors => this.errors = errors);
-  //   }
-  // }
-
   onSubmit() {
     this.setCreateUserValue();
     this.progressBarFlag = true;

@@ -8,6 +8,8 @@ import {UserApiService} from '../shared/user-api.service';
 import {UserModel} from '../../model/user.model';
 import {NgForm} from '@angular/forms';
 import {ChangePasswordModel} from '../../model/changePassword.model';
+import {ServerResponseError} from '../../model/server-response-error';
+import {CodeStatus} from '../shared/utils/codeStatus';
 
 @Component({
   selector: 'app-profile',
@@ -21,6 +23,8 @@ export class ProfileComponent implements OnInit {
   editFlag = false;
   isInputChange = true;
   succesEditFlag = false;
+  emailExistFlag = false;
+  errorFlag = false;
 
   changePasswordSuccesFlag = false;
   incorrectPasswordFlag = false;
@@ -84,9 +88,30 @@ export class ProfileComponent implements OnInit {
     this.baseUser.firstName = this.singupForm.value.firstName;
     this.baseUser.lastName = this.singupForm.value.lastName;
     this.baseUser.email = this.singupForm.value.email;
-
     this.actualUser = this.baseUser;
     console.log(this.actualUser);
+
+    this.userApiService.updateUser(this.baseUser).subscribe(
+      value => {
+        console.log('succes');
+        this.succesEditFlag = true;
+        this.errorFlag = false;
+        this.emailExistFlag = false;
+
+      },
+      error2 => {
+        console.log(error2);
+        this.succesEditFlag = false;
+        this.errorResponse(error2.json());
+      });
+  }
+
+  errorResponse(errorModel: ServerResponseError) {
+    if (errorModel.message === CodeStatus.occupiedEmail) {
+      this.emailExistFlag = true;
+    } else {
+      this.errorFlag = true;
+    }
   }
 
   onReset() {
