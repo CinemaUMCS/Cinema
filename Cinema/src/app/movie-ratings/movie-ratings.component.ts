@@ -16,48 +16,7 @@ import {RatingsResponseModel} from '../../model/ratingsResponse.model';
 export class MovieRatingsComponent implements OnInit {
   constructor(private headerOpacityService: HeaderOpacityService, public dialog: MatDialog, private ratingService: RatingsService) {
   }
-
-  //
-  // filmList: MovieModel[] = [
-  //   {
-  //     id: 1,
-  //     title: 'Gwiezdne WOjny',
-  //     description: 'test',
-  //     category: 'Action',
-  //     productionDate: new Date(),
-  //     trailerPath: 'testet',
-  //     posterPath: 'fafds',
-  //     duration: '123',
-  //     MinimalAge: 13,
-  //     averageRating: 12
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Avengers',
-  //     description: 'test',
-  //     category: 'Action',
-  //     productionDate: new Date(),
-  //     trailerPath: 'testet',
-  //     posterPath: 'fafds',
-  //     duration: '123',
-  //     MinimalAge: 13,
-  //     averageRating: 12
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'M jak milosc',
-  //     description: 'test',
-  //     category: 'Action',
-  //     productionDate: new Date(),
-  //     trailerPath: 'testet',
-  //     posterPath: 'fafds',
-  //     duration: '123',
-  //     MinimalAge: 13,
-  //     averageRating: 12
-  //   },
-  // ];
-
-  // null - pokazuje wszystkie, true - ocenione, false - nieocenione
+  
   isRatingFilterPipeFlag = null;
   dropdownTitle = 'WSZYSTKIE';
   ratingMovieModel: RatingMovieModel[] = [
@@ -194,7 +153,7 @@ export class MovieRatingsComponent implements OnInit {
   }
 
   getRatingModel() {
-    
+
   }
 
 }
