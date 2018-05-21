@@ -37,11 +37,13 @@ import {ActualComponentResolverService} from './shared/actual-component-resolver
 import {BlockAfterLoginService} from './shared/block-after-login.service';
 import {MovieRatingsComponent} from './movie-ratings/movie-ratings.component';
 import {ConfirmEmailComponent} from './confirm-email/confirm-email.component';
+import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
     path: '', component: ClientComponent, children: [
       {path:'account/validate_token/:id/:token', component: ConfirmEmailComponent},
+      {path:'forgot-password', component: ForgotPasswordComponent},
       {path: '', component: DashboardComponent},
       {path: 'nowplaying', component: NowPlayingComponent},
       {path: 'pricelist', component: PriceComponent},

@@ -124,8 +124,10 @@ export class BuyStep3Component implements OnInit {
       this.openDialog('Prosze wybrac jeszcze ' + this.choosenSeatsCount + ' miejsce(a)');
       return;
     }
+    this.booking_service.resetBookingSeats();
     this.getUserBookingSeatsList();
     this.booking_service.setBookingSeats(this.listOfBookingSeats);
+    this.booking_service.setCurrentyMyBookingModel(this.booking_service.myBookingModel);
     this.buyProcessService.setStep1Flag(true);
     this.goForward();
     // this.router.navigate(['buy', this.seanceId, 'step2']);
@@ -146,6 +148,12 @@ export class BuyStep3Component implements OnInit {
   }
 
   goForward() {
+    close();
     this.parent.goForward();
+  }
+
+  goBack() {
+    close();
+    this.router.navigate(['buy', this.seanceId, 'step0']);
   }
 }

@@ -17,4 +17,5 @@ export class UserRegistrationService extends BaseHttpService {
   confirmEmail(id: string, token: string) {
     return this.http.post(this.setUrl('account/validate_token/') + id + '/' + token,null);
   }
+
 }

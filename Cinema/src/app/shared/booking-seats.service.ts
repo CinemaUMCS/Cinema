@@ -13,7 +13,10 @@ export class BookingSeatsService {
   seanceRoomData = new Subject<SeanceRoomDataModel>();
   currentSeance = this.seanceRoomData.asObservable();
   choosenSeats: number;
+
   myBookingModel: MyBookingModel;
+  myBookingModelObs = new Subject<MyBookingModel>();
+  currrentMyBookingModel = this.myBookingModelObs.asObservable();
 
   constructor(private seanceService: SeanceService) {
     this.myBookingModel = {
@@ -22,6 +25,14 @@ export class BookingSeatsService {
       numberOfConcessionaryTickets: 0,
       numberOfNormalTickets: 0
     };
+  }
+
+  resetBookingSeats() {
+    this.myBookingModel.seatsToReserve = [];
+  }
+
+  setCurrentyMyBookingModel(myBookingModel: MyBookingModel) {
+    this.myBookingModelObs.next(myBookingModel);
   }
 
 
