@@ -89,6 +89,8 @@ namespace Cinema.Services.Interfaces
     public async Task<int> GetRating(int userId, int movieId)
     {
       var rating= await _dbContext.Ratings.SingleOrDefaultAsync(x => x.UserId == userId && x.MovieId == movieId);
+      if(rating==null)
+        return 0;
       return rating.Mark;
     }
   }
