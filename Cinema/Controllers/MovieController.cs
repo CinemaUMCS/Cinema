@@ -17,9 +17,9 @@ namespace Cinema.Controllers
   public class MovieController : BaseController
   {
     private readonly IMovieService _movieService;
-    private readonly IRateService _rateService;
+    private readonly IRatingService _rateService;
 
-    public MovieController(IMovieService movieService, IRateService rateService)
+    public MovieController(IMovieService movieService, IRatingService rateService)
     {
       _movieService = movieService;
       this._rateService = rateService;
@@ -52,7 +52,6 @@ namespace Cinema.Controllers
       var movies = await _movieService.GetMoviesPlayingAtDate(date);
       return Json(movies);
     }
-
 
     [HttpPost]
     [Authorize(Roles = "admin, employee")]

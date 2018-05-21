@@ -10,6 +10,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.Extensions.Caching.Memory;
+using System.Security.Cryptography;
 
 namespace Cinema.Services
 {
@@ -80,8 +81,10 @@ namespace Cinema.Services
       var expiresTime = DateTime.UtcNow.AddHours(1);
       _memoryCache.Set($"confirm-{userId}", confirmToken, expiresTime);
 
+      var activateLink=$"http://localhost:4200/account/validate_token/{userId}/{confirmToken}";
       await _emailSender.SendEmailAsync(user.Email, "Link potwierdzający [CinemaUMCS]",
-          $"Twój kod potwierdzający to: \"{confirmToken}\".\nKod jest wazny do {expiresTime.ToLocalTime():g}");
+          $"Aby aktywować konto, kliknij na link: \"{activateLink}\"." +
+          $"\nLink jest wazny do {expiresTime.ToLocalTime():g}");
     }
     public async Task ValidateConfirmTokenAsync(int userId, string token)
     {
@@ -97,20 +100,47 @@ namespace Cinema.Services
       await _dbContext.SaveChangesAsync();
       _memoryCache.Remove($"confirm-{userId}");
     }
-
-    private string RandomString(uint length)
-    {
-      const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-      var random = new Random();
-      return new string(Enumerable.Repeat(chars, (int)length)
-          .Select(s => s[random.Next(s.Length)]).ToArray());
-    }
-
-
     public async Task<UserDto> GetByIdAsync(int id)
     {
       var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
       return _mapper.Map<User, UserDto>(user);
     }
+    public async Task<UserDto> GetByEmailAsync(string email)
+    {
+      var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
+      return _mapper.Map<User, UserDto>(user);
+    }
+
+    public async Task ResetPasswordAsync(string userEmail)
+    {
+      var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email==userEmail);
+      if(user==null)
+        throw new CinemaException(ErrorCodes.InvalidUser);
+      string newPassword=RandomString(7);
+      user.SetPassword(newPassword);
+      _dbContext.Users.Update(user);
+      await _dbContext.SaveChangesAsync();
+
+      _emailSender.SendEmailAsync(user.Email, "Nowe hasło [CinemaUMCS]",
+          $"Twoje nowe hasło to: \"{newPassword}\".");
+
+    }
+    private string RandomString(uint length)
+    {
+      const string chars = "ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      const string numbers="0123456789";
+      const string upper="ABCDEFGHIJKLMNOPRSTUVWXYZ";
+      var random = new Random();
+      string randomLowers= new string(Enumerable.Repeat(chars, (int)length-2)
+          .Select(s => s[random.Next(s.Length)]).ToArray());
+      string randomUppers= new string(Enumerable.Repeat(upper, 1)
+          .Select(s => s[random.Next(s.Length)]).ToArray());
+      string randomNumber = new string(Enumerable.Repeat(numbers, 1)
+          .Select(s => s[random.Next(s.Length)]).ToArray());
+      return $"{randomLowers}{randomUppers}{randomNumber}";
+
+    }
+
+
   }
 }

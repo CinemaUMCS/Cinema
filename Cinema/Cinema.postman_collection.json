@@ -179,6 +179,76 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "ResetPassword",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/account/reset_password?userEmail=mkornix@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"reset_password"
+							],
+							"query": [
+								{
+									"key": "userEmail",
+									"value": "mkornix@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/account/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByEmail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/account/email/mkornix@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"account",
+								"email",
+								"mkornix@gmail.com"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -315,6 +385,33 @@
 							"path": [
 								"movie",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMoviesWatchedByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/movie/getMoviesWatchedByUser?userId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"getMoviesWatchedByUser"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -845,7 +942,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjY1ODM3MDUsImV4cCI6MTUyNjY3MDEwNX0.UZrdQJAIh19yqPC7_BTWT0VBBzwEYKdrJbUOjyobEMA"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjY5MjY5MjgsImV4cCI6MTUyNzAxMzMyOH0.8dtBxqxBousfGHNm1hC1o17oTyp62RYFnsrwuxLvyhE"
 							}
 						],
 						"body": {
@@ -853,7 +950,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:5000/rating/2?rating=2",
+							"raw": "http://localhost:5000/rating/2?rating=4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -866,7 +963,7 @@
 							"query": [
 								{
 									"key": "rating",
-									"value": "2"
+									"value": "4"
 								}
 							]
 						}
@@ -929,6 +1026,62 @@
 							"path": [
 								"rating",
 								"UnratedMovies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetWatchedMoviesWithRatings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjY5MzEyOTIsImV4cCI6MTUyNzAxNzY5Mn0.Om40F1rywJ-EHGfG-jFznN-ZWnpPin3OEoYB__7_oug"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/rating/WatchedMoviesWithRatings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"rating",
+								"WatchedMoviesWithRatings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/rating?movieId=1&userId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"rating"
+							],
+							"query": [
+								{
+									"key": "movieId",
+									"value": "1"
+								},
+								{
+									"key": "userId",
+									"value": "1"
+								}
 							]
 						}
 					},

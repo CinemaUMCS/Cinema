@@ -55,6 +55,19 @@ namespace Cinema.Controllers
       var user = await _userService.GetByIdAsync(id);
       return Json(user);
     }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+      var user = await _userService.GetByIdAsync(id);
+      return Json(user);
+    }
+    [HttpGet("email/{email}")]
+    public async Task<IActionResult> GetByEmail(string email)
+    {
+      var user = await _userService.GetByEmailAsync(email);
+      return Json(user);
+    }
+
 
     [HttpPost("generate_token/{id}")]
     public async Task<IActionResult> GenerateToken(int id)
@@ -67,6 +80,13 @@ namespace Cinema.Controllers
     {
       await _userService.ValidateConfirmTokenAsync(id, token);
       return Ok();
+    }
+    [HttpPut("reset_password")]
+    public async Task<IActionResult> ResetPassword(string userEmail)
+    {
+      await _userService.ResetPasswordAsync(userEmail);
+      return Ok();
+
     }
   }
 }

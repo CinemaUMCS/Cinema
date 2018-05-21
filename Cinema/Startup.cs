@@ -51,7 +51,7 @@ namespace Cinema
       services.AddScoped<IMovieService, MovieService>();
       services.AddScoped<IRoomService, RoomService>();
       services.AddScoped<IEmailSender, EmailSender>();
-      services.AddScoped<IRateService,RateService>();
+      services.AddScoped<IRatingService,RatingService>();
 
       services.AddScoped<IEncrypter, EncrypterService>();
       services.AddScoped<ITokenProvider, TokenProvider>();

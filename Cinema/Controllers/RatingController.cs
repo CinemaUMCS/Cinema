@@ -16,9 +16,9 @@ namespace Cinema.Controllers
 {
   public class RatingController : BaseController
   {
-    private readonly IRateService _rateService;
+    private readonly IRatingService _rateService;
 
-    public RatingController(IRateService rateService)
+    public RatingController(IRatingService rateService)
     {
       this._rateService = rateService;
     }
@@ -38,10 +38,24 @@ namespace Cinema.Controllers
     }
     [HttpGet("UnratedMovies")]
     [Authorize]
-    public async Task<IActionResult> GetUnrated(int movieId)
+    public async Task<IActionResult> GetUnrated()
     {
       var movies = await _rateService.GetUnratedMovies(GetCurrentUserId());
       return Ok(movies);
+    }
+    [HttpGet("WatchedMoviesWithRatings")]
+    [Authorize]
+    public async Task<IActionResult> GetWatchedMoviesWithRatings()
+    {
+      var watchedMovies=await _rateService.GetWatchedMoviesWithRatings(GetCurrentUserId());
+      return Ok(watchedMovies);
+    }
+    [HttpGet()]
+    public async Task<IActionResult> GetRate(int userId,int movieId)
+    {
+      var rate= await _rateService.GetRating(userId, movieId);
+      return Ok(rate);
+      
     }
   }
 }
