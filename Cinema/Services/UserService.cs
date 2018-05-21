@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.Extensions.Caching.Memory;
 using System.Security.Cryptography;
+using Cinema.Request;
 
 namespace Cinema.Services
 {
@@ -141,6 +142,21 @@ namespace Cinema.Services
 
     }
 
-
+    public async Task UpdateUser(int userId,UpdateUser updateUser)
+    {
+      var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id==userId);
+      if (user == null)
+        throw new CinemaException(ErrorCodes.InvalidUser);
+      if(updateUser.Email!=null)
+        user.SetEmail(updateUser.Email);
+      if (updateUser.FirstName != null)
+        user.SetFirstName(updateUser.FirstName);
+      if (updateUser.LastName != null)
+        user.SetLastName(updateUser.LastName);
+      if (updateUser.PhoneNumber != null)
+        user.SetPhoneNumber(updateUser.PhoneNumber);
+      _dbContext.Users.Update(user);
+      await _dbContext.SaveChangesAsync();
+    }
   }
 }

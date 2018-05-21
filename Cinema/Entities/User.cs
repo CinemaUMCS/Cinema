@@ -29,27 +29,34 @@ namespace Cinema.Entities
     public User(string email, string firstName, string lastName, string password, string role)
     {
       SetEmail(email);
-      FirstName = firstName;
-      LastName = lastName;
+      SetFirstName(firstName);
+      SetLastName(lastName);
       SetPassword(password);
       SetRole(role);
       _reservations = new HashSet<Reservation>();
       _ratings = new HashSet<Rating>();
     }
 
-    private void SetPhoneNumber(string phoneNumber)
+    public void SetPhoneNumber(string phoneNumber)
     {
       if(!phoneNumber.All(char.IsDigit) || phoneNumber.Length!=9)
         throw new Exception("Invalid phone number");
       PhoneNumber=phoneNumber;
     }
-
-    private void SetEmail(string email)
+    public void SetEmail(string email)
     {
       bool isEmailValid = new EmailAddressAttribute().IsValid(email);
       if (!isEmailValid)
         throw new CinemaException(ErrorCodes.InvalidEmail);
       Email = email;
+    }
+    public void SetFirstName(string firstName)
+    {
+      FirstName=firstName;
+    }
+    public void SetLastName(string lastName)
+    {
+      LastName=lastName;
     }
     public void SetPassword(string password)
     {

@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Cinema.DTO;
 using Cinema.Entities;
+using Cinema.Request;
 
 namespace Cinema.Services
 {
@@ -14,5 +15,6 @@ namespace Cinema.Services
     Task SendConfirmTokenAsync(int userId);
     Task ValidateConfirmTokenAsync(int userId, string token);
     Task ResetPasswordAsync(string userEmail);
+    Task UpdateUser(int userId, UpdateUser updateUser);
   }
 }

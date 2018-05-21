@@ -86,7 +86,14 @@ namespace Cinema.Controllers
     {
       await _userService.ResetPasswordAsync(userEmail);
       return Ok();
-
     }
+    [HttpPut]
+    [Authorize]
+    public async Task<IActionResult> Update([FromBody] UpdateUser updateUser)
+    {
+      await _userService.UpdateUser(GetCurrentUserId(),updateUser);
+      return Ok();
+    }
+
   }
 }
