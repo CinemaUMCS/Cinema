@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {HeaderOpacityService} from '../shared/header-opacity.service';
+import {UserApiService} from '../shared/user-api.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -8,11 +9,12 @@ import {HeaderOpacityService} from '../shared/header-opacity.service';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
-  @ViewChild('f') registerForm: NgForm;
+  @ViewChild('f') resetPasswordForm: NgForm;
 
   succesFlag = false;
+  errorFlag = false;
 
-  constructor(private headerOpacityService: HeaderOpacityService) {
+  constructor(private headerOpacityService: HeaderOpacityService, private userApiService: UserApiService) {
   }
 
   ngOnInit() {
@@ -20,8 +22,20 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   onSubmit() {
-
+    console.log(this.resetPasswordForm.value.email);
+    this.userApiService.forgotPassword(this.resetPasswordForm.value.email).subscribe(
+      value => {
+        this.succesFlag = true;
+        this.errorFlag = false;
+        this.resetPasswordForm.onReset();
+      },
+      error2 => {
+        this.succesFlag = false;
+        this.errorFlag = true;
+        console.log(error2);
+      });
   }
+
   isDashboardComponent() {
     this.headerOpacityService.isDashboardComponentLoad(false);
   }
