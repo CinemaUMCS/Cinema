@@ -3,6 +3,7 @@ import {BaseHttpService} from './base-http.service';
 import {Headers, Http} from '@angular/http';
 import {AuthenticationService} from './authentication.service';
 import {ChangePasswordModel} from '../../model/changePassword.model';
+import {HttpParams} from '@angular/common/http';
 
 @Injectable()
 export class UserApiService extends BaseHttpService {
@@ -20,8 +21,11 @@ export class UserApiService extends BaseHttpService {
     const header = new Headers({'Authorization': this.authenticationService.getToken()});
     return this.http.put(this.setUrl('account/changePassword'), changePasswordModel, {headers: header});
   }
-  forgotPassword(email: string){
 
+  forgotPassword(email: string) {
+    let body = new HttpParams();
+    body = body.set('userEmail', email);
+    return this.http.put(this.setUrl('account/reset_password?userEmail=')+email,null);
   }
 
 }
