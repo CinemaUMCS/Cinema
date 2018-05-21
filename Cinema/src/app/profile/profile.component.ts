@@ -7,6 +7,7 @@ import {HeaderOpacityService} from '../shared/header-opacity.service';
 import {UserApiService} from '../shared/user-api.service';
 import {UserModel} from '../../model/user.model';
 import {NgForm} from '@angular/forms';
+import {ChangePasswordModel} from '../../model/changePassword.model';
 
 @Component({
   selector: 'app-profile',
@@ -16,9 +17,13 @@ import {NgForm} from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
   @ViewChild('f') singupForm: NgForm;
+  @ViewChild('changePassword') changePasswordForm: NgForm;
   editFlag = false;
   isInputChange = true;
   succesEditFlag = false;
+
+  changePasswordSuccesFlag = false;
+  incorrectPasswordFlag = false;
 
   actualUser: UserModel = {
     email: 'test@gmail.com',
@@ -34,19 +39,24 @@ export class ProfileComponent implements OnInit {
     role: 'user',
     id: 1
   };
+  changePasswordModel: ChangePasswordModel = {
+    newPassword: null,
+    oldPassword: null,
+  };
 
   constructor(private headerOpacityService: HeaderOpacityService, private userApiService: UserApiService) {
   }
 
   ngOnInit() {
     this.isDashboardComponent();
-    // this.getActualUser();
+    this.getActualUser();
   }
 
   getActualUser() {
     this.userApiService.getActualUser().subscribe(
       value => {
         this.actualUser = value.json();
+        this.baseUser = value.json();
       },
       error2 => {
         console.log(error2);
@@ -83,6 +93,31 @@ export class ProfileComponent implements OnInit {
     this.actualUser.email = this.baseUser.email;
     this.actualUser.firstName = this.baseUser.firstName;
     this.actualUser.lastName = this.baseUser.lastName;
+  }
+
+  changePasswordSubmit() {
+    this.changePasswordModel.newPassword = this.changePasswordForm.value.newPassword;
+    this.changePasswordModel.oldPassword = this.changePasswordForm.value.password;
+    // console.log('form',this.changePasswordForm);
+    // console.log(this.changePasswordModel);
+    this.onChangePasswordRequest(this.changePasswordModel);
+  }
+
+  onChangePasswordRequest(changePassword: ChangePasswordModel) {
+    this.userApiService.changePassword(changePassword).subscribe(
+      value => {
+        this.changePasswordSuccesFlag = true;
+        console.log('zmiana');
+        this.incorrectPasswordFlag = false;
+        this.changePasswordForm.onReset();
+      },
+      error2 => {
+        console.log(error2);
+        this.incorrectPasswordFlag = true;
+      });
+    {
+
+    }
   }
 
 }

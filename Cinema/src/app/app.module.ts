@@ -101,6 +101,7 @@ import { RatingDialogComponent } from './movie-ratings/rating-dialog/rating-dial
 import {RatingsService} from './shared/ratings.service';
 import {FilterRatingPipePipe} from './shared/pipes/filter-rating-pipe.pipe';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -141,7 +142,8 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
     MovieRatingsComponent,
     RatingDialogComponent,
     FilterRatingPipePipe,
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     CommonModule,

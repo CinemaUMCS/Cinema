@@ -33,3 +33,16 @@
 input.ng-invalid.ng-touched {
   border: 2px solid #f44336;
 }
+
+.help-block {
+  font-size: 12px;
+}
+
+.positive-info {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  background-color: $kino-green;
+  color: white;
+}
+

@@ -43,7 +43,7 @@
         </ol>
       </div>
       <div class="centerBlock centerItem">
-        <button mat-button class="back-btn" style="float: left" >WSTECZ</button>
+        <button mat-button class="back-btn" style="float: left" (click)="goBack()">WSTECZ</button>
         <button type="button" class="btn next-step-btn" (click)="nextStepBtn()" style="float:right">DALEJ</button>
         <!--<button  mat-button (click)="nextStepBtn()">Dalej</button>-->
       </div>
@@ -52,7 +52,5 @@
       <mat-spinner class="spinner"></mat-spinner>
     </div>
 
-    <!--<button type="button" class="btn buy-button next-button" routerLink="/buy/1/step2" (click)="nextStepBtn()"> Dalej-->
-    <!--</button>-->
   </div>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {BookingSeatsService} from '../shared/booking-seats.service';
 import {SeatModel} from '../../model/seat.model';
 import {MyBookingModel} from '../../model/myBooking.model';
@@ -8,6 +8,7 @@ import {MovieModel} from '../../model/movie.model';
 import {SeanceRoomDataModel} from '../../model/seanceRoomData.model';
 import {ReservationService} from '../shared/reservation.service';
 import {BuyComponent} from '../buy/buy.component';
+import {MatButton} from '@angular/material';
 
 @Component({
   selector: 'app-buy-step1',
@@ -15,6 +16,7 @@ import {BuyComponent} from '../buy/buy.component';
   styleUrls: ['./buy-step1.component.scss']
 })
 export class BuyStep1Component implements OnInit {
+  @ViewChild('btn_id') btnId: MatButton;
 
   myBookingModel: MyBookingModel;
   actualSeance: SeanceModel;
@@ -28,17 +30,15 @@ export class BuyStep1Component implements OnInit {
   ngOnInit() {
     this.getAllNessesaryModels();
     this.setTotalTicketSum();
-
   }
 
   getAllNessesaryModels() {
+    this.bookingSeatService.currrentMyBookingModel.subscribe(value => {
+      console.log(this.myBookingModel = value);
+    });
     this.myBookingModel = this.bookingSeatService.myBookingModel;
     this.actualSeance = this.seanceService.actualSeance;
-    // this.seanceService.movieMessage.subscribe(value => {
-    //   this.actualMovie = value;
-    // });
     this.actualMovie = this.seanceService.actualMovie;
-    // console.log('actual movie', this.actualMovie);
   }
 
   setTotalTicketSum() {
@@ -59,6 +59,12 @@ export class BuyStep1Component implements OnInit {
         console.log(error2);
       }
     );
+  }
+
+  onClickPrevBtn() {
+    close();
+    this.bookingSeatService.resetBookingSeats();
+    this.parent.goBack();
   }
 
 }

@@ -51,9 +51,69 @@
     <div class="col-4">
     </div>
   </div>
-  <div class="row" style="padding-top: 20px">
+  <div class="row" style="padding-top: 20px;padding-bottom: 20px">
     <div class="col center-items-custom">
       <button type="button" class="btn edit-button" (click)="onEdit()" *ngIf="!editFlag">EDYTUJ</button>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div class="row">
+        <div class="col" style="text-align: center;padding-top: 20px; border-top: 1px solid #2d313a">
+          <h4>Zmiana hasła</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col positive-info" *ngIf="changePasswordSuccesFlag">
+              Hasło zostało pomyślnie zmienione
+            </div>
+          </div>
+          <form (ngSubmit)="changePasswordSubmit()" #changePassword="ngForm">
+            <div class="form-group">
+              <label for="password">Stare hasło</label>
+              <input type="password" class="form-control" id="password"
+                     name="password"
+                     ngModel
+                     required
+                     minlength="6"
+                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*"
+                     #password="ngModel">
+              <span class="help-block mat-error" *ngIf="(!password.valid && password.touched) || incorrectPasswordFlag">Niepoprawne hasło</span>
+            </div>
+            <div class="form-group">
+              <label for="newPassword">Nowe hasło</label>
+              <input type="password" class="form-control" id="newPassword"
+                     name="newPassword"
+                     ngModel
+                     required
+                     minlength="6"
+                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*"
+                     #newPassword="ngModel">
+              <span class="help-block mat-error" *ngIf="!newPassword.valid && newPassword.touched">Hasło musi zawierać co najmniej 6 znaków(cyfre, mała litere, duża litere)</span>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Powtórz hasło</label>
+              <input type="password" class="form-control" id="confirmPassword"
+                     name="confirmPassword"
+                     ngModel
+                     required
+                     #confirmPassword="ngModel">
+              <span class="help-block mat-error"
+                    *ngIf="(confirmPassword.value!==newPassword.value) && confirmPassword.touched">Podane hasła nie zgadzają się</span>
+            </div>
+
+            <div class="row">
+              <div class="col center-items-custom">
+                <button class="btn btn-primary" type="submit" [disabled]="!changePassword.valid">ZMIEN</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-4"></div>
   </div>
 </div>
