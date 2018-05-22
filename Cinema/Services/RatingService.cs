@@ -20,7 +20,7 @@ namespace Cinema.Services.Interfaces
       this._dbContext = dbContext;
       this._mapper = mapper;
     }
-    public async Task<IEnumerable<WatchedMovieDto>> GetWatchedMoviesWithRatings(int userId)
+    public async Task<IEnumerable<MovieWithUserRatingDto>> GetWatchedMoviesWithRatings(int userId)
     {
       var user = await _dbContext.Users.
       Include(x => x.Ratings).ThenInclude(x => x.Movie).
@@ -29,13 +29,17 @@ namespace Cinema.Services.Interfaces
       if (user == null)
         throw new Exception("User doesn't exists");
       var viewedMovies = user.Reservations.Where(x => x.Paid == true && x.Seance.SeanceStart < DateTime.Now).Select(x => x.Seance.Movie);
-      var watchedMovies= _mapper.Map<IEnumerable<Movie>, IEnumerable<WatchedMovieDto>>(viewedMovies);
+      var watchedMovies= _mapper.Map<IEnumerable<Movie>, IEnumerable<MovieDto>>(viewedMovies);
+
+      List<MovieWithUserRatingDto> moviesWithUserRating = new List<MovieWithUserRatingDto>();
       foreach(var movie in watchedMovies)
       {
+        var movieWithUserRating = new MovieWithUserRatingDto();
+        movieWithUserRating.Movie = movie;
         var rating= await GetRating(userId, movie.Id);
-        movie.UserRating=rating;
+        movieWithUserRating.UserRating = rating;
       }
-      return watchedMovies;
+      return moviesWithUserRating;
 
     }
     public async Task<IEnumerable<MovieDto>> GetUnratedMovies(int userId)

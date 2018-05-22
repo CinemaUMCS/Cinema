@@ -22,7 +22,7 @@ namespace Cinema.Data
           cfg.CreateMap<Movie, MovieDto>()
             .AfterMap((movie, movieDto)=>movieDto.AverageRating= movie.Ratings.Count()!=0 ? movie.Ratings.Average(x => x.Mark):0)
             .AfterMap((movie, movieDto) => movieDto.Category = Enum.GetName(typeof(Category), movie.Category));
-          cfg.CreateMap<Movie, WatchedMovieDto>();
+          cfg.CreateMap<Movie, MovieWithUserRatingDto>();
           cfg.CreateMap<Seance, SeanceDto>();
           cfg.CreateMap<Room, RoomDto>();
           cfg.CreateMap<Seat, SeatDto>();
