@@ -69,8 +69,8 @@
   <div *ngIf="!emptyPage; else emptyContainer">
     <div class="row" style="padding-top: 25px;" *ngFor="let movie of movieAtDay|filterMovies: selectedMovie">
       <div class="col-8" style="border-right: 1px solid #c0b3a0">
-        <img class="img-thumbnail img-size" style="width: 117px;"
-             src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
+        <img class="img-thumbnail img-size" style="width: 117px; height: 168px"
+             src={{movie.posterPath}}
              alt="star wars">
         <div class="details">
           <h5 class="title">{{movie.title}}</h5>
@@ -89,7 +89,7 @@
             <button type="button" class="btn desc-btn" style="margin-top: 0px" (click)="openDialog(movie)">
               OPIS
             </button>
-            <button type="button" class="btn watch-button" (click)="showYoutube('youtubeVid1')">ZWIASTUN
+            <button type="button" class="btn watch-button" (click)="showYoutube(yt)">ZWIASTUN
             </button>
 
             <!--<div style="display:none;" id="info" class="youtubeVid">-->
@@ -102,10 +102,11 @@
 
             <!--</div>-->
 
-            <div style="display:none;" id="youtubeVid1" class="youtubeVid">
-              <iframe id="iframe0" width="560" height="315" src="https://www.youtube.com/embed/Q0CbN8sfihY"
+            <div style="display:none;" #yt class="youtubeVid">
+              <iframe #iframe width="560" height="315"
+                      [src]='sanitizer.bypassSecurityTrustResourceUrl(movie.trailerPath)'
                       frameborder="0" allowfullscreen></iframe>
-              <button type="button" class="btn watch-button" (click)="hideYoutube('youtubeVid1','iframe0')">ZAMKNIJ
+              <button type="button" class="btn watch-button" (click)="hideYoutube(yt,iframe)">ZAMKNIJ
               </button>
             </div>
           </div>

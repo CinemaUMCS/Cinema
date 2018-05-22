@@ -12,6 +12,7 @@ import {AuthenticationService} from './shared/authentication.service';
 import {HeaderOpacityService} from './shared/header-opacity.service';
 import {DialogComponent} from './buy-step3/dialog/dialog.component';
 import {DescriptionDialogComponent} from './description-dialog/description-dialog.component';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-nowplaying',
@@ -23,7 +24,7 @@ export class NowPlayingComponent implements OnInit {
   position = 'below';
   title = 'app';
   list = [1, 2, 3, 3, 3, 33, 3, 3, 3, 3, 3, 3];
-  date = new Date('12-01-2018');
+  date = new Date();
   minDate = new Date();
   buttonDates = new Array<any>();
   actualDayOfWeek: number;
@@ -39,7 +40,7 @@ export class NowPlayingComponent implements OnInit {
   emptyPage: boolean;
 
   constructor(private datePipe: DatePipe, private seanceService: SeanceService, private router: Router, private authenticationService: AuthenticationService,
-              private headerOpacityService: HeaderOpacityService, public dialog: MatDialog) {
+              private headerOpacityService: HeaderOpacityService, public dialog: MatDialog, public sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
@@ -118,15 +119,19 @@ export class NowPlayingComponent implements OnInit {
   }
 
   showYoutube(id): void {
-    document.getElementById(id).style.display = 'block';
-    document.getElementById('hideYoutubeVid').style.display = 'block';
+    // document.getElementById(id).style.display = 'block';
+    // document.getElementById(id).style.display = 'block';
+    id.style.display = 'block';
   }
 
   hideYoutube(id, frame): void {
-    var src = document.getElementById(frame).getAttribute('src');
-    document.getElementById(frame).setAttribute('src', src);
-    document.getElementById(id).style.display = 'none';
-    document.getElementById('hideYoutubeVid').style.display = 'none';
+    // var src = document.getElementById(frame).getAttribute('src');
+    const src = frame.getAttribute('src');
+    frame.setAttribute('src', src);
+    id.style.display = 'none';
+    // document.getElementById(/id).style.display = 'none';
+    // document.getElementById('hideYoutubeVid').style.display = 'none';
+
   }
 
   showInfo(id) {
@@ -160,7 +165,7 @@ export class NowPlayingComponent implements OnInit {
 
   filterMovie(movie: MovieModel) {
     this.selectedMovie = movie;
-    console.log('MOVIE:',movie);
+    console.log('MOVIE:', movie);
 
   }
 

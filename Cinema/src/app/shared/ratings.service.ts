@@ -18,9 +18,9 @@ export class RatingsService extends BaseHttpService {
 
   setFilmRatings(movieId: number, mark: string) {
     const header = new Headers({'authorization': this.authenticationService.getToken()});
-    let body = new HttpParams();
-    body = body.set('rating', mark);
-    return this.http.post(super.setUrl('rating') + movieId, body, {headers: header});
+    // let body = new HttpParams();
+    // body = body.set('rating', mark);
+    return this.http.post(super.setUrl('rating/') + movieId + '?rating=' + mark, null, {headers: header});
   }
 
   getAllViewedMovies() {

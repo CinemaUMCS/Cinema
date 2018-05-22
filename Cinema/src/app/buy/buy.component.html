@@ -1,6 +1,6 @@
 <!--<router-outlet></router-outlet>-->
 
-<div class="container content">
+<div class="container content" *ngIf="!startFlag">
   <div class="row" style="margin:0px">
   </div>
   <div class="row" style="margin: 0px">
@@ -14,13 +14,13 @@
                 <div class="info-film">
                   <div class="align-start">
                     <img class="img-thumbnail img-size"
-                         src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/8341575/star_wars_the_last_jedi_poster_1688.jpg"
+                         src={{movie.posterPath}}
                          alt="star wars">
                   </div>
                   <div style="color: white" class="centerBlock">
                     <h6 class="bold">{{movie?.title}}</h6>
                     <h6>{{seance.seanceStart|date: 'HH:mm dd-MM-yyyy'}}</h6>
-                    <span style="color: #f5821e">Ograniczenia wiekowe: {{movie?.MinimalAge}}+</span>
+                    <span style="color: #f5821e">Ograniczenia wiekowe: {{movie?.minimalAge}}+</span>
                   </div>
                 </div>
               </div>

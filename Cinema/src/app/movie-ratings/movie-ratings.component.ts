@@ -16,13 +16,13 @@ import {RatingsResponseModel} from '../../model/ratingsResponse.model';
 export class MovieRatingsComponent implements OnInit {
   constructor(private headerOpacityService: HeaderOpacityService, public dialog: MatDialog, private ratingService: RatingsService) {
   }
-  
+
   isRatingFilterPipeFlag = null;
   dropdownTitle = 'WSZYSTKIE';
   ratingMovieModel: RatingMovieModel[] = [
     {
       id: 1,
-      rating: null,
+      rating: 0,
       movie: {
         id: 1,
         title: 'Passanger',
@@ -38,7 +38,7 @@ export class MovieRatingsComponent implements OnInit {
     },
     {
       id: 4,
-      rating: null,
+      rating: 0,
       movie: {
         id: 4,
         title: 'Gwiezdne WOjny',
@@ -84,10 +84,9 @@ export class MovieRatingsComponent implements OnInit {
     }
   ];
 
-  ratingModel: RatingsResponseModel[];
-
   ngOnInit() {
     this.isDashboardComponent();
+    this.getRatingModel();
   }
 
   getRating(id, movie: MovieModel) {
@@ -115,24 +114,27 @@ export class MovieRatingsComponent implements OnInit {
   setRating(movieId: number, mark: string) {
     this.ratingService.setFilmRatings(movieId, mark).subscribe(
       value => {
+        console.log(value);
+        this.ratingMovieModel.filter(value1 => {
+          if (value1.movie.id === movieId) {
+            value1.rating = +mark;
+          }
+        });
       },
       error2 => {
+        console.log(error2);
       }
     );
   }
 
   dummySetRating(movieId: number, mark: string) {
-    this.ratingMovieModel.filter(value => {
-      if (value.movie.id === movieId) {
-        value.rating = +mark;
-      }
-    });
+    this.setRating(movieId, mark);
   }
 
   changeMovieMark(id) {
     this.ratingMovieModel.filter(value => {
-      if (value.id === id) {
-        value.rating = null;
+      if (value.movie.id === id) {
+        value.rating = 0;
       }
     });
   }
@@ -153,7 +155,14 @@ export class MovieRatingsComponent implements OnInit {
   }
 
   getRatingModel() {
-
+    this.ratingService.getAllViewedMovies().subscribe(
+      value => {
+        console.log(value.json());
+        this.ratingMovieModel = value.json();
+      },
+      error2 => {
+        console.log(error2);
+      });
   }
 
 }

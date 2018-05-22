@@ -23,6 +23,7 @@ export class BuyComponent implements OnInit {
   seanceId: number;
   movie: MovieModel;
   seance: SeanceModel;
+  startFlag = true;
 
   constructor(private _formBuilder: FormBuilder, private route: ActivatedRoute, private seance_service: SeanceService,
               public dialog: MatDialog, private buyProcessService: BuyProcessService, private headerOpacityService: HeaderOpacityService) {
@@ -33,11 +34,13 @@ export class BuyComponent implements OnInit {
     this.buyProcessService.step1flag.subscribe(value => this.step2Flag = value);
     this.route.data.subscribe(value => {
       this.seance = value['data'].json();
+      this.getMovie(+this.seance.movieId);
       // this.seance_service.setActualSeanceObservable(this.seance);
       this.seance_service.setActualSeance(this.seance);
     });
-    this.getMovie(+this.seance.movieId);
+
     this.validate();
+    console.log('MOVIE:', this.movie);
   }
 
 
@@ -56,6 +59,8 @@ export class BuyComponent implements OnInit {
         this.movie = value.json();
         this.seance_service.setActualMovieObservable(this.movie);
         this.seance_service.setActualMovie(this.movie);
+        console.log('MOVIE:', this.movie);
+        this.startFlag = false;
       },
       error2 => {
         console.log(error2);
