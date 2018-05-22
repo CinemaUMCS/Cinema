@@ -38,6 +38,7 @@ namespace Cinema.Services.Interfaces
         movieWithUserRating.Movie = movie;
         var rating= await GetRating(userId, movie.Id);
         movieWithUserRating.UserRating = rating;
+        moviesWithUserRating.Add(movieWithUserRating);
       }
       return moviesWithUserRating;
 
