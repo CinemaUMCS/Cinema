@@ -321,6 +321,38 @@
 					"response": []
 				},
 				{
+					"name": "UpdateMovie",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1MjQzMDY1MzYsImV4cCI6MTUyNDMwNzQzNn0.dt8k0KWq5_Q2RTZWPIlEryQU5dzRbVFTEHc0fKfIeAo"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Title\":\"nowy3film\",\n\t\"TrailerPath\":\"http://www.ss.pl\",\n\t\"PosterPath\":\"http://www.sssaa.pl\",\n\t\"Category\": \"Thriller\",\t\t//Musi sie zgadzac z wartosciami z GetCategories\n\t\"Description\": \"blablababla\",\n\t\"ProductionDate\":\"2012-12-25\"\t\t//nieobowiazkowe\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GetAllMovies",
 					"request": {
 						"method": "GET",
@@ -443,6 +475,33 @@
 								{
 									"key": "userId",
 									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTopRatedMovies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/movie/GetTopRated?numberOfMovies=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"movie",
+								"GetTopRated"
+							],
+							"query": [
+								{
+									"key": "numberOfMovies",
+									"value": "2"
 								}
 							]
 						}
@@ -716,7 +775,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:5000/seance/getByDateAndMovieId?movieId=1&date=2018-12-01",
+							"raw": "http://localhost:5000/seance/getByDateAndMovieId?movieId=1&date=2018-05-23",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -733,7 +792,7 @@
 								},
 								{
 									"key": "date",
-									"value": "2018-12-01"
+									"value": "2018-05-23"
 								}
 							]
 						}

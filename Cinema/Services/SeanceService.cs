@@ -34,7 +34,7 @@ namespace Cinema.Services
     public async Task<IEnumerable<SeanceDto>> GetByDate(DateTime seanceDate)
     {
       var seances = await GetAllAsync();
-      var filteredSeances = seances.Where(s => s.SeanceStart.ToShortDateString() == seanceDate.ToShortDateString());
+      var filteredSeances = seances.Where(s => s.SeanceStart.ToShortDateString() == seanceDate.ToShortDateString() && s.SeanceStart > DateTime.Now);
       return filteredSeances;
     }
 
