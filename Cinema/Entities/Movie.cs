@@ -19,6 +19,7 @@ namespace Cinema.Entities
     public string Title { get; private set; }
     public string TrailerPath { get; private set; }
     public string PosterPath { get; private set; }
+    public string BackgroundPath { get;private set;}
     public Category Category { get; private set; }
     public string Description { get; private set; }
     public DateTime? ProductionDate { get; private set; }
@@ -35,10 +36,11 @@ namespace Cinema.Entities
 
     }
 
-    public Movie(string title, string trailerPath, string posterPath, Category category, string description, DateTime? productionDate, TimeSpan duration, int minimalAge)
+    public Movie(string title, string trailerPath, string posterPath, string backgroundPath, Category category, string description, DateTime? productionDate, TimeSpan duration, int minimalAge)
     {
       SetTitle(title);
       SetTrailerPath(trailerPath);
+      SetBackgroundPath(backgroundPath);
       SetPosterPath(posterPath);
       SetCategory(category);
       SetDescription(description);
@@ -59,6 +61,10 @@ namespace Cinema.Entities
     public void SetPosterPath(string posterPath)
     {
       PosterPath = posterPath;
+    }
+    public void SetBackgroundPath(string backgroundPath)
+    {
+      BackgroundPath=backgroundPath;
     }
     public void SetCategory(Category category)
     {

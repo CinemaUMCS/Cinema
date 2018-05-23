@@ -45,8 +45,8 @@ namespace Cinema.Services
 
     public async Task AddAsync(MovieRequest addMovie)
     {
-      var newMovie = new Movie(addMovie.Title, addMovie.TrailerPath, addMovie.PosterPath, addMovie.Category, addMovie.Description, addMovie.ProductionDate
-        , addMovie.Duration, addMovie.MinimalAge);
+      var newMovie = new Movie(addMovie.Title, addMovie.TrailerPath, addMovie.PosterPath,addMovie.BackgroundPath, addMovie.Category, addMovie.Description, addMovie.ProductionDate
+        , addMovie.Duration, addMovie.MinimalAge.Value);
       await _dbContext.Movies.AddAsync(newMovie);
       await _dbContext.SaveChangesAsync();
     }
@@ -57,14 +57,22 @@ namespace Cinema.Services
       if (movie == null)
         throw new Exception($"Movie with id: {id} not found.");
 
-      movie.SetTitle(updateMovie.Title);
-      movie.SetTrailerPath(updateMovie.TrailerPath);
-      movie.SetProductionDate(updateMovie.ProductionDate);
-      movie.SetPosterPath(updateMovie.TrailerPath);
+      if(updateMovie.Title!=null)
+        movie.SetTitle(updateMovie.Title);
+      if (updateMovie.TrailerPath != null)
+        movie.SetTrailerPath(updateMovie.TrailerPath);
+      if (updateMovie.ProductionDate != null)
+        movie.SetProductionDate(updateMovie.ProductionDate);
+      if (updateMovie.TrailerPath != null)
+        movie.SetPosterPath(updateMovie.TrailerPath);
+      if (updateMovie.BackgroundPath != null)
+        movie.SetBackgroundPath(updateMovie.BackgroundPath);
       movie.SetCategory(updateMovie.Category);
-      movie.SetDescription(updateMovie.Description);
+      if (updateMovie.Description != null)
+        movie.SetDescription(updateMovie.Description);
       movie.SetDuration(updateMovie.Duration);
-      movie.SetMinimalAge(updateMovie.MinimalAge);
+      if(updateMovie.MinimalAge.HasValue)
+        movie.SetMinimalAge(updateMovie.MinimalAge.Value);
       _dbContext.Update(movie);
       await _dbContext.SaveChangesAsync();
     }

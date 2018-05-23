@@ -11,10 +11,11 @@ namespace Cinema.Request
     public string Title { get; set; }
     public string TrailerPath { get; set; }
     public string PosterPath { get; set; }
+    public string BackgroundPath { get; set; }
     public Category Category { get; set; }
     public string Description { get; set; }
     public DateTime? ProductionDate { get; set; }
     public TimeSpan Duration { get; private set; }
-    public int MinimalAge { get; private set; }
+    public int? MinimalAge { get; private set; }
   }
 }

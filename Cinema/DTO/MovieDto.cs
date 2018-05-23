@@ -15,5 +15,6 @@ namespace Cinema.DTO
     public TimeSpan Duration { get; private set; }
     public int MinimalAge { get; private set; }
     public double AverageRating { get; set; }
+    public string BackgroundPath { get; set; }
   }
 }
