@@ -35,12 +35,12 @@ namespace Cinema.Services
       this._emailSender = emailSender;
     }
 
-    public async Task RegisterAsync(string email, string firstName, string lastName, string password, string role)
+    public async Task RegisterAsync(string email, string firstName, string lastName, string password, string role, string phoneNumber)
     {
       var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
       if (user != null)
         throw new CinemaException(ErrorCodes.EmailOccupied);
-      user = new User(email, firstName, lastName, password, role);
+      user = new User(email, firstName, lastName, password, role, phoneNumber);
       await _dbContext.Users.AddAsync(user);
       await _dbContext.SaveChangesAsync();
 

@@ -26,13 +26,14 @@ namespace Cinema.Entities
     public IEnumerable<Rating> Ratings => _ratings.ToList();
 
     private User() { }
-    public User(string email, string firstName, string lastName, string password, string role)
+    public User(string email, string firstName, string lastName, string password, string role, string phoneNumber)
     {
       SetEmail(email);
       SetFirstName(firstName);
       SetLastName(lastName);
       SetPassword(password);
       SetRole(role);
+      SetPhoneNumber(phoneNumber);
       _reservations = new HashSet<Reservation>();
       _ratings = new HashSet<Rating>();
     }

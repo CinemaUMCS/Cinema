@@ -22,7 +22,7 @@ namespace Cinema.Controllers
       {
         return BadRequest();
       }
-      await _userService.RegisterAsync(createUser.Email, createUser.FirstName, createUser.LastName, createUser.Password, "user");
+      await _userService.RegisterAsync(createUser.Email, createUser.FirstName, createUser.LastName, createUser.Password, "user",createUser.PhoneNumber);
       return Ok();
     }
     [HttpPost("login")]

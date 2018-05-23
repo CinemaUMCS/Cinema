@@ -11,7 +11,7 @@ namespace Cinema.Services
     Task<UserDto> GetByIdAsync(int id);
     Task<UserDto> GetByEmailAsync(string email);
     Task<TokenModel> LoginAsync(string email, string password);
-    Task RegisterAsync(string email, string firstName, string lastName, string password, string role);
+    Task RegisterAsync(string email, string firstName, string lastName, string password, string role, string phoneNumber);
     Task SendConfirmTokenAsync(int userId);
     Task ValidateConfirmTokenAsync(int userId, string token);
     Task ResetPasswordAsync(string userEmail);
