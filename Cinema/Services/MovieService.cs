@@ -31,7 +31,7 @@ namespace Cinema.Services
     {
       var movies = await _dbContext.Movies.
                 Include(x => x.Ratings).
-                Where(m => m.Seances.Any(s => s.SeanceStart.ToShortDateString() == date.ToShortDateString())).ToListAsync();
+                Where(m => m.Seances.Any(s => s.SeanceStart.ToShortDateString() == date.ToShortDateString() && s.SeanceStart > DateTime.Now)).ToListAsync();
       
       return _mapper.Map<IEnumerable<Movie>, IEnumerable<MovieDto>>(movies);
     }
