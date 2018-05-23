@@ -53,7 +53,7 @@ namespace Cinema.Services
       if (movie == null)
         throw new Exception("Movie with this id doesn't exists");
       var seances = await GetAllAsync();
-      var filteredSeances = seances.Where(s => s.MovieId == id && s.SeanceStart.ToShortDateString()==seanceDate.ToShortDateString());
+      var filteredSeances = seances.Where(s => s.MovieId == id && s.SeanceStart.ToShortDateString()==seanceDate.ToShortDateString() && s.SeanceStart>DateTime.Now);
       return filteredSeances;
     }
 
