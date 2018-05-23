@@ -28,7 +28,8 @@ namespace Cinema.Services.Interfaces
       SingleOrDefaultAsync(x => x.Id == userId);
       if (user == null)
         throw new Exception("User doesn't exists");
-      var viewedMovies = user.Reservations.Where(x => x.Paid == true && x.Seance.SeanceStart < DateTime.Now).Select(x => x.Seance.Movie);
+      var viewedMovies = user.Reservations.Where(x => x.Paid == true && x.Seance.SeanceStart < DateTime.Now).Select(x => x.Seance.Movie)
+        .GroupBy(x => x.Id).Select(y => y.First());
       var watchedMovies= _mapper.Map<IEnumerable<Movie>, IEnumerable<MovieDto>>(viewedMovies);
 
       List<MovieWithUserRatingDto> moviesWithUserRating = new List<MovieWithUserRatingDto>();
