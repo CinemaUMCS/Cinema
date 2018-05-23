@@ -22,7 +22,7 @@ export class MovieRatingsComponent implements OnInit {
   ratingMovieModel: RatingMovieModel[] = [
     {
       id: 1,
-      rating: 0,
+      userRating: 0,
       movie: {
         id: 1,
         title: 'Passanger',
@@ -38,7 +38,7 @@ export class MovieRatingsComponent implements OnInit {
     },
     {
       id: 4,
-      rating: 0,
+      userRating: 0,
       movie: {
         id: 4,
         title: 'Gwiezdne WOjny',
@@ -53,7 +53,7 @@ export class MovieRatingsComponent implements OnInit {
       },
     }, {
       id: 3,
-      rating: 2,
+      userRating: 2,
       movie: {
         id: 3,
         title: 'M jak milosc',
@@ -68,7 +68,7 @@ export class MovieRatingsComponent implements OnInit {
       },
     }, {
       id: 2,
-      rating: 4,
+      userRating: 4,
       movie: {
         id: 2,
         title: 'Avengers',
@@ -117,7 +117,7 @@ export class MovieRatingsComponent implements OnInit {
         console.log(value);
         this.ratingMovieModel.filter(value1 => {
           if (value1.movie.id === movieId) {
-            value1.rating = +mark;
+            value1.userRating = +mark;
           }
         });
       },
@@ -134,7 +134,7 @@ export class MovieRatingsComponent implements OnInit {
   changeMovieMark(id) {
     this.ratingMovieModel.filter(value => {
       if (value.movie.id === id) {
-        value.rating = 0;
+        value.userRating = 0;
       }
     });
   }

@@ -10,9 +10,9 @@ export class FilterRatingPipePipe implements PipeTransform {
     if (args == null) {
       return value;
     } else if (args === false) {
-      return value.filter(value2 => value2.rating == null);
+      return value.filter(value2 => value2.userRating == null);
     }else {
-      return value.filter(value2 => value2.rating !== null);
+      return value.filter(value2 => value2.userRating !== null);
     }
 
   }

@@ -42,13 +42,13 @@ import {ForgotPasswordComponent} from './forgot-password/forgot-password.compone
 const routes: Routes = [
   {
     path: '', component: ClientComponent, children: [
-      {path:'account/validate_token/:id/:token', component: ConfirmEmailComponent},
-      {path:'forgot-password', component: ForgotPasswordComponent},
+      {path: 'account/validate_token/:id/:token', component: ConfirmEmailComponent},
+      {path: 'forgot-password', component: ForgotPasswordComponent},
       {path: '', component: DashboardComponent},
       {path: 'nowplaying', component: NowPlayingComponent},
       {path: 'pricelist', component: PriceComponent},
       {path: 'contact', component: ContactComponent},
-      {path: 'ratings', component: MovieRatingsComponent },
+      {path: 'ratings', component: MovieRatingsComponent, canActivate: [AuthGuard]},
       {
         path: 'buy/:seanceId', component: BuyComponent, resolve: {
           data: BuyResolverService
@@ -57,8 +57,8 @@ const routes: Routes = [
           {path: 'step1', component: BuyStep3Component, canActivate: [Step1GuardService]},
           {path: 'step0', component: BuyStep0Component},
           // {path: 'step3', component: BuyStep1Component},
-        // ], canActivate: [AuthGuard]
-        ]
+        ], canActivate: [AuthGuard]
+
       },
       // {path: 'buy/:seanceId/step2', component: BuyStep2Component},
       {path: 'login', component: UserLoginComponent, canActivate: [BlockAfterLoginService]},

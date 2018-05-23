@@ -36,7 +36,7 @@
         <!--*ngFor="let movie of ratingMovieModel|filterRatingPipe:'null'">-->
 
         <div class="col-8">
-          <img class="img-thumbnail img-size" style="width: 80px;"
+          <img class="img-thumbnail img-size" style="width: 80px;height: 113px"
                src={{movie.movie.posterPath}}
                alt="star wars">
           <div class="details">
@@ -60,7 +60,7 @@
           <!--<i id="2" class="fas fa-star custom-star"></i>-->
           <!--<i id="3" class="fas fa-star custom-star"></i>-->
           <div style="text-align: center">
-            <div *ngIf="movie.rating==0">
+            <div *ngIf="movie.userRating==0">
               <div class="rating">
                 <span (click)="getRating(5,movie.movie)">☆</span>
                 <span (click)="getRating(4,movie.movie)">☆</span>
@@ -70,8 +70,8 @@
               </div>
               <span style="font-size: 12px;color:#5a6268">Kliknij aby ocenić</span>
             </div>
-            <div *ngIf="movie.rating!=0" style="text-align: center">
-              Twoja ocena: {{movie.rating}}/5<br/>
+            <div *ngIf="movie.userRating!=0" style="text-align: center">
+              Twoja ocena: {{movie.userRating}}/5<br/>
               <span style="font-size: 12px;color:#5a6268; cursor: pointer"
                     (click)="changeMovieMark(movie.movie.id)">zmień</span>
             </div>
