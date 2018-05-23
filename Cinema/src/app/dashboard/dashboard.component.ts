@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HeaderOpacityService} from '../shared/header-opacity.service';
+import {RatingsService} from '../shared/ratings.service';
+import {MovieModel} from '../../model/movie.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,11 +10,24 @@ import {HeaderOpacityService} from '../shared/header-opacity.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private headerOpacityService: HeaderOpacityService) {
+  constructor(private headerOpacityService: HeaderOpacityService, private ratingsService: RatingsService) {
   }
+
+  movieList: MovieModel[];
 
   ngOnInit() {
     this.headerOpacityService.isDashboardComponentLoad(true);
+    this.getTopRatedMovies();
   }
 
+  getTopRatedMovies() {
+    this.ratingsService.getTopRatingMovies(5).subscribe(
+      value => {
+        console.log(value);
+        this.movieList = value.json();
+      },
+      error2 => {
+        console.log(error2);
+      });
+  }
 }

@@ -4,4 +4,6 @@ export interface UserModel {
   firstName: string;
   lastName: string;
   role: string;
+  phoneNumber: string;
+  backgroundPath: string;
 }

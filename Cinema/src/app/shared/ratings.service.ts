@@ -28,4 +28,8 @@ export class RatingsService extends BaseHttpService {
     return this.http.get(super.setUrl('rating/WatchedMoviesWithRatings'), {headers: header});
   }
 
+  getTopRatingMovies(count: number) {
+    return this.http.get(super.setUrl(`movie/GetTopRated?numberOfMovies=${count}`));
+  }
+
 }

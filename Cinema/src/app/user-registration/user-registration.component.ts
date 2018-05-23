@@ -51,6 +51,7 @@ export class UserRegistrationComponent implements OnInit {
     this.createUser.lastName = this.singupForm.value.lastName;
     this.createUser.phoneNumber = this.singupForm.value.phoneNumber;
     this.createUser.password = this.singupForm.value.password;
+    this.createUser.phoneNumber = this.singupForm.value.phoneNumber;
   }
 
   onRegister(user: CreateUserModel) {

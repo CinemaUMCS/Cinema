@@ -38,10 +38,12 @@
         <div class="form-group">
           <label for="phoneNumber">Numer telefonu</label>
           <input type="text" class="form-control" id="phoneNumber" [disabled]="!editFlag"
-                 name="phoneNumber" ngModel #phoneNumber="ngModel" required
+                 name="phoneNumber"
+                 [(ngModel)]="actualUser.phoneNumber"
+                 #phoneNumber="ngModel" required
                  pattern="[0-9]*"
                  minlength="9"
-                 maxlength="10">
+                 maxlength="9">
           <span class="help-block mat-error" *ngIf="!phoneNumber.valid && phoneNumber.touched">Niepoprawny numer telefonu</span>
         </div>
         <div class="row" *ngIf="editFlag">

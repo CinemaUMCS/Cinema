@@ -64,7 +64,7 @@ const routes: Routes = [
       {path: 'login', component: UserLoginComponent, canActivate: [BlockAfterLoginService]},
       {path: 'register', component: UserRegistrationComponent, canActivate: [BlockAfterLoginService]},
       {path: 'user.service', component: UserService},
-      {path: 'profile', component: ProfileComponent}
+      {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
     ]
   },
   {

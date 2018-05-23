@@ -34,14 +34,18 @@ export class ProfileComponent implements OnInit {
     firstName: 'pawel',
     lastName: 'sos',
     role: 'user',
-    id: 1
+    id: 1,
+    phoneNumber: '123123123',
+    backgroundPath: 'asd'
   };
   baseUser: UserModel = {
     email: 'test@gmail.com',
     firstName: 'pawel',
     lastName: 'sos',
     role: 'user',
-    id: 1
+    id: 1,
+    phoneNumber: null,
+    backgroundPath: 'asd'
   };
   changePasswordModel: ChangePasswordModel = {
     newPassword: null,
@@ -59,8 +63,11 @@ export class ProfileComponent implements OnInit {
   getActualUser() {
     this.userApiService.getActualUser().subscribe(
       value => {
+
         this.actualUser = value.json();
         this.baseUser = value.json();
+        console.log('Response',value.json());
+        console.log('actual_user',this.actualUser);
       },
       error2 => {
         console.log(error2);
@@ -88,6 +95,7 @@ export class ProfileComponent implements OnInit {
     this.baseUser.firstName = this.singupForm.value.firstName;
     this.baseUser.lastName = this.singupForm.value.lastName;
     this.baseUser.email = this.singupForm.value.email;
+    this.baseUser.phoneNumber = this.singupForm.value.phoneNumber;
     this.actualUser = this.baseUser;
     console.log(this.actualUser);
 
