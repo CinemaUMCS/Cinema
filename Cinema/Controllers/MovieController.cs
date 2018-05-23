@@ -52,6 +52,13 @@ namespace Cinema.Controllers
       var movies = await _movieService.GetMoviesPlayingAtDate(date);
       return Json(movies);
     }
+    [HttpGet("GetTopRated")]
+    public async Task<IActionResult> GetTopRated(int numberOfMovies)
+    {
+      var movies = await _movieService.GetTopRatedMovies(numberOfMovies);
+      return Json(movies);
+    }
+
 
     [HttpPost]
     [Authorize(Roles = "admin, employee")]

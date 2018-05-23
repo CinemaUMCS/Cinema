@@ -84,6 +84,11 @@ namespace Cinema.Services
       IEnumerable<string> categories = Enum.GetNames(typeof(Category));
       return categories;
     }
+    public async Task<IEnumerable<MovieDto>> GetTopRatedMovies(int numberOfMovies)
+    {
+      var movies = await GetAllAsync();
+      return movies.OrderByDescending(x=>x.AverageRating).Take(numberOfMovies);
+    }
 
 
   }
