@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   getTopRatedMovies() {
     this.ratingsService.getTopRatingMovies(5).subscribe(
       value => {
-        console.log(value);
+        console.log('test',value);
         this.movieList = value.json();
       },
       error2 => {
