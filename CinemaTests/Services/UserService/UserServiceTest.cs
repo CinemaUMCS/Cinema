@@ -24,7 +24,7 @@ namespace CinemaTests.Services.UserService
 
         protected void SetUp(CinemaDbContext cinemaDbContext)
         {
-            User = new User("test123@o2.pl", "FirstName", "LastName", "Secret123", "user");
+            User = new User("test123@o2.pl", "FirstName", "LastName", "Secret123", "user","123123123");
             TokenProviderMock = new Mock<ITokenProvider>();
             EncrypterMock = new Mock<IEncrypter>();
             Mapper = AutoMapperConfig.Initialize();

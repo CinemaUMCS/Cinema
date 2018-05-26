@@ -18,7 +18,7 @@ namespace CinemaTests.Services.UserService
                 var newValidEmail = "newEmail@o2.pl";
                 var newValidPassword = "Password12";
 
-                await UserService.RegisterAsync(newValidEmail, User.FirstName, User.LastName, newValidPassword, User.Role);
+                await UserService.RegisterAsync(newValidEmail, User.FirstName, User.LastName, newValidPassword, User.Role,User.PhoneNumber);
             }
         }
         [Fact]
@@ -31,7 +31,7 @@ namespace CinemaTests.Services.UserService
 
                 Func<Task> fun = async () =>
                 {
-                    await UserService.RegisterAsync(invalidEmail, User.FirstName, User.LastName, User.Password, User.Role);
+                    await UserService.RegisterAsync(invalidEmail, User.FirstName, User.LastName, User.Password, User.Role, User.PhoneNumber);
                 };
 
                 fun.ShouldThrow<CinemaException>();
@@ -49,7 +49,7 @@ namespace CinemaTests.Services.UserService
                 var occupiedEmail = User.Email;
                 Func<Task> fun = async () =>
                 {
-                    await UserService.RegisterAsync(occupiedEmail, User.FirstName, User.LastName, User.Password, User.Role);
+                    await UserService.RegisterAsync(occupiedEmail, User.FirstName, User.LastName, User.Password, User.Role,User.PhoneNumber);
                 };
 
                 fun.ShouldThrow<CinemaException>();
@@ -69,7 +69,7 @@ namespace CinemaTests.Services.UserService
 
                 Func<Task> fun = async () =>
                 {
-                    await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, password, User.Role);
+                    await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, password, User.Role,User.PhoneNumber);
                 };
 
                 fun.ShouldThrow<CinemaException>();
@@ -85,7 +85,7 @@ namespace CinemaTests.Services.UserService
 
                 Func<Task> fun = async () =>
                 {
-                    await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, User.Password, invalidRole);
+                    await UserService.RegisterAsync(User.Email, User.FirstName, User.LastName, User.Password, invalidRole,User.PhoneNumber);
                 };
 
                 fun.ShouldThrow<CinemaException>();
