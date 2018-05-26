@@ -6,20 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20180109192744_Check.cs" />
-    <Compile Remove="Migrations\20180109192744_Check.Designer.cs" />
-    <Compile Remove="Migrations\20180311140731_added_reserved_seats.cs" />
-    <Compile Remove="Migrations\20180311140731_added_reserved_seats.Designer.cs" />
-    <Compile Remove="Migrations\20180508082708_user_changes.cs" />
-    <Compile Remove="Migrations\20180508082708_user_changes.Designer.cs" />
-    <Compile Remove="Migrations\20180508083554_user_changes.cs" />
-    <Compile Remove="Migrations\20180508083554_user_changes.Designer.cs" />
-    <Compile Remove="Migrations\20180526125942_data_seeder.cs" />
-    <Compile Remove="Migrations\20180526125942_data_seeder.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +27,9 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cinema.Infrastructure\Cinema.Infrastructure.csproj" />
   </ItemGroup>
   <PropertyGroup>               
     <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>

@@ -67,25 +67,6 @@ namespace Cinema
       if (env.IsDevelopment())
         app.UseDeveloperExceptionPage();
       app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
-
-
-      //Angular
-      //app.Use(async (context, next) =>
-      //{
-      //  await next();
-      //  if (context.Response.StatusCode == 404 && !System.IO.Path.HasExtension(context.Request.Path.Value))
-      //  {
-      //    context.Request.Path = "/index.html";
-      //    await next();
-      //  }
-      //});
-      //app.UseDefaultFiles();
-      //app.UseStaticFiles();
-      //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-      //{
-      //  var context = serviceScope.ServiceProvider.GetService<CinemaDbContext>();
-      //  context.Database.Migrate();
-      //}
       app.UseAuthentication()
         .UseMiddleware(typeof(ExceptionMiddleware))
         .UseMvc();

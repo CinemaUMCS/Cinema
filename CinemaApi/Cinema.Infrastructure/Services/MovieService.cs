@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
-  class MovieService : IMovieService
+  public class MovieService : IMovieService
   {
     private readonly CinemaDbContext _dbContext;
     private readonly IMapper _mapper;
