@@ -1,6 +1,9 @@
+import {DomSanitizer} from '@angular/platform-browser';
+
 export abstract class BaseHttpService {
-  BASE_URL = 'http://localhost:5000/';
-  // BASE_URL = 'http://212.182.27.71:5000/';
+  // BASE_URL = 'http://ocenuczelnie.pl/';
+  // BASE_URL = 'http://localhost:5000/';
+  BASE_URL = 'https://ocenuczelnie.pl/cinema_api/';
 
   constructor() {
   }

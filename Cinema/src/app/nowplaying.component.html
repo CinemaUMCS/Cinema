@@ -30,7 +30,7 @@
               (click)="clickWeekBtnEvent($event)">SO
       </button>
       <button id="0" type="button" class="btn day-btn"
-              [ngClass]="7==actualDayOfWeek?'week-btn':'day-btn'"
+              [ngClass]="0==actualDayOfWeek?'week-btn':'day-btn'"
               (click)="clickWeekBtnEvent($event)">ND
       </button>
 
@@ -77,10 +77,10 @@
           <div class="info">
             <p>
               {{movie.category}}<br/>
-              <i class="far fa-clock"></i>&nbsp;130min<br/>
+              <i class="far fa-clock"></i>&nbsp;{{movie.duration}}<br/>
               <span>ograniczenia:
-                <span *ngIf="movie.MinimalAge==null">brak</span>
-                <span *ngIf="movie.MinimalAge!=null">{{movie.MinimalAge}}</span>
+                <span *ngIf="movie.minimalAge==null">brak</span>
+                <span *ngIf="movie.minimalAge!=null">{{movie.minimalAge}}+</span>
               </span><br/>
               <i class="fas fa-star rating-custom"></i>&nbsp;{{movie.averageRating}}/5
             </p>

@@ -9,7 +9,7 @@ import {UserModel} from '../../model/user.model';
 @Injectable()
 export class AuthenticationService {
 
-  BASE_URL = 'http://localhost:5000/';
+  BASE_URL = 'https://ocenuczelnie.pl/cinema_api/';
   logged: boolean;
   private loggedSubject = new Subject<any>();
   actualUser: UserModel;

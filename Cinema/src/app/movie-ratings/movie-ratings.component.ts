@@ -24,10 +24,10 @@ export class MovieRatingsComponent implements OnInit {
       id: 1,
       userRating: 0,
       movie: {
-        id: 1,
-        title: 'Passanger',
-        description: 'test',
-        category: 'Action',
+        id: null,
+        title: null,
+        description: null,
+        category: null,
         productionDate: new Date(),
         trailerPath: 'testet',
         posterPath: 'fafds',
@@ -36,52 +36,6 @@ export class MovieRatingsComponent implements OnInit {
         averageRating: 1
       },
     },
-    {
-      id: 4,
-      userRating: 0,
-      movie: {
-        id: 4,
-        title: 'Gwiezdne WOjny',
-        description: 'test',
-        category: 'Action',
-        productionDate: new Date(),
-        trailerPath: 'testet',
-        posterPath: 'fafds',
-        duration: '123',
-        MinimalAge: 13,
-        averageRating: 2
-      },
-    }, {
-      id: 3,
-      userRating: 2,
-      movie: {
-        id: 3,
-        title: 'M jak milosc',
-        description: 'test',
-        category: 'Action',
-        productionDate: new Date(),
-        trailerPath: 'testet',
-        posterPath: 'fafds',
-        duration: '123',
-        MinimalAge: 13,
-        averageRating: 1
-      },
-    }, {
-      id: 2,
-      userRating: 4,
-      movie: {
-        id: 2,
-        title: 'Avengers',
-        description: 'test',
-        category: 'Action',
-        productionDate: new Date(),
-        trailerPath: 'testet',
-        posterPath: 'fafds',
-        duration: '123',
-        MinimalAge: 13,
-        averageRating: 15
-      },
-    }
   ];
 
   ngOnInit() {
