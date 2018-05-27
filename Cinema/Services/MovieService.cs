@@ -63,8 +63,8 @@ namespace Cinema.Services
         movie.SetTrailerPath(updateMovie.TrailerPath);
       if (updateMovie.ProductionDate != null)
         movie.SetProductionDate(updateMovie.ProductionDate);
-      if (updateMovie.TrailerPath != null)
-        movie.SetPosterPath(updateMovie.TrailerPath);
+      if (updateMovie.PosterPath != null)
+        movie.SetPosterPath(updateMovie.PosterPath);
       if (updateMovie.BackgroundPath != null)
         movie.SetBackgroundPath(updateMovie.BackgroundPath);
       movie.SetCategory(updateMovie.Category);

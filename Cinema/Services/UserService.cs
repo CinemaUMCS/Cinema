@@ -45,7 +45,7 @@ namespace Cinema.Services
       await _dbContext.SaveChangesAsync();
 
       user = await _dbContext.Users.SingleOrDefaultAsync(x => x.Email == email);
-      SendConfirmTokenAsync(user.Id);
+      await SendConfirmTokenAsync(user.Id);
 
     }
     public async Task<TokenModel> LoginAsync(string email, string password)
@@ -82,7 +82,7 @@ namespace Cinema.Services
       var expiresTime = DateTime.UtcNow.AddHours(1);
       _memoryCache.Set($"confirm-{userId}", confirmToken, expiresTime);
 
-      var activateLink=$"http://localhost:4200/account/validate_token/{userId}/{confirmToken}";
+      var activateLink=$"https://sperc.github.io/#/account/validate_token/{userId}/{confirmToken}";
       await _emailSender.SendEmailAsync(user.Email, "Link potwierdzający [CinemaUMCS]",
           $"Aby aktywować konto, kliknij na link: \"{activateLink}\"." +
           $"\nLink jest wazny do {expiresTime.ToLocalTime():g}");
@@ -122,7 +122,7 @@ namespace Cinema.Services
       _dbContext.Users.Update(user);
       await _dbContext.SaveChangesAsync();
 
-      _emailSender.SendEmailAsync(user.Email, "Nowe hasło [CinemaUMCS]",
+      await _emailSender.SendEmailAsync(user.Email, "Nowe hasło [CinemaUMCS]",
           $"Twoje nowe hasło to: \"{newPassword}\".");
 
     }

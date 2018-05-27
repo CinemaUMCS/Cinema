@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema", "Cinema\Cinema.csproj", "{B79A88DB-72D7-4409-AA8D-CE4DD8F4D303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTests", "CinemaTests\CinemaTests.csproj", "{9B75C227-62E8-40A2-BF2B-24A306681585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTests", "CinemaTests\CinemaTests.csproj", "{9B75C227-62E8-40A2-BF2B-24A306681585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

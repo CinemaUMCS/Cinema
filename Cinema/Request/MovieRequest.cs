@@ -15,7 +15,7 @@ namespace Cinema.Request
     public Category Category { get; set; }
     public string Description { get; set; }
     public DateTime? ProductionDate { get; set; }
-    public TimeSpan Duration { get; private set; }
-    public int? MinimalAge { get; private set; }
+    public TimeSpan Duration { get; set; }
+    public int? MinimalAge { get; set; }
   }
 }
