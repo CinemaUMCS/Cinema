@@ -70,7 +70,10 @@ namespace Cinema.Services
       movie.SetCategory(updateMovie.Category);
       if (updateMovie.Description != null)
         movie.SetDescription(updateMovie.Description);
-      movie.SetDuration(updateMovie.Duration);
+      if(updateMovie.ProductionDate.HasValue)
+        movie.SetProductionDate(updateMovie.ProductionDate.Value);
+      if(updateMovie.Duration.HasValue)
+        movie.SetDuration(updateMovie.Duration.Value);
       if(updateMovie.MinimalAge.HasValue)
         movie.SetMinimalAge(updateMovie.MinimalAge.Value);
       _dbContext.Update(movie);

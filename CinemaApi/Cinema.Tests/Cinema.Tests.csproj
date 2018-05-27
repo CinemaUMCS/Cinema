@@ -36,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cinema\Cinema.Api.csproj" />
+    <ProjectReference Include="..\Cinema.Api\Cinema.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>

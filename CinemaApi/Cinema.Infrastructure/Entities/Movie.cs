@@ -28,8 +28,8 @@ namespace Cinema.Entities
 
     private HashSet<Rating> _ratings;
     private HashSet<Seance> _seances;
-    public IEnumerable<Rating> Ratings => _ratings.ToList();
-    public IEnumerable<Seance> Seances => _seances.ToList();
+    public IEnumerable<Rating> Ratings => _ratings?.ToList();
+    public IEnumerable<Seance> Seances => _seances?.ToList();
 
     private Movie()
     {
