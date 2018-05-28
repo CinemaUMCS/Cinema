@@ -1,0 +1,16 @@
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\CinemaTests.deps.json
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\CinemaTests.runtimeconfig.json
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\CinemaTests.runtimeconfig.dev.json
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\CinemaTests.dll
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\CinemaTests.pdb
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\Cinema.dll
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\bin\Debug\netcoreapp2.0\Cinema.pdb
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\obj\Debug\netcoreapp2.0\CinemaTests.csprojResolveAssemblyReference.cache
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\obj\Debug\netcoreapp2.0\CinemaTests.csproj.CoreCompileInputs.cache
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\obj\Debug\netcoreapp2.0\CinemaTests.AssemblyInfoInputs.cache
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\obj\Debug\netcoreapp2.0\CinemaTests.AssemblyInfo.cs
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\obj\Debug\netcoreapp2.0\CinemaTests.dll
+C:\Users\Pawel\Desktop\Cinema-new\Cinema\CinemaTests\obj\Debug\netcoreapp2.0\CinemaTests.pdb

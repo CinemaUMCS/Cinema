@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5c1fb48d-b35a-44b5-b894-6f88e5aafc27" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/../.vs/cinema/v15/.suo" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../.vs/cinema/v15/Server/sqlite3/storage.ide" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../.vs/config/applicationhost.config" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.AdminTools/Cinema.AdminTools.csproj" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.AdminTools/Program.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.AdminTools/appsettings.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Cinema.Infrastructure.csproj" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Entities/Room.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Seeder/Cinema.Seeder.csproj" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Seeder/CinemaSeeder.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Seeder/Extensions/IEnumerableExtensions.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Seeder/movies.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaApi/cinema.sln" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaWeb/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../CinemaWeb/src/assets/.gitkeep" />
+      <change beforePath="$PROJECT_DIR$/../.gitattributes" afterPath="$PROJECT_DIR$/../CinemaApi/.gitattributes" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.angular-cli.json" afterPath="$PROJECT_DIR$/../CinemaWeb/.angular-cli.json" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" afterPath="$PROJECT_DIR$/../CinemaWeb/.editorconfig" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Cinema.csproj" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Cinema.Api.csproj" />
+      <change beforePath="$PROJECT_DIR$/Cinema.postman_collection.json" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.postman_collection.json" />
+      <change beforePath="$PROJECT_DIR$/Controllers/AccountController.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Controllers/AccountController.cs" />
+      <change beforePath="$PROJECT_DIR$/Controllers/BaseController.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Controllers/BaseController.cs" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MovieController.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Controllers/MovieController.cs" />
+      <change beforePath="$PROJECT_DIR$/Controllers/RatingController.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Controllers/RatingController.cs" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ReservationController.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Controllers/ReservationController.cs" />
+      <change beforePath="$PROJECT_DIR$/Controllers/RoomController.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Controllers/RoomController.cs" />
+      <change beforePath="$PROJECT_DIR$/Controllers/SeanceController.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Controllers/SeanceController.cs" />
+      <change beforePath="$PROJECT_DIR$/DTO/MovieDto.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/DTO/MovieDto.cs" />
+      <change beforePath="$PROJECT_DIR$/DTO/MovieWithUserRatingDto.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/DTO/MovieWithUserRatingDto.cs" />
+      <change beforePath="$PROJECT_DIR$/DTO/ReservationDto.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/DTO/ReservationDto.cs" />
+      <change beforePath="$PROJECT_DIR$/DTO/ReservedSeatDto.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/DTO/ReservedSeatDto.cs" />
+      <change beforePath="$PROJECT_DIR$/DTO/RoomDto.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/DTO/RoomDto.cs" />
+      <change beforePath="$PROJECT_DIR$/DTO/SeanceDto.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/DTO/SeanceDto.cs" />
+      <change beforePath="$PROJECT_DIR$/DTO/SeanceRoomData.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/DTO/SeanceRoomData.cs" />
+      <change beforePath="$PROJECT_DIR$/DTO/SeatDto.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/DTO/SeatDto.cs" />
+      <change beforePath="$PROJECT_DIR$/DTO/UserDto.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/DTO/UserDto.cs" />
+      <change beforePath="$PROJECT_DIR$/Data/CinemaDbContext.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Data/CinemaDbContext.cs" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Dockerfile" />
+      <change beforePath="$PROJECT_DIR$/Entities/Movie.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Entities/Movie.cs" />
+      <change beforePath="$PROJECT_DIR$/Entities/Rating.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Entities/Rating.cs" />
+      <change beforePath="$PROJECT_DIR$/Entities/Reservation.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Entities/Reservation.cs" />
+      <change beforePath="$PROJECT_DIR$/Entities/ReservedSeat.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Entities/ReservedSeat.cs" />
+      <change beforePath="$PROJECT_DIR$/Entities/Room.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Entities/Seance.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Entities/Seance.cs" />
+      <change beforePath="$PROJECT_DIR$/Entities/Seat.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Entities/Seat.cs" />
+      <change beforePath="$PROJECT_DIR$/Entities/TokenModel.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Entities/TokenModel.cs" />
+      <change beforePath="$PROJECT_DIR$/Entities/User.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Entities/User.cs" />
+      <change beforePath="$PROJECT_DIR$/Exceptions/CinemaException.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Exceptions/CinemaException.cs" />
+      <change beforePath="$PROJECT_DIR$/Exceptions/ErrorCodes.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Exceptions/ErrorCodes.cs" />
+      <change beforePath="$PROJECT_DIR$/Extensions/DateTimeExtensions.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Extensions/DateTimeExtensions.cs" />
+      <change beforePath="$PROJECT_DIR$/Mappers/AutoMapperConfig.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Mappers/AutoMapperConfig.cs" />
+      <change beforePath="$PROJECT_DIR$/Mappers/ReservationMapperHelpers.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Mappers/ReservationMapperHelpers.cs" />
+      <change beforePath="$PROJECT_DIR$/Middleware/ExceptionMiddleware.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Middleware/ExceptionMiddleware.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20171212180459_init.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20171212180459_init.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20171212180459_init.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20171212180459_init.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180311141541_added_reserved_seats.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180311141541_added_reserved_seats.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180311141541_added_reserved_seats.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180311141541_added_reserved_seats.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180421102214_big_update.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180421102214_big_update.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180421102214_big_update.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180421102214_big_update.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180421122417_reservation_changes.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180421122417_reservation_changes.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180421122417_reservation_changes.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180421122417_reservation_changes.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180507130318_ddd1.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180507130318_ddd1.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180507130318_ddd1.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180507130318_ddd1.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180508064203_ddd2.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180508064203_ddd2.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180508064203_ddd2.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180508064203_ddd2.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180508083749_user_changes.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180508083749_user_changes.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180508083749_user_changes.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180508083749_user_changes.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180514204123_changes.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180514204123_changes.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180514204123_changes.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180514204123_changes.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180517171348_emailConfirm.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180517171348_emailConfirm.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180517171348_emailConfirm.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180517171348_emailConfirm.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180523115907_background_path.Designer.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180523115907_background_path.Designer.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20180523115907_background_path.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/20180523115907_background_path.cs" />
+      <change beforePath="$PROJECT_DIR$/Migrations/CinemaDbContextModelSnapshot.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Migrations/CinemaDbContextModelSnapshot.cs" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Program.cs" />
+      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Properties/launchSettings.json" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/README.md" />
+      <change beforePath="$PROJECT_DIR$/Request/AddReservation.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Request/AddReservation.cs" />
+      <change beforePath="$PROJECT_DIR$/Request/AddRoom.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Request/AddRoom.cs" />
+      <change beforePath="$PROJECT_DIR$/Request/AddSeance.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Request/AddSeance.cs" />
+      <change beforePath="$PROJECT_DIR$/Request/ChangeUserPassword.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Request/ChangeUserPassword.cs" />
+      <change beforePath="$PROJECT_DIR$/Request/CreateUser.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Request/CreateUser.cs" />
+      <change beforePath="$PROJECT_DIR$/Request/LoginUser.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Request/LoginUser.cs" />
+      <change beforePath="$PROJECT_DIR$/Request/MovieRequest.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Request/MovieRequest.cs" />
+      <change beforePath="$PROJECT_DIR$/Request/UpdateUser.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Request/UpdateUser.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/EmailSender.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/EmailSender.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/EncrypterService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/EncrypterService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/Interfaces/IEmailSender.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/Interfaces/IEmailSender.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/Interfaces/IEncrypter.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/Interfaces/IEncrypter.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/Interfaces/IMovieService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/Interfaces/IMovieService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/Interfaces/IRatingService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/Interfaces/IRatingService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/Interfaces/IReservationService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/Interfaces/IReservationService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/Interfaces/IRoomService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/Interfaces/IRoomService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/Interfaces/ISeanceService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/Interfaces/ISeanceService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/Interfaces/ITokenProvider.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/Interfaces/ITokenProvider.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/Interfaces/IUserService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/Interfaces/IUserService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/MovieService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/MovieService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/RatingService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/RatingService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/ReservationService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/ReservationService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/RoomService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/RoomService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/SeanceService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/SeanceService.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/TokenProvider.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/TokenProvider.cs" />
+      <change beforePath="$PROJECT_DIR$/Services/UserService.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Infrastructure/Services/UserService.cs" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/Startup.cs" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/appsettings.Development.json" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/appsettings.json" />
+      <change beforePath="$PROJECT_DIR$/e2e/app.e2e-spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/e2e/app.e2e-spec.ts" />
+      <change beforePath="$PROJECT_DIR$/e2e/app.po.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/e2e/app.po.ts" />
+      <change beforePath="$PROJECT_DIR$/e2e/tsconfig.e2e.json" afterPath="$PROJECT_DIR$/../CinemaWeb/e2e/tsconfig.e2e.json" />
+      <change beforePath="$PROJECT_DIR$/karma.conf.js" afterPath="$PROJECT_DIR$/../CinemaWeb/karma.conf.js" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/../CinemaWeb/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/../CinemaWeb/package.json" />
+      <change beforePath="$PROJECT_DIR$/protractor.conf.js" afterPath="$PROJECT_DIR$/../CinemaWeb/protractor.conf.js" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/admin.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/admin.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/admin.component.scss" afterPath="$PROJECT_DIR$/../.vs/cinema/v15/Server/sqlite3/db.lock" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/admin.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/admin.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/admin.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/admin.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/header/admin-header.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/header/admin-header.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/header/admin-header.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/admin.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/header/admin-header.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/header/admin-header.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/home-panel/home-panel.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/home-panel/home-panel.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/home-panel/home-panel.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/home-panel/home-panel.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/home-panel/home-panel.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/home-panel/home-panel.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/home-panel/home-panel.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/home-panel/home-panel.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/model/model.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/model/model.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/edit-movie/edit-movie.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/edit-movie/edit-movie.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/edit-movie/edit-movie.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/edit-movie/edit-movie.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/edit-movie/edit-movie.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/edit-movie/edit-movie.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/edit-movie/edit-movie.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/edit-movie/edit-movie.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/movie-details/movie-details.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/movie-details/movie-details.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/movie-details/movie-details.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/header/admin-header.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/movie-details/movie-details.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/movie-details/movie-details.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/movie-details/movie-details.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/movie-details/movie-details.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/movies.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/movies.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/movies.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/movie-details/movie-details.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/movies.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/movies.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/movies/movies.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/movies.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/panel-login/panel-login.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/panel-login/panel-login.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/panel-login/panel-login.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/panel-login/panel-login.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/panel-login/panel-login.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/panel-login/panel-login.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/panel-login/panel-login.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/panel-login/panel-login.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/reservation-details/reservation-details.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/reservation-details/reservation-details.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/reservation-details/reservation-details.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/movies/movies.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/reservation-details/reservation-details.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/reservation-details/reservation-details.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/reservation-details/reservation-details.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/reservation-details/reservation-details.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/reservations/reservations.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/reservations/reservations.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/reservations/reservations.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/reservation-details/reservation-details.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/reservations/reservations.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/reservations/reservations.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/reservations/reservations.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/reservations/reservations.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/edit-seance/edit-seance.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/edit-seance/edit-seance.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/edit-seance/edit-seance.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/reservations/reservations.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/edit-seance/edit-seance.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/edit-seance/edit-seance.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/edit-seance/edit-seance.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/edit-seance/edit-seance.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/seance-details/seance-details.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/seance-details/seance-details.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/seance-details/seance-details.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/edit-seance/edit-seance.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/seance-details/seance-details.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/seance-details/seance-details.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/seance-details/seance-details.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/seance-details/seance-details.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/seances.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/seances.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/seances.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/seance-details/seance-details.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/seances.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/seances.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/seances/seances.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/seances.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/services/auth-guard-admin.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/services/auth-guard-admin.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/services/movie.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/services/movie.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/services/room.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/services/room.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/services/seances.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/services/seances.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/app-routing.module.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/app.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/admin/seances/seances.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/app.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/app.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/app.module.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth.guard.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/auth.guard.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth.guard.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/auth.guard.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/base.service.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/base.service.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/base.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/base.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step-0/buy-step-0.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step-0/buy-step-0.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step-0/buy-step-0.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step-0/buy-step-0.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step-0/buy-step-0.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step-0/buy-step-0.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step-0/buy-step-0.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step-0/buy-step-0.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step1/buy-step1.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step1/buy-step1.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step1/buy-step1.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step1/buy-step1.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step1/buy-step1.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step1/buy-step1.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step1/buy-step1.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step1/buy-step1.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step2/buy-step2.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step2/buy-step2.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step2/buy-step2.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step2/buy-step2.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step2/buy-step2.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step2/buy-step2.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step2/buy-step2.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step2/buy-step2.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step3/buy-step3.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step3/buy-step3.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step3/buy-step3.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step3/buy-step3.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step3/buy-step3.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step3/buy-step3.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step3/buy-step3.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step3/buy-step3.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step3/dialog/dialog.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step3/dialog/dialog.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step3/dialog/dialog.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step3/dialog/dialog.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step3/dialog/dialog.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step3/dialog/dialog.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-step3/dialog/dialog.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-step3/dialog/dialog.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-success/buy-success.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-success/buy-success.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-success/buy-success.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-success/buy-success.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-success/buy-success.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-success/buy-success.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy-success/buy-success.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy-success/buy-success.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy/buy-resolver.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy/buy-resolver.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy/buy.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy/buy.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy/buy.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy/buy.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy/buy.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/app.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/buy/buy.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy/buy.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/client/client.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/client/client.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/client/client.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/buy/buy.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/client/client.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/client/client.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/client/client.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/client/client.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/config.service.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/config.service.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/config.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/config.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/confirm-email/confirm-email.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/confirm-email/confirm-email.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/confirm-email/confirm-email.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/confirm-email/confirm-email.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/confirm-email/confirm-email.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/confirm-email/confirm-email.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/confirm-email/confirm-email.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/confirm-email/confirm-email.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/contact.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/contact.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/contact.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/credentials.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/credentials.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/dashboard/dashboard.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/dashboard/dashboard.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/dashboard/dashboard.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/dashboard/dashboard.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/description-dialog/description-dialog.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/description-dialog/description-dialog.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/description-dialog/description-dialog.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/client/client.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/description-dialog/description-dialog.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/description-dialog/description-dialog.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/description-dialog/description-dialog.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/description-dialog/description-dialog.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/forgot-password/forgot-password.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/forgot-password/forgot-password.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/forgot-password/forgot-password.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/forgot-password/forgot-password.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/forgot-password/forgot-password.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/forgot-password/forgot-password.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/forgot-password/forgot-password.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/forgot-password/forgot-password.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/header/header.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/header/header.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/header/header.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/header/header.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/movie-ratings/movie-ratings.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/movie-ratings/movie-ratings.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/movie-ratings/movie-ratings.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/movie-ratings/movie-ratings.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/movie-ratings/movie-ratings.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/movie-ratings/movie-ratings.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/movie-ratings/movie-ratings.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/movie-ratings/movie-ratings.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/movie-ratings/rating-dialog/rating-dialog.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/movie-ratings/rating-dialog/rating-dialog.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/movie-ratings/rating-dialog/rating-dialog.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/movie-ratings/rating-dialog/rating-dialog.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/movie-ratings/rating-dialog/rating-dialog.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/movie-ratings/rating-dialog/rating-dialog.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/movie-ratings/rating-dialog/rating-dialog.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/movie-ratings/rating-dialog/rating-dialog.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/nowplaying.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/nowplaying.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/nowplaying.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/nowplaying.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/nowplaying.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/nowplaying.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/order-container/order-container.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/order-container/order-container.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/order-container/order-container.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/description-dialog/description-dialog.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/order-container/order-container.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/order-container/order-container.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/price.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/price.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/price.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/price.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/price.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/price.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/profile/profile.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/profile/profile.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/profile/profile.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/profile/profile.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/profile/profile.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/profile/profile.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/profile/profile.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/profile/profile.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/regulations/regulations.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/regulations/regulations.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/regulations/regulations.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/order-container/order-container.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/regulations/regulations.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/regulations/regulations.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/regulations/regulations.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/regulations/regulations.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/rxjs-operators.js" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/rxjs-operators.js" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/dummy-service.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/services/dummy-service.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/dummy-service/dummy-service.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/services/dummy-service/dummy-service.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/dummy-service/dummy-service.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/regulations/regulations.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/dummy-service/dummy-service.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/services/dummy-service/dummy-service.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/dummy-service/dummy-service.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/services/dummy-service/dummy-service.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/actual-component-resolver.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/actual-component-resolver.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/auth-guard.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/auth-guard.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/authentication.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/authentication.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/base-http.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/base-http.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/block-after-login.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/block-after-login.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/booking-seats.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/booking-seats.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/buy-process.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/buy-process.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/header-opacity.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/header-opacity.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/pipes/filter-movies.pipe.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/pipes/filter-movies.pipe.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/pipes/filter-rating-pipe.pipe.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/pipes/filter-rating-pipe.pipe.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/ratings.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/ratings.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/reservation.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/reservation.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/seance.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/seance.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/step1-guard.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/step1-guard.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/user-api.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/user-api.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/user-registration.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/user-registration.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/utils/codeStatus.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/shared/utils/codeStatus.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/user-login/user-login.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user-login/user-login.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/user-login/user-login.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user-login/user-login.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/user-login/user-login.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user-login/user-login.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/user-login/user-login.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user-login/user-login.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/user-registration/user-registration.component.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user-registration/user-registration.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/user-registration/user-registration.component.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user-registration/user-registration.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/app/user-registration/user-registration.component.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user-registration/user-registration.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/user-registration/user-registration.component.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user-registration/user-registration.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/user.service.spec.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user.service.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/user.service.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/user.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/user.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/variables.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/variables.scss" />
+      <change beforePath="$PROJECT_DIR$/src/assets/.gitkeep" afterPath="$PROJECT_DIR$/../CinemaWeb/src/app/services/dummy-service/dummy-service.component.scss" />
+      <change beforePath="$PROJECT_DIR$/src/assets/admin/no_img.png" afterPath="$PROJECT_DIR$/../CinemaWeb/src/assets/admin/no_img.png" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap-grid.css" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap-grid.css" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap-grid.css.map" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap-grid.css.map" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap-grid.min.css" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap-grid.min.css" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap-grid.min.css.map" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap-grid.min.css.map" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap-reboot.css" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap-reboot.css" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap-reboot.css.map" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap-reboot.css.map" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap-reboot.min.css" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap-reboot.min.css" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap-reboot.min.css.map" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap-reboot.min.css.map" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.css" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap.css" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap.css.map" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap.min.css" />
+      <change beforePath="$PROJECT_DIR$/src/css/bootstrap.min.css.map" afterPath="$PROJECT_DIR$/../CinemaWeb/src/css/bootstrap.min.css.map" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/environments/environment.prod.ts" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/environments/environment.ts" />
+      <change beforePath="$PROJECT_DIR$/src/favicon.ico" afterPath="$PROJECT_DIR$/../CinemaWeb/src/favicon.ico" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/../CinemaWeb/src/index.html" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/main.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/category.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/category.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/changePassword.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/changePassword.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/createUser.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/createUser.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/credentialis.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/credentialis.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/loggedUser.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/loggedUser.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/movie.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/movie.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/myBooking.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/myBooking.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/rating-movie.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/rating-movie.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/ratingsResponse.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/ratingsResponse.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/reservation.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/reservation.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/reservedSeat.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/reservedSeat.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/room.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/room.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/seance.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/seance.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/seanceRoomData.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/seanceRoomData.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/seat.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/seat.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/server-response-error.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/server-response-error.ts" />
+      <change beforePath="$PROJECT_DIR$/src/model/user.model.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/model/user.model.ts" />
+      <change beforePath="$PROJECT_DIR$/src/polyfills.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/polyfills.ts" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" afterPath="$PROJECT_DIR$/../CinemaWeb/src/styles.scss" />
+      <change beforePath="$PROJECT_DIR$/src/test.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/test.ts" />
+      <change beforePath="$PROJECT_DIR$/src/tsconfig.app.json" afterPath="$PROJECT_DIR$/../CinemaWeb/src/tsconfig.app.json" />
+      <change beforePath="$PROJECT_DIR$/src/tsconfig.spec.json" afterPath="$PROJECT_DIR$/../CinemaWeb/src/tsconfig.spec.json" />
+      <change beforePath="$PROJECT_DIR$/src/typings.d.ts" afterPath="$PROJECT_DIR$/../CinemaWeb/src/typings.d.ts" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" afterPath="$PROJECT_DIR$/../CinemaWeb/tsconfig.json" />
+      <change beforePath="$PROJECT_DIR$/tslint.json" afterPath="$PROJECT_DIR$/../CinemaWeb/tslint.json" />
+      <change beforePath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/.gitignore" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Api/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/CinemaDbContextFactory.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Tests/CinemaDbContextFactory.cs" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/CinemaTests.csproj" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Tests/Cinema.Tests.csproj" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/Services/UserService/LoginAsyncTests.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Tests/Services/UserService/LoginAsyncTests.cs" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/Services/UserService/RegisterAsyncTests.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Tests/Services/UserService/RegisterAsyncTests.cs" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/Services/UserService/UserServiceTest.cs" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Tests/Services/UserService/UserServiceTest.cs" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/appsettings.json" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Tests/appsettings.json" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/tslint.json" afterPath="$PROJECT_DIR$/../CinemaApi/Cinema.Tests/tslint.json" />
+      <change beforePath="$PROJECT_DIR$/../cinema.sln" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/dist/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>choo</find>
+      <find>da</find>
+      <find>border</find>
+      <find>custom-drop</find>
+      <find>onCl</find>
+      <find>mat-error</find>
+      <find>mess</find>
+      <find>film-</find>
+      <find>mat-ho</find>
+      <find>next-step</find>
+      <find>succe</find>
+      <find>getAllCa</find>
+      <find>mat-</find>
+      <find>next</find>
+      <find>content</find>
+      <find>watchedMovies</find>
+      <find>null</find>
+      <find>poster</find>
+      <find>rating</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/movie-ratings/rating-dialog/rating-dialog.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/shared/seance.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/movie-ratings/rating-dialog/rating-dialog.component.html" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/movie-ratings/movie-ratings.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/confirm-email/confirm-email.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/buy-step-0/buy-step-0.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/confirm-email/confirm-email.component.html" />
+        <option value="$PROJECT_DIR$/src/app/confirm-email/confirm-email.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/buy-process.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/buy-step1/buy-step1.component.html" />
+        <option value="$PROJECT_DIR$/src/app/buy-step3/buy-step3.component.html" />
+        <option value="$PROJECT_DIR$/src/app/buy-step3/buy-step3.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/booking-seats.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/buy-step1/buy-step1.component.ts" />
+        <option value="$PROJECT_DIR$/src/model/changePassword.model.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/reservation.service.ts" />
+        <option value="$PROJECT_DIR$/src/styles.scss" />
+        <option value="$PROJECT_DIR$/src/app/shared/user-registration.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/user-login/user-login.component.html" />
+        <option value="$PROJECT_DIR$/src/app/forgot-password/forgot-password.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/forgot-password/forgot-password.component.html" />
+        <option value="$PROJECT_DIR$/src/app/forgot-password/forgot-password.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/user-api.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/profile/profile.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/shared/utils/codeStatus.ts" />
+        <option value="$PROJECT_DIR$/src/model/ratingsResponse.ts" />
+        <option value="$PROJECT_DIR$/src/model/ratingsResponse.model.ts" />
+        <option value="$PROJECT_DIR$/src/app/nowplaying.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/buy/buy.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/buy/buy.component.html" />
+        <option value="$PROJECT_DIR$/src/app/buy/buy.component.scss" />
+        <option value="$PROJECT_DIR$/src/model/rating-movie.model.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/pipes/filter-rating-pipe.pipe.ts" />
+        <option value="$PROJECT_DIR$/src/app/movie-ratings/movie-ratings.component.html" />
+        <option value="$PROJECT_DIR$/src/app/header/header.component.html" />
+        <option value="$PROJECT_DIR$/src/app/user-registration/user-registration.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/profile/profile.component.html" />
+        <option value="$PROJECT_DIR$/src/app/user-registration/user-registration.component.html" />
+        <option value="$PROJECT_DIR$/src/model/user.model.ts" />
+        <option value="$PROJECT_DIR$/src/app/profile/profile.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/ratings.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/dashboard/dashboard.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/dashboard/dashboard.component.html" />
+        <option value="$PROJECT_DIR$/src/app/movie-ratings/movie-ratings.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/authentication.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/base-http.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/nowplaying.component.html" />
+        <option value="$PROJECT_DIR$/src/app/nowplaying.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/description-dialog/description-dialog.component.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1928" />
+    <option name="y" value="-112" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Cinema" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cinema" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="C:\Users\Pawel\Desktop\Cinema-new\Cinema\Cinema\node_modules\tslint" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CinemaWeb" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Pawel\Desktop\Cinema-new\Cinema\Cinema\src\app\shared\utils" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c1fb48d-b35a-44b5-b894-6f88e5aafc27" name="Default" comment="" />
+      <created>1525894082794</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1525894082794</updated>
+      <workItem from="1525894084053" duration="4127000" />
+      <workItem from="1525939560285" duration="185000" />
+      <workItem from="1525940087443" duration="7960000" />
+      <workItem from="1525956551136" duration="9514000" />
+      <workItem from="1526033190877" duration="7572000" />
+      <workItem from="1526046482747" duration="808000" />
+      <workItem from="1526115980550" duration="3416000" />
+      <workItem from="1526127086619" duration="2310000" />
+      <workItem from="1526146124942" duration="8105000" />
+      <workItem from="1526193302733" duration="965000" />
+      <workItem from="1526199400346" duration="15201000" />
+      <workItem from="1526218248111" duration="7257000" />
+      <workItem from="1526288553523" duration="5039000" />
+      <workItem from="1526303262789" duration="27882000" />
+      <workItem from="1526364526119" duration="24865000" />
+      <workItem from="1526398084007" duration="884000" />
+      <workItem from="1526467158703" duration="5891000" />
+      <workItem from="1526475147161" duration="23225000" />
+      <workItem from="1526507209316" duration="128000" />
+      <workItem from="1526550540289" duration="3246000" />
+      <workItem from="1526555996488" duration="20151000" />
+      <workItem from="1526581770289" duration="1064000" />
+      <workItem from="1526634803878" duration="15977000" />
+      <workItem from="1526655024882" duration="1189000" />
+      <workItem from="1526658319045" duration="5641000" />
+      <workItem from="1526760405115" duration="6140000" />
+      <workItem from="1526913040892" duration="21772000" />
+      <workItem from="1526975660244" duration="8885000" />
+      <workItem from="1526996754325" duration="18000" />
+      <workItem from="1527063165347" duration="11121000" />
+      <workItem from="1527085247457" duration="2430000" />
+      <workItem from="1527187795831" duration="1235000" />
+      <workItem from="1527190366920" duration="669000" />
+      <workItem from="1527202066792" duration="10996000" />
+      <workItem from="1527254574441" duration="1678000" />
+      <workItem from="1527269155409" duration="1117000" />
+      <workItem from="1527411142316" duration="2685000" />
+      <workItem from="1527523831281" duration="33000" />
+      <workItem from="1527524399689" duration="123000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="271504000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1928" y="-112" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20434782" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1326087" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21162046" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="-1828" y="-12" width="1736" height="856" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/app/shared/utils/codeStatus.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/profile/profile.component.scss" />
+    <entry file="file://$PROJECT_DIR$/src/app/shared/user-api.service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/model/ratingsResponse.ts" />
+    <entry file="file://$PROJECT_DIR$/src/model/ratingsResponse.model.ts" />
+    <entry file="file://$PROJECT_DIR$/DTO/MovieWithUserRatingDto.cs" />
+    <entry file="file://$PROJECT_DIR$/Controllers/RatingController.cs" />
+    <entry file="file://$PROJECT_DIR$/src/app/buy-step3/buy-step3.component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/buy-step3/buy-step3.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/model/movie.model.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/buy/buy.component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/buy/buy.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/buy/buy.component.scss" />
+    <entry file="file://$PROJECT_DIR$/src/app/movie-ratings/rating-dialog/rating-dialog.component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/model/rating-movie.model.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/shared/pipes/filter-rating-pipe.pipe.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/movie-ratings/movie-ratings.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/shared/seance.service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/profile/profile.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/shared/user-registration.service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/user-registration/user-registration.component.scss" />
+    <entry file="file://$PROJECT_DIR$/src/app/user-registration/user-registration.component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/user-registration/user-registration.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/model/user.model.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/header/header.component.scss" />
+    <entry file="file://$PROJECT_DIR$/src/app/header/header.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/header/header.component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/shared/header-opacity.service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/index.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/dashboard/dashboard.component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/base.service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/movie-ratings/movie-ratings.component.ts" />
+    <entry file="file://$PROJECT_DIR$/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/appsettings.Development.json" />
+    <entry file="file://$PROJECT_DIR$/src/app/user-login/user-login.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/user-login/user-login.component.ts" />
+    <entry file="file://$PROJECT_DIR$/appsettings.json" />
+    <entry file="file://$PROJECT_DIR$/.editorconfig" />
+    <entry file="file://$PROJECT_DIR$/.angular-cli.json" />
+    <entry file="file://$PROJECT_DIR$/src/app/shared/authentication.service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/app-routing.module.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/profile/profile.component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/dashboard/dashboard.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/nowplaying.component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/nowplaying.component.scss" />
+    <entry file="file://$PROJECT_DIR$/src/app/nowplaying.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/shared/ratings.service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/shared/base-http.service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/description-dialog/description-dialog.component.html" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
