@@ -26,15 +26,7 @@ namespace Cinema.Services
       var room = await _dbContext.Rooms.FirstOrDefaultAsync(x => x.Name == name);
       if (room != null)
         throw new Exception("Room with this name already exist");
-      room = new Room(name);
-      for (int i = 0; i < numberOfRows; ++i)
-      {
-        for (int j = 0; j < numberOfSeatsInRow; ++j)
-        {
-          var seat = new Seat(i, j);
-          room.AddSeat(seat);
-        }
-      }
+      room = new Room(name,numberOfRows,numberOfSeatsInRow);
       await _dbContext.Rooms.AddAsync(room);
       await _dbContext.SaveChangesAsync();
     }

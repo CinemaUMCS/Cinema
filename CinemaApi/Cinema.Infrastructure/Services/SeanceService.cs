@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
-  class SeanceService : ISeanceService
+  public class SeanceService : ISeanceService
   {
     private readonly IMapper _mapper;
     private readonly IRoomService _roomService;

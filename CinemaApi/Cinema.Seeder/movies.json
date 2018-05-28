@@ -1,0 +1,69 @@
+﻿[
+    {
+      "Title": "Iron Man",
+      "TrailerPath": "https://www.youtube.com/watch?v=jNo3zmhXE9Y",
+      "PosterPath": "http://www.freepngimg.com/download/iron_man/23313-6-iron-man-file.png",
+      "BackgroundPath": "https://images5.alphacoders.com/403/thumb-1920-403880.jpg",
+      "Category": 2,
+      "Description": "Przygotuj się na nieprzerwaną akcję z Robertem Downey Jr. w Iron Manie, fenomenalnej filmowej przygodzie, na którą czekałeś od dawna! Kiedy obracający się w najwyższych kręgach geniusz-industrialista Tony Stark zostaje pojmany na terytorium wroga, w ucieczce pomaga mu skonstruowana przy pomocy najnowszej technologii zbroja. Teraz, jako bohater nie zrodzony, lecz zbudowany, Tony udaje się w misję ocalenia świata! WZ udziałem takich gwiazd jak Gwyneth Paltrow, Terrence Howard i Jeff Bridges, stanowi fantastyczną, „rozrywkę najwyższych lotów",
+      "ProductionDate": "2008-12-25T00:00:00",
+      "Duration": "01:20:00",
+      "MinimalAge": 16
+    },
+    {
+      "Title": "Sami Swoi",
+      "TrailerPath": "https://www.youtube.com/watch?v=yLCxbDQXc0k",
+      "PosterPath": "http://cdn14.se.smcloud.net/t/photos/t/641526/sami-swoi-kultowe-teksty-z-filmu_28313828.jpg",
+      "BackgroundPath": "https://s.tvp.pl/images2/f/d/5/uid_fd5c9d5d4761d487857c510dc29944f91505431718115_width_907_play_0_pos_0_gs_0_height_515.jpg",
+      "Category": 1,
+      "Description": "Jest to opowieść o zwaśnionych rodach Pawlaków i Kargulów. Przed wojną Kargul zaorał Pawlaków pole na trzy palce, co spowodowało, że spłonęły dwie stodoły, polała się krew i Jaśko Pawlak, uciekając przed karą za pocięcie kosą Kargula, musiał wyemigrować do Ameryki. Jednak spór dwóch rodzin dalej trwa.",
+      "ProductionDate": "1967-01-01T00:00:00",
+      "Duration": "02:00:00",
+      "MinimalAge": 7
+    },
+    {
+      "Title": "Avengers",
+      "TrailerPath": "https://www.youtube.com/embed/QwievZ1Tx-8",
+      "PosterPath": "https://www.screengeek.net/wp-content/uploads/2017/04/avengers-4.png",
+      "BackgroundPath": "http://leonardmaltin.com/wp-content/uploads/2017/11/img01.jpg",
+      "Category": 2,
+      "Description": "Potężny Thanos zbiera Kamienie Nieskończoności w celu narzucenia swojej woli wszystkim istnieniom we wszechświecie. Tylko drużyna superbohaterów znanych jako Avengers może go powstrzymać.",
+      "ProductionDate": "2012-12-25T00:00:00",
+      "Duration": "01:40:00",
+      "MinimalAge": 12
+    },
+    {
+      "Title": "Piła VI",
+      "TrailerPath": "https://www.youtube.com/watch?v=rDMo7DvcIXA",
+      "PosterPath": "https://static.punkt44.pl/grafika/produkty/midi/42114_0004.jpg",
+      "BackgroundPath": "http://gfx.filmweb.pl/ph/81/98/468198/156933.1.jpg?l=1254428223000",
+      "Category": 3,
+      "Description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "ProductionDate": "2012-12-25T00:00:00",
+      "Duration": "01:20:00",
+      "MinimalAge": 12
+    },
+    {
+      "Title": "Matrix",
+      "TrailerPath": "https://www.youtube.com/watch?v=_mFdfi7k82w",
+      "PosterPath": "https://www.sideshowtoy.com/assets/products/903302-neo/lg/the-matrix-neo-sixth-scale-figure-hot-toys-903302-04.jpg",
+      "BackgroundPath": "http://filmyfantastyczne.pl/wp-content/uploads/2017/02/Matrix-spotkanie-po-latach.jpg",
+      "Category": 4,
+      "Description": "Haker komputerowy Neo dowiaduje się od tajemniczych rebeliantów, że świat, w którym żyje, jest tylko obrazem przesyłanym do jego mózgu przez roboty.",
+      "ProductionDate": "1999-12-25T00:00:00",
+      "Duration": "03:20:00",
+      "MinimalAge": 12
+    },
+    {
+      "Title": "Shrek",
+      "TrailerPath": "https://www.youtube.com/watch?v=_mFdfi7k82w",
+      "PosterPath": "https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZL5KNS/image?locale=en-us&mode=scale&purposes=BoxArt&w=180&h=270&q=60",
+      "BackgroundPath": "http://www.cartoonswallpapers.net/wallpapers/shrek-third-full-hd-wallpaper-phone.jpg",
+      "Category": 4,
+      "Description": "By odzyskać swój dom, brzydki ogr z gadatliwym osłem wyruszają uwolnić piękną księżniczkę.",
+      "ProductionDate": "2001-12-25T00:00:00",
+      "Duration": "01:20:00",
+      "MinimalAge": 0
+    }
+]
+
