@@ -1,7 +1,317 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06f192c8-5da3-46f1-a76e-024de0ea5653" name="Default" comment="" />
+    <list default="true" id="06f192c8-5da3-46f1-a76e-024de0ea5653" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/Cinema.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/codeStyles/Project.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/codeStyles/codeStyleConfig.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/dictionaries/Pawel.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/encodings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/modules.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/typescript-compiler.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/vcs.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/.idea/workspace.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/bin/Debug/netcoreapp2.0/Cinema.deps.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/bin/Debug/netcoreapp2.0/Cinema.dll" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/bin/Debug/netcoreapp2.0/Cinema.pdb" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/bin/Debug/netcoreapp2.0/Cinema.runtimeconfig.dev.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/bin/Debug/netcoreapp2.0/Cinema.runtimeconfig.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/e2e/app.e2e-spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/e2e/app.e2e-spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/e2e/app.po.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/e2e/app.po.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/admin.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/admin.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/admin.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/admin.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/header/admin-header.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/header/admin-header.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/home-panel/home-panel.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/home-panel/home-panel.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/home-panel/home-panel.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/home-panel/home-panel.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/model/model.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/model/model.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/edit-movie/edit-movie.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/edit-movie/edit-movie.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/edit-movie/edit-movie.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/edit-movie/edit-movie.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/movie-details/movie-details.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/movie-details/movie-details.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/movie-details/movie-details.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/movie-details/movie-details.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/movies.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/movies.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/movies.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/movies/movies.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/panel-login/panel-login.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/panel-login/panel-login.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/panel-login/panel-login.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/panel-login/panel-login.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/reservation-details/reservation-details.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/reservation-details/reservation-details.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/reservation-details/reservation-details.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/reservation-details/reservation-details.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/reservations/reservations.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/reservations/reservations.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/reservations/reservations.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/reservations/reservations.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/edit-seance/edit-seance.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/edit-seance/edit-seance.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/edit-seance/edit-seance.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/edit-seance/edit-seance.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/seance-details/seance-details.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/seance-details/seance-details.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/seance-details/seance-details.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/seance-details/seance-details.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/seances.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/seances.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/seances.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/seances/seances.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/services/auth-guard-admin.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/services/auth-guard-admin.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/services/movie.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/services/movie.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/services/room.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/services/room.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/services/seances.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/admin/services/seances.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/app-routing.module.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/app-routing.module.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/app.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/app.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/app.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/app.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/app.module.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/app.module.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/auth.guard.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/auth.guard.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/auth.guard.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/auth.guard.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/base.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/base.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/base.service.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/base.service.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step-0/buy-step-0.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step-0/buy-step-0.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step-0/buy-step-0.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step-0/buy-step-0.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step1/buy-step1.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step1/buy-step1.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step1/buy-step1.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step1/buy-step1.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step2/buy-step2.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step2/buy-step2.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step2/buy-step2.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step2/buy-step2.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step3/buy-step3.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step3/buy-step3.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step3/buy-step3.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step3/buy-step3.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step3/dialog/dialog.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step3/dialog/dialog.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step3/dialog/dialog.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-step3/dialog/dialog.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-success/buy-success.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-success/buy-success.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-success/buy-success.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy-success/buy-success.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy/buy-resolver.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy/buy-resolver.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy/buy.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy/buy.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy/buy.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/buy/buy.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/client/client.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/client/client.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/client/client.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/client/client.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/config.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/config.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/config.service.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/config.service.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/confirm-email/confirm-email.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/confirm-email/confirm-email.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/confirm-email/confirm-email.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/confirm-email/confirm-email.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/contact.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/contact.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/credentials.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/credentials.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/dashboard/dashboard.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/dashboard/dashboard.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/dashboard/dashboard.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/dashboard/dashboard.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/description-dialog/description-dialog.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/description-dialog/description-dialog.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/description-dialog/description-dialog.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/description-dialog/description-dialog.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/forgot-password/forgot-password.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/forgot-password/forgot-password.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/forgot-password/forgot-password.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/forgot-password/forgot-password.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/header/header.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/header/header.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/header/header.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/header/header.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/movie-ratings/movie-ratings.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/movie-ratings/movie-ratings.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/movie-ratings/movie-ratings.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/movie-ratings/movie-ratings.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/movie-ratings/rating-dialog/rating-dialog.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/movie-ratings/rating-dialog/rating-dialog.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/movie-ratings/rating-dialog/rating-dialog.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/movie-ratings/rating-dialog/rating-dialog.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/nowplaying.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/nowplaying.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/order-container/order-container.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/order-container/order-container.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/price.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/price.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/profile/profile.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/profile/profile.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/profile/profile.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/profile/profile.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/regulations/regulations.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/regulations/regulations.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/regulations/regulations.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/regulations/regulations.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/services/dummy-service.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/services/dummy-service.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/services/dummy-service/dummy-service.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/services/dummy-service/dummy-service.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/services/dummy-service/dummy-service.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/services/dummy-service/dummy-service.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/actual-component-resolver.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/actual-component-resolver.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/auth-guard.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/auth-guard.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/authentication.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/authentication.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/base-http.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/base-http.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/block-after-login.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/block-after-login.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/booking-seats.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/booking-seats.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/buy-process.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/buy-process.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/header-opacity.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/header-opacity.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/pipes/filter-movies.pipe.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/pipes/filter-movies.pipe.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/pipes/filter-rating-pipe.pipe.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/pipes/filter-rating-pipe.pipe.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/ratings.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/ratings.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/reservation.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/reservation.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/seance.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/seance.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/step1-guard.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/step1-guard.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/user-api.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/user-api.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/user-registration.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/user-registration.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/utils/codeStatus.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/shared/utils/codeStatus.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user-login/user-login.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user-login/user-login.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user-login/user-login.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user-login/user-login.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user-registration/user-registration.component.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user-registration/user-registration.component.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user-registration/user-registration.component.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user-registration/user-registration.component.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user.service.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user.service.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user.service.spec.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/app/user.service.spec.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/environments/environment.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/environments/environment.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/environments/environment.prod.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/environments/environment.prod.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/main.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/category.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/category.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/changePassword.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/changePassword.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/createUser.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/createUser.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/credentialis.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/credentialis.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/loggedUser.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/loggedUser.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/movie.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/movie.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/myBooking.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/myBooking.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/rating-movie.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/rating-movie.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/ratingsResponse.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/ratingsResponse.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/reservation.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/reservation.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/reservedSeat.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/reservedSeat.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/room.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/room.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/seance.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/seance.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/seanceRoomData.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/seanceRoomData.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/seat.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/seat.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/server-response-error.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/server-response-error.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/user.model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/model/user.model.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/polyfills.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/polyfills.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/test.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/dist/out-tsc/src/test.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Cinema.csproj.nuget.cache" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Cinema.csproj.nuget.g.props" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Cinema.csproj.nuget.g.targets" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Debug/netcoreapp2.0/Cinema.AssemblyInfo.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Debug/netcoreapp2.0/Cinema.AssemblyInfoInputs.cache" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Debug/netcoreapp2.0/Cinema.csproj.CoreCompileInputs.cache" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Debug/netcoreapp2.0/Cinema.csproj.FileListAbsolute.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Debug/netcoreapp2.0/Cinema.csprojResolveAssemblyReference.cache" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Debug/netcoreapp2.0/Cinema.dll" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Debug/netcoreapp2.0/Cinema.pdb" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/Debug/netcoreapp2.0/Tsc.out" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Cinema/obj/project.assets.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/Cinema.dll" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/Cinema.pdb" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/CinemaTests.deps.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/CinemaTests.dll" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/CinemaTests.pdb" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/CinemaTests.runtimeconfig.dev.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/CinemaTests.runtimeconfig.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/xunit.runner.reporters.netcoreapp10.dll" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/xunit.runner.utility.netcoreapp10.dll" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/bin/Debug/netcoreapp2.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/CinemaTests.csproj.nuget.cache" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/CinemaTests.csproj.nuget.g.props" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/CinemaTests.csproj.nuget.g.targets" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/Debug/netcoreapp2.0/CinemaTests.AssemblyInfo.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/Debug/netcoreapp2.0/CinemaTests.AssemblyInfoInputs.cache" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/Debug/netcoreapp2.0/CinemaTests.Program.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/Debug/netcoreapp2.0/CinemaTests.csproj.CopyComplete" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/Debug/netcoreapp2.0/CinemaTests.csproj.CoreCompileInputs.cache" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/Debug/netcoreapp2.0/CinemaTests.csproj.FileListAbsolute.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/Debug/netcoreapp2.0/CinemaTests.csprojResolveAssemblyReference.cache" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/Debug/netcoreapp2.0/CinemaTests.dll" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/Debug/netcoreapp2.0/CinemaTests.pdb" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../CinemaTests/obj/project.assets.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,9 +370,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -79,6 +388,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -201,12 +511,13 @@
       <workItem from="1527416079361" duration="1633000" />
       <workItem from="1527481885179" duration="52000" />
       <workItem from="1527523867363" duration="530000" />
-      <workItem from="1527524524443" duration="313000" />
+      <workItem from="1527524524443" duration="1625000" />
+      <workItem from="1527526622583" duration="103000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2528000" />
+    <option name="totallyTimeSpent" value="3943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-112" width="1936" height="1056" extended-state="6" />
@@ -222,7 +533,7 @@
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17110874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17270789" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
